@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { withTranslation } from 'react-i18next';
 
+import './LanguagePicker.scss';
+
 function LanguagePicker({ t, i18n }) {
     const [ language, setLanguage ] = useState(i18n.language);
 
@@ -9,9 +11,8 @@ function LanguagePicker({ t, i18n }) {
         setLanguage(language);
     }
 
-
     return (
-        <section>
+        <section className="ui--LanguagePicker">
             { language }
 
             <button onClick={ () => changeLanguage("en") }>EN</button>

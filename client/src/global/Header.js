@@ -1,15 +1,17 @@
 import React from 'react';
 import GlobalSearch from './GlobalSearch';
-import LanguagePicker from './LanguagePicker';
 import MainMenu from './MainMenu';
+import Logo from './Logo';
+
+import './Header.scss';
 
 function Header() {
    
     return (
-        <section>
-            <GlobalSearch></GlobalSearch>
-            <LanguagePicker></LanguagePicker>
+        <section className="ui--Header">
+            <Logo></Logo>
             <MainMenu></MainMenu>
+            <GlobalSearch></GlobalSearch>
         </section>
     );
 }
