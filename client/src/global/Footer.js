@@ -1,6 +1,8 @@
 import React from 'react';
 import LanguagePicker from './LanguagePicker';
 
+import './Footer.scss';
+
 function Footer() {
    
     return (

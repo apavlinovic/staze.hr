@@ -1,0 +1,25 @@
+$primary-background-color: rgb(250, 250, 250);
+$secondary-background-color: rgb(245, 245, 245);
+$font-color: #242424;
+$link-color: rgb(20, 161, 243);
+
+$primary-background-color-dark: rgb(51, 51, 51);
+$secondary-background-color-dark: rgb(20, 20, 20);
+$font-color-dark: #e4e4e4;
+$link-color-dark: rgb(102, 187, 236);
+
+:root {
+    --font-color: #{$font-color};
+    --link-color: #{$link-color};
+    --primary-background-color: #{$primary-background-color};
+    --secondary-background-color: #{$secondary-background-color};
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --font-color: #{$font-color-dark};
+        --link-color: #{$link-color-dark};
+        --primary-background-color: #{$primary-background-color-dark};
+        --secondary-background-color: #{$secondary-background-color-dark};
+    }
+  }
