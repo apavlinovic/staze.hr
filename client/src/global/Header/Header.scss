@@ -1,0 +1,7 @@
+@import '../../theme.scss';
+
+.ui--Header {
+    display: flex;
+    align-content: center;
+    padding: 0.5 * $base-space 2 * $base-space;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import LanguagePicker from './LanguagePicker';
+import LanguagePicker from '../LanguagePicker/LanguagePicker';
 
 import './Footer.scss';
 

@@ -1,0 +1,33 @@
+@import '../../theme.scss';
+
+.ui--MainMenu {
+
+    nav {
+        display: flex;
+
+        a {
+            text-decoration: none;
+            color: var(--link-color);
+            font-weight: 600;
+            padding: $base-space;
+        }
+
+        a + a {
+            margin-left: 2*$base-space;
+        }
+    }
+
+    @media only screen and (min-device-width: $mobile-breakpoint) {
+        & {
+            align-self: center;
+            display: flex;
+            flex: 1;
+            order: 1;
+        }
+
+        nav {
+            flex: 1;
+            justify-content: flex-end;
+        }
+    }
+}
