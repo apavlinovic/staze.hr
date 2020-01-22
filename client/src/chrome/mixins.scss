@@ -1,0 +1,27 @@
+@mixin input-style {
+    padding: 0.5 * $base-space $base-space;
+    background: var(--input-background);
+    border: var(--input-border);
+    border-radius: 12px;
+
+    &:focus {
+        border: var(--input-border-focus);
+        background: var(--input-background-focus);
+        outline-offset: 5px;
+    }
+}
+
+@mixin button-style {
+    color: var(--button-color);
+    background-color: var(--button-background);
+    padding: 0.5 * $base-space $base-space;
+    border: var(--button-border);
+    border-radius: 5px;
+
+    &:hover {
+        cursor: pointer;
+        color: var(--button-color-hover);
+        background-color: var(--button-background-hover);
+        border: var(--button-border-hover);
+    }
+}

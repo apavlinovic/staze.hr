@@ -1,8 +1,21 @@
-@import './../reset.scss';
-@import './../theme.scss';
+@import '../chrome/reset.scss';
+@import '../chrome/theme.scss';
+@import '../chrome/mixins.scss';
+
+html {
+    background-color: var(--secondary-background-color);
+}
 
 body {
     font: var(--font);
     color: var(--font-color);
     background-color: var(--primary-background-color);
+}
+
+input, textarea {
+    @include input-style;
+}
+
+button {
+    @include button-style;
 }

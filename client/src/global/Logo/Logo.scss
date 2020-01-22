@@ -1,10 +1,9 @@
-@import '../../theme.scss';
+@import '../../chrome/variables.scss';
 
 .ui--Logo {
     @media only screen and (min-device-width: $mobile-breakpoint) {
         display: block;
         min-width: 80px;
-        min-height: 75px;
         order: 0;
     }
 }
