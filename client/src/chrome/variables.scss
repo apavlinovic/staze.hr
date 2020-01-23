@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
 $base-space: 8px;
-$mobile-breakpoint: 480px;
-$font: 400 16px/1.5 sans-serif;
+$mobile-breakpoint: 640px;
+$font: 400 16px/1.5 'Lato', sans-serif;
 $highlight-color: rgb(9, 140, 216);
 $highlight-color-dark: rgb(114, 202, 253);
 $hill-color: rgb(40, 140, 7);
@@ -11,10 +13,10 @@ $secondary-background-color: rgb(245, 245, 245);
 $font-color: rgb(10, 10, 10);
 $link-color: rgb(53, 53, 53);
 
-$input-border: 2px solid rgb(207, 207, 207);
-$input-border-dark: 2px solid rgb(75, 75, 75);
-$input-border-focus: 2px solid $highlight-color;
-$input-border-focus-dark: 2px solid $highlight-color-dark;
+$input-border: 1px solid rgb(207, 207, 207);
+$input-border-dark: 1px solid rgb(75, 75, 75);
+$input-border-focus: 1px solid $highlight-color;
+$input-border-focus-dark: 1px solid $highlight-color-dark;
 $input-background: white;
 $input-background-focus: white;
 $input-background-dark: rgb(49, 49, 49);
@@ -29,8 +31,8 @@ $button-color: rgb(37, 37, 37);
 $button-color-hover: lighten($button-color, 5%);
 $button-background: rgb(245, 245, 245);
 $button-background-hover: rgb(255, 255, 255);
-$button-border: 2px solid rgb(214, 214, 214);
-$button-border-hover: 2px solid rgb(202, 202, 202);
+$button-border: 1px solid rgb(214, 214, 214);
+$button-border-hover: 1px solid rgb(202, 202, 202);
 
 $button-color-dark: rgb(126, 126, 126);
 $button-color-hover-dark: lighten($button-color-dark, 5%);

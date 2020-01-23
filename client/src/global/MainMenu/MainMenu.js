@@ -14,6 +14,10 @@ function MainMenu({ t }) {
                 <a href="#">{ t('strings.about') }</a>
                 <a href="#">{ t('strings.contact') }</a>
             </nav>
+
+            <button>
+                {t('noun.menu')}
+            </button>
         </section>
     );
 }

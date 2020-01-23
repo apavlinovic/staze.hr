@@ -3,7 +3,7 @@
 .ui--MainMenu {
 
     nav {
-        display: flex;
+        display: none;
 
         a {
             display: block;
@@ -30,11 +30,16 @@
         & {
             align-self: center;
             display: flex;
-            flex: 1;
+            flex: 1 auto;
             order: 1;
         }
 
+        button {
+            display: none;
+        }
+
         nav {
+            display: flex;
             flex: 1;
             justify-content: flex-end;
         }
