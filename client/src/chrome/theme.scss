@@ -8,16 +8,10 @@
     --hill-color: #{$hill-color};
     --primary-background-color: #{$primary-background-color};
     --secondary-background-color: #{$secondary-background-color};
-    --input-background: #{$input-background };
-    --input-background-focus: #{$input-background-focus };
-    --input-border: #{$input-border};
-    --input-border-focus: #{$input-border-focus};
-    --button-color: #{ $button-color };
-    --button-color-hover: #{ $button-color-hover };
-    --button-background: #{ $button-background };
-    --button-background-hover: #{ $button-background-hover };
-    --button-border: #{$button-border};
-    --button-border-hover: #{$button-border-hover};
+    --tertiary-background-color: #{ $tertiary-background-color };
+    --button-border: #{ $button-border };
+    --card-border: #{ $card-border };
+    --box-shadow: #{ $box-shadow };
 }
 
 // ------------------------------------------------------------------
@@ -30,19 +24,11 @@
         --font-color: #{$font-color-dark};
         --link-color: #{$link-color-dark};
         --highlight-color: #{$highlight-color};
-        --hill-color: #{$hill-color};
+        --hill-color: #{$hill-color-dark};
         --primary-background-color: #{$primary-background-color-dark};
         --secondary-background-color: #{$secondary-background-color-dark};
-        --button-color: #{ $button-color-dark };
-        --input-background: #{$input-background-dark };
-        --input-background-focus: #{$input-background-focus-dark };
-        --input-border: #{$input-border-dark };
-        --input-border-focus: #{$input-border-focus-dark};
-        --button-color: #{ $button-color-dark };
-        --button-color-hover: #{ $button-color-hover-dark };
-        --button-background: #{ $button-background-dark };
-        --button-background-hover: #{ $button-background-hover-dark };
-        --button-border: #{$button-border-dark };
-        --button-border-hover: #{$button-border-hover-dark };
+        --tertiary-background-color: #{ $tertiary-background-color-dark };
+        --button-border: #{ $button-border-dark };
+        --card-border: #{ $card-border-dark };
     }
 }

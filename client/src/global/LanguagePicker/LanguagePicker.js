@@ -13,7 +13,7 @@ function LanguagePicker({ t, i18n }) {
 
     return (
         <section className="ui--LanguagePicker">
-            { language }
+            <label>{ language }</label>
 
             <button onClick={ () => changeLanguage("en") }>EN</button>
             <button onClick={ () => changeLanguage("hr") }>HR</button>

@@ -1,6 +1,7 @@
 @import '../../chrome/variables.scss';
 
 .ui--MainMenu {
+    align-self: center;
 
     nav {
         display: none;
@@ -14,9 +15,10 @@
             font-weight: 600;
             line-height: 1;
             transition: border 100ms;
+            outline: none;
         }
 
-        a:hover {
+        a:hover, a:focus {
             color: var(--font-color);
             border-bottom: 3px solid var(--hill-color);
         }
@@ -26,9 +28,12 @@
         }
     }
 
+    button {
+        padding: 1.5 * $base-space;
+    }
+
     @media only screen and (min-device-width: $mobile-breakpoint) {
         & {
-            align-self: center;
             display: flex;
             flex: 1 auto;
             order: 1;
@@ -42,6 +47,26 @@
             display: flex;
             flex: 1;
             justify-content: flex-end;
+            margin-right: $base-space;
+        }
+    }
+
+    @media only screen and (max-device-width: $mobile-breakpoint) {
+        nav {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.631);
+            backdrop-filter: blur(10px);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            nav {
+                background: rgba(0, 0, 0, 0.507);
+            }
         }
     }
 }

@@ -4,4 +4,10 @@
     display: flex;
     align-content: center;
     padding: 0.5 * $base-space 2 * $base-space;
+    border-bottom: var(--card-border);
+    background: var(--primary-background-color);
+
+    @media only screen and (max-device-width: $mobile-breakpoint) {
+        justify-content: space-between;
+    }
 }

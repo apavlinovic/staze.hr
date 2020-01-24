@@ -1,27 +1,38 @@
+
 @mixin input-style {
-    padding: 0.5 * $base-space $base-space;
-    background: var(--input-background);
-    border: var(--input-border);
-    border-radius: 12px;
+    color: var(--font-color);
+    padding: $base-space 1.5 * $base-space;
+    border-radius: 4px;
+    background: var(--primary-background-color);
+    border: var(--button-border);
+    outline: none;
 
     &:focus {
-        border: var(--input-border-focus);
-        background: var(--input-background-focus);
-        outline-offset: 5px;
+        border-color: var(--hill-color);
     }
 }
 
 @mixin button-style {
-    color: var(--button-color);
-    background-color: var(--button-background);
-    padding: 0.5 * $base-space $base-space;
+    color: var(--font-color);
+    border-radius: $border-radius;
+    background: transparent;
+    padding: 0.5 * $base-space 1.25 * $base-space;
     border: var(--button-border);
-    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
 
-    &:hover {
-        cursor: pointer;
-        color: var(--button-color-hover);
-        background-color: var(--button-background-hover);
-        border: var(--button-border-hover);
+    &:hover, &:focus {
+        border-color: var(--hill-color);
     }
+
+    &:active {
+        transform: translate(1px, 1px);
+    }
+}
+
+@mixin card-style {
+    padding: $base-space;
+    box-shadow: var(--box-shadow);
+    background-color: var(--primary-background-color);
+    border-radius: $border-radius;
 }

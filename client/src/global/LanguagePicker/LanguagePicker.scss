@@ -1,3 +1,24 @@
+@import '../../chrome/mixins.scss';
+@import '../../chrome/variables.scss';
+
 .ui--LanguagePicker {
-    
+
+    label {
+        text-transform: uppercase;
+        background: var(--secondary-background-color);
+        display: block;
+        border-radius: $border-radius;
+        margin-bottom: $base-space;
+        padding: 0.5 * $base-space $base-space;
+        font-weight: bold;
+    }
+
+    button {
+        display: inline-block;
+        margin: $base-space 0;
+
+        & + button {
+            margin-left: $base-space;
+        }
+    }
 }
