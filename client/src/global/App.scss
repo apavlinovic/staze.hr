@@ -11,11 +11,3 @@ body {
     color: var(--font-color);
     background-color: var(--primary-background-color);
 }
-
-input, textarea {
-    @include input-style;
-}
-
-button {
-    @include button-style;
-}

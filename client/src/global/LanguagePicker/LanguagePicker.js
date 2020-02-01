@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { withTranslation } from 'react-i18next';
 
 import './LanguagePicker.scss';
+import { Button, Card, CardActions, CardContent } from '@material-ui/core';
 
 function LanguagePicker({ t, i18n }) {
     const [ language, setLanguage ] = useState(i18n.language);
@@ -13,10 +14,16 @@ function LanguagePicker({ t, i18n }) {
 
     return (
         <section className="ui--LanguagePicker">
-            <label>{ language }</label>
+            <Card>
+                <CardContent>
+                    <label>{ language }</label>
+                </CardContent>
 
-            <button onClick={ () => changeLanguage("en") }>EN</button>
-            <button onClick={ () => changeLanguage("hr") }>HR</button>
+                <CardActions>
+                    <Button size="small" onClick={ () => changeLanguage("en") }>EN</Button>
+                    <Button size="small" onClick={ () => changeLanguage("hr") }>HR</Button>
+                </CardActions>
+            </Card>
         </section>
     );
 }

@@ -3,18 +3,13 @@ import LanguagePicker from '../LanguagePicker/LanguagePicker';
 import GlobalSearch from '../GlobalSearch/GlobalSearch';
 
 import './Footer.scss';
-import Card from '../Card/Card';
 
 function Footer() {
    
     return (
         <footer className="ui--Footer">
-            <Card>
-                <GlobalSearch></GlobalSearch>
-            </Card>
-            <Card>
-                <LanguagePicker></LanguagePicker>
-            </Card>
+            <GlobalSearch></GlobalSearch>
+            <LanguagePicker></LanguagePicker>
         </footer>
     );
 }

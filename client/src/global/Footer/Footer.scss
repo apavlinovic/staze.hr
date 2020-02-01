@@ -2,11 +2,6 @@
 
 .ui--Footer {
     display: flex;
-    justify-content: flex-end;
     padding: $base-space;
     background-color: var(--secondary-background-color);
-
-    .ui--Card {
-        margin: $base-space;
-    }
 }

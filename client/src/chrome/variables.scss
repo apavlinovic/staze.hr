@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,600,700&display=swap&subset=latin-ext');
 
 $base-space: 8px;
 $mobile-breakpoint: 640px;
 $font: 400 16px/1.5 'Lato', sans-serif;
 $highlight-color: rgb(9, 140, 216);
-$highlight-color-dark: rgb(114, 202, 253);
 $hill-color: rgb(40, 140, 7);
-$hill-color-dark: rgb(91, 204, 53);
 $border-radius: 4px;
 $box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
 
@@ -16,13 +14,5 @@ $tertiary-background-color: rgb(235, 235, 235);
 $font-color: rgb(10, 10, 10);
 $link-color: rgb(53, 53, 53);
 
-$primary-background-color-dark: rgb(20, 30, 40);
-$secondary-background-color-dark: rgb(10, 20, 30);
-$tertiary-background-color-dark: rgb(0, 0, 10);
-$font-color-dark: rgb(250, 250, 250);
-$link-color-dark: rgb(250, 250, 250);
-
 $card-border: 1px solid rgba(0,0,0,0.1);
-$card-border-dark: 1px solid rgba(255, 255, 255, 0.1);
 $button-border: 1px solid rgba(0,0,0,0.25);
-$button-border-dark: 1px solid rgba(255,255,255,0.25);

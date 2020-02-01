@@ -1,15 +1,4 @@
 @import '../../chrome/variables.scss';
 
 .ui--GlobalSearch {
-    align-self: center;
-
-    input {
-        padding: 1.5 * $base-space;
-    }
-
-    @media only screen and (min-device-width: $mobile-breakpoint) {
-        & {
-            order: 2;
-        }
-    }
 }
