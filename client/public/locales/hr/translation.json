@@ -3,24 +3,41 @@
         "homepage": "Naslovnica",
         "menu": "Meni",
         "map": "Karta",
+        "link": "Poveznica",
         "trail": "Staza",
         "trails": "Staze",
         "user": "Korisnik",
         "users": "Korisnici",
         "search": "Pretraživanje",
-        "loading": "Učitavanje"
+        "loading": "Učitavanje",
+        "description": "Opis",
+        "duration": "Trajanje",
+        "distance": "Udaljenost",
+        "height_difference": "Razlika visine",
+        "mountain": "Planina",
+        "start_location": "Početna lokacija",
+        "start_coordinates": "Početne koordinate",
+        "end_coordinates": "Završne koordinate",
+        "maintainer": "Održavatelj"
     }, 
 
     "verb": {
         "login": "Prijavi se",
         "logout": "Odjavi se",
         "signup": "Pridruži se",
-        "register": "Registracija"
+        "register": "Registracija",
+        "maintains": "Održava",
+        "navigate": "Navigiraj"
     },
 
     "strings": {
         "about": "O nama",
         "contact": "Kontakt",
-        "logo_description": "Staze.hr logotip"
+        "logo_description": "Staze.hr logotip",
+        "trail_information": "Informacije o stazi",
+        "trail_description": "Opis staze",
+        "related_information": "Povezane informacije",
+        "important_coordinates": "Važne koordinate",
+        "coordinates_disclaimer": "Početne i završne koordinate ponekad znaju biti zamijenjene, ovisno o smjeru snimanja GPS traga. Molimo vas da provjerite točnost koordinate samostalno prije početka uspona."
     }
 }

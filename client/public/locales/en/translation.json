@@ -3,24 +3,41 @@
         "homepage": "Homepage",
         "menu": "Menu",
         "map": "Map",
+        "link": "Link",
         "trail": "Trail",
         "trails": "Trails",
         "user": "User",
         "users": "Users",
         "search": "Search",
-        "loading": "Loading"
+        "loading": "Loading",
+        "description": "Description",
+        "duration": "Duration",
+        "distance": "Distance",
+        "height_difference": "Height difference",
+        "mountain": "Mountain",
+        "start_location": "Start location",
+        "start_coordinates": "Start coordinates",
+        "end_coordinates": "End coordinates",
+        "maintainer": "Maintainer"
     },
 
     "verb": {
         "login": "Log In",
         "logout": "Log Out",
         "signup": "Sign Up",
-        "register": "Register"
+        "register": "Register",
+        "maintains": "Maintained by",
+        "navigate": "Navigate"
     },
 
     "strings": {
         "about": "About",
         "contact": "Contact",
-        "logo_description": "Staze.hr logo"
+        "logo_description": "Staze.hr logo",
+        "trail_information": "Trail information",
+        "trail_description": "Trail description",
+        "related_information": "Related information",
+        "important_coordinates": "Notable coordinates",
+        "coordinates_disclaimer": "Start and end coordinates can be swapped, depending of the direction the GPS trace was recorded. Please check the coordinate validity before starting navigation."
     }
 }

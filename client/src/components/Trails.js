@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Card, CardContent, Grid, Link } from '@material-ui/core';
+import { Card, CardContent, Grid } from '@material-ui/core';
 import Pagination from "material-ui-flat-pagination";
 
 import Loader from "../global/Loader/Loader";
+import { Link } from "react-router-dom";
+
+import { prettyPrintCoordinates, renderNavigateToCoordinatesLink } from "../global/Helpers";
 
 const Trails = (props) => {
     const { mountain } = props;
@@ -43,10 +46,12 @@ const Trails = (props) => {
                     <Grid item key={ trail.Id } md={12} xs={12}>
                         <Card>
                             <CardContent>
-                                <h3>{ trail.Name }</h3>
+                                <Link to={ `/trail/${ trail.Slug }` }>
+                                    <h3>{ trail.Name }</h3>
+                                </Link>
                                 { trail.Duration }h | { trail.Distance }km |
                                 { trail.StartLocation } 
-                                <a target="_blank" href={`https://www.google.com/maps/search/?api=1&query=${ trail.StartLocationCoords.coordinates[1] },${ trail.StartLocationCoords.coordinates[0] }`}>
+                                <a target="_blank" href={ renderNavigateToCoordinatesLink(trail.StartLocationCoords) }>
                                     { trail.StartLocationCoords.coordinates[1] }, { trail.StartLocationCoords.coordinates[0] }
                                 </a>
                             </CardContent>

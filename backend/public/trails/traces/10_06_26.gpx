@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?><gpx creator="Garmin Desktop App" version="1.1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/WaypointExtension/v1 http://www8.garmin.com/xmlschemas/WaypointExtensionv1.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www8.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/ActivityExtension/v1 http://www8.garmin.com/xmlschemas/ActivityExtensionv1.xsd http://www.garmin.com/xmlschemas/AdventuresExtensions/v1 http://www8.garmin.com/xmlschemas/AdventuresExtensionv1.xsd http://www.garmin.com/xmlschemas/PressureExtension/v1 http://www.garmin.com/xmlschemas/PressureExtensionv1.xsd http://www.garmin.com/xmlschemas/TripExtensions/v1 http://www.garmin.com/xmlschemas/TripExtensionsv1.xsd http://www.garmin.com/xmlschemas/TripMetaDataExtensions/v1 http://www.garmin.com/xmlschemas/TripMetaDataExtensionsv1.xsd http://www.garmin.com/xmlschemas/ViaPointTransportationModeExtensions/v1 http://www.garmin.com/xmlschemas/ViaPointTransportationModeExtensionsv1.xsd http://www.garmin.com/xmlschemas/CreationTimeExtensions/v1 http://www.garmin.com/xmlschemas/CreationTimeExtensionsv1.xsd" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wptx1="http://www.garmin.com/xmlschemas/WaypointExtension/v1" xmlns:gpxtrx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:trp="http://www.garmin.com/xmlschemas/TripExtensions/v1" xmlns:adv="http://www.garmin.com/xmlschemas/AdventuresExtensions/v1" xmlns:prs="http://www.garmin.com/xmlschemas/PressureExtension/v1" xmlns:tmd="http://www.garmin.com/xmlschemas/TripMetaDataExtensions/v1" xmlns:vptm="http://www.garmin.com/xmlschemas/ViaPointTransportationModeExtensions/v1" xmlns:ctx="http://www.garmin.com/xmlschemas/CreationTimeExtension/v1">
+
+  <metadata>
+    <link href="http://www.garmin.com">
+      <text>Garmin International</text>
+    </link>
+    <time>2014-09-24T19:06:17Z</time>
+    <bounds maxlat="45.303349206224084" maxlon="14.23015826381743" minlat="45.301850019022822" minlon="14.229185041040182" />
+  </metadata>
+
+  <trk>
+    <name>626-Dr</name>
+    <extensions>
+      <gpxx:TrackExtension>
+        <gpxx:DisplayColor>Red</gpxx:DisplayColor>
+      </gpxx:TrackExtension>
+    </extensions>
+    <trkseg>
+      <trkpt lat="45.303349206224084" lon="14.23015826381743">
+        <ele>657.80859375</ele>
+      </trkpt>
+      <trkpt lat="45.303171006962657" lon="14.230158012360334">
+        <ele>656.96484375</ele>
+      </trkpt>
+      <trkpt lat="45.303050810471177" lon="14.230008227750659">
+        <ele>657.08984375</ele>
+      </trkpt>
+      <trkpt lat="45.302923992276192" lon="14.229840002954006">
+        <ele>656.49609375</ele>
+      </trkpt>
+      <trkpt lat="45.302771106362343" lon="14.229606734588742">
+        <ele>656.16015625</ele>
+      </trkpt>
+      <trkpt lat="45.302685527130961" lon="14.229486370459199">
+        <ele>656.953125</ele>
+      </trkpt>
+      <trkpt lat="45.302561223506927" lon="14.229345051571727">
+        <ele>657.8828125</ele>
+      </trkpt>
+      <trkpt lat="45.302385874092579" lon="14.229341363534331">
+        <ele>657.90625</ele>
+      </trkpt>
+      <trkpt lat="45.302170543000102" lon="14.229247402399778">
+        <ele>658.52734375</ele>
+      </trkpt>
+      <trkpt lat="45.302035007625818" lon="14.229185041040182">
+        <ele>661.6015625</ele>
+      </trkpt>
+      <trkpt lat="45.301925959065557" lon="14.229283025488257">
+        <ele>663.11328125</ele>
+      </trkpt>
+      <trkpt lat="45.301850019022822" lon="14.229543032124639">
+        <ele>662.8984375</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+
+</gpx>

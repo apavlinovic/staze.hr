@@ -9,6 +9,7 @@ import {
   Route,
 } from "react-router-dom";
 import MountainTrails from '../pages/MountainTrails';
+import Trail from '../pages/Trail';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <BrowserRouter>
           <Switch>
               <Route path="/mountain/:mountain" children={ <MountainTrails /> }></Route>
+              <Route path="/trail/:slug" children={ <Trail /> }></Route>
           </Switch>
         </BrowserRouter>
       </main>

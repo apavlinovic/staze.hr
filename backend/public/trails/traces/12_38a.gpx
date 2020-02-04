@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="MapSource 6.13.5" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensions/v3/GpxExtensionsv3.xsd http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+
+  <metadata>
+    <link href="http://www.garmin.com">
+      <text>Garmin International</text>
+    </link>
+    <time>2015-01-13T14:54:38Z</time>
+    <bounds maxlat="44.5985834" maxlon="15.1671215" minlat="44.5262584" minlon="15.0024722"/>
+  </metadata>
+
+  <wpt lat="44.5675689" lon="15.0994635">
+    <ele>1084.0000000</ele>
+    <time>2009-07-29T10:20:07Z</time>
+    <name>Bačić kosa</name>
+    <cmt>Dom Odmora</cmt>
+    <desc>Dom Odmora</desc>
+    <sym>Waypoint</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="44.5650556" lon="15.1249444">
+    <ele>908.0000000</ele>
+    <time>2009-03-14T21:46:08Z</time>
+    <name>Ćelina</name>
+    <cmt>Srednji Velebit</cmt>
+    <desc>Srednji Velebit</desc>
+    <sym>Triangle, Red</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="44.5464687" lon="15.1625789">
+    <ele>1273.0000000</ele>
+    <name>Kuk Pećica</name>
+    <cmt>Srednji Velebit</cmt>
+    <desc>Srednji Velebit</desc>
+    <sym>Triangle, Red</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="44.5985834" lon="15.0024722">
+    <ele>545.0000000</ele>
+    <time>2011-10-13T06:35:05Z</time>
+    <name>Stipćev vrh</name>
+    <cmt>Srednji Velebit</cmt>
+    <desc>Srednji Velebit</desc>
+    <sym>Triangle, Red</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="44.5408143" lon="15.1577467">
+    <ele>980.0000000</ele>
+    <time>2009-07-29T11:17:57Z</time>
+    <name>Stupačinovo</name>
+    <cmt>Pl. Staza</cmt>
+    <desc>Pl. Staza</desc>
+    <sym>Circle with X</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="44.5262584" lon="15.1671215">
+    <ele>913.5351563</ele>
+    <time>2015-01-13T14:52:41Z</time>
+    <name>Škola</name>
+    <cmt>Pl. Staza</cmt>
+    <desc>Pl. Staza</desc>
+    <sym>Waypoint</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="44.5601928" lon="15.0723678">
+    <ele>924.0000000</ele>
+    <time>2009-07-28T11:38:25Z</time>
+    <name>Velinac</name>
+    <cmt>Velinac 965m</cmt>
+    <desc>Velinac 965m</desc>
+    <sym>Triangle, Red</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="44.5649768" lon="15.1076592">
+    <ele>1144.0000000</ele>
+    <time>2009-07-28T11:50:51Z</time>
+    <name>Visibaba</name>
+    <sym>Triangle, Red</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <trk>
+    <name>38a Kuk od Pećice</name>
+    <extensions>
+      <gpxx:TrackExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayColor>Yellow</gpxx:DisplayColor>
+      </gpxx:TrackExtension>
+    </extensions>
+    <trkseg>
+      <trkpt lat="44.5466547" lon="15.1648485">
+        <ele>1179.2226563</ele>
+      </trkpt>
+      <trkpt lat="44.5466224" lon="15.1648359">
+        <ele>1179.8085938</ele>
+      </trkpt>
+      <trkpt lat="44.5466098" lon="15.1648057">
+        <ele>1180.5703125</ele>
+      </trkpt>
+      <trkpt lat="44.5465956" lon="15.1647803">
+        <ele>1196.4982910</ele>
+      </trkpt>
+      <trkpt lat="44.5465530" lon="15.1647372">
+        <ele>1197.9401855</ele>
+      </trkpt>
+      <trkpt lat="44.5465411" lon="15.1646716">
+        <ele>1200.3435059</ele>
+      </trkpt>
+      <trkpt lat="44.5465018" lon="15.1646272">
+        <ele>1202.2658691</ele>
+      </trkpt>
+      <trkpt lat="44.5464701" lon="15.1645768">
+        <ele>1204.6691895</ele>
+      </trkpt>
+      <trkpt lat="44.5464483" lon="15.1645295">
+        <ele>1207.5532227</ele>
+      </trkpt>
+      <trkpt lat="44.5464246" lon="15.1644941">
+        <ele>1210.9177246</ele>
+      </trkpt>
+      <trkpt lat="44.5463831" lon="15.1644407">
+        <ele>1214.7631836</ele>
+      </trkpt>
+      <trkpt lat="44.5463701" lon="15.1643727">
+        <ele>1216.6857910</ele>
+      </trkpt>
+      <trkpt lat="44.5463494" lon="15.1642796">
+        <ele>1219.0891113</ele>
+      </trkpt>
+      <trkpt lat="44.5463317" lon="15.1642275">
+        <ele>1221.9729004</ele>
+      </trkpt>
+      <trkpt lat="44.5463055" lon="15.1641613">
+        <ele>1222.9343262</ele>
+      </trkpt>
+      <trkpt lat="44.5462814" lon="15.1640760">
+        <ele>1226.2988281</ele>
+      </trkpt>
+      <trkpt lat="44.5462722" lon="15.1640262">
+        <ele>1227.7407227</ele>
+      </trkpt>
+      <trkpt lat="44.5462742" lon="15.1639981">
+        <ele>1231.1057129</ele>
+      </trkpt>
+      <trkpt lat="44.5463321" lon="15.1639422">
+        <ele>1233.0280762</ele>
+      </trkpt>
+      <trkpt lat="44.5462977" lon="15.1638825">
+        <ele>1234.9509277</ele>
+      </trkpt>
+      <trkpt lat="44.5462570" lon="15.1638159">
+        <ele>1235.4313965</ele>
+      </trkpt>
+      <trkpt lat="44.5462266" lon="15.1637456">
+        <ele>1235.9121094</ele>
+      </trkpt>
+      <trkpt lat="44.5462129" lon="15.1636914">
+        <ele>1238.7961426</ele>
+      </trkpt>
+      <trkpt lat="44.5462499" lon="15.1636154">
+        <ele>1241.6799316</ele>
+      </trkpt>
+      <trkpt lat="44.5462769" lon="15.1635363">
+        <ele>1242.1606445</ele>
+      </trkpt>
+      <trkpt lat="44.5462498" lon="15.1634855">
+        <ele>1243.6025391</ele>
+      </trkpt>
+      <trkpt lat="44.5462541" lon="15.1633586">
+        <ele>1245.0446777</ele>
+      </trkpt>
+      <trkpt lat="44.5463197" lon="15.1632996">
+        <ele>1246.4868164</ele>
+      </trkpt>
+      <trkpt lat="44.5463507" lon="15.1632496">
+        <ele>1248.8898926</ele>
+      </trkpt>
+      <trkpt lat="44.5463590" lon="15.1631839">
+        <ele>1250.3320313</ele>
+      </trkpt>
+      <trkpt lat="44.5463844" lon="15.1631247">
+        <ele>1253.6965332</ele>
+      </trkpt>
+      <trkpt lat="44.5464038" lon="15.1630602">
+        <ele>1255.6191406</ele>
+      </trkpt>
+      <trkpt lat="44.5464162" lon="15.1629828">
+        <ele>1258.0224609</ele>
+      </trkpt>
+      <trkpt lat="44.5464122" lon="15.1629146">
+        <ele>1260.4257813</ele>
+      </trkpt>
+      <trkpt lat="44.5464234" lon="15.1628701">
+        <ele>1261.8679199</ele>
+      </trkpt>
+      <trkpt lat="44.5464266" lon="15.1628048">
+        <ele>1263.7902832</ele>
+      </trkpt>
+      <trkpt lat="44.5464348" lon="15.1627089">
+        <ele>1269.0776367</ele>
+      </trkpt>
+      <trkpt lat="44.5464357" lon="15.1626266">
+        <ele>1270.0388184</ele>
+      </trkpt>
+      <trkpt lat="44.5464664" lon="15.1625759">
+        <ele>1272.4421387</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+
+</gpx>

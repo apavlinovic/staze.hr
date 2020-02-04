@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="MapSource 6.16.3" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+
+  <metadata>
+    <link href="http://www.garmin.com">
+      <text>Garmin International</text>
+    </link>
+    <time>2014-12-27T16:15:54Z</time>
+    <bounds maxlat="44.933517845347524" maxlon="15.011938540264964" minlat="44.932228876277804" minlon="15.006156368181109"/>
+  </metadata>
+
+  <wpt lat="44.932228876277804" lon="15.006672693416476">
+    <ele>1100</ele>
+    <time>2006-08-22T08:15:12Z</time>
+    <name>KRAJAĆEVA KUĆA</name>
+    <cmt>1100 m</cmt>
+    <desc>1100 m</desc>
+    <sym>Lodge</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="44.933488927781582" lon="15.0119055993855">
+    <ele>1127</ele>
+    <time>2014-12-27T16:14:20Z</time>
+    <name>KRIŽANJE ZA JADIĆEVU PLAN</name>
+    <cmt>Staza</cmt>
+    <desc>Staza</desc>
+    <sym>Waypoint</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="44.932595752179623" lon="15.008055455982685">
+    <ele>1115.203125</ele>
+    <time>2014-12-27T16:14:58Z</time>
+    <name>Rujice</name>
+    <sym>Waypoint</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <trk>
+    <name>11_06 Krajačeva kuća</name>
+    <extensions>
+      <gpxx:TrackExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayColor>Red</gpxx:DisplayColor>
+      </gpxx:TrackExtension>
+    </extensions>
+    <trkseg>
+      <trkpt lat="44.933517845347524" lon="15.011938540264964">
+        <ele>1121.03466796875</ele>
+      </trkpt>
+      <trkpt lat="44.933326486498117" lon="15.011592535302043">
+        <ele>1121.51513671875</ele>
+      </trkpt>
+      <trkpt lat="44.933244595304132" lon="15.011311657726765">
+        <ele>1119.112060546875</ele>
+      </trkpt>
+      <trkpt lat="44.933291366323829" lon="15.010840846225619">
+        <ele>1117.189453125</ele>
+      </trkpt>
+      <trkpt lat="44.933231770992279" lon="15.010175490751863">
+        <ele>1116.22802734375</ele>
+      </trkpt>
+      <trkpt lat="44.933368731290102" lon="15.009469231590629">
+        <ele>1114.30517578125</ele>
+      </trkpt>
+      <trkpt lat="44.933106126263738" lon="15.008360138162971">
+        <ele>1112.86328125</ele>
+      </trkpt>
+      <trkpt lat="44.933126829564571" lon="15.008398778736591">
+        <ele>1114.30517578125</ele>
+      </trkpt>
+      <trkpt lat="44.932824745774269" lon="15.007955962792039">
+        <ele>1116.22802734375</ele>
+      </trkpt>
+      <trkpt lat="44.932739585638046" lon="15.007620099931955">
+        <ele>1116.22802734375</ele>
+      </trkpt>
+      <trkpt lat="44.932742184028029" lon="15.007344922050834">
+        <ele>1109.498779296875</ele>
+      </trkpt>
+      <trkpt lat="44.932907726615667" lon="15.006610751152039">
+        <ele>1109.979248046875</ele>
+      </trkpt>
+      <trkpt lat="44.932882580906153" lon="15.006156368181109">
+        <ele>1110.940673828125</ele>
+      </trkpt>
+      <trkpt lat="44.932573540136218" lon="15.006203558295965">
+        <ele>1109.498779296875</ele>
+      </trkpt>
+      <trkpt lat="44.932428197935224" lon="15.006300788372755">
+        <ele>1109.01806640625</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+
+</gpx>

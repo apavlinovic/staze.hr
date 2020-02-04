@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="MapSource 6.13.5" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensions/v3/GpxExtensionsv3.xsd http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+
+  <metadata>
+    <link href="http://www.garmin.com">
+      <text>Garmin International</text>
+    </link>
+    <time>2014-12-23T20:52:37Z</time>
+    <bounds maxlat="44.6966124" maxlon="15.0637525" minlat="44.6476918" minlon="15.0435568"/>
+  </metadata>
+
+  <wpt lat="44.6532690" lon="15.0435568">
+    <ele>1420.0000000</ele>
+    <time>2009-07-29T14:38:03Z</time>
+    <name>6</name>
+    <cmt>1420 m</cmt>
+    <desc>1420 m</desc>
+    <sym>City (Small)</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="44.6879733" lon="15.0550514">
+    <ele>1090.0000000</ele>
+    <time>2011-07-21T07:08:23Z</time>
+    <name>6.</name>
+    <cmt>1090 m height</cmt>
+    <desc>1090 m height</desc>
+    <sym>City (Small)</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="44.6604121" lon="15.0503520">
+    <ele>1180.0000000</ele>
+    <time>2009-07-29T10:02:26Z</time>
+    <name>6a</name>
+    <cmt>1180 m</cmt>
+    <desc>1180 m</desc>
+    <sym>City (Small)</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="44.6567738" lon="15.0637525">
+    <ele>1120.0000000</ele>
+    <time>2009-07-29T14:48:21Z</time>
+    <name>Klepina duliba</name>
+    <cmt>1120 m</cmt>
+    <desc>1120 m</desc>
+    <sym>City (Small)</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="44.6476918" lon="15.0484639">
+    <ele>1599.0000000</ele>
+    <time>2009-07-27T07:54:49Z</time>
+    <name>Šatorina</name>
+    <cmt>Satorina  1622m</cmt>
+    <desc>Satorina  1622m</desc>
+    <sym>Triangle, Red</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="44.6966124" lon="15.0506945">
+    <ele>1112.0000000</ele>
+    <time>2009-07-29T09:59:17Z</time>
+    <name>Štirovača</name>
+    <cmt>Pl. Staza</cmt>
+    <desc>Pl. Staza</desc>
+    <sym>Rectangle, Green</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <trk>
+    <name>06a Klepina duliba- Dokozina Plan</name>
+    <extensions>
+      <gpxx:TrackExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayColor>Yellow</gpxx:DisplayColor>
+      </gpxx:TrackExtension>
+    </extensions>
+    <trkseg>
+      <trkpt lat="44.6584386" lon="15.0634147">
+        <ele>1115.7473145</ele>
+      </trkpt>
+      <trkpt lat="44.6584030" lon="15.0634411">
+        <ele>1115.7473145</ele>
+      </trkpt>
+      <trkpt lat="44.6583998" lon="15.0634592">
+        <ele>1114.7858887</ele>
+      </trkpt>
+      <trkpt lat="44.6583773" lon="15.0634455">
+        <ele>1115.2666016</ele>
+      </trkpt>
+      <trkpt lat="44.6583757" lon="15.0634400">
+        <ele>1115.2666016</ele>
+      </trkpt>
+      <trkpt lat="44.6583943" lon="15.0634519">
+        <ele>1116.2280273</ele>
+      </trkpt>
+      <trkpt lat="44.6583864" lon="15.0634353">
+        <ele>1115.7473145</ele>
+      </trkpt>
+      <trkpt lat="44.6576214" lon="15.0632881">
+        <ele>1118.1506348</ele>
+      </trkpt>
+      <trkpt lat="44.6574767" lon="15.0632204">
+        <ele>1119.1120605</ele>
+      </trkpt>
+      <trkpt lat="44.6572564" lon="15.0629008">
+        <ele>1119.1120605</ele>
+      </trkpt>
+      <trkpt lat="44.6571549" lon="15.0627434">
+        <ele>1120.0732422</ele>
+      </trkpt>
+      <trkpt lat="44.6570789" lon="15.0625529">
+        <ele>1119.5927734</ele>
+      </trkpt>
+      <trkpt lat="44.6570068" lon="15.0623114">
+        <ele>1119.5927734</ele>
+      </trkpt>
+      <trkpt lat="44.6569583" lon="15.0620952">
+        <ele>1120.0732422</ele>
+      </trkpt>
+      <trkpt lat="44.6569073" lon="15.0618350">
+        <ele>1120.5539551</ele>
+      </trkpt>
+      <trkpt lat="44.6568658" lon="15.0615589">
+        <ele>1121.5151367</ele>
+      </trkpt>
+      <trkpt lat="44.6568909" lon="15.0613274">
+        <ele>1121.0346680</ele>
+      </trkpt>
+      <trkpt lat="44.6569743" lon="15.0608187">
+        <ele>1121.5151367</ele>
+      </trkpt>
+      <trkpt lat="44.6569937" lon="15.0607406">
+        <ele>1121.5151367</ele>
+      </trkpt>
+      <trkpt lat="44.6570951" lon="15.0601997">
+        <ele>1121.9958496</ele>
+      </trkpt>
+      <trkpt lat="44.6570666" lon="15.0601416">
+        <ele>1122.9572754</ele>
+      </trkpt>
+      <trkpt lat="44.6569395" lon="15.0597114">
+        <ele>1123.4379883</ele>
+      </trkpt>
+      <trkpt lat="44.6570694" lon="15.0594772">
+        <ele>1123.9184570</ele>
+      </trkpt>
+      <trkpt lat="44.6572925" lon="15.0588163">
+        <ele>1126.3217773</ele>
+      </trkpt>
+      <trkpt lat="44.6572852" lon="15.0587053">
+        <ele>1127.2832031</ele>
+      </trkpt>
+      <trkpt lat="44.6570520" lon="15.0581263">
+        <ele>1129.6862793</ele>
+      </trkpt>
+      <trkpt lat="44.6570010" lon="15.0580337">
+        <ele>1129.2055664</ele>
+      </trkpt>
+      <trkpt lat="44.6568471" lon="15.0569479">
+        <ele>1131.1284180</ele>
+      </trkpt>
+      <trkpt lat="44.6569717" lon="15.0566988">
+        <ele>1131.6088867</ele>
+      </trkpt>
+      <trkpt lat="44.6570739" lon="15.0564213">
+        <ele>1131.6088867</ele>
+      </trkpt>
+      <trkpt lat="44.6571922" lon="15.0561947">
+        <ele>1133.0510254</ele>
+      </trkpt>
+      <trkpt lat="44.6601550" lon="15.0540827">
+        <ele>1122.4765625</ele>
+      </trkpt>
+      <trkpt lat="44.6602262" lon="15.0540111">
+        <ele>1122.9572754</ele>
+      </trkpt>
+      <trkpt lat="44.6603289" lon="15.0538162">
+        <ele>1121.9958496</ele>
+      </trkpt>
+      <trkpt lat="44.6606768" lon="15.0531467">
+        <ele>1121.9958496</ele>
+      </trkpt>
+      <trkpt lat="44.6603564" lon="15.0518076">
+        <ele>1138.3383789</ele>
+      </trkpt>
+      <trkpt lat="44.6603524" lon="15.0515896">
+        <ele>1141.7028809</ele>
+      </trkpt>
+      <trkpt lat="44.6603831" lon="15.0503001">
+        <ele>1165.7360840</ele>
+      </trkpt>
+      <trkpt lat="44.6603936" lon="15.0500891">
+        <ele>1169.1005859</ele>
+      </trkpt>
+      <trkpt lat="44.6611901" lon="15.0485502">
+        <ele>1200.8239746</ele>
+      </trkpt>
+      <trkpt lat="44.6611115" lon="15.0478207">
+        <ele>1236.3928223</ele>
+      </trkpt>
+      <trkpt lat="44.6611161" lon="15.0477077">
+        <ele>1238.7961426</ele>
+      </trkpt>
+      <trkpt lat="44.6611240" lon="15.0477142">
+        <ele>1239.2766113</ele>
+      </trkpt>
+      <trkpt lat="44.6612044" lon="15.0476148">
+        <ele>1242.1606445</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+
+</gpx>
