@@ -10,21 +10,23 @@ import {
 } from "react-router-dom";
 import MountainTrails from '../pages/MountainTrails';
 import Trail from '../pages/Trail';
+import Homepage from '../pages/Homepage';
 
 function App() {
 
   return (
     <Suspense fallback="Loading...">
-      <Header></Header>
-      <main className="ui--Main">
-        <BrowserRouter>
-          <Switch>
-              <Route path="/mountain/:mountain" children={ <MountainTrails /> }></Route>
-              <Route path="/trail/:slug" children={ <Trail /> }></Route>
-          </Switch>
-        </BrowserRouter>
-      </main>
-      <Footer></Footer>
+      <BrowserRouter>
+        <Header></Header>
+        <main className="ui--Main">
+            <Switch>
+                <Route path="/mountain/:mountain" children={ <MountainTrails /> }></Route>
+                <Route path="/trail/:slug" children={ <Trail /> }></Route>
+                <Route path="/" children={ <Homepage /> }></Route>
+            </Switch>
+        </main>
+        <Footer></Footer>
+      </BrowserRouter>
     </Suspense>
   );
 }

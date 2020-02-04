@@ -1,3 +1,7 @@
+export function mapImageUrl(mapName) {
+    return `/maps/${mapName}`
+}
+
 export function prettyPrintCoordinates(coordinates) {
     return coordinates.toString().substring(0,8) 
 }
