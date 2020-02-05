@@ -6,28 +6,9 @@ import Loader from "../global/Loader/Loader";
 import TrailListItem from "./TrailListItem";
 import './TrailList.scss'
 import { withTranslation } from "react-i18next";
-
-const PAGE_SIZE = 50;
-
-const SORTS = {
-    NAME_ASC: { sort: 'Name-asc', label: 'strings.order_by_name_asc' },
-    NAME_DESC: { sort: 'Name-desc', label: 'strings.order_by_name_desc' },
-    DURATION_ASC: { sort: 'Duration-asc', label: 'strings.order_by_duration_asc' },
-    DURATION_DESC: { sort: 'Duration-desc', label: 'strings.order_by_duration_desc' },
-    DISTANCE_ASC: { sort: 'Distance-asc', label: 'strings.order_by_distance_asc' },
-    DISTANCE_DESC: { sort: 'Distance-desc', label: 'strings.order_by_distance_desc' },
-}
-
-const FILTER_DISTANCE = {
-    DISTANCE_1: { filter: 1, label: 'strings.filter_distance_1' },
-    DISTANCE_2: { filter: 2, label: 'strings.filter_distance_2' },
-    DISTANCE_3: { filter: 3, label: 'strings.filter_distance_3' },
-    DISTANCE_4: { filter: 4, label: 'strings.filter_distance_4' },
-    DISTANCE_5: { filter: 5, label: 'strings.filter_distance_5' },
-    DISTANCE_10: { filter: 10, label: 'strings.filter_distance_10' },
-    DISTANCE_15: { filter: 15, label: 'strings.filter_distance_15' },
-    DISTANCE_MAX: { filter: 1000, label: 'strings.filter_distance_max' },
-}
+import {
+    FILTER_DISTANCE, FILTER_DURATION, PAGE_SIZE, SORTS
+} from "./TrailList.configuration"
 
 const TrailList = (props) => {
     const { mountain, t } = props;
@@ -36,9 +17,10 @@ const TrailList = (props) => {
     const [ offset, setOffset ] = useState(0);
     const [ orderBy, setOrderBy ] = useState(SORTS.NAME_ASC.sort);
     const [ distanceFilter, setDistanceFilter ] = useState(FILTER_DISTANCE.DISTANCE_MAX.filter);
+    const [ durationFilter, setDurationFilter ] = useState(FILTER_DURATION.DURATION_MAX.filter);
 
     useEffect(() => {
-        let q = `/api/trails?pageSize=${ PAGE_SIZE }&page=${ (offset / PAGE_SIZE) + 1 }&mountain=${mountain}&orderBy=${orderBy}&distance=${distanceFilter}`
+        let q = `/api/trails?pageSize=${ PAGE_SIZE }&page=${ (offset / PAGE_SIZE) + 1 }&mountain=${mountain}&orderBy=${orderBy}&distance=${distanceFilter}&duration=${durationFilter}`
 
         fetch(q)
             .then(res => res.json())
@@ -48,7 +30,7 @@ const TrailList = (props) => {
             })
             .catch(() => setLoading(false));
             
-    }, [ mountain, offset, orderBy, distanceFilter ])
+    }, [ mountain, offset, orderBy, distanceFilter, durationFilter ])
 
     useEffect(() => {
         setOffset(0)
@@ -58,6 +40,7 @@ const TrailList = (props) => {
         switch(event.target.name) {
             case "orderBy": setOrderBy(event.target.value); break;
             case "distanceFilter": setDistanceFilter(event.target.value); break;
+            case "durationFilter": setDurationFilter(event.target.value); break;
         }
     };
 
@@ -69,7 +52,7 @@ const TrailList = (props) => {
         <>
 
         <Grid container spacing={2}>
-            <Grid item md={6}>
+            <Grid item md={4}>
                 <FormControl variant="outlined" size="small" fullWidth>
                     <InputLabel id="trail-list-sort">{t('verb.order_by')}</InputLabel>
                     <Select
@@ -86,9 +69,9 @@ const TrailList = (props) => {
                     </Select>
                 </FormControl>
             </Grid>
-            <Grid item md={6}>
+            <Grid item md={4}>
                 <FormControl variant="outlined" size="small" fullWidth>
-                    <InputLabel id="trail-list-filter-distance">{t('verb.filter_by')}</InputLabel>
+                    <InputLabel id="trail-list-filter-distance">{t('noun.distance')}</InputLabel>
                     <Select
                         labelId="trail-list-filter-distance"
                         id="trail-list-filter-distance"
@@ -103,6 +86,23 @@ const TrailList = (props) => {
                     </Select>
                 </FormControl>        
             </Grid>
+            <Grid item md={4}>
+                <FormControl variant="outlined" size="small" fullWidth>
+                    <InputLabel id="trail-list-filter-duration">{t('noun.duration')}</InputLabel>
+                    <Select
+                        labelId="trail-list-filter-duration"
+                        id="trail-list-filter-duration"
+                        value={durationFilter}
+                        name="durationFilter"
+                        onChange={handleChange}>
+                            { Object.entries(FILTER_DURATION).map((filterDescriptor, index) => {
+                                let key = filterDescriptor[0];
+                                let filter = filterDescriptor[1];
+                                return <MenuItem key={ key } value={ filter.filter }>{t(filter.label)}</MenuItem>
+                            })}
+                    </Select>
+                </FormControl>        
+            </Grid>            
         </Grid>
 
         {
@@ -142,9 +142,6 @@ const TrailList = (props) => {
                 </Card>
             </Box>
         }
-
-
-
         </>
     )
 }

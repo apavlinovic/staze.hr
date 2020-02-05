@@ -1,24 +1,39 @@
 const { Trail } = require("./../models/trail.model")
-const { Op, fn, literal } = require("sequelize");
+const { Op, fn, where, col, cast } = require("sequelize");
 
-function GetTrails(pageSize = 20, page = 1, orderBy = [["Id", "asc"]], mountain = null, maintainer = null, distance = null) {
-    let where = {
+function GetTrails(
+    pageSize = 20, 
+    page = 1, 
+    orderBy = [["Id", "asc"]], 
+    mountain = null, 
+    maintainer = null, 
+    distance = null, 
+    duration = null
+) {
+    let whereStatement = {
         [Op.and]: []
     };
 
     if(mountain)
-        where[Op.and].push({ Mountain: mountain })
+        whereStatement[Op.and].push({ Mountain: mountain })
     
     if(maintainer)
-        where[Op.and].push({ Maintainer: maintainer })
+        whereStatement[Op.and].push({ Maintainer: maintainer })
 
-    if(distance && parseInt(distance))
-        where[Op.and].push({ Distance: { [Op.lte]: parseInt(distance) }})
+    if(distance && parseInt(distance)) 
+        whereStatement[Op.and].push({ Distance: { [Op.lte]: parseInt(distance) }})
+
+    if(duration)
+        whereStatement[Op.and].push(where(
+            cast(fn("TO_TIMESTAMP", col('Duration'), 'HH24:MI:SS'), 'TIME'), {
+                [Op.lte]: duration
+            }
+        ))
 
     return Trail.findAndCountAll({
         limit: pageSize,
         offset: pageSize * (page - 1),
-        where,
+        where: whereStatement,
         order: orderBy
     });
 }

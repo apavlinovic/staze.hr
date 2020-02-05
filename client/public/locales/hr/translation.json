@@ -28,8 +28,7 @@
         "register": "Registracija",
         "maintains": "Održava",
         "navigate": "Navigiraj",
-        "order_by": "Sortiraj",
-        "filter_by": "Filtriraj"
+        "order_by": "Sortiraj"
     },
 
     "strings": {
@@ -55,6 +54,12 @@
         "filter_distance_10": "Do 10 km",
         "filter_distance_15": "Do 15 km",
         "filter_distance_max": "Sve udaljenosti",
+        "filter_duration_1": "Do 1 sata",
+        "filter_duration_2": "Do 2 sata",
+        "filter_duration_3": "Do 3 sata",
+        "filter_duration_4": "Do 4 sata",
+        "filter_duration_5": "Do 5 sata",
+        "filter_duration_max": "Sva trajanja",
         "no_results": "Nema rezultata."
     }
 }
