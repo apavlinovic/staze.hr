@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { ListItem, List, Chip } from '@material-ui/core';
-import { Link } from "react-router-dom";
+import { ListItemText, ListSubheader, ListItem, List, Chip, Paper, Divider, ListItemIcon } from '@material-ui/core';
+import { Link as RouterLink } from "react-router-dom";
+import { withTranslation } from "react-i18next";
 
-function MountainsMenu() {
+import MyLocation from "@material-ui/icons/MyLocation";
+
+function MountainsMenu(props) {
+    const { t } = props;
     const [ isLoading, setLoading ] = useState(true);
     const [ mountains, setMountains ] = useState([]);
 
@@ -19,22 +23,40 @@ function MountainsMenu() {
         return "Loading"
 
     return (
-            <List>
+        <Paper>
+            <List component="nav">
+                <ListSubheader>
+                    { t('noun.mountain') }
+                </ListSubheader>
+
+                <ListItem button component={ RouterLink }>
+                    <ListItemIcon>
+                        <MyLocation></MyLocation>
+                    </ListItemIcon>
+                    <ListItemText>
+                        TODO: Nearby
+                    </ListItemText>
+                </ListItem>
+
+                <Divider />
+
+                <ListSubheader>
+                    { t('noun.mountain') }
+                </ListSubheader>
             {
                 mountains.map(mountain => {
                     return (
-                        <Link to={ `/mountain/${ mountain.Mountain }` } key={ mountain.Mountain}> 
-                            <ListItem button>
-                                { mountain.Mountain }
-                                <Chip label={ mountain.TrailCount}>
-                                </Chip>
-                            </ListItem>
-                        </Link>
+                        <ListItem button component={ RouterLink } to={ `/mountain/${ mountain.Mountain }` } key={ mountain.Mountain}>
+                            <ListItemText primary={ mountain.Mountain } />
+                            <Chip label={ mountain.TrailCount}>
+                            </Chip>
+                        </ListItem>
                     );
                 })
             }
             </List>
+        </Paper>
     )
 }
 
-export default MountainsMenu;
+export default withTranslation()(MountainsMenu);

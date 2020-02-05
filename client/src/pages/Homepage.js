@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import {
-    useParams, Link
-  } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
-import { Grid, Paper } from '@material-ui/core';
+import { Grid, Link, Card, CardActionArea, Typography, Container, CardContent } from '@material-ui/core';
 import Loader from "../global/Loader/Loader";
+import { withTranslation } from "react-i18next";
 
-function Homepage() {
+function Homepage(props) {
 
+    const { t } = props;
     const [ isLoading, setLoading ] = useState(true);
     const [ mountains, setMountains ] = useState([]);
 
@@ -25,21 +25,32 @@ function Homepage() {
         return <Loader></Loader>
 
     return (
-      <Grid container spacing={2}>
-          {
-            mountains.map(mountain => 
-                <Grid item xs={3}>
-                    <Link to={ `/mountain/${ mountain.Mountain }` }>
-                        <Paper>
-                            { mountain.Mountain } ({ mountain.TrailCount })
-                        </Paper>
-                    </Link>
-                </Grid>
-            )
-          }
-        
-      </Grid>
+    <Container>
+        <Grid container spacing={2}>
+            {
+                mountains.map(mountain => 
+                    <Grid item xs={3}>
+                        <Link underline="none" component={RouterLink}  to={ `/mountain/${ mountain.Mountain }` }>
+                            <Card>
+                                <CardActionArea>
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="h2">
+                                            { mountain.Mountain }
+                                        </Typography>
+
+                                        <Typography variant="body1" color="textSecondary">
+                                            { mountain.TrailCount }
+                                        </Typography>
+                                    </CardContent>
+                                </CardActionArea>
+                            </Card>
+                        </Link>
+                    </Grid>
+                )
+            }
+        </Grid>
+      </Container>
     )
 }
 
-export default Homepage;
+export default withTranslation()(Homepage);
