@@ -13,34 +13,38 @@
 ### Spinning up the database
 Run the following command to start the database container
 
-     docker run --name "staze-hr-db" -p 25432:5432 -d -t zeroghan/staze-hr-db
+> docker run --name "staze-hr-db" -p 25432:5432 -d -t zeroghan/staze-hr-db
 
 This will download the database image and setup a postgres contianer running on localhost:25432. The username and password for this postgres instance are "docker". 
 
-You can use pgAdmin to explore it. https://www.pgadmin.org/download/pgadmin-4-windows/
+You can use pgAdmin to explore it, but you don't have to if you don't care about it. https://www.pgadmin.org/download/pgadmin-4-windows/
 
 ---
 ### Setting up the project
+
+Here's how to get backend and frontend up and running:
+
+**Backend**
 
 1. Go to **/backend**
 2. Copy the **.env.template** as **.env** file
 3. Run the following commands
 
-     npm install 
-     
-     npm install -g nodemon
+ > npm install    
+ > npm install -g nodemon
 
 4. Run the following to start the backend server:
 
-     npm run dev
+> npm run dev
 
 The backend server should be running on http://localhost:4000. Navigate to http://localhost:4000/api/trails to verify it's working.
 
-5. Open a new terminal window and navigate to **/client**
-8. Run the following commands
+**Frontend**
 
-     npm install
+1. Open a new terminal window and navigate to **/client**
+2. Run the following commands
 
-     npm start
+> npm install   
+> npm start
 
-9. You're done! 🎉🥳
+3. You're done! 🎉🥳
