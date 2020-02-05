@@ -27,7 +27,8 @@
         "signup": "Pridruži se",
         "register": "Registracija",
         "maintains": "Održava",
-        "navigate": "Navigiraj"
+        "navigate": "Navigiraj",
+        "orderby": "Sortiraj"
     },
 
     "strings": {
@@ -38,6 +39,12 @@
         "trail_description": "Opis staze",
         "related_information": "Povezane informacije",
         "important_coordinates": "Važne koordinate",
-        "coordinates_disclaimer": "Početne i završne koordinate ponekad znaju biti zamijenjene, ovisno o smjeru snimanja GPS traga. Molimo vas da provjerite točnost koordinate samostalno prije početka uspona."
+        "coordinates_disclaimer": "Početne i završne koordinate ponekad znaju biti zamijenjene, ovisno o smjeru snimanja GPS traga. Molimo vas da provjerite točnost koordinate samostalno prije početka uspona.",
+        "orderby_name_asc": "Po nazivu (uzlazno)",
+        "orderby_name_desc": "Po nazivu (silazno)",
+        "orderby_duration_asc": "Po trajanju (uzlazno)",
+        "orderby_duration_desc": "Po trajanju (silazno)",
+        "orderby_distance_asc": "Po udaljenosti (uzlazno)",
+        "orderby_distance_desc": "Po udaljenosti (silazno)"
     }
 }
