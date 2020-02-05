@@ -3,7 +3,7 @@ export function mapImageUrl(mapName) {
 }
 
 export function prettyPrintCoordinates(coordinates) {
-    return coordinates.toString().substring(0,8) 
+    return `${ coordinates[1].toString().substring(0,8) }, ${ coordinates[0].toString().substring(0,8) }`
 }
 
 export function renderNavigateToCoordinatesLink(coordinates) {

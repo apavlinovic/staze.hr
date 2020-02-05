@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Card, CardContent, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import Pagination from "material-ui-flat-pagination";
-
 import Loader from "../global/Loader/Loader";
-import { Link } from "react-router-dom";
 
-import { prettyPrintCoordinates, renderNavigateToCoordinatesLink } from "../global/Helpers";
+import TrailListItem from "./TrailListItem";
 
-const Trails = (props) => {
+import './TrailList.scss'
+
+const TrailList = (props) => {
     const { mountain } = props;
     const [ isLoading , setLoading  ]= useState(true);
     const [ trails , setTrails  ]= useState({});
@@ -38,27 +38,14 @@ const Trails = (props) => {
 
     return (
         <>
-        <h2>{ mountain }</h2>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} className="ui--TrailList">
         {
-            trails.rows.map(trail => {
-                return (
-                    <Grid item key={ trail.Id } md={12} xs={12}>
-                        <Card>
-                            <CardContent>
-                                <Link to={ `/trail/${ trail.Slug }` }>
-                                    <h3>{ trail.Name }</h3>
-                                </Link>
-                                { trail.Duration }h | { trail.Distance }km |
-                                { trail.StartLocation } 
-                                <a target="_blank" href={ renderNavigateToCoordinatesLink(trail.StartLocationCoords) }>
-                                    { trail.StartLocationCoords.coordinates[1] }, { trail.StartLocationCoords.coordinates[0] }
-                                </a>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                )
-            })
+            trails.rows.map(trail => (
+                <Grid item key={ trail.Id } md={6} xs={12}>
+                    <TrailListItem trail={ trail }>
+                    </TrailListItem>
+                </Grid>
+            ))
         }
         </Grid>
 
@@ -66,6 +53,7 @@ const Trails = (props) => {
             trails.count > pageSize
             ? (
                 <Pagination
+                    className="ui--TrailListPagination"
                     limit={ pageSize }
                     total={ trails.count }
                     offset={ offset }
@@ -78,4 +66,4 @@ const Trails = (props) => {
     )
 }
 
-export default Trails;
+export default TrailList;

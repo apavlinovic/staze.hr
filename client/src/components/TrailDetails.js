@@ -70,7 +70,7 @@ function TrailDetails(props) {
                                 {t('noun.start_coordinates')}
                             </Typography>
                             <Typography variant="h5">
-                                { prettyPrintCoordinates(trail.StartLocationCoords.coordinates[1]) }, { prettyPrintCoordinates(trail.StartLocationCoords.coordinates[0]) }
+                                { prettyPrintCoordinates(trail.StartLocationCoords.coordinates) }
                             </Typography>
                         </CardContent>
                         <CardActions>
@@ -88,7 +88,7 @@ function TrailDetails(props) {
                                 {t('noun.end_coordinates')}
                             </Typography>
                             <Typography variant="h5">
-                                { prettyPrintCoordinates(trail.EndLocationCoords.coordinates[1]) }, { prettyPrintCoordinates(trail.EndLocationCoords.coordinates[0]) }
+                                { prettyPrintCoordinates(trail.EndLocationCoords.coordinates) }
                             </Typography>
                         </CardContent>
                         <CardActions>

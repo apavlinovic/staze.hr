@@ -3,9 +3,9 @@ import {
     useParams
   } from "react-router-dom";
 
-import Trails from '../components/Trails';
+import TrailList from '../components/TrailList';
 import MountainsMenu from '../components/MountainsMenu';
-import { Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 
 function MountainTrails() {
     let { mountain } = useParams()
@@ -16,7 +16,11 @@ function MountainTrails() {
             <MountainsMenu></MountainsMenu>
         </Grid>
         <Grid item xs={8}>
-            <Trails mountain={mountain}></Trails>
+            <Typography gutterBottom variant="h4" component="h2">
+              { mountain }
+            </Typography>
+
+            <TrailList mountain={mountain}></TrailList>
         </Grid>
       </Grid>
     )
