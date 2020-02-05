@@ -2,9 +2,7 @@
 
 ![Staze HR](https://i.imgur.com/buqWaH0.png)
 
-## Project setup
-
-### Prerequisites
+## Prerequisites
 * Install Docker Desktop for Windows or Mac (https://docs.docker.com/get-docker/). Create an account on Docker Hub if you don't already have one.
 * Install the latest version of node.js
 
@@ -20,7 +18,8 @@ This will download the database image and setup a postgres contianer running on 
 You can use pgAdmin to explore it, but you don't have to if you don't care about it. https://www.pgadmin.org/download/pgadmin-4-windows/
 
 ---
-### Setting up the project
+
+## Setting up the project
 
 Here's how to get backend and frontend up and running:
 
@@ -49,3 +48,14 @@ The backend server should be running on http://localhost:4000. Navigate to http:
 
 3. The frontend should automatically launch at http://localhost:3000
 4. You're done! 🎉🥳
+
+---
+
+## Branch permissions and naming strategy
+
+- **master is not protected against pushes**. This is a limitation for Github's private repositories and only available for public and PRO repos. Please do not push into master if you're working on a feature. Bug fixes should be pushed directly to master.
+- **Branch naming strategy**: 
+
+> staze-descriptive-branch-name
+
+- **Commmit messages guide** is available here https://www.conventionalcommits.org/en/v1.0.0-beta.2/
