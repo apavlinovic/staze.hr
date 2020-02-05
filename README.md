@@ -1,7 +1,5 @@
 # staze.hr website project
 
-![Staze HR](https://raw.githubusercontent.com/apavlinovic/staze.hr/master/client/public/branding/1x/staze-logo.png?token=AAIWGMYNC2ET4BY6HK6CF6S6HID5Y)
-
 ## Project setup
 
 ### Prerequisites
