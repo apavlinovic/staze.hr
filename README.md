@@ -1,5 +1,7 @@
 # staze.hr website project
 
+![Staze HR](https://i.imgur.com/buqWaH0.png)
+
 ## Project setup
 
 ### Prerequisites
