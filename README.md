@@ -47,4 +47,5 @@ The backend server should be running on http://localhost:4000. Navigate to http:
 > npm install   
 > npm start
 
-3. You're done! 🎉🥳
+3. The frontend should automatically launch at http://localhost:3000
+4. You're done! 🎉🥳
