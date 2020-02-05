@@ -28,7 +28,8 @@
         "register": "Registracija",
         "maintains": "Održava",
         "navigate": "Navigiraj",
-        "orderby": "Sortiraj"
+        "order_by": "Sortiraj",
+        "filter_by": "Filtriraj"
     },
 
     "strings": {
@@ -40,11 +41,20 @@
         "related_information": "Povezane informacije",
         "important_coordinates": "Važne koordinate",
         "coordinates_disclaimer": "Početne i završne koordinate ponekad znaju biti zamijenjene, ovisno o smjeru snimanja GPS traga. Molimo vas da provjerite točnost koordinate samostalno prije početka uspona.",
-        "orderby_name_asc": "Po nazivu (uzlazno)",
-        "orderby_name_desc": "Po nazivu (silazno)",
-        "orderby_duration_asc": "Po trajanju (uzlazno)",
-        "orderby_duration_desc": "Po trajanju (silazno)",
-        "orderby_distance_asc": "Po udaljenosti (uzlazno)",
-        "orderby_distance_desc": "Po udaljenosti (silazno)"
+        "order_by_name_asc": "Po nazivu (uzlazno)",
+        "order_by_name_desc": "Po nazivu (silazno)",
+        "order_by_duration_asc": "Po trajanju (uzlazno)",
+        "order_by_duration_desc": "Po trajanju (silazno)",
+        "order_by_distance_asc": "Po udaljenosti (uzlazno)",
+        "order_by_distance_desc": "Po udaljenosti (silazno)",
+        "filter_distance_1": "Do 1 km",
+        "filter_distance_2": "Do 2 km",
+        "filter_distance_3": "Do 3 km",
+        "filter_distance_4": "Do 4 km",
+        "filter_distance_5": "Do 5 km",
+        "filter_distance_10": "Do 10 km",
+        "filter_distance_15": "Do 15 km",
+        "filter_distance_max": "Sve udaljenosti",
+        "no_results": "Nema rezultata."
     }
 }

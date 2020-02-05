@@ -28,7 +28,8 @@
         "register": "Register",
         "maintains": "Maintained by",
         "navigate": "Navigate",
-        "orderby": "Order by"
+        "order_by": "Order by",
+        "filter_by": "Filter"
     },
 
     "strings": {
@@ -40,11 +41,20 @@
         "related_information": "Related information",
         "important_coordinates": "Notable coordinates",
         "coordinates_disclaimer": "Start and end coordinates can be swapped, depending of the direction the GPS trace was recorded. Please check the coordinate validity before starting navigation.",
-        "orderby_name_asc": "Name (asc)",
-        "orderby_name_desc": "Name (desc)",
-        "orderby_duration_asc": "Duration (asc)",
-        "orderby_duration_desc": "Duration (desc)",
-        "orderby_distance_asc": "Distance (asc)",
-        "orderby_distance_desc": "Distance (desc)"
+        "order_by_name_asc": "Name (asc)",
+        "order_by_name_desc": "Name (desc)",
+        "order_by_duration_asc": "Duration (asc)",
+        "order_by_duration_desc": "Duration (desc)",
+        "order_by_distance_asc": "Distance (asc)",
+        "order_by_distance_desc": "Distance (desc)",
+        "filter_distance_1": "Up to 1 km",
+        "filter_distance_2": "Up to 2 km",
+        "filter_distance_3": "Up to 3 km",
+        "filter_distance_4": "Up to 4 km",
+        "filter_distance_5": "Up to 5 km",
+        "filter_distance_10": "Up to 10 km",
+        "filter_distance_15": "Up to 15 km",
+        "filter_distance_max": "Any distance",
+        "no_results": "No results."
     }
 }

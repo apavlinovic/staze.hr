@@ -7,7 +7,9 @@ router.get('/trails', async function(req, res, next) {
       page, 
       orderBy,
       mountain,
-      maintainer
+      maintainer,
+      distance,
+      duration
     } = req.query;
 
     if(orderBy) {
@@ -17,7 +19,7 @@ router.get('/trails', async function(req, res, next) {
       })
     }
 
-    await GetTrails(pageSize, page, orderBy, mountain, maintainer).then(
+    await GetTrails(pageSize, page, orderBy, mountain, maintainer, distance, duration).then(
       (results) => {
         res.status(200).json(results);
         next();

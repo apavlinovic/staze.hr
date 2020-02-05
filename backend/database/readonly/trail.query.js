@@ -1,7 +1,7 @@
 const { Trail } = require("./../models/trail.model")
 const { Op, fn, literal } = require("sequelize");
 
-function GetTrails(pageSize = 20, page = 1, orderBy = [["Id", "asc"]], mountain = null, maintainer = null) {
+function GetTrails(pageSize = 20, page = 1, orderBy = [["Id", "asc"]], mountain = null, maintainer = null, distance = null) {
     let where = {
         [Op.and]: []
     };
@@ -11,6 +11,9 @@ function GetTrails(pageSize = 20, page = 1, orderBy = [["Id", "asc"]], mountain 
     
     if(maintainer)
         where[Op.and].push({ Maintainer: maintainer })
+
+    if(distance && parseInt(distance))
+        where[Op.and].push({ Distance: { [Op.lte]: parseInt(distance) }})
 
     return Trail.findAndCountAll({
         limit: pageSize,
