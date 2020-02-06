@@ -171,7 +171,15 @@ function TrailDetails(props) {
             </section>
 
             <section>
-                {/* TODO: TRAIL ELEVATION GRAPH  */}
+                <Typography variant="h5" component="h2" gutterBottom>
+                    { t('noun.elevation_graph') }
+                </Typography>
+
+                <Card>
+                    <CardContent>
+                    {/* TODO: TRAIL ELEVATION GRAPH  */}
+                    </CardContent>
+                </Card>
             </section>
         </Container>
     )
