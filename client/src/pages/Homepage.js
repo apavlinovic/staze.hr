@@ -29,7 +29,7 @@ function Homepage(props) {
         <Grid container spacing={2}>
             {
                 mountains.map(mountain => 
-                    <Grid item xs={3}>
+                    <Grid item md={3} xs={12}>
                         <Link underline="none" component={RouterLink}  to={ `/mountain/${ mountain.Mountain }` }>
                             <Card>
                                 <CardActionArea>

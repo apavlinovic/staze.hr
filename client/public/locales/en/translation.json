@@ -18,7 +18,8 @@
         "start_location": "Start location",
         "start_coordinates": "Start coordinates",
         "end_coordinates": "End coordinates",
-        "maintainer": "Maintainer"
+        "maintainer": "Maintainer",
+        "elevation_graph": "Elevation graph"
     },
 
     "verb": {
@@ -27,7 +28,9 @@
         "signup": "Sign Up",
         "register": "Register",
         "maintains": "Maintained by",
-        "navigate": "Navigate"
+        "navigate": "Navigate",
+        "order_by": "Order by",
+        "filter_by": "Filter"
     },
 
     "strings": {
@@ -38,6 +41,27 @@
         "trail_description": "Trail description",
         "related_information": "Related information",
         "important_coordinates": "Notable coordinates",
-        "coordinates_disclaimer": "Start and end coordinates can be swapped, depending of the direction the GPS trace was recorded. Please check the coordinate validity before starting navigation."
+        "coordinates_disclaimer": "Start and end coordinates can be swapped, depending of the direction the GPS trace was recorded. Please check the coordinate validity before starting navigation.",
+        "order_by_name_asc": "Name (asc)",
+        "order_by_name_desc": "Name (desc)",
+        "order_by_duration_asc": "Duration (asc)",
+        "order_by_duration_desc": "Duration (desc)",
+        "order_by_distance_asc": "Distance (asc)",
+        "order_by_distance_desc": "Distance (desc)",
+        "filter_distance_1": "Up to 1 km",
+        "filter_distance_2": "Up to 2 km",
+        "filter_distance_3": "Up to 3 km",
+        "filter_distance_4": "Up to 4 km",
+        "filter_distance_5": "Up to 5 km",
+        "filter_distance_10": "Up to 10 km",
+        "filter_distance_15": "Up to 15 km",
+        "filter_distance_max": "Any distance",
+        "filter_duration_1": "Up to 1 hour",
+        "filter_duration_2": "Up to 2 hour",
+        "filter_duration_3": "Up to 3 hour",
+        "filter_duration_4": "Up to 4 hour",
+        "filter_duration_5": "Up to 5 hour",
+        "filter_duration_max": "Any duration",
+        "no_results": "No results."
     }
 }

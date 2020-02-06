@@ -1,5 +1,8 @@
 export function mapImageUrl(mapName) {
-    return `/maps/${mapName}`
+    if(mapName)
+        return `/maps/${mapName}`
+
+    return `/default-trail-image.jpg`;
 }
 
 export function prettyPrintCoordinates(coordinates) {

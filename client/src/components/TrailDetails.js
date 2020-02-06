@@ -74,8 +74,12 @@ function TrailDetails(props) {
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="small" color="primary" href={ renderNavigateToCoordinatesLink(trail.StartLocationCoords) } target="_blank">
-                                { t('verb.navigate') } <LaunchIcon></LaunchIcon>
+                            <Button size="small" 
+                                endIcon={ <LaunchIcon /> }
+                                color="primary" 
+                                href={ renderNavigateToCoordinatesLink(trail.StartLocationCoords) } 
+                                target="_blank">
+                                { t('verb.navigate') }
                             </Button>
                         </CardActions>
                     </Card>
@@ -92,8 +96,12 @@ function TrailDetails(props) {
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="small" color="primary" href={ renderNavigateToCoordinatesLink(trail.EndLocationCoords) } target="_blank">
-                                { t('verb.navigate') } <LaunchIcon></LaunchIcon>
+                            <Button size="small" 
+                                endIcon={ <LaunchIcon /> }
+                                color="primary" 
+                                href={ renderNavigateToCoordinatesLink(trail.EndLocationCoords) } 
+                                target="_blank">
+                                { t('verb.navigate') } 
                             </Button>
                         </CardActions>
                     </Card>
@@ -148,14 +156,30 @@ function TrailDetails(props) {
                         <TableRow>
                             <TableCell component="th" scope="row">{ t('strings.related_information') }</TableCell>
                             <TableCell>
-                                <Button size="small" color="primary" href={ trail.RelatedInformationLink } target="_blank">
-                                    { t('noun.link') } <LaunchIcon></LaunchIcon>
+                                <Button size="small" 
+                                    endIcon={<LaunchIcon />}
+                                    color="primary" 
+                                    href={ trail.RelatedInformationLink } 
+                                    target="_blank">
+                                    { t('noun.link') }
                                 </Button>
                             </TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>
             </TableContainer>
+            </section>
+
+            <section>
+                <Typography variant="h5" component="h2" gutterBottom>
+                    { t('noun.elevation_graph') }
+                </Typography>
+
+                <Card>
+                    <CardContent>
+                    {/* TODO: TRAIL ELEVATION GRAPH  */}
+                    </CardContent>
+                </Card>
             </section>
         </Container>
     )
