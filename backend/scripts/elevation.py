@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os, glob
 
-plot_path = "../public/elevation-plots/"
+plot_path = "../../client/public/elevation-plots/"
 trail_path = '../public/trails/traces'
 
 def distance(origin, destination):
