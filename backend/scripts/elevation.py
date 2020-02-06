@@ -67,7 +67,7 @@ def plot_trace(distances, elevations, file_name):
     plt.legend(fontsize='small')
     # plt.show()
 
-    plt.savefig(plot_path + file_name + ".png", dpi=150)
+    plt.savefig(plot_path + file_name + ".jpg", dpi=150)
     plt.close()
 
 
