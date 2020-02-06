@@ -10,7 +10,7 @@ import LaunchIcon from '@material-ui/icons/Launch';
 import { Card, CardContent, Grid, CardActions, Button, Container, Breadcrumbs } from "@material-ui/core";
 import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
-import { prettyPrintCoordinates, renderNavigateToCoordinatesLink, mapImageUrl } from "../global/Helpers";
+import { prettyPrintCoordinates, renderNavigateToCoordinatesLink, mapImageUrl, mapGraphUrl } from "../global/Helpers";
 
 import './TrailDetails.scss';
 
@@ -177,7 +177,7 @@ function TrailDetails(props) {
 
                 <Card>
                     <CardContent>
-                    {/* TODO: TRAIL ELEVATION GRAPH  */}
+                        <img src={ mapGraphUrl(trail.MapName) } alt={ trail.Name } />               
                     </CardContent>
                 </Card>
             </section>
