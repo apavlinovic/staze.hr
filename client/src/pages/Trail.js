@@ -28,10 +28,10 @@ function Trail() {
 
     return (
       <Grid container>
-        <Grid item xs={9}>
+        <Grid item md={9}>
             <TrailDetails trail={ trail } />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item md={3}>
           <Paper>
             TODO: Ocijeni ovaj trail
             <hr />
