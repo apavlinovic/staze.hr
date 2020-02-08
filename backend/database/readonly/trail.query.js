@@ -1,4 +1,4 @@
-const { Trail } = require("./../models/trail.model")
+const { Trail } = require("../models/trail.model")
 const { Op, fn, where, col, cast } = require("sequelize");
 
 function GetTrails(
@@ -10,9 +10,10 @@ function GetTrails(
     distance = null, 
     duration = null
 ) {
+
     let whereStatement = {
         [Op.and]: []
-    };
+    };    
 
     if(mountain)
         whereStatement[Op.and].push({ Mountain: mountain })

@@ -8,7 +8,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import LaunchIcon from '@material-ui/icons/Launch';
 import { Card, CardContent, Grid, CardActions, Button, Container, Breadcrumbs } from "@material-ui/core";
-import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import { prettyPrintCoordinates, renderNavigateToCoordinatesLink, mapImageUrl, mapGraphUrl } from "../global/Helpers";
 
@@ -18,30 +17,11 @@ function TrailDetails(props) {
     const { trail, t } = props;
 
     return (
-        <Container className="ui--TrailDetails">
-
+        <section className="ui--TrailDetails">
             <section>
-                <Breadcrumbs aria-label="breadcrumb">
-                    <Link color="inherit" to={ `/mountain/${ trail.Mountain }` }>
-                        { trail.Mountain }
-                    </Link>
-
-                    <Typography color="textPrimary">{ trail.Name }</Typography>
-                </Breadcrumbs>
-            </section>
-            
-            <section>
-            <Typography variant="h3" component="h1" gutterBottom>
-                { trail.Name }
-            </Typography>
-            </section>
-
-            <section>
-                <Card>
-                    <CardContent>
-                        <img src={ mapImageUrl(trail.MapName) } alt={ trail.Name } />               
-                    </CardContent>
-                </Card>
+                <Paper>
+                    <img src={ mapImageUrl(trail.MapName) } alt={ trail.Name } />               
+                </Paper>
             </section>
 
             <section>
@@ -175,13 +155,11 @@ function TrailDetails(props) {
                     { t('noun.elevation_graph') }
                 </Typography>
 
-                <Card>
-                    <CardContent>
-                        <img src={ mapGraphUrl(trail.MapName) } alt={ trail.Name } />               
-                    </CardContent>
-                </Card>
+                <Paper>
+                    <img src={ mapGraphUrl(trail.MapName) } alt={ trail.Name } />               
+                </Paper>
             </section>
-        </Container>
+        </section>
     )
 }
 
