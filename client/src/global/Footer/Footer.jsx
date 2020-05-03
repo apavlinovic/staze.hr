@@ -5,7 +5,6 @@ import GlobalSearch from '../GlobalSearch/GlobalSearch';
 import './Footer.scss';
 
 function Footer() {
-   
     return (
         <footer className="ui--Footer">
             <GlobalSearch></GlobalSearch>

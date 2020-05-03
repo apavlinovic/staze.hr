@@ -5,17 +5,16 @@ import './Logo.scss';
 import { Link } from 'react-router-dom';
 
 function Logo(props) {
-
-    const { variant = "default", t } = props;
+    const { variant = 'default', t } = props;
     const logoVariants = {
-        "default": "/branding/SVG/staze-logo@vector.svg",
-        "white":  "/branding/SVG/staze-logo-white@vector.svg",
-    }
-   
+        default: '/branding/SVG/staze-logo@vector.svg',
+        white: '/branding/SVG/staze-logo-white@vector.svg',
+    };
+
     return (
         <Link className="ui--Logo" to="/">
             <picture>
-                <img src={ logoVariants[variant] } alt={t('strings.logo_description')} />
+                <img src={logoVariants[variant]} alt={t('strings.logo_description')} />
             </picture>
         </Link>
     );
