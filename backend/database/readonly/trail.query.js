@@ -1,70 +1,66 @@
-const { Trail } = require("../models/trail.model")
-const { Op, fn, where, col, cast } = require("sequelize");
+const { Trail } = require('../models/trail.model');
+const { Op, fn, where, col, cast } = require('sequelize');
 
 function GetTrails(
-    pageSize = 20, 
-    page = 1, 
-    orderBy = [["Id", "asc"]], 
-    mountain = null, 
-    maintainer = null, 
-    distance = null, 
-    duration = null
+    pageSize = 20,
+    page = 1,
+    orderBy = [['Id', 'asc']],
+    mountain = null,
+    maintainer = null,
+    distance = null,
+    duration = null,
 ) {
-
     let whereStatement = {
-        [Op.and]: []
-    };    
+        [Op.and]: [],
+    };
 
-    if(mountain)
-        whereStatement[Op.and].push({ Mountain: mountain })
-    
-    if(maintainer)
-        whereStatement[Op.and].push({ Maintainer: maintainer })
+    if (mountain) whereStatement[Op.and].push({ Mountain: mountain });
 
-    if(distance && parseInt(distance)) 
-        whereStatement[Op.and].push({ Distance: { [Op.lte]: parseInt(distance) }})
+    if (maintainer) whereStatement[Op.and].push({ Maintainer: maintainer });
 
-    if(duration)
-        whereStatement[Op.and].push(where(
-            cast(fn("TO_TIMESTAMP", col('Duration'), 'HH24:MI:SS'), 'TIME'), {
-                [Op.lte]: duration
-            }
-        ))
+    if (distance && parseInt(distance))
+        whereStatement[Op.and].push({ Distance: { [Op.lte]: parseInt(distance) } });
+
+    if (duration)
+        whereStatement[Op.and].push(
+            where(cast(fn('TO_TIMESTAMP', col('Duration'), 'HH24:MI:SS'), 'TIME'), {
+                [Op.lte]: duration,
+            }),
+        );
 
     return Trail.findAndCountAll({
         limit: pageSize,
         offset: pageSize * (page - 1),
         where: whereStatement,
-        order: orderBy
+        order: orderBy,
     });
 }
 
-function GetTrailMountains() {
-
+function GetAllMountainNames() {
     return Trail.findAll({
         attributes: ['Mountain', [fn('COUNT', 'Mountain'), 'TrailCount']],
         group: 'Mountain',
-        order: [['Mountain', 'ASC']]
+        order: [['Mountain', 'ASC']],
     });
 }
 
 function GetTrailById(trailId = 1) {
-    return Trail.findByPk(trailId)
+    return Trail.findByPk(trailId);
 }
 
 function GetTrailBySlug(trailSlug = '') {
     return Trail.findOne({
         where: {
             Slug: {
-                [Op.eq]: trailSlug
-            }
-        }
-    })
+                [Op.eq]: trailSlug,
+            },
+        },
+    });
 }
 
 module.exports = {
     GetTrailById,
     GetTrailBySlug,
     GetTrails,
-    GetTrailMountains
-}
+    GetAllMountainNames,
+};
