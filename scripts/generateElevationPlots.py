@@ -3,17 +3,19 @@ import gpxpy.gpx
 import math
 import matplotlib.pyplot as plt
 import numpy as np
-import os, glob
+import os
+import glob
 
-plot_path = "../../client/public/elevation-plots/"
-trail_path = '../public/trails/traces'
+plot_path = "./client/public/elevation-plots"
+trail_path = './backend/public/trails/traces'
+
 
 def distance(origin, destination):
     R = 6373.0
 
     lat1, lon1 = origin
     lat2, lon2 = destination
-    radius = 6371 # km
+    radius = 6371  # km
 
     dlat = math.radians(lat2-lat1)
     dlon = math.radians(lon2-lon1)
@@ -46,20 +48,22 @@ def parse_file(gpx_file):
 
 
 def plot_trace(distances, elevations, file_name):
-    mean_elev=round((sum(elevations)/len(elevations)),3)
-    min_elev=round(min(elevations),2)
-    max_elev=round(max(elevations),2)
-    distance=distances[-1]
-    base_reg= min_elev - (max_elev - min_elev) / 6
+    mean_elev = round((sum(elevations)/len(elevations)), 3)
+    min_elev = round(min(elevations), 2)
+    max_elev = round(max(elevations), 2)
+    distance = distances[-1]
+    base_reg = min_elev - (max_elev - min_elev) / 6
 
-    plt.figure(figsize=(8,6))
+    plt.figure(figsize=(8, 6))
     plt.plot(distances, elevations)
 
-    plt.plot([0,distance],[min_elev,min_elev],'--g',label='min: '+str(min_elev)+' m')
-    plt.plot([0,distance],[max_elev,max_elev],'--b',label='max: '+str(max_elev)+' m')
+    plt.plot([0, distance], [min_elev, min_elev],
+             '--g', label='min: '+str(min_elev)+' m')
+    plt.plot([0, distance], [max_elev, max_elev],
+             '--b', label='max: '+str(max_elev)+' m')
     # plt.plot([0,distance],[mean_elev,mean_elev],'--y',label='ave: '+str(mean_elev)+' m')
 
-    plt.fill_between(distances,elevations,base_reg, alpha=0.1, color="green")
+    plt.fill_between(distances, elevations, base_reg, alpha=0.1, color="green")
 
     plt.xlabel("Distance(km)")
     plt.ylabel("Elevation(m)")
@@ -67,7 +71,7 @@ def plot_trace(distances, elevations, file_name):
     plt.legend(fontsize='small')
     # plt.show()
 
-    plt.savefig(plot_path + file_name + ".jpg", dpi=150)
+    plt.savefig(plot_path + "/" + file_name + ".jpg", dpi=150)
     plt.close()
 
 
@@ -78,9 +82,7 @@ for file_path in glob.glob(os.path.join(trail_path, '*.gpx')):
             distances, elevations = parse_file(gpx_file)
             plot_trace(distances, elevations, file_name)
     except:
-        f = open(plot_path + "log.txt","w+")
+        f = open(plot_path + "/" + "log.txt", "w+")
         f.write(file_name)
         f.close()
         continue
-  
-
