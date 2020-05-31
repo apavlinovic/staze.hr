@@ -1,12 +1,12 @@
 const { DatabaseConnection } = require('../db-connection');
-const { Model, TEXT, STRING, NUMBER, TIME } = require('sequelize');
+const { Model, TEXT, STRING, NUMBER, TIME, BOOLEAN } = require('sequelize');
 
 class User extends Model {}
 User.init(
     {
         UserId: {
             type: NUMBER,
-            allowNull: false,
+            autoIncrement: true,
             primaryKey: true,
         },
 
@@ -22,11 +22,25 @@ User.init(
 
         Description: {
             type: TEXT,
+            allowNull: true,
         },
 
         RegisteredOn: {
             type: TIME,
             allowNull: false,
+            defaultValue: new Date(),
+        },
+
+        IsAdmin: {
+            type: BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        },
+
+        AccountStatus: {
+            type: NUMBER,
+            allowNull: false,
+            defaultValue: 0,
         },
     },
     {

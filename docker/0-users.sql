@@ -1,7 +1,9 @@
 CREATE TABLE public.users (
-    "UserId" integer NOT NULL PRIMARY KEY,
+    "UserId" serial PRIMARY KEY,
     "Name" character varying(1000) NOT NULL,
     "Email" character varying(1000) NOT NULL,
     "Description" text,
-    "RegisteredOn" timestamp without time zone NOT NULL
+    "RegisteredOn" timestamp without time zone NOT NULL,
+    "IsAdmin" boolean NOT NULL,
+    "AccountStatus" integer NOT NULL
 );

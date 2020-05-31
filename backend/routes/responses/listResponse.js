@@ -16,7 +16,7 @@ function ListResponse(
         if (!resultSupplier) {
             next(
                 new Error(
-                    'ListResponse can not work without a ResultSupplier.',
+                    "ListResponse can't work without a provided ResultSupplier.",
                 ),
             );
 
@@ -63,7 +63,7 @@ function ListResponse(
 
         await resultSupplier(page, pageSize, hydratedOrderBy, query).then(
             (results) => {
-                if (allowResponseCaching) {
+                if (allowResponseCaching && results) {
                     QueryAPICache.set(url, {
                         rows: results.rows.map((result) => result.toJSON()),
                         count: results.count,
