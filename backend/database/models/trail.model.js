@@ -1,104 +1,107 @@
-const { DatabaseConnection } = require("../db-connection");
+const { DatabaseConnection } = require('../db-connection');
 const { Model, STRING, NUMBER, TIME, DECIMAL, BOOLEAN, GEOGRAPHY } = require('sequelize');
 
 class Trail extends Model {}
-Trail.init({
-    Id: {
-        type: NUMBER,
-        allowNull: false,
-        primaryKey: true
-    },
+Trail.init(
+    {
+        Id: {
+            type: NUMBER,
+            allowNull: false,
+            primaryKey: true,
+        },
 
-    Name: {
-        type: STRING,
-        allowNull: false
-    },
+        Name: {
+            type: STRING,
+            allowNull: false,
+        },
 
-    Description: {
-        type: STRING,
-    },
+        Description: {
+            type: STRING,
+        },
 
-    Type: {
-        type: STRING,
-        allowNull: false
-    },
+        Type: {
+            type: STRING,
+            allowNull: false,
+        },
 
-    Slug: {
-        type: STRING,
-        allowNull: false
-    },
+        Slug: {
+            type: STRING,
+            allowNull: false,
+        },
 
-    Mountain: {
-        type: STRING,
-        allowNull: false
-    },
+        Mountain: {
+            type: STRING,
+            allowNull: false,
+        },
 
-    ModifiedOn: {
-        type: TIME,
-        allowNull: false
-    },
+        ModifiedOn: {
+            type: TIME,
+            allowNull: false,
+        },
 
-    Maintainer: {
-        type: STRING,
-    },
+        Maintainer: {
+            type: STRING,
+        },
 
-    Distance: {
-        type: DECIMAL,
-    },
+        Distance: {
+            type: DECIMAL,
+        },
 
-    Duration: {
-        type: STRING,
-    },
+        Duration: {
+            type: STRING,
+        },
 
-    HeightDifference: {
-        type: STRING,
-    },
+        HeightDifference: {
+            type: STRING,
+        },
 
-    RelatedInformationLink: {
-        type: STRING,
-    },
+        RelatedInformationLink: {
+            type: STRING,
+        },
 
-    HasValidGpx: {
-        type: BOOLEAN,
-        allowNull: false
-    },
+        HasValidGpx: {
+            type: BOOLEAN,
+            allowNull: false,
+        },
 
-    GpxTraceId: {
-        type: STRING,
-    },
+        GpxTraceId: {
+            type: STRING,
+        },
 
-    GpxTraceUrl: {
-        type: STRING,
-    },
+        GpxTraceUrl: {
+            type: STRING,
+        },
 
-    MapName: {
-        type: STRING,
-    },
+        MapName: {
+            type: STRING,
+        },
 
-    OriginalMapUrl: {
-        type: STRING,
-    },
+        OriginalMapUrl: {
+            type: STRING,
+        },
 
-    StartLocation: {
-        type: STRING,
-    },
+        StartLocation: {
+            type: STRING,
+        },
 
-    StartLocationCoords: {
-        type: GEOGRAPHY("POINT", 4326),
-    },
+        StartLocationCoords: {
+            type: GEOGRAPHY('POINT', 4326),
+        },
 
-    EndLocation: {
-        type: STRING,
-    },
+        EndLocation: {
+            type: STRING,
+        },
 
-    EndLocationCoords: {
-        type: GEOGRAPHY("POINT", 4326),
+        EndLocationCoords: {
+            type: GEOGRAPHY('POINT', 4326),
+        },
     },
-}, {
-    sequelize: DatabaseConnection,
-    tableName: "trails"
-});
+    {
+        sequelize: DatabaseConnection,
+        tableName: 'trails',
+    },
+);
 
 module.exports = {
-    Trail
-}
+    Trail,
+};

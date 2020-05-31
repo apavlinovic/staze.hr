@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const getTrails = require('./trails/getTrails');
-const GetAllMountainNames = require('./mountains/getAllMountainNames');
-const getTrailHandlers = require('./trails/getTrail');
 
-router.get('/trails', getTrails);
-router.get('/trail/:trailId(\\d+)', getTrailHandlers.byId);
-router.get('/trail/:trailSlug', getTrailHandlers.bySlug);
-router.get('/mountains', GetAllMountainNames);
+router.get('/users', require('./users/getUsers'));
+
+router.get('/trails', require('./trails/getTrails'));
+router.get('/trail/:trailId(\\d+)', require('./trails/getTrail').byId);
+router.get('/trail/:trailSlug', require('./trails/getTrail').bySlug);
+
+router.get('/mountains', require('./mountains/getAllMountainNames'));
 
 module.exports = router;

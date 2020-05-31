@@ -13,7 +13,7 @@
 
 Run the following command to start the database container
 
-> docker run --name "staze-hr-db" -p 25432:5432 -d -t zeroghan/staze-hr-db
+> docker run -dp 25432:5432 -t zeroghan/staze-hr-db
 
 This will download the database image and setup a postgres contianer running on localhost:25432. The username and password for this postgres instance are "docker".
 
