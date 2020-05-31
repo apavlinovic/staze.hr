@@ -6,7 +6,7 @@ const { QueryAPICache } = require('../../services/cache.service');
  * @param {boolean} allowResponseCaching - If set to true, this endpoint will return cached results.
  */
 function ListResponse(
-    resultSupplier = (page, pageSize, orderBy, queryParams) => [],
+    resultSupplier = (page, pageSize, orderBy, queryParams) => new Promise(),
     allowResponseCaching = false,
 ) {
     return async function (request, response, next) {

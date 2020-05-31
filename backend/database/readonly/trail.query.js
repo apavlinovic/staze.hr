@@ -41,8 +41,10 @@ function GetTrails(
     });
 }
 
-function GetAllMountainNames() {
+function GetAllMountainNames(page = 1, pageSize = 20) {
     return Trail.findAndCountAll({
+        limit: pageSize,
+        offset: pageSize * (page - 1),
         attributes: ['Mountain', [fn('COUNT', 'Mountain'), 'TrailCount']],
         group: 'Mountain',
         order: [['Mountain', 'ASC']],
