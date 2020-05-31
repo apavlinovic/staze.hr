@@ -1,7 +1,7 @@
 const { User } = require('../models/user.model');
 const { Op } = require('sequelize');
 
-function GetUsers(pageSize = 20, page = 1, orderBy = [['UserId', 'asc']]) {
+function GetUsers(page = 1, pageSize = 20, orderBy = [['UserId', 'asc']]) {
     return User.findAndCountAll({
         limit: pageSize,
         offset: pageSize * (page - 1),

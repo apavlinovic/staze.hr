@@ -2,8 +2,8 @@ const { Trail } = require('../models/trail.model');
 const { Op, fn, where, col, cast } = require('sequelize');
 
 function GetTrails(
-    pageSize = 20,
     page = 1,
+    pageSize = 20,
     orderBy = [['Id', 'asc']],
     mountain = null,
     maintainer = null,
@@ -19,13 +19,18 @@ function GetTrails(
     if (maintainer) whereStatement[Op.and].push({ Maintainer: maintainer });
 
     if (distance && parseInt(distance))
-        whereStatement[Op.and].push({ Distance: { [Op.lte]: parseInt(distance) } });
+        whereStatement[Op.and].push({
+            Distance: { [Op.lte]: parseInt(distance) },
+        });
 
     if (duration)
         whereStatement[Op.and].push(
-            where(cast(fn('TO_TIMESTAMP', col('Duration'), 'HH24:MI:SS'), 'TIME'), {
-                [Op.lte]: duration,
-            }),
+            where(
+                cast(fn('TO_TIMESTAMP', col('Duration'), 'HH24:MI:SS'), 'TIME'),
+                {
+                    [Op.lte]: duration,
+                },
+            ),
         );
 
     return Trail.findAndCountAll({
@@ -37,7 +42,7 @@ function GetTrails(
 }
 
 function GetAllMountainNames() {
-    return Trail.findAll({
+    return Trail.findAndCountAll({
         attributes: ['Mountain', [fn('COUNT', 'Mountain'), 'TrailCount']],
         group: 'Mountain',
         order: [['Mountain', 'ASC']],

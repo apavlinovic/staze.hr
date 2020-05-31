@@ -1,22 +1,8 @@
-const { QueryAPICache } = require('../../services/cache.service');
 const { GetAllMountainNames } = require('../../database/readonly/trail.query');
+const { ListResponse } = require('../_common/ListResponse');
 
-module.exports = async (req, res, next) => {
-    let cachedResult = QueryAPICache.get(req.url);
-    if (cachedResult) {
-        res.status(200).json(cachedResult);
-        return;
-    }
-
-    await GetAllMountainNames().then(
-        (results) => {
-            QueryAPICache.set(
-                req.url,
-                results.map((r) => r.toJSON()),
-            );
-
-            res.status(200).json(results);
-        },
-        (error) => res.status(500).send(error),
-    );
-};
+module.exports = ListResponse(
+    (page, pageSize, orderBy, queryParams) =>
+        GetAllMountainNames(page, pageSize),
+    true,
+);

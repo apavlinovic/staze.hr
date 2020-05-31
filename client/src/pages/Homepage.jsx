@@ -20,10 +20,10 @@ function Homepage(props) {
     const [mountains, setMountains] = useState([]);
 
     useEffect(() => {
-        fetch(`/api/mountains`)
+        fetch(`/api/mountains?page=1&pageSize=100`)
             .then((res) => res.json())
             .then((results) => {
-                setMountains(results);
+                setMountains(results.rows);
                 setLoading(false);
             });
     }, [true]);
@@ -44,11 +44,18 @@ function Homepage(props) {
                             <Card>
                                 <CardActionArea>
                                     <CardContent>
-                                        <Typography gutterBottom variant="h5" component="h2">
+                                        <Typography
+                                            gutterBottom
+                                            variant="h5"
+                                            component="h2"
+                                        >
                                             {mountain.Mountain}
                                         </Typography>
 
-                                        <Typography variant="body1" color="textSecondary">
+                                        <Typography
+                                            variant="body1"
+                                            color="textSecondary"
+                                        >
                                             {mountain.TrailCount}
                                         </Typography>
                                     </CardContent>

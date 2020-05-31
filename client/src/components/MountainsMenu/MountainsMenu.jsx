@@ -20,10 +20,10 @@ function MountainsMenu(props) {
     const [mountains, setMountains] = useState([]);
 
     useEffect(() => {
-        fetch(`/api/mountains`)
+        fetch(`/api/mountains?page=1&pageSize=100`)
             .then((res) => res.json())
             .then((results) => {
-                setMountains(results);
+                setMountains(results.rows);
                 setLoading(false);
             });
     }, [true]);
