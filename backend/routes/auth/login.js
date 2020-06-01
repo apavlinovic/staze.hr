@@ -1,4 +1,3 @@
-const { SingleResponse } = require('../responses/SingleResponse');
 const { GetUserByEmail } = require('../../database/readonly/user.query');
 const { Hashify } = require('../../services/password.service');
 const { GenerateJWT } = require('../../services/auth.service');

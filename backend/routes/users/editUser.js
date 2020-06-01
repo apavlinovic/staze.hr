@@ -1,26 +1,10 @@
 const {
-    Create,
     Update,
     Delete,
     ChangePassword,
 } = require('../../database/write/user.writer');
 
 module.exports = {
-    create: async function (request, response, next) {
-        const { name, email, username, password } = request.body;
-
-        if (!password) {
-            next(new Error(`Password can't be null or empty`));
-        }
-
-        try {
-            const user = await Create(name, email, username, password);
-            response.status(200).json(user);
-        } catch (error) {
-            next(error);
-        }
-    },
-
     update: async function (request, response, next) {
         const { userId } = request.params;
         const { name, email, username, password, description } = request.body;
