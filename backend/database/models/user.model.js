@@ -20,6 +20,16 @@ User.init(
             allowNull: false,
         },
 
+        Username: {
+            type: STRING,
+            allowNull: false,
+        },
+
+        PasswordHash: {
+            type: TEXT,
+            allowNull: false,
+        },
+
         Description: {
             type: TEXT,
             allowNull: true,

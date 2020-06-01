@@ -1,5 +1,5 @@
 const { GetTrails } = require('../../database/readonly/trail.query');
-const { ListResponse } = require('../_common/listResponse');
+const { ListResponse } = require('../responses/listResponse');
 
 module.exports = ListResponse(
     (page, pageSize, orderBy, queryParams) =>

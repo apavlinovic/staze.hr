@@ -1,4 +1,4 @@
-const { SingleResponse } = require('../_common/singleResponse');
+const { SingleResponse } = require('../responses/singleResponse');
 
 const {
     GetTrailById,

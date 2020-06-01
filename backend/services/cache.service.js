@@ -1,11 +1,9 @@
-const NodeCache = require('node-cache')
+const NodeCache = require('node-cache');
+
+const { CACHED_RESPONSE_TTL_SECONDS } = process.env;
 
 module.exports = {
     QueryAPICache: new NodeCache({
-        stdTTL: 0
+        stdTTL: CACHED_RESPONSE_TTL_SECONDS,
     }),
-
-    WeatherCache: new NodeCache({
-        stdTTL: 6 * 3600 // number of hours * seconds in an hour
-    })
-}
+};
