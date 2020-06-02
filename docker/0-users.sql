@@ -1,11 +1,11 @@
 CREATE TABLE public.users (
-    "UserId" serial PRIMARY KEY,
-    "Name" character varying(1000) NOT NULL,
-    "Email" character varying(1000) NOT NULL,
-    "Username" character varying(1000) NOT NULL,
-    "PasswordHash" text NOT NULL,
+    "UserId" serial primary key,
+    "Name" character varying(1000) not null,
+    "Email" character varying(1000) not null,
+    "Username" character varying(1000) not null,
+    "PasswordHash" text not null,
     "Description" text,
-    "RegisteredOn" timestamp without time zone NOT NULL,
-    "IsAdmin" boolean NOT NULL,
-    "AccountStatus" integer NOT NULL
+    "RegisteredOn" timestamp with time zone default CURRENT_TIMESTAMP not null,
+    "AccountRole" integer default 0 not null,
+    "AccountStatus" integer default 0 not null
 );

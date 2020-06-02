@@ -41,10 +41,10 @@ User.init(
             defaultValue: new Date(),
         },
 
-        IsAdmin: {
-            type: BOOLEAN,
+        AccountRole: {
+            type: NUMBER,
             allowNull: false,
-            defaultValue: false,
+            defaultValue: 0,
         },
 
         AccountStatus: {

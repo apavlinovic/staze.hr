@@ -7,11 +7,7 @@ const {
 module.exports = {
     update: async function (request, response, next) {
         const { userId } = request.params;
-        const { name, email, username, password, description } = request.body;
-
-        if (!password) {
-            next(new Error(`Password can't be null or empty`));
-        }
+        const { name, email, username, description } = request.body;
 
         try {
             const user = await Update(
@@ -19,7 +15,6 @@ module.exports = {
                 name,
                 email,
                 username,
-                password,
                 description,
             );
 

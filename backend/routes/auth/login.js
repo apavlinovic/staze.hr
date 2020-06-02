@@ -23,7 +23,7 @@ module.exports = async function (request, response, next) {
         return;
     }
 
-    const token = await GenerateJWT(user.UserId, email);
+    const token = await GenerateJWT(user.UserId, user.Email, user.AccountRole);
 
     response.status(200).json(token);
 };

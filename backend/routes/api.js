@@ -1,15 +1,29 @@
 const router = require('express').Router();
+const { checkIfUserAuthorized } = require('./middleware/IsAuthorized');
 
 router.post('/auth/login', require('./auth/login'));
 router.post('/auth/register', require('./auth/register'));
 
-router.get('/users', require('./users/getUsers'));
-router.get('/user/:userId(\\d+)', require('./users/getUser'));
+router.get('/users', checkIfUserAuthorized, require('./users/getUsers'));
+router.get(
+    '/user/:userId(\\d+)',
+    checkIfUserAuthorized,
+    require('./users/getUser'),
+);
 
-router.put('/user/:userId(\\d+)', require('./users/editUser').update);
-router.delete('/user/:userId(\\d+)', require('./users/editUser').delete);
+router.put(
+    '/user/:userId(\\d+)',
+    checkIfUserAuthorized,
+    require('./users/editUser').update,
+);
+router.delete(
+    '/user/:userId(\\d+)',
+    checkIfUserAuthorized,
+    require('./users/editUser').delete,
+);
 router.post(
     '/user/:userId(\\d+)/change-password',
+    checkIfUserAuthorized,
     require('./users/editUser').changePassword,
 );
 
