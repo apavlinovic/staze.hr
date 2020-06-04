@@ -4,9 +4,9 @@
     "description": "![Staze HR](https://i.imgur.com/buqWaH0.png)",
     "main": "index.js",
     "scripts": {
-        "dev-server": "cd backend && npm run dev",
+        "dev-backend": "cd backend && npm run dev",
         "dev-client": "cd client && npm start",
-        "start": "npm-run-all -l -p dev-server dev-client"
+        "start": "npm-run-all -l -p dev-backend dev-client"
     },
     "repository": {
         "type": "git",

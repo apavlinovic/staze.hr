@@ -1,7 +1,7 @@
 import { Hashify } from '../../services/password.service';
 import { User } from '../models/user.model';
 import { AccountStatus } from '../enums/accountStatus';
-import { DatabaseConnection } from '../db-connection';
+import { getRepository } from 'typeorm';
 
 export async function Create(
     name: string,
@@ -9,17 +9,13 @@ export async function Create(
     username: string,
     password: string,
 ) {
-    const connection = await DatabaseConnection;
-    const repo = connection.getRepository(User);
-
     const user = new User();
-
     user.Name = name;
     user.Email = email;
     user.Username = username;
     user.PasswordHash = Hashify(password);
 
-    return repo.save(user);
+    return getRepository(User).save(user);
 }
 
 export async function Update(
@@ -30,42 +26,30 @@ export async function Update(
     description: string = '',
 ) {
     const user = await _findByUserId(userId);
-
-    const connection = await DatabaseConnection;
-    const repo = connection.getRepository(User);
-
     user.Name = name;
     user.Email = email;
     user.Username = username;
     user.Description = description;
 
-    return repo.save(user);
+    return getRepository(User).save(user);
 }
 
 export async function ChangePassword(userId: number, password: string) {
     const user = await _findByUserId(userId);
-    const connection = await DatabaseConnection;
-    const repo = connection.getRepository(User);
-
     user.PasswordHash = Hashify(password);
 
-    return repo.save(user);
+    return getRepository(User).save(user);
 }
 
 export async function Delete(userId: number) {
     const user = await _findByUserId(userId);
-    const connection = await DatabaseConnection;
-    const repo = connection.getRepository(User);
-
     user.AccountStatus = AccountStatus.Deleted;
 
-    return repo.save(user);
+    return getRepository(User).save(user);
 }
 
 async function _findByUserId(userId: number) {
-    const connection = await DatabaseConnection;
-
-    return connection.getRepository(User).findOne({
+    return getRepository(User).findOne({
         where: {
             UserId: userId,
         },

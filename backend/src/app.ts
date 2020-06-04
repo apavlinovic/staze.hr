@@ -1,6 +1,7 @@
 require('dotenv').config();
 import { Request, Response, NextFunction } from 'express';
 import 'reflect-metadata';
+import './database/db-connection';
 
 var createError = require('http-errors');
 var express = require('express');

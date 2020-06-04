@@ -3,15 +3,35 @@ import { createConnection } from 'typeorm';
 import { User } from './models/user.model';
 import { Trail } from './models/trail.model';
 
-export const DatabaseConnection = createConnection({
-    type: 'postgres',
-    host: process.env.DB_HOST,
-    port: parseInt(process.env.DB_PORT),
+const {
+    DB_HOST,
+    DB_PORT,
+    DB_NAME,
+    DB_USER,
+    DB_PASSWORD,
+    NODE_ENV,
+} = process.env;
 
-    database: process.env.DB_NAME,
-    username: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
+createConnection({
+    type: 'postgres',
+    host: DB_HOST,
+    port: parseInt(DB_PORT),
+
+    database: DB_NAME,
+    username: DB_USER,
+    password: DB_PASSWORD,
 
     entities: [User, Trail],
-    logging: true,
-});
+    logging: NODE_ENV === 'development',
+})
+    .then(() => {
+        console.log(
+            `✅ Successfully established DB connection to [${DB_HOST}:${DB_PORT}] as user [${DB_USER}]. Happy hacking!`,
+        );
+    })
+    .catch(() => {
+        console.error(
+            `⚠️  Couldn't etablish a DB connection to [${DB_HOST}:${DB_PORT}] as user [${DB_USER}]. ` +
+                `Make sure that you've set your .env file to correct values and that the DB server is up an running.`,
+        );
+    });

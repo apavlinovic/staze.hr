@@ -1,6 +1,5 @@
 import { Trail } from '../models/trail.model';
-import { DatabaseConnection } from '../db-connection';
-import { FindConditions, LessThanOrEqual, OrderByCondition } from 'typeorm';
+import { FindConditions, LessThanOrEqual, getRepository } from 'typeorm';
 
 export async function GetTrails(
     page: number = 1,
@@ -13,9 +12,6 @@ export async function GetTrails(
     distance: number = null,
     duration: string = null,
 ) {
-    const connection = await DatabaseConnection;
-    const repo = connection.getRepository(Trail);
-
     let whereStatement: FindConditions<Trail> = {};
 
     if (mountain) {
@@ -35,7 +31,7 @@ export async function GetTrails(
         whereStatement.Duration = LessThanOrEqual(duration);
     }
 
-    return repo.findAndCount({
+    return getRepository(Trail).findAndCount({
         take: pageSize,
         skip: pageSize * (page - 1),
         order: orderBy,
@@ -44,22 +40,18 @@ export async function GetTrails(
 }
 
 export async function GetAllMountainNames() {
-    const connection = await DatabaseConnection;
-    const query = connection
-        .getRepository(Trail)
+    return getRepository(Trail)
         .createQueryBuilder('trail')
         .select([
             'trail.Mountain as "Mountain", COUNT(trail.Mountain) as "TrailCount"',
         ])
         .groupBy('trail.Mountain')
-        .orderBy('trail.Mountain', 'ASC');
-
-    return query.getRawMany();
+        .orderBy('trail.Mountain', 'ASC')
+        .getRawMany();
 }
 
 export async function GetTrailById(trailId: number = 1) {
-    const connection = await DatabaseConnection;
-    return connection.getRepository(Trail).findOne({
+    return getRepository(Trail).findOne({
         where: {
             Id: trailId,
         },
@@ -67,8 +59,7 @@ export async function GetTrailById(trailId: number = 1) {
 }
 
 export async function GetTrailBySlug(trailSlug: string = '') {
-    const connection = await DatabaseConnection;
-    return connection.getRepository(Trail).findOne({
+    return getRepository(Trail).findOne({
         where: {
             Slug: trailSlug,
         },
