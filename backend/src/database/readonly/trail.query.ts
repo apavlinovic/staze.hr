@@ -47,9 +47,11 @@ export async function GetAllMountainNames() {
     const query = connection
         .getRepository(Trail)
         .createQueryBuilder('trail')
-        .select(['trail.Mountain as Mountain, COUNT(trail.Mountain) as count'])
+        .select([
+            'trail.Mountain as "Mountain", COUNT(trail.Mountain) as "TrailCount"',
+        ])
         .groupBy('trail.Mountain')
-        .orderBy('Mountain', 'ASC');
+        .orderBy('trail.Mountain', 'ASC');
 
     return query.getRawMany();
 }

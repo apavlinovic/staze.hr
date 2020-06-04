@@ -53,8 +53,8 @@ export function SingleResponse(
 
         await resultSupplierPromise.then(
             (result: any) => {
-                if (allowResponseCaching && result && result.toJSON) {
-                    QueryAPICache.set(url, result.toJSON());
+                if (allowResponseCaching) {
+                    QueryAPICache.set(url, result);
                 }
 
                 response.status(200).json(result);
