@@ -15,7 +15,12 @@ import { withTranslation } from 'react-i18next';
 import Loader from '../../global/Loader/Loader';
 import TrailListItem from '../TrailListItem/TrailListItem';
 import './TrailList.scss';
-import { FILTER_DISTANCE, FILTER_DURATION, PAGE_SIZE, SORTS } from './TrailList.configuration';
+import {
+    FILTER_DISTANCE,
+    FILTER_DURATION,
+    PAGE_SIZE,
+    SORTS,
+} from './TrailList.configuration';
 
 const TrailList = (props) => {
     const { mountain, t } = props;
@@ -23,8 +28,12 @@ const TrailList = (props) => {
     const [trails, setTrails] = useState({});
     const [offset, setOffset] = useState(0);
     const [orderBy, setOrderBy] = useState(SORTS.NAME_ASC.sort);
-    const [distanceFilter, setDistanceFilter] = useState(FILTER_DISTANCE.DISTANCE_MAX.filter);
-    const [durationFilter, setDurationFilter] = useState(FILTER_DURATION.DURATION_MAX.filter);
+    const [distanceFilter, setDistanceFilter] = useState(
+        FILTER_DISTANCE.DISTANCE_MAX.filter,
+    );
+    const [durationFilter, setDurationFilter] = useState(
+        FILTER_DURATION.DURATION_MAX.filter,
+    );
 
     useEffect(() => {
         let q = `/api/trails?pageSize=${PAGE_SIZE}&page=${
@@ -34,6 +43,7 @@ const TrailList = (props) => {
         fetch(q)
             .then((res) => res.json())
             .then((res) => {
+                console.log(res);
                 setTrails(res);
                 setLoading(false);
             })
@@ -67,7 +77,9 @@ const TrailList = (props) => {
             <Grid container spacing={2}>
                 <Grid item md={4}>
                     <FormControl variant="outlined" size="small" fullWidth>
-                        <InputLabel id="trail-list-sort">{t('verb.order_by')}</InputLabel>
+                        <InputLabel id="trail-list-sort">
+                            {t('verb.order_by')}
+                        </InputLabel>
                         <Select
                             labelId="trail-list-sort"
                             id="trail-list-sort"
@@ -75,15 +87,17 @@ const TrailList = (props) => {
                             name="orderBy"
                             onChange={handleChange}
                         >
-                            {Object.entries(SORTS).map((sortDescriptor, index) => {
-                                let key = sortDescriptor[0];
-                                let sort = sortDescriptor[1];
-                                return (
-                                    <MenuItem key={key} value={sort.sort}>
-                                        {t(sort.label)}
-                                    </MenuItem>
-                                );
-                            })}
+                            {Object.entries(SORTS).map(
+                                (sortDescriptor, index) => {
+                                    let key = sortDescriptor[0];
+                                    let sort = sortDescriptor[1];
+                                    return (
+                                        <MenuItem key={key} value={sort.sort}>
+                                            {t(sort.label)}
+                                        </MenuItem>
+                                    );
+                                },
+                            )}
                         </Select>
                     </FormControl>
                 </Grid>
@@ -99,15 +113,20 @@ const TrailList = (props) => {
                             name="distanceFilter"
                             onChange={handleChange}
                         >
-                            {Object.entries(FILTER_DISTANCE).map((filterDescriptor, index) => {
-                                let key = filterDescriptor[0];
-                                let filter = filterDescriptor[1];
-                                return (
-                                    <MenuItem key={key} value={filter.filter}>
-                                        {t(filter.label)}
-                                    </MenuItem>
-                                );
-                            })}
+                            {Object.entries(FILTER_DISTANCE).map(
+                                (filterDescriptor, index) => {
+                                    let key = filterDescriptor[0];
+                                    let filter = filterDescriptor[1];
+                                    return (
+                                        <MenuItem
+                                            key={key}
+                                            value={filter.filter}
+                                        >
+                                            {t(filter.label)}
+                                        </MenuItem>
+                                    );
+                                },
+                            )}
                         </Select>
                     </FormControl>
                 </Grid>
@@ -123,15 +142,20 @@ const TrailList = (props) => {
                             name="durationFilter"
                             onChange={handleChange}
                         >
-                            {Object.entries(FILTER_DURATION).map((filterDescriptor, index) => {
-                                let key = filterDescriptor[0];
-                                let filter = filterDescriptor[1];
-                                return (
-                                    <MenuItem key={key} value={filter.filter}>
-                                        {t(filter.label)}
-                                    </MenuItem>
-                                );
-                            })}
+                            {Object.entries(FILTER_DURATION).map(
+                                (filterDescriptor, index) => {
+                                    let key = filterDescriptor[0];
+                                    let filter = filterDescriptor[1];
+                                    return (
+                                        <MenuItem
+                                            key={key}
+                                            value={filter.filter}
+                                        >
+                                            {t(filter.label)}
+                                        </MenuItem>
+                                    );
+                                },
+                            )}
                         </Select>
                     </FormControl>
                 </Grid>

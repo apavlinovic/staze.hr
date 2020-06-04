@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 
 import { QueryAPICache } from '../../services/cache.service';
-import { Order } from 'sequelize/types';
 
 /**
  * @param {function: Promise<any>} resultSupplier - ListResponse endpoints invoke the ResultSupplier to get result data. The supplier is invoked with these parameters:
@@ -12,7 +11,7 @@ export function ListResponse(
     resultSupplier = (
         page: number,
         pageSize: number,
-        orderBy: Order,
+        orderBy: object,
         queryParams: any,
     ) => new Promise(() => {}),
     allowResponseCaching: boolean = false,
@@ -54,10 +53,16 @@ export function ListResponse(
             }
         }
 
-        let hydratedOrderBy: any = undefined;
+        let hydratedOrderBy: any = {};
         if (orderBy) {
-            hydratedOrderBy = (orderBy as string).split('~').map((order) => {
-                return order.split('-');
+            const parsedOrderBy = (orderBy as string)
+                .split('~')
+                .map((order) => {
+                    return order.split('-');
+                });
+
+            parsedOrderBy.forEach((element) => {
+                hydratedOrderBy[element[0]] = hydratedOrderBy[1];
             });
         }
 
@@ -75,16 +80,16 @@ export function ListResponse(
 
         await resultSupplierPromise.then(
             (results: any) => {
-                if (allowResponseCaching && results) {
-                    QueryAPICache.set(url, {
-                        rows: results.rows.map((result: any) =>
-                            result.toJSON(),
-                        ),
-                        count: results.count,
-                    });
+                const adaptedResults = {
+                    rows: results[0],
+                    count: results[1],
+                };
+
+                if (allowResponseCaching) {
+                    QueryAPICache.set(url, adaptedResults);
                 }
 
-                response.status(200).json(results);
+                response.status(200).json(adaptedResults);
             },
             (error) => {
                 response.status(500).send(error);

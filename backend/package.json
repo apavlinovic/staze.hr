@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "start": "tsc && node ./bin/www.js",
-        "dev": "tsc && nodemon ./bin/www.js"
+        "dev": "./node_modules/.bin/tsc-watch --onSuccess \"node ./bin/www.js\""
     },
     "dependencies": {
         "cookie-parser": "^1.4.5",
@@ -17,7 +17,8 @@
         "node-cache": "^5.1.0",
         "pg": "^7.18.2",
         "pg-hstore": "^2.3.3",
-        "sequelize": "^5.21.11"
+        "reflect-metadata": "^0.1.13",
+        "typeorm": "^0.2.25"
     },
     "devDependencies": {
         "@types/express": "^4.17.6",
@@ -26,6 +27,7 @@
         "@types/node": "^14.0.10",
         "@types/sequelize": "^4.28.9",
         "ts-node": "^8.10.2",
+        "tsc-watch": "^4.2.8",
         "typescript": "^3.9.3"
     }
 }

@@ -23,7 +23,7 @@ function MountainsMenu(props) {
         fetch(`/api/mountains?page=1&pageSize=100`)
             .then((res) => res.json())
             .then((results) => {
-                setMountains(results.rows);
+                setMountains(results);
                 setLoading(false);
             });
     }, [true]);

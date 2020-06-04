@@ -1,66 +1,73 @@
 import { Trail } from '../models/trail.model';
-import { Op, fn, where, col, cast, Order } from 'sequelize';
+import { DatabaseConnection } from '../db-connection';
+import { FindConditions, LessThanOrEqual, OrderByCondition } from 'typeorm';
 
-export function GetTrails(
+export async function GetTrails(
     page: number = 1,
     pageSize: number = 20,
-    orderBy: Order = [['Id', 'asc']],
+    orderBy: object = {
+        Id: 'ASC',
+    },
     mountain: string = null,
     maintainer: string = null,
     distance: number = null,
     duration: string = null,
 ) {
-    let whereStatement = {
-        [Op.and]: [] as Array<any>,
-    };
+    const connection = await DatabaseConnection;
+    const repo = connection.getRepository(Trail);
 
-    if (mountain) whereStatement[Op.and].push({ Mountain: mountain });
+    let whereStatement: FindConditions<Trail> = {};
 
-    if (maintainer) whereStatement[Op.and].push({ Maintainer: maintainer });
+    if (mountain) {
+        whereStatement.Mountain = mountain;
+    }
 
-    if (distance)
-        whereStatement[Op.and].push({
-            Distance: { [Op.lte]: distance },
-        });
+    if (maintainer) {
+        whereStatement.Maintainer = maintainer;
+    }
 
-    if (duration)
-        whereStatement[Op.and].push(
-            where(
-                cast(fn('TO_TIMESTAMP', col('Duration'), 'HH24:MI:SS'), 'TIME'),
-                {
-                    [Op.lte]: duration,
-                },
-            ),
-        );
+    if (distance) {
+        whereStatement.Distance = LessThanOrEqual(distance);
+    }
 
-    return Trail.findAndCountAll({
-        limit: pageSize,
-        offset: pageSize * (page - 1),
-        where: whereStatement,
+    if (duration) {
+        whereStatement.Duration = LessThanOrEqual(duration);
+    }
+
+    return repo.findAndCount({
+        take: pageSize,
+        skip: pageSize * (page - 1),
         order: orderBy,
+        where: whereStatement,
     });
 }
 
-export function GetAllMountainNames(page = 1, pageSize = 20) {
-    return Trail.findAndCountAll({
-        limit: pageSize,
-        offset: pageSize * (page - 1),
-        attributes: ['Mountain', [fn('COUNT', 'Mountain'), 'TrailCount']],
-        group: 'Mountain',
-        order: [['Mountain', 'ASC']],
-    });
+export async function GetAllMountainNames() {
+    const connection = await DatabaseConnection;
+    const query = connection
+        .getRepository(Trail)
+        .createQueryBuilder('trail')
+        .select(['trail.Mountain as Mountain, COUNT(trail.Mountain) as count'])
+        .groupBy('trail.Mountain')
+        .orderBy('Mountain', 'ASC');
+
+    return query.getRawMany();
 }
 
-export function GetTrailById(trailId = 1) {
-    return Trail.findByPk(trailId);
-}
-
-export function GetTrailBySlug(trailSlug = '') {
-    return Trail.findOne({
+export async function GetTrailById(trailId: number = 1) {
+    const connection = await DatabaseConnection;
+    return connection.getRepository(Trail).findOne({
         where: {
-            Slug: {
-                [Op.eq]: trailSlug,
-            },
+            Id: trailId,
+        },
+    });
+}
+
+export async function GetTrailBySlug(trailSlug: string = '') {
+    const connection = await DatabaseConnection;
+    return connection.getRepository(Trail).findOne({
+        where: {
+            Slug: trailSlug,
         },
     });
 }

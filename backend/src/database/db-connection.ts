@@ -1,22 +1,17 @@
-import { Sequelize } from 'sequelize';
+import 'reflect-metadata';
+import { createConnection } from 'typeorm';
+import { User } from './models/user.model';
+import { Trail } from './models/trail.model';
 
-export const DatabaseConnection = new Sequelize(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD,
-    {
-        host: process.env.DB_HOST,
-        port: parseInt(process.env.DB_PORT),
-        dialect: 'postgres',
-        define: {
-            timestamps: false,
-        },
+export const DatabaseConnection = createConnection({
+    type: 'postgres',
+    host: process.env.DB_HOST,
+    port: parseInt(process.env.DB_PORT),
 
-        pool: {
-            max: 5,
-            min: 0,
-            acquire: 30000,
-            idle: 10000,
-        },
-    },
-);
+    database: process.env.DB_NAME,
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+
+    entities: [User, Trail],
+    logging: true,
+});

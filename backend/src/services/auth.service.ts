@@ -1,5 +1,5 @@
 import { sign, verify } from 'jsonwebtoken';
-import { AccountRole } from '../database/enums/accountRole.enum';
+import { AccountRole } from '../database/enums/accountRole';
 
 const { JWT_SECRET } = process.env;
 

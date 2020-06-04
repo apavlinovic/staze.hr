@@ -1,111 +1,79 @@
-import { DatabaseConnection } from '../db-connection';
-import {
-    Model,
-    STRING,
-    NUMBER,
-    TIME,
-    DECIMAL,
-    BOOLEAN,
-    GEOGRAPHY,
-} from 'sequelize';
+import { Entity, PrimaryColumn, Column, Timestamp } from 'typeorm';
 
-export class Trail extends Model {}
-Trail.init(
-    {
-        Id: {
-            type: NUMBER,
-            allowNull: false,
-            primaryKey: true,
-        },
+@Entity({
+    name: 'trails',
+})
+export class Trail {
+    @PrimaryColumn()
+    Id: string;
 
-        Name: {
-            type: STRING,
-            allowNull: false,
-        },
+    @Column({
+        nullable: false,
+    })
+    Name: string;
 
-        Description: {
-            type: STRING,
-        },
+    @Column('text')
+    Description: string;
 
-        Type: {
-            type: STRING,
-            allowNull: false,
-        },
+    @Column()
+    Type: string;
 
-        Slug: {
-            type: STRING,
-            allowNull: false,
-        },
+    @Column()
+    Slug: string;
 
-        Mountain: {
-            type: STRING,
-            allowNull: false,
-        },
+    @Column()
+    Mountain: string;
 
-        ModifiedOn: {
-            type: TIME,
-            allowNull: false,
-        },
+    @Column()
+    Maintainer: string;
 
-        Maintainer: {
-            type: STRING,
-        },
+    @Column()
+    Duration: string;
 
-        Distance: {
-            type: DECIMAL,
-        },
+    @Column()
+    HeightDifference: string;
 
-        Duration: {
-            type: STRING,
-        },
+    @Column()
+    RelatedInformationLink: string;
 
-        HeightDifference: {
-            type: STRING,
-        },
+    @Column('decimal')
+    Distance: number;
 
-        RelatedInformationLink: {
-            type: STRING,
-        },
+    @Column()
+    HasValidGpx: boolean;
 
-        HasValidGpx: {
-            type: BOOLEAN,
-            allowNull: false,
-        },
+    @Column()
+    GpxTraceId: string;
 
-        GpxTraceId: {
-            type: STRING,
-        },
+    @Column()
+    GpxTraceUrl: string;
 
-        GpxTraceUrl: {
-            type: STRING,
-        },
+    @Column()
+    MapName: string;
 
-        MapName: {
-            type: STRING,
-        },
+    @Column()
+    OriginalMapUrl: string;
 
-        OriginalMapUrl: {
-            type: STRING,
-        },
+    @Column()
+    StartLocation: string;
 
-        StartLocation: {
-            type: STRING,
-        },
+    @Column('geometry', {
+        nullable: true,
+        spatialFeatureType: 'Point',
+        srid: 4326,
+    })
+    StartLocationCoords: object;
 
-        StartLocationCoords: {
-            type: GEOGRAPHY('POINT', 4326),
-        },
+    @Column()
+    EndLocation: string;
 
-        EndLocation: {
-            type: STRING,
-        },
+    @Column('geometry', {
+        nullable: true,
+        spatialFeatureType: 'Point',
+        srid: 4326,
+    })
+    EndLocationCoords: object;
 
-        EndLocationCoords: {
-            type: GEOGRAPHY('POINT', 4326),
-        },
-    },
-    {
-        sequelize: DatabaseConnection,
-        tableName: 'trails',
-    },
-);
+    @Column()
+    ModifiedOn: Date;
+}

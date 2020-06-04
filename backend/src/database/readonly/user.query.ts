@@ -1,28 +1,35 @@
 import { User } from '../models/user.model';
-import { Op, Order } from 'sequelize';
+import { DatabaseConnection } from '../db-connection';
 
-export function GetUsers(
+export async function GetUsers(
     page: number = 1,
     pageSize: number = 20,
-    orderBy: Order = [['UserId', 'asc']],
+    orderBy: object = { UserId: 'asc' },
 ) {
-    return User.findAndCountAll({
-        limit: pageSize,
-        offset: pageSize * (page - 1),
+    const connection = await DatabaseConnection;
+    const repo = connection.getRepository(User);
+
+    return repo.findAndCount({
+        take: pageSize,
+        skip: pageSize * (page - 1),
         order: orderBy,
     });
 }
 
-export function GetUserById(userId: number = 1) {
-    return User.findByPk(userId);
+export async function GetUserById(userId: number = 1) {
+    const connection = await DatabaseConnection;
+    return connection.getRepository(User).findOne({
+        where: {
+            UserId: userId,
+        },
+    });
 }
 
-export function GetUserByEmail(email: string = 'default@default.com') {
-    return User.findOne({
+export async function GetUserByEmail(email: string = 'default@default.com') {
+    const connection = await DatabaseConnection;
+    return connection.getRepository(User).findOne({
         where: {
-            Email: {
-                [Op.eq]: email,
-            },
+            Email: email,
         },
     });
 }

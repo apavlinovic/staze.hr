@@ -1,8 +1,18 @@
 import { GetAllMountainNames } from '../../database/readonly/trail.query';
-import { ListResponse } from '../responses/listResponse';
+import { Request, Response, NextFunction } from 'express';
 
-export const GetMountainNamesRoute = ListResponse(
-    (page, pageSize, orderBy, queryParams) =>
-        GetAllMountainNames(page, pageSize),
-    true,
-);
+export async function GetMountainNamesRoute(
+    request: Request,
+    response: Response,
+    next: NextFunction,
+) {
+    const mountains = await GetAllMountainNames();
+    response.status(200).json(
+        mountains.map((m) => {
+            return {
+                Mountain: m.mountain,
+                TrailCount: m.count,
+            };
+        }),
+    );
+}

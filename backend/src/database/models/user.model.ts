@@ -1,64 +1,40 @@
-import { DatabaseConnection } from '../db-connection';
-import { Model, TEXT, STRING, NUMBER, TIME, BOOLEAN } from 'sequelize';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-export class User extends Model {}
-User.init(
-    {
-        UserId: {
-            type: NUMBER,
-            autoIncrement: true,
-            primaryKey: true,
-        },
+import { AccountRole } from '../enums/accountRole';
+import { AccountStatus } from '../enums/accountStatus';
 
-        Name: {
-            type: STRING,
-            allowNull: false,
-        },
+@Entity({
+    name: 'users',
+})
+export class User {
+    @PrimaryGeneratedColumn()
+    UserId: number;
 
-        Email: {
-            type: STRING,
-            allowNull: false,
-        },
+    @Column()
+    Name: string;
 
-        Username: {
-            type: STRING,
-            allowNull: false,
-        },
+    @Column({
+        length: 200,
+    })
+    Email: string;
 
-        PasswordHash: {
-            type: TEXT,
-            allowNull: false,
-        },
+    @Column({
+        length: 200,
+    })
+    Username: string;
 
-        Description: {
-            type: TEXT,
-            allowNull: true,
-        },
+    @Column()
+    PasswordHash: string;
 
-        RegisteredOn: {
-            type: TIME,
-            allowNull: false,
-            defaultValue: new Date(),
-        },
+    @Column('text')
+    Description: string;
 
-        AccountRole: {
-            type: NUMBER,
-            allowNull: false,
-            defaultValue: 0,
-        },
+    @Column()
+    RegisteredOn: Date;
 
-        AccountStatus: {
-            type: NUMBER,
-            allowNull: false,
-            defaultValue: 0,
-        },
-    },
-    {
-        sequelize: DatabaseConnection,
-        tableName: 'users',
-    },
-);
+    @Column()
+    AccountRole: AccountRole;
 
-module.exports = {
-    User,
-};
+    @Column()
+    AccountStatus: AccountStatus;
+}

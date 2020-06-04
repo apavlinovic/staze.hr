@@ -1,8 +1,7 @@
-import { Op } from 'sequelize';
-
 import { Hashify } from '../../services/password.service';
 import { User } from '../models/user.model';
-import { AccountStatus } from '../enums/accountStatus.enum';
+import { AccountStatus } from '../enums/accountStatus';
+import { DatabaseConnection } from '../db-connection';
 
 export async function Create(
     name: string,
@@ -10,12 +9,17 @@ export async function Create(
     username: string,
     password: string,
 ) {
-    return User.create({
-        Name: name,
-        Email: email,
-        Username: username,
-        PasswordHash: Hashify(password),
-    });
+    const connection = await DatabaseConnection;
+    const repo = connection.getRepository(User);
+
+    const user = new User();
+
+    user.Name = name;
+    user.Email = email;
+    user.Username = username;
+    user.PasswordHash = Hashify(password);
+
+    return repo.save(user);
 }
 
 export async function Update(
@@ -27,36 +31,43 @@ export async function Update(
 ) {
     const user = await _findByUserId(userId);
 
-    return user.update({
-        Name: name,
-        Email: email,
-        Username: username,
-        Description: description,
-    });
+    const connection = await DatabaseConnection;
+    const repo = connection.getRepository(User);
+
+    user.Name = name;
+    user.Email = email;
+    user.Username = username;
+    user.Description = description;
+
+    return repo.save(user);
 }
 
 export async function ChangePassword(userId: number, password: string) {
     const user = await _findByUserId(userId);
+    const connection = await DatabaseConnection;
+    const repo = connection.getRepository(User);
 
-    return user.update({
-        PasswordHash: Hashify(password),
-    });
+    user.PasswordHash = Hashify(password);
+
+    return repo.save(user);
 }
 
 export async function Delete(userId: number) {
     const user = await _findByUserId(userId);
+    const connection = await DatabaseConnection;
+    const repo = connection.getRepository(User);
 
-    return user.update({
-        AccountStatus: AccountStatus.Deleted,
-    });
+    user.AccountStatus = AccountStatus.Deleted;
+
+    return repo.save(user);
 }
 
 async function _findByUserId(userId: number) {
-    return User.findOne({
+    const connection = await DatabaseConnection;
+
+    return connection.getRepository(User).findOne({
         where: {
-            UserId: {
-                [Op.eq]: userId,
-            },
+            UserId: userId,
         },
     });
 }
