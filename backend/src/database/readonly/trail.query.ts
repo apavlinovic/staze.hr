@@ -30,6 +30,7 @@ export async function GetTrails(
         whereStatement.Distance = LessThanOrEqual(distance);
     }
 
+    // TODO: This doesn't actually work. Needs to call DB Func to convert to timestamp
     if (duration) {
         whereStatement.Duration = LessThanOrEqual(duration);
     }
