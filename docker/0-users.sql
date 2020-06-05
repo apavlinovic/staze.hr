@@ -3,9 +3,12 @@ CREATE TABLE public.users (
     "Name" character varying(1000) not null,
     "Email" character varying(1000) not null,
     "Username" character varying(1000) not null,
+    "Nonce" character varying(20) not null,
     "PasswordHash" text not null,
     "Description" text,
     "RegisteredOn" timestamp with time zone default CURRENT_TIMESTAMP not null,
     "AccountRole" integer default 0 not null,
-    "AccountStatus" integer default 0 not null
+    "AccountStatus" integer default 0 not null,
+
+    unique("Email")
 );

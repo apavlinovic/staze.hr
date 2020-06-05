@@ -21,7 +21,7 @@ export async function LoginRoute(
         return;
     }
 
-    const user: any = await GetUserByEmail(email);
+    const user = await GetUserByEmail(email);
     const passwordHash = Hashify(password);
 
     if (!user || passwordHash !== user.PasswordHash) {
@@ -29,7 +29,7 @@ export async function LoginRoute(
         return;
     }
 
-    const token = await GenerateJWT(user.UserId, user.Email, user.AccountRole);
+    const token = await GenerateJWT(user.UserId, user.Nonce);
 
     response.status(200).json(token);
 }

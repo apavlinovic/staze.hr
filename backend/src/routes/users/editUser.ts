@@ -4,6 +4,7 @@ import {
     Update,
     Delete,
     ChangePassword,
+    ChangeRole,
 } from '../../database/write/user.writer';
 
 export async function UpdateUserRoute(
@@ -58,6 +59,21 @@ export async function DeleteUserRoute(
 
     try {
         await Delete(parseInt(userId));
+        response.status(200).json();
+    } catch (error) {
+        next(error);
+    }
+}
+
+export async function ChangeUserRoleRoute(
+    request: Request,
+    response: Response,
+    next: NextFunction,
+) {
+    const { userId, role } = request.params;
+
+    try {
+        await ChangeRole(parseInt(userId), parseInt(role));
         response.status(200).json();
     } catch (error) {
         next(error);

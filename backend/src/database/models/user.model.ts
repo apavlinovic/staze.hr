@@ -23,6 +23,11 @@ export class User {
     })
     Username: string;
 
+    @Column({
+        length: 20,
+    })
+    Nonce: string;
+
     @Column()
     PasswordHash: string;
 
