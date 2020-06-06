@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { VerifyAndDecodeJWT, TokenContent } from '../../services/auth.service';
+import { VerifyAndDecodeJWT } from '../../services/auth.service';
 import { AccountRole } from '../../database/enums/accountRole';
 import { GetUserById } from '../../database/readonly/user.query';
 import { User } from '../../database/models/user.model';

@@ -1,6 +1,4 @@
 import { sign, verify } from 'jsonwebtoken';
-import { AccountRole } from '../database/enums/accountRole';
-import { Timestamp } from 'typeorm';
 import { randomBytes } from 'crypto';
 
 const { JWT_SECRET } = process.env;

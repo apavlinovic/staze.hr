@@ -9,6 +9,7 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "sourceMap": false,
+        "noUnusedLocals": true,
         "outDir": "bin",
         "baseUrl": ".",
         "paths": {

@@ -59,7 +59,7 @@ router.delete(
     '/user/:userId(\\d+)',
     checkIfUserAuthorized({
         authorizationRequiresUserIdMatch: true,
-        allowedRoles: [AccountRole.Member, AccountRole.Moderator],
+        allowedRoles: [AccountRole.Moderator],
     }),
     DeleteUserRoute,
 );
