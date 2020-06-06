@@ -31,7 +31,6 @@
         "@types/node": "^14.0.10",
         "@types/sequelize": "^4.28.9",
         "husky": "^4.2.5",
-        "lint-staged": "^10.2.9",
         "prettier": "^2.0.5",
         "ts-node": "^8.10.2",
         "tsc-watch": "^4.2.8",
@@ -39,10 +38,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged"
+            "pre-commit": "npm run prettier:check"
         }
-    },
-    "lint-staged": {
-        "src/**/*.ts": "prettier --write"
     }
 }
