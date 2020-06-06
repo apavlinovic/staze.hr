@@ -3,11 +3,23 @@ export const PAGE_SIZE = 50;
 export const SORTS = {
     NAME_ASC: { sort: 'Name-asc', label: 'strings.order_by_name_asc' },
     NAME_DESC: { sort: 'Name-desc', label: 'strings.order_by_name_desc' },
-    DURATION_ASC: { sort: 'Duration-asc', label: 'strings.order_by_duration_asc' },
-    DURATION_DESC: { sort: 'Duration-desc', label: 'strings.order_by_duration_desc' },
-    DISTANCE_ASC: { sort: 'Distance-asc', label: 'strings.order_by_distance_asc' },
-    DISTANCE_DESC: { sort: 'Distance-desc', label: 'strings.order_by_distance_desc' },
-}
+    DURATION_ASC: {
+        sort: 'Duration-asc',
+        label: 'strings.order_by_duration_asc',
+    },
+    DURATION_DESC: {
+        sort: 'Duration-desc',
+        label: 'strings.order_by_duration_desc',
+    },
+    DISTANCE_ASC: {
+        sort: 'Distance-asc',
+        label: 'strings.order_by_distance_asc',
+    },
+    DISTANCE_DESC: {
+        sort: 'Distance-desc',
+        label: 'strings.order_by_distance_desc',
+    },
+};
 
 export const FILTER_DISTANCE = {
     DISTANCE_1: { filter: 1, label: 'strings.filter_distance_1' },
@@ -18,7 +30,7 @@ export const FILTER_DISTANCE = {
     DISTANCE_10: { filter: 10, label: 'strings.filter_distance_10' },
     DISTANCE_15: { filter: 15, label: 'strings.filter_distance_15' },
     DISTANCE_MAX: { filter: 1000, label: 'strings.filter_distance_max' },
-}
+};
 
 export const FILTER_DURATION = {
     DURATION_1: { filter: '01:00', label: 'strings.filter_duration_1' },
@@ -27,4 +39,4 @@ export const FILTER_DURATION = {
     DURATION_4: { filter: '04:00', label: 'strings.filter_duration_4' },
     DURATION_5: { filter: '05:00', label: 'strings.filter_duration_5' },
     DURATION_MAX: { filter: '24:00', label: 'strings.filter_duration_max' },
-}
+};

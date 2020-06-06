@@ -5,8 +5,6 @@
     "scripts": {
         "build": "./node_modules/.bin/tsc",
         "start": "./node_modules/.bin/tsc && node ./bin/www.js",
-        "prettier:check": "./node_modules/.bin/prettier -c \"src/**/*.ts\"",
-        "prettier:format": "./node_modules/.bin/prettier  \"src/**/*.ts\" --write",
         "dev": "./node_modules/.bin/tsc-watch --onSuccess \"node ./bin/www.js\""
     },
     "prettier": "./../.prettierrc.json",

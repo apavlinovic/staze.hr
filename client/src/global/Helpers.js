@@ -11,9 +11,9 @@ export function mapGraphUrl(mapName) {
 }
 
 export function prettyPrintCoordinates(coordinates) {
-    return `${coordinates[1].toString().substring(0, 8)}, ${coordinates[0]
+    return `${coordinates[1]
         .toString()
-        .substring(0, 8)}`;
+        .substring(0, 8)}, ${coordinates[0].toString().substring(0, 8)}`;
 }
 
 export function renderNavigateToCoordinatesLink(coordinates) {
