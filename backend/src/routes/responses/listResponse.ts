@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { QueryAPICache } from '../../services/cache.service';
+import { OrderBy } from '../../database/readonly/trail.query';
 
 /**
  * @param {function: Promise<any>} resultSupplier - ListResponse endpoints invoke the ResultSupplier to get result data. The supplier is invoked with these parameters:
@@ -10,7 +11,7 @@ export function ListResponse(
     resultSupplier = (
         page: number,
         pageSize: number,
-        orderBy: object,
+        orderBy: Array<OrderBy>,
         queryParams: any,
     ) => new Promise(() => {}),
     allowResponseCaching: boolean = false,
@@ -52,7 +53,7 @@ export function ListResponse(
             }
         }
 
-        let hydratedOrderBy: any = {};
+        let hydratedorderByArray: Array<OrderBy> = [];
         if (orderBy) {
             const parsedOrderBy = (orderBy as string)
                 .split('~')
@@ -61,14 +62,20 @@ export function ListResponse(
                 });
 
             parsedOrderBy.forEach((element) => {
-                hydratedOrderBy[element[0]] = hydratedOrderBy[1];
+                // hydratedOrderBy[element[0]] = hydratedOrderBy[1];
+
+                const order = new OrderBy();
+                order.column = element[0];
+                order.direction = element[1];
+
+                hydratedorderByArray.push(order);
             });
         }
 
         const resultSupplierPromise = resultSupplier(
             parseInt(page as string),
             parseInt(pageSize as string),
-            hydratedOrderBy,
+            hydratedorderByArray,
             query,
         );
 

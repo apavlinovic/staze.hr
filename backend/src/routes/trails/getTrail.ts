@@ -1,18 +1,17 @@
 import { SingleResponse } from '../responses/singleResponse';
 
-import {
-    GetTrailById,
-    GetTrailBySlug,
-} from '../../database/readonly/trail.query';
+import { TrailQuery } from '../../database/readonly/trail.query';
+
+const query = new TrailQuery();
 
 export const GetTrailByIdRoute = SingleResponse(
-    (routeParams) => GetTrailById(routeParams.trailId),
+    (routeParams) => query.GetTrailById(routeParams.trailId),
     ['trailId'],
     true,
 );
 
 export const GetTrailBySlugRoute = SingleResponse(
-    (routeParams) => GetTrailBySlug(routeParams.trailSlug),
+    (routeParams) => query.GetTrailBySlug(routeParams.trailSlug),
     ['trailSlug'],
     true,
 );
