@@ -1,22 +1,28 @@
 export const PAGE_SIZE = 50;
 
 export const SORTS = {
-    NAME_ASC: { sort: 'Name-asc', label: 'strings.order_by_name_asc' },
-    NAME_DESC: { sort: 'Name-desc', label: 'strings.order_by_name_desc' },
+    NAME_ASC: {
+        sort: { column: 'Name', direction: 'ASC' },
+        label: 'strings.order_by_name_asc',
+    },
+    NAME_DESC: {
+        sort: { column: 'Name', direction: 'DESC' },
+        label: 'strings.order_by_name_desc',
+    },
     DURATION_ASC: {
-        sort: 'Duration-asc',
+        sort: { column: 'Duration', direction: 'ASC' },
         label: 'strings.order_by_duration_asc',
     },
     DURATION_DESC: {
-        sort: 'Duration-desc',
+        sort: { column: 'Name', direction: 'DESC' },
         label: 'strings.order_by_duration_desc',
     },
     DISTANCE_ASC: {
-        sort: 'Distance-asc',
+        sort: { column: 'Distance', direction: 'ASC' },
         label: 'strings.order_by_distance_asc',
     },
     DISTANCE_DESC: {
-        sort: 'Distance-desc',
+        sort: { column: 'Distance', direction: 'DESC' },
         label: 'strings.order_by_distance_desc',
     },
 };

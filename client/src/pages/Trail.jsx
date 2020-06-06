@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from 'apollo-boost';
+
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -20,22 +23,51 @@ import TrailDetails from '../components/TrailDetails/TrailDetails';
 import Loader from '../global/Loader/Loader';
 import SEO from '../global/SEO/SEO';
 
+const TRAIL_LIST_QUERY = gql`
+    query($slug: String!) {
+        trailWithSlug(trailSlug: $slug) {
+            Id
+            Name
+            Description
+            Type
+            Slug
+            Mountain
+            Maintainer
+            Duration
+            HeightDifference
+            RelatedInformationLink
+            Distance
+            HasValidGpx
+            GpxTraceId
+            GpxTraceUrl
+            MapName
+            OriginalMapUrl
+            StartLocation
+            StartLocationCoords {
+                coordinates
+            }
+            EndLocation
+            EndLocationCoords {
+                coordinates
+            }
+            ModifiedOn
+        }
+    }
+`;
+
 function Trail() {
     let { slug } = useParams();
 
-    const [isLoading, setLoading] = useState(true);
-    const [trail, setTrail] = useState({});
+    const { loading, error, data } = useQuery(TRAIL_LIST_QUERY, {
+        variables: {
+            slug,
+        },
+    });
 
-    useEffect(() => {
-        fetch(`/api/trail/${slug}`)
-            .then((res) => res.json())
-            .then((result) => {
-                setTrail(result);
-                setLoading(false);
-            });
-    }, [slug]);
+    if (loading) return <Loader></Loader>;
+    if (error) return error;
 
-    if (isLoading) return <Loader></Loader>;
+    const trail = data.trailWithSlug;
 
     return (
         <Container>
@@ -52,7 +84,9 @@ function Trail() {
                                 {trail.Mountain}
                             </Link>
 
-                            <Typography color="textPrimary">{trail.Name}</Typography>
+                            <Typography color="textPrimary">
+                                {trail.Name}
+                            </Typography>
                         </Breadcrumbs>
                     </section>
 

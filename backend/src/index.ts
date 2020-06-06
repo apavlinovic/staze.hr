@@ -5,13 +5,14 @@ import './database/db-connection';
 
 import { ApolloServer } from 'apollo-server';
 import { buildSchema } from 'type-graphql';
-import { TrailQuery } from './database/readonly/trail.query';
+import { TrailResolver } from './modules/trails/trail.resolver';
+import { MountainResolver } from './modules/mountains/mountains.resolver';
 
 const PORT = process.env.PORT || 4000;
 
 async function bootstrap() {
     const schema = await buildSchema({
-        resolvers: [TrailQuery],
+        resolvers: [TrailResolver, MountainResolver],
     });
 
     // Create the GraphQL server

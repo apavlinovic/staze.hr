@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-import { AccountRole } from '../enums/accountRole';
-import { AccountStatus } from '../enums/accountStatus';
+import { AccountRole } from './enums/accountRole';
+import { AccountStatus } from './enums/accountStatus';
 
 @Entity({
     name: 'users',

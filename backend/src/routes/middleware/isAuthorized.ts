@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import { VerifyAndDecodeJWT } from '../../services/auth.service';
-import { AccountRole } from '../../database/enums/accountRole';
-import { GetUserById } from '../../database/readonly/user.query';
-import { User } from '../../database/models/user.model';
+import { AccountRole } from '../../modules/users/enums/accountRole';
+import { GetUserById } from '../../modules/users/user.query';
+import { User } from '../../modules/users/user.model';
 
 const BEARER_TOKEN_IDENTIFIER = 'Bearer ';
 

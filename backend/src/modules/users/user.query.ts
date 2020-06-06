@@ -1,4 +1,4 @@
-import { User } from '../models/user.model';
+import { User } from './user.model';
 import { getRepository } from 'typeorm';
 
 export async function GetUsers(

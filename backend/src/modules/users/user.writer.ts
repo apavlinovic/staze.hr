@@ -1,8 +1,8 @@
 import { Hashify } from '../../services/password.service';
-import { User } from '../models/user.model';
-import { AccountStatus } from '../enums/accountStatus';
+import { User } from './user.model';
+import { AccountStatus } from './enums/accountStatus';
 import { getRepository } from 'typeorm';
-import { AccountRole } from '../enums/accountRole';
+import { AccountRole } from './enums/accountRole';
 import { GenerateNonce } from '../../services/auth.service';
 
 export async function Create(

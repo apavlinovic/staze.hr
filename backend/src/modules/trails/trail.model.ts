@@ -1,13 +1,6 @@
 import { Entity, PrimaryColumn, Column } from 'typeorm';
 import { ObjectType, Field, Int } from 'type-graphql';
-
-@ObjectType()
-export class Point {
-    @Field()
-    type: string;
-    @Field((type) => [Number, Number])
-    coordinates: Array<Number>;
-}
+import { geoPoint } from '../shared/schema/geoPoint';
 
 @ObjectType()
 @Entity({
@@ -90,7 +83,7 @@ export class Trail {
         spatialFeatureType: 'Point',
         srid: 4326,
     })
-    StartLocationCoords: Point;
+    StartLocationCoords: geoPoint;
 
     @Field()
     @Column()
@@ -102,7 +95,7 @@ export class Trail {
         spatialFeatureType: 'Point',
         srid: 4326,
     })
-    EndLocationCoords: Point;
+    EndLocationCoords: geoPoint;
 
     @Field()
     @Column()

@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from 'apollo-boost';
+
+import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 
@@ -15,31 +18,31 @@ import {
 import Loader from '../global/Loader/Loader';
 import SEO from '../global/SEO/SEO';
 
+const MOUNTAINS_QUERY = gql`
+    query {
+        mountains {
+            name
+            trails
+        }
+    }
+`;
+
 function Homepage(props) {
-    const [isLoading, setLoading] = useState(true);
-    const [mountains, setMountains] = useState([]);
+    const { loading, error, data } = useQuery(MOUNTAINS_QUERY);
 
-    useEffect(() => {
-        fetch(`/api/mountains?page=1&pageSize=100`)
-            .then((res) => res.json())
-            .then((results) => {
-                setMountains(results);
-                setLoading(false);
-            });
-    }, [true]);
-
-    if (isLoading) return <Loader></Loader>;
+    if (loading) return <Loader></Loader>;
+    if (error) return 'Error!';
 
     return (
         <Container>
             <SEO title="Homepage" />
             <Grid container spacing={2}>
-                {mountains.map((mountain) => (
+                {data.mountains.map((mountain) => (
                     <Grid item md={3} xs={12}>
                         <Link
                             underline="none"
                             component={RouterLink}
-                            to={`/mountain/${mountain.Mountain}`}
+                            to={`/mountain/${mountain.name}`}
                         >
                             <Card>
                                 <CardActionArea>
@@ -49,14 +52,14 @@ function Homepage(props) {
                                             variant="h5"
                                             component="h2"
                                         >
-                                            {mountain.Mountain}
+                                            {mountain.name}
                                         </Typography>
 
                                         <Typography
                                             variant="body1"
                                             color="textSecondary"
                                         >
-                                            {mountain.TrailCount}
+                                            {mountain.trails}
                                         </Typography>
                                     </CardContent>
                                 </CardActionArea>
