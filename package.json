@@ -19,12 +19,6 @@
     },
     "homepage": "https://github.com/apavlinovic/staze.hr#readme",
     "devDependencies": {
-        "husky": "^4.2.5",
         "npm-run-all": "^4.1.5"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "cd backend && npm run prettier:check"
-        }
     }
 }
