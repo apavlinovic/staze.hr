@@ -1,7 +1,7 @@
 import { ObjectType, Field } from 'type-graphql';
 
 @ObjectType()
-export class geoPoint {
+export class GeoPoint {
     @Field()
     type: string;
 

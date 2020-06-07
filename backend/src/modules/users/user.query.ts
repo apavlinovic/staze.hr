@@ -16,7 +16,7 @@ export async function GetUsers(
 export async function GetUserById(userId: number = 1) {
     return getRepository(User).findOne({
         where: {
-            UserId: userId,
+            userId: userId,
         },
     });
 }
@@ -24,7 +24,7 @@ export async function GetUserById(userId: number = 1) {
 export async function GetUserByEmail(email: string = 'default@default.com') {
     return getRepository(User).findOne({
         where: {
-            Email: email,
+            email: email,
         },
     });
 }

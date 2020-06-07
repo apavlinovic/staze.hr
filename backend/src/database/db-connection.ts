@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { createConnection } from 'typeorm';
 import { User } from '../modules/users/user.model';
-import { Trail } from '../modules/trails/trail.model';
+import { Trail } from '../modules/trails/schema/trail';
 
 const {
     DB_HOST,

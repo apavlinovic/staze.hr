@@ -2,12 +2,14 @@ import { Resolver, Query } from 'type-graphql';
 import { getRepository } from 'typeorm';
 
 import { MountainWithTrailCount } from './schema/mountainWithTrailCount.model';
-import { Trail } from '../trails/trail.model';
+import { Trail } from '../trails/schema/trail';
 
 @Resolver()
 export class MountainResolver {
-    @Query(() => [MountainWithTrailCount])
-    async mountains() {
+    @Query(() => [MountainWithTrailCount], {
+        name: 'mountains',
+    })
+    async getMountainsWithTrailsCount() {
         return getRepository(Trail)
             .createQueryBuilder('trail')
             .select([

@@ -25,32 +25,32 @@ import SEO from '../global/SEO/SEO';
 
 const TRAIL_LIST_QUERY = gql`
     query($slug: String!) {
-        trailWithSlug(trailSlug: $slug) {
-            Id
-            Name
-            Description
-            Type
-            Slug
-            Mountain
-            Maintainer
-            Duration
-            HeightDifference
-            RelatedInformationLink
-            Distance
-            HasValidGpx
-            GpxTraceId
-            GpxTraceUrl
-            MapName
-            OriginalMapUrl
-            StartLocation
-            StartLocationCoords {
+        trail(trailSlug: $slug) {
+            id
+            name
+            description
+            type
+            slug
+            mountain
+            maintainer
+            duration
+            heightDifference
+            relatedInformationLink
+            distance
+            hasValidGpx
+            gpxTraceId
+            gpxTraceUrl
+            mapName
+            originalMapUrl
+            startLocation
+            startLocationCoords {
                 coordinates
             }
-            EndLocation
-            EndLocationCoords {
+            endLocation
+            endLocationCoords {
                 coordinates
             }
-            ModifiedOn
+            modifiedOn
         }
     }
 `;
@@ -67,11 +67,9 @@ function Trail() {
     if (loading) return <Loader></Loader>;
     if (error) return error;
 
-    const trail = data.trailWithSlug;
-
     return (
         <Container>
-            <SEO title={trail.Name} description={trail.Description} />
+            <SEO title={data.trail.name} description={data.trail.description} />
             <Grid container spacing={2}>
                 <Grid item md={12}>
                     <section>
@@ -79,25 +77,25 @@ function Trail() {
                             <Link
                                 component={RouterLink}
                                 color="inherit"
-                                to={`/mountain/${trail.Mountain}`}
+                                to={`/mountain/${data.trail.mountain}`}
                             >
-                                {trail.Mountain}
+                                {data.trail.mountain}
                             </Link>
 
                             <Typography color="textPrimary">
-                                {trail.Name}
+                                {data.trail.name}
                             </Typography>
                         </Breadcrumbs>
                     </section>
 
                     <section>
                         <Typography variant="h3" component="h1" gutterBottom>
-                            {trail.Name}
+                            {data.trail.name}
                         </Typography>
                     </section>
                 </Grid>
                 <Grid item md={9}>
-                    <TrailDetails trail={trail} />
+                    <TrailDetails trail={data.trail} />
                 </Grid>
                 <Grid item md={3}>
                     <Paper>

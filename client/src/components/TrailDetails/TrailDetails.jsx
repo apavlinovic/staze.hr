@@ -33,7 +33,7 @@ function TrailDetails(props) {
         <section className="ui--TrailDetails">
             <section>
                 <Paper>
-                    <img src={mapImageUrl(trail.MapName)} alt={trail.Name} />
+                    <img src={mapImageUrl(trail.mapName)} alt={trail.name} />
                 </Paper>
             </section>
 
@@ -43,7 +43,9 @@ function TrailDetails(props) {
                 </Typography>
                 <Card>
                     <CardContent>
-                        <Typography variant="body1">{trail.Description}</Typography>
+                        <Typography variant="body1">
+                            {trail.description}
+                        </Typography>
                     </CardContent>
                 </Card>
             </section>
@@ -66,7 +68,9 @@ function TrailDetails(props) {
                                     {t('noun.start_coordinates')}
                                 </Typography>
                                 <Typography variant="h5">
-                                    {prettyPrintCoordinates(trail.StartLocationCoords.coordinates)}
+                                    {prettyPrintCoordinates(
+                                        trail.startLocationCoords.coordinates,
+                                    )}
                                 </Typography>
                             </CardContent>
                             <CardActions>
@@ -75,7 +79,7 @@ function TrailDetails(props) {
                                     endIcon={<LaunchIcon />}
                                     color="primary"
                                     href={renderNavigateToCoordinatesLink(
-                                        trail.StartLocationCoords,
+                                        trail.startLocationCoords,
                                     )}
                                     target="_blank"
                                 >
@@ -97,7 +101,9 @@ function TrailDetails(props) {
                                     {t('noun.end_coordinates')}
                                 </Typography>
                                 <Typography variant="h5">
-                                    {prettyPrintCoordinates(trail.EndLocationCoords.coordinates)}
+                                    {prettyPrintCoordinates(
+                                        trail.endLocationCoords.coordinates,
+                                    )}
                                 </Typography>
                             </CardContent>
                             <CardActions>
@@ -105,7 +111,9 @@ function TrailDetails(props) {
                                     size="small"
                                     endIcon={<LaunchIcon />}
                                     color="primary"
-                                    href={renderNavigateToCoordinatesLink(trail.EndLocationCoords)}
+                                    href={renderNavigateToCoordinatesLink(
+                                        trail.endLocationCoords,
+                                    )}
                                     target="_blank"
                                 >
                                     {t('verb.navigate')}
@@ -135,7 +143,11 @@ function TrailDetails(props) {
                                     {t('noun.duration')}
                                 </TableCell>
                                 <TableCell>
-                                    {trail.Duration ? <>{trail.Duration} h</> : <>-</>}
+                                    {trail.duration ? (
+                                        <>{trail.duration} h</>
+                                    ) : (
+                                        <>-</>
+                                    )}
                                 </TableCell>
                             </TableRow>
 
@@ -144,7 +156,11 @@ function TrailDetails(props) {
                                     {t('noun.distance')}
                                 </TableCell>
                                 <TableCell>
-                                    {trail.Distance ? <>{trail.Distance} km</> : <>-</>}
+                                    {trail.distance ? (
+                                        <>{trail.distance} km</>
+                                    ) : (
+                                        <>-</>
+                                    )}
                                 </TableCell>
                             </TableRow>
 
@@ -153,8 +169,8 @@ function TrailDetails(props) {
                                     {t('noun.height_difference')}
                                 </TableCell>
                                 <TableCell>
-                                    {trail.HeightDifference ? (
-                                        <>{trail.HeightDifference} m</>
+                                    {trail.heightDifference ? (
+                                        <>{trail.heightDifference} m</>
                                     ) : (
                                         <>-</>
                                     )}
@@ -165,21 +181,21 @@ function TrailDetails(props) {
                                 <TableCell component="th" scope="row">
                                     {t('noun.mountain')}
                                 </TableCell>
-                                <TableCell>{trail.Mountain}</TableCell>
+                                <TableCell>{trail.mountain}</TableCell>
                             </TableRow>
 
                             <TableRow>
                                 <TableCell component="th" scope="row">
                                     {t('noun.start_location')}
                                 </TableCell>
-                                <TableCell>{trail.StartLocation}</TableCell>
+                                <TableCell>{trail.startLocation}</TableCell>
                             </TableRow>
 
                             <TableRow>
                                 <TableCell component="th" scope="row">
                                     {t('verb.maintains')}
                                 </TableCell>
-                                <TableCell>{trail.Maintainer}</TableCell>
+                                <TableCell>{trail.maintainer}</TableCell>
                             </TableRow>
 
                             <TableRow>
@@ -191,7 +207,7 @@ function TrailDetails(props) {
                                         size="small"
                                         endIcon={<LaunchIcon />}
                                         color="primary"
-                                        href={trail.RelatedInformationLink}
+                                        href={trail.relatedInformationLink}
                                         target="_blank"
                                     >
                                         {t('noun.link')}
@@ -203,7 +219,7 @@ function TrailDetails(props) {
                 </TableContainer>
             </section>
 
-            {trail.MapName ? (
+            {trail.mapName ? (
                 <>
                     <section>
                         <Typography variant="h5" component="h2" gutterBottom>
@@ -211,7 +227,10 @@ function TrailDetails(props) {
                         </Typography>
 
                         <Paper>
-                            <img src={mapGraphUrl(trail.MapName)} alt={trail.Name} />
+                            <img
+                                src={mapGraphUrl(trail.mapName)}
+                                alt={trail.name}
+                            />
                         </Paper>
                     </section>
                 </>

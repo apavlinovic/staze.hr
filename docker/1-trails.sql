@@ -39,27 +39,27 @@ SET default_table_access_method = heap;
 --
 
 CREATE TABLE public.trails (
-    "Id" integer NOT NULL,
-    "Name" character varying(1000) NOT NULL,
-    "Description" text,
-    "Type" character varying(100) NOT NULL,
-    "Slug" character varying(1000) NOT NULL,
-    "Mountain" character varying(500) NOT NULL,
-    "ModifiedOn" timestamp without time zone NOT NULL,
-    "Maintainer" character varying(500),
-    "Distance" numeric(5,2),
-    "Duration" character varying(100),
-    "HeightDifference" character varying(100),
-    "RelatedInformationLink" character varying(1000),
-    "HasValidGpx" boolean NOT NULL,
-    "GpxTraceId" character varying(1000),
-    "GpxTraceUrl" character varying(1000),
-    "MapName" character varying(1000),
-    "OriginalMapUrl" character varying(1000),
-    "StartLocation" character varying(500),
-    "StartLocationCoords" public.geography(Point,4326),
-    "EndLocation" character varying(500),
-    "EndLocationCoords" public.geography(Point,4326)
+    "id" integer NOT NULL,
+    "name" character varying(1000) NOT NULL,
+    "description" text,
+    "type" character varying(100) NOT NULL,
+    "slug" character varying(1000) NOT NULL,
+    "mountain" character varying(500) NOT NULL,
+    "modifiedOn" timestamp without time zone NOT NULL,
+    "maintainer" character varying(500),
+    "distance" numeric(5,2),
+    "duration" character varying(100),
+    "heightDifference" character varying(100),
+    "relatedInformationLink" character varying(1000),
+    "hasValidGpx" boolean NOT NULL,
+    "gpxTraceId" character varying(1000),
+    "gpxTraceUrl" character varying(1000),
+    "mapName" character varying(1000),
+    "originalMapUrl" character varying(1000),
+    "startLocation" character varying(500),
+    "startLocationCoords" public.geography(Point,4326),
+    "endLocation" character varying(500),
+    "endLocationCoords" public.geography(Point,4326)
 );
 
 --
@@ -74,7 +74,7 @@ COPY public.spatial_ref_sys (srid, auth_name, auth_srid, srtext, proj4text) FROM
 -- Data for Name: trails; Type: TABLE DATA; Schema: public; Owner: 
 --
 
-COPY public.trails ("Id", "Name", "Description", "Type", "Slug", "Mountain", "ModifiedOn", "Maintainer", "Distance", "Duration", "HeightDifference", "RelatedInformationLink", "HasValidGpx", "GpxTraceId", "GpxTraceUrl", "MapName", "OriginalMapUrl", "StartLocation", "StartLocationCoords", "EndLocation", "EndLocationCoords") FROM stdin;
+COPY public.trails ("id", "name", "description", "type", "slug", "mountain", "modifiedOn", "maintainer", "distance", "duration", "heightDifference", "relatedInformationLink", "hasValidGpx", "gpxTraceId", "gpxTraceUrl", "mapName", "originalMapUrl", "startLocation", "startLocationCoords", "endLocation", "endLocationCoords") FROM stdin;
 1	Slavonski Planinarski Put: Javor - Češljakovački Vis	Vrh Javor - vrh Klokočica - prijevoj Žežnice - kolnim putom južno od v. Bazova glava - v. Češljakovački vis	hiking	1-slavonski-planinarski-put-javor-cesljakovacki-vis	Papuk	2020-01-27 14:32:40	HPD Orahovica, Orahovica	7.80	2:30	200	http://info.hps.hr/putovi/putovi?p[view]=759	t	01_01_01R.gpx	http://info.hps.hr/putovi/www/static/gpx/01_01_01R.gpx	01_01_01R.jpg	http://info.hps.hr/putovi/karta?img=01_01_01R.jpg	Javor	0101000020E6100000000020D8F1B831400000E82CD9BE4640	Češljakovački vis	0101000020E610000000006017E6CC31400000C44DC0BC4640
 10	Slavonski Planinarski Put: Novo Zvečevo - Crni Vrh	Selo Novo Zvečevo, (x) s 1 (za Janovac) na skretanju za caffea Casablanca - ići po a.c. do glavne ceste Kamensko/Vočin - njome d. pa nakon 500 m skrenuti l. na kolni put - doći do ruševnih kuća sela Staro Zvečevo, (x) s 8 (za V.Javornik) - do vrha Sovijak (615 m) (1:15 sati) - Janino bilo (625 m) - predjel Katrane - Kestenova poljana - vrh Ljutoč (697 m) (2 sata) - m.c. Međa (450 m) (45 min), (x) s 9 (za Vrani kamen) - od Međe uspon na Crni vrh - pod samim vrhom je (x) s kojeg d. odvojkom na Crni vrh (865 m) (45 min), - na Crnom vrhu je (x) sa 6 (za Đulovac)	hiking	10-slavonski-planinarski-put-novo-zvecevo-crni-vrh	Papuk	2020-01-27 14:32:40	PD Petrov vrh, Daruvar	16.40	5:30	390	http://info.hps.hr/putovi/putovi?p[view]=742	f			01_01_01V.jpg	http://info.hps.hr/putovi/karta?img=01_01_01V.jpg	Novo Zvečevo	0101000020E610000000000000000000000000000000000000	Crni vrh	0101000020E610000000000000000000000000000000000000
 100	Ivanovac - Džakina Livada	Ivanovac, objekti, (x) s 313 (za Veliku poljanu i Lipik) - po m.c. uz potok Donju Rašašku, pokraj kamenoloma Fukinac - po m.c. uz Džakin potok - prije Džankine livade, (x) s 316 (za Muški bunar i Dobru vodu)	hiking	100-ivanovac-dzakina-livada	Psunj	2020-01-27 14:32:40	HPD Strmac, Nova Gradiška	5.00	1:15	370	http://info.hps.hr/putovi/putovi?p[view]=810	t	01_03_15.gpx	http://info.hps.hr/putovi/www/static/gpx/01_03_15.gpx	01_03_15.jpg	http://info.hps.hr/putovi/karta?img=01_03_15.jpg	Ivanovac	0101000020E61000000000905A074831400000A4B0E4AF4640	Križanje prije Džakine livade	0101000020E6100000000078343E4F314000000801ACAC4640

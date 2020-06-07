@@ -1,6 +1,6 @@
 export enum AccountStatus {
-    Active = 0,
-    Verified = 1,
-    Deleted = 2,
-    Banned = 3,
+    ACTIVE = 0,
+    VERIFIED = 1,
+    DELETED = 2,
+    BANNED = 3,
 }

@@ -3,7 +3,7 @@ import { User } from './user.model';
 import { AccountStatus } from './enums/accountStatus';
 import { getRepository } from 'typeorm';
 import { AccountRole } from './enums/accountRole';
-import { GenerateNonce } from '../../services/auth.service';
+import { generateNonce } from '../../services/auth.service';
 
 export async function Create(
     name: string,
@@ -12,11 +12,11 @@ export async function Create(
     password: string,
 ) {
     const user = new User();
-    user.Name = name;
-    user.Email = email;
-    user.Username = username;
-    user.PasswordHash = Hashify(password);
-    user.Nonce = GenerateNonce();
+    user.name = name;
+    user.email = email;
+    user.username = username;
+    user.passwordHash = Hashify(password);
+    user.nonce = generateNonce();
 
     return getRepository(User).save(user);
 }
@@ -29,13 +29,13 @@ export async function Update(
     description: string = '',
 ) {
     const user = await _findByUserId(userId);
-    user.Name = name;
-    user.Username = username;
-    user.Description = description;
+    user.name = name;
+    user.username = username;
+    user.description = description;
 
-    if (user.Email != email) {
-        user.Email = email;
-        user.Nonce = GenerateNonce();
+    if (user.email != email) {
+        user.email = email;
+        user.nonce = generateNonce();
     }
 
     return getRepository(User).save(user);
@@ -44,11 +44,11 @@ export async function Update(
 export async function ChangePassword(userId: number, password: string) {
     return getRepository(User).update(
         {
-            UserId: userId,
+            userId: userId,
         },
         {
-            Nonce: GenerateNonce(),
-            PasswordHash: Hashify(password),
+            nonce: generateNonce(),
+            passwordHash: Hashify(password),
         },
     );
 }
@@ -56,11 +56,11 @@ export async function ChangePassword(userId: number, password: string) {
 export async function Delete(userId: number) {
     return getRepository(User).update(
         {
-            UserId: userId,
+            userId: userId,
         },
         {
-            Nonce: GenerateNonce(),
-            AccountStatus: AccountStatus.Deleted,
+            nonce: generateNonce(),
+            accountStatus: AccountStatus.DELETED,
         },
     );
 }
@@ -68,11 +68,11 @@ export async function Delete(userId: number) {
 export async function ChangeRole(userId: number, role: AccountRole) {
     return getRepository(User).update(
         {
-            UserId: userId,
+            userId: userId,
         },
         {
-            Nonce: GenerateNonce(),
-            AccountRole: role,
+            nonce: generateNonce(),
+            accountRole: role,
         },
     );
 }
@@ -80,7 +80,7 @@ export async function ChangeRole(userId: number, role: AccountRole) {
 async function _findByUserId(userId: number) {
     return getRepository(User).findOne({
         where: {
-            UserId: userId,
+            userId: userId,
         },
     });
 }

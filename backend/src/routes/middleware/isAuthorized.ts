@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { VerifyAndDecodeJWT } from '../../services/auth.service';
+import { verifyAndDecodeJWT } from '../../services/auth.service';
 import { AccountRole } from '../../modules/users/enums/accountRole';
 import { GetUserById } from '../../modules/users/user.query';
 import { User } from '../../modules/users/user.model';
@@ -42,7 +42,7 @@ export function checkIfUserAuthorized(
             return _buildErrorResponse(response, 'TOKEN NOT PROVIDED');
         }
 
-        const token = await VerifyAndDecodeJWT(tokenString);
+        const token = await verifyAndDecodeJWT(tokenString);
 
         if (token instanceof Error) {
             return _buildErrorResponse(response, 'INVALID TOKEN');
@@ -54,14 +54,14 @@ export function checkIfUserAuthorized(
             return _buildErrorResponse(response, `USER DOESN'T EXIST.`);
         }
 
-        if (user.Nonce != token.nonce) {
+        if (user.nonce != token.nonce) {
             return _buildErrorResponse(
                 response,
                 'OUTDATED TOKEN. PLEASE REAUTHENTICATE.',
             );
         }
 
-        if (user.AccountRole != AccountRole.Admin) {
+        if (user.accountRole != AccountRole.ADMIN) {
             if (settings.authorizationRequiresUserIdMatch) {
                 if (params['userId'] !== token.userId.toString()) {
                     return _buildErrorResponse(
@@ -72,11 +72,11 @@ export function checkIfUserAuthorized(
             }
 
             if (settings.allowedRoles && settings.allowedRoles.length > 0) {
-                if (!settings.allowedRoles.includes(user.AccountRole)) {
+                if (!settings.allowedRoles.includes(user.accountRole)) {
                     return _buildErrorResponse(
                         response,
                         `${AccountRole[
-                            user.AccountRole
+                            user.accountRole
                         ].toString()} CAN'T ACCESS THIS ROUTE`,
                     );
                 }

@@ -1,7 +1,7 @@
 import { InputType, Field } from 'type-graphql';
 
 @InputType()
-export class orderByInput {
+export class OrderBy {
     constructor() {
         this.column = 'Id';
         this.direction = 'ASC';

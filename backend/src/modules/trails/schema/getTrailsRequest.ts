@@ -1,19 +1,19 @@
 import { ArgsType, Field, Int } from 'type-graphql';
-import { orderByInput } from '../../shared/schema/orderByInput';
+import { OrderBy } from '../../shared/schema/orderBy';
 
 @ArgsType()
-export class getTrailsRequest {
+export class GetTrailsRequest {
     @Field((type) => Int)
     offset: number;
 
     @Field((type) => Int)
     pageSize: number;
 
-    @Field((type) => [orderByInput], {
+    @Field((type) => [OrderBy], {
         nullable: true,
-        defaultValue: [new orderByInput()],
+        defaultValue: [new OrderBy()],
     })
-    orderBy: orderByInput[];
+    orderBy: OrderBy[];
 
     @Field((type) => String, { nullable: true })
     mountain: string;

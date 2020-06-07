@@ -29,7 +29,7 @@ const TRAIL_LIST_QUERY = gql`
     query(
         $pageSize: Int!
         $offset: Int!
-        $orderBy: [orderByInput!] = [{ column: "Id", direction: "ASC" }]
+        $orderBy: [OrderBy!] = [{ column: "id", direction: "ASC" }]
         $mountain: String
         $maintainer: String
         $distance: Int
@@ -45,12 +45,12 @@ const TRAIL_LIST_QUERY = gql`
             duration: $duration
         ) {
             items {
-                Name
-                Slug
-                MapName
-                StartLocation
-                Duration
-                Distance
+                name
+                slug
+                mapName
+                startLocation
+                duration
+                distance
             }
             total
         }
@@ -190,7 +190,7 @@ const TrailList = (props) => {
                 <>
                     <Grid container spacing={2} className="ui--TrailList">
                         {data.trails.items.map((trail) => (
-                            <Grid item key={trail.Id} md={6} xs={12}>
+                            <Grid item key={trail.id} md={6} xs={12}>
                                 <TrailListItem trail={trail}></TrailListItem>
                             </Grid>
                         ))}

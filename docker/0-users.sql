@@ -1,14 +1,14 @@
 CREATE TABLE public.users (
-    "UserId" serial primary key,
-    "Name" character varying(1000) not null,
-    "Email" character varying(1000) not null,
-    "Username" character varying(1000) not null,
-    "Nonce" character varying(20) not null,
-    "PasswordHash" text not null,
-    "Description" text,
-    "RegisteredOn" timestamp with time zone default CURRENT_TIMESTAMP not null,
-    "AccountRole" integer default 0 not null,
-    "AccountStatus" integer default 0 not null,
+    "userId" serial primary key,
+    "name" character varying(1000) not null,
+    "email" character varying(1000) not null,
+    "username" character varying(1000) not null,
+    "nonce" character varying(20) not null,
+    "passwordHash" text not null,
+    "description" text,
+    "registeredOn" timestamp with time zone default CURRENT_TIMESTAMP not null,
+    "accountRole" integer default 0 not null,
+    "accountStatus" integer default 0 not null,
 
-    unique("Email")
+    unique("email")
 );

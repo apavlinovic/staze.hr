@@ -1,9 +1,9 @@
 import { ClassType, ObjectType, Field, Int } from 'type-graphql';
 
-export function paginatedResponse<TItem>(TItemClass: ClassType<TItem>) {
+export function PaginatedResponse<TItem>(TItemClass: ClassType<TItem>) {
     // `isAbstract` decorator option is mandatory to prevent registering in schema
     @ObjectType({ isAbstract: true })
-    abstract class paginatedResponseClass {
+    abstract class PaginatedResponseClass {
         // here we use the runtime argument
         @Field((type) => [TItemClass])
         // and here the generic type
@@ -13,5 +13,5 @@ export function paginatedResponse<TItem>(TItemClass: ClassType<TItem>) {
         total: number;
     }
 
-    return paginatedResponseClass;
+    return PaginatedResponseClass;
 }

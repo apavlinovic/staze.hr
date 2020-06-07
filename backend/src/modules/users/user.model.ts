@@ -8,38 +8,38 @@ import { AccountStatus } from './enums/accountStatus';
 })
 export class User {
     @PrimaryGeneratedColumn()
-    UserId: number;
+    userId: number;
 
     @Column()
-    Name: string;
+    name: string;
 
     @Column({
         length: 200,
     })
-    Email: string;
+    email: string;
 
     @Column({
         length: 200,
     })
-    Username: string;
+    username: string;
 
     @Column({
         length: 20,
     })
-    Nonce: string;
+    nonce: string;
 
     @Column()
-    PasswordHash: string;
+    passwordHash: string;
 
     @Column('text')
-    Description: string;
+    description: string;
 
     @Column()
-    RegisteredOn: Date;
+    registeredOn: Date;
 
     @Column()
-    AccountRole: AccountRole;
+    accountRole: AccountRole;
 
     @Column()
-    AccountStatus: AccountStatus;
+    accountStatus: AccountStatus;
 }

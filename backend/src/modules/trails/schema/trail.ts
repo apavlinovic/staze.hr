@@ -1,6 +1,6 @@
 import { Entity, PrimaryColumn, Column } from 'typeorm';
 import { ObjectType, Field, Int } from 'type-graphql';
-import { geoPoint } from '../shared/schema/geoPoint';
+import { GeoPoint } from '../../shared/schema/geoPoint';
 
 @ObjectType()
 @Entity({
@@ -9,73 +9,73 @@ import { geoPoint } from '../shared/schema/geoPoint';
 export class Trail {
     @Field((type) => Int)
     @PrimaryColumn()
-    Id: number;
+    id: number;
 
     @Field()
     @Column({
         nullable: false,
     })
-    Name: string;
+    name: string;
 
     @Field()
     @Column('text')
-    Description: string;
+    description: string;
 
     @Field()
     @Column()
-    Type: string;
+    type: string;
 
     @Field()
     @Column()
-    Slug: string;
+    slug: string;
 
     @Field()
     @Column()
-    Mountain: string;
+    mountain: string;
 
     @Field()
     @Column()
-    Maintainer: string;
+    maintainer: string;
 
     @Field()
     @Column()
-    Duration: string;
+    duration: string;
 
     @Field()
     @Column()
-    HeightDifference: string;
+    heightDifference: string;
 
     @Field()
     @Column()
-    RelatedInformationLink: string;
+    relatedInformationLink: string;
 
     @Field()
     @Column('decimal')
-    Distance: number;
+    distance: number;
 
     @Field()
     @Column()
-    HasValidGpx: boolean;
+    hasValidGpx: boolean;
 
     @Field()
     @Column()
-    GpxTraceId: string;
+    gpxTraceId: string;
 
     @Field()
     @Column()
-    GpxTraceUrl: string;
+    gpxTraceUrl: string;
 
     @Field()
     @Column()
-    MapName: string;
+    mapName: string;
 
     @Field()
     @Column()
-    OriginalMapUrl: string;
+    originalMapUrl: string;
 
     @Field()
     @Column()
-    StartLocation: string;
+    startLocation: string;
 
     @Field()
     @Column('geometry', {
@@ -83,11 +83,11 @@ export class Trail {
         spatialFeatureType: 'Point',
         srid: 4326,
     })
-    StartLocationCoords: geoPoint;
+    startLocationCoords: GeoPoint;
 
     @Field()
     @Column()
-    EndLocation: string;
+    endLocation: string;
 
     @Field()
     @Column('geometry', {
@@ -95,9 +95,9 @@ export class Trail {
         spatialFeatureType: 'Point',
         srid: 4326,
     })
-    EndLocationCoords: geoPoint;
+    endLocationCoords: GeoPoint;
 
     @Field()
     @Column()
-    ModifiedOn: Date;
+    modifiedOn: Date;
 }
