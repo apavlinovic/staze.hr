@@ -68,7 +68,7 @@ export class TrailResolver {
         @Arg('trailId', {
             nullable: true,
         })
-        trailId: Number = 1,
+        trailId: Number = null,
         @Arg('trailSlug') trailSlug: string = '',
     ) {
         return getRepository(Trail).findOne({
