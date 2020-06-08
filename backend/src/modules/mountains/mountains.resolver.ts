@@ -1,8 +1,8 @@
 import { Resolver, Query } from 'type-graphql';
 import { getRepository } from 'typeorm';
 
-import { MountainWithTrailCount } from './schema/mountainWithTrailCount.model';
-import { Trail } from '../trails/schema/trail';
+import { MountainWithTrailCount } from './schema/mountainWithTrailCount';
+import { Trail } from '../trails/schema/trail.model';
 
 @Resolver()
 export class MountainResolver {

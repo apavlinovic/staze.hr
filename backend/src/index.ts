@@ -8,12 +8,18 @@ import { buildSchema } from 'type-graphql';
 import { TrailResolver } from './modules/trails/trail.resolver';
 import { MountainResolver } from './modules/mountains/mountains.resolver';
 import { UserResolver } from './modules/users/user.resolver';
+import { AuthResolver } from './modules/auth/auth.resolver';
 
 const PORT = process.env.PORT || 4000;
 
 async function bootstrap() {
     const schema = await buildSchema({
-        resolvers: [TrailResolver, MountainResolver, UserResolver],
+        resolvers: [
+            TrailResolver,
+            MountainResolver,
+            UserResolver,
+            AuthResolver,
+        ],
     });
 
     // Create the GraphQL server

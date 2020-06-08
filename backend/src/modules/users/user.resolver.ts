@@ -1,15 +1,15 @@
 import { User } from './schema/user.model';
 import { getRepository } from 'typeorm';
 import { Resolver, Query, Arg, Mutation, Args } from 'type-graphql';
+import { ApolloError } from 'apollo-server';
 
 import { OrderBy } from '../shared/schema/orderBy';
-import { UpdateUserRequest } from './schema/updateUserRequest';
+import { UpdateUserRequest } from './schema/updateUser.request';
 import { generateNonce } from '../../services/auth.service';
 import { createPasswordHash } from '../../services/password.service';
-import { ApolloError } from 'apollo-server';
 import { AccountRole } from './enums/accountRole';
 import { AccountStatus } from './enums/accountStatus';
-import { PaginatedUsersResponse } from './schema/paginatedUsersResponse';
+import { PaginatedUsersResponse } from './schema/paginatedUsers.response';
 
 @Resolver()
 export class UserResolver {
@@ -79,6 +79,15 @@ export class UserResolver {
             user.nonce = generateNonce();
         }
 
+        if (password) {
+            const passwordHash = createPasswordHash(password);
+
+            if (user.passwordHash != passwordHash) {
+                user.passwordHash = passwordHash;
+                user.nonce = generateNonce();
+            }
+        }
+
         if (name) {
             user.name = name;
         }
@@ -89,11 +98,6 @@ export class UserResolver {
 
         if (description) {
             user.description = description;
-        }
-
-        if (password) {
-            user.passwordHash = createPasswordHash(password);
-            user.nonce = generateNonce();
         }
 
         return getRepository(User).save(user);

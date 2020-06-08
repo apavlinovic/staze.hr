@@ -1,9 +1,9 @@
-import { Trail } from './schema/trail';
+import { Trail } from './schema/trail.model';
 import { FindConditions, LessThanOrEqual, getRepository } from 'typeorm';
 import { Resolver, Query, Arg, Args } from 'type-graphql';
 
-import { PaginatedTrailsResponse } from './schema/paginatedTrailsResponse';
-import { GetTrailsRequest } from './schema/getTrailsRequest';
+import { PaginatedTrailsResponse } from './schema/paginatedTrails.response';
+import { GetTrailsRequest } from './schema/getTrails.request';
 
 @Resolver()
 export class TrailResolver {
