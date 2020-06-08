@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import { verifyAndDecodeJWT } from '../../services/auth.service';
 import { AccountRole } from '../../modules/users/enums/accountRole';
-import { GetUserById } from '../../modules/users/user.query';
-import { User } from '../../modules/users/user.model';
+import { UserResolver } from '../../modules/users/user.resolver';
+import { User } from '../../modules/users/schema/user.model';
 
 const BEARER_TOKEN_IDENTIFIER = 'Bearer ';
 
@@ -48,7 +48,7 @@ export function checkIfUserAuthorized(
             return _buildErrorResponse(response, 'INVALID TOKEN');
         }
 
-        const user = await GetUserById(token.userId);
+        const user = await new UserResolver().getUser(token.userId);
 
         if (!user) {
             return _buildErrorResponse(response, `USER DOESN'T EXIST.`);

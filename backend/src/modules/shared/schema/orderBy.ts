@@ -7,4 +7,8 @@ export class OrderBy {
 
     @Field(() => String)
     direction: 'ASC' | 'DESC' = 'ASC';
+
+    toJSON() {
+        return { [this.column]: this.direction };
+    }
 }

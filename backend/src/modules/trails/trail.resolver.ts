@@ -9,6 +9,7 @@ import { GetTrailsRequest } from './schema/getTrailsRequest';
 export class TrailResolver {
     @Query(() => PaginatedTrailsResponse, {
         name: 'trails',
+        defaultValue: [],
     })
     async getTrails(
         @Args()
@@ -36,7 +37,6 @@ export class TrailResolver {
             whereStatement.distance = LessThanOrEqual(distance);
         }
 
-        // TODO: This doesn't actually work. Needs to call DB Func to convert to timestamp
         if (duration) {
             whereStatement.duration = LessThanOrEqual(duration);
         }
@@ -63,13 +63,18 @@ export class TrailResolver {
 
     @Query(() => Trail, {
         name: 'trail',
+        description: 'Loads Trail information',
+        defaultValue: new Trail(),
     })
     async getTrail(
         @Arg('trailId', {
             nullable: true,
         })
         trailId: Number = null,
-        @Arg('trailSlug') trailSlug: string = '',
+        @Arg('trailSlug', {
+            nullable: true,
+        })
+        trailSlug: string = '',
     ) {
         return getRepository(Trail).findOne({
             where: [

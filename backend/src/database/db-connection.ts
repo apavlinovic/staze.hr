@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { createConnection } from 'typeorm';
-import { User } from '../modules/users/user.model';
+import { User } from '../modules/users/schema/user.model';
 import { Trail } from '../modules/trails/schema/trail';
 
 const {
