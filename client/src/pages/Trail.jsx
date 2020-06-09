@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from 'apollo-boost';
+
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -20,26 +23,53 @@ import TrailDetails from '../components/TrailDetails/TrailDetails';
 import Loader from '../global/Loader/Loader';
 import SEO from '../global/SEO/SEO';
 
+const TRAIL_LIST_QUERY = gql`
+    query($slug: String!) {
+        trail(trailSlug: $slug) {
+            id
+            name
+            description
+            type
+            slug
+            mountain
+            maintainer
+            duration
+            heightDifference
+            relatedInformationLink
+            distance
+            hasValidGpx
+            gpxTraceId
+            gpxTraceUrl
+            mapName
+            originalMapUrl
+            startLocation
+            startLocationCoords {
+                coordinates
+            }
+            endLocation
+            endLocationCoords {
+                coordinates
+            }
+            modifiedOn
+        }
+    }
+`;
+
 function Trail() {
     let { slug } = useParams();
 
-    const [isLoading, setLoading] = useState(true);
-    const [trail, setTrail] = useState({});
+    const { loading, error, data } = useQuery(TRAIL_LIST_QUERY, {
+        variables: {
+            slug,
+        },
+    });
 
-    useEffect(() => {
-        fetch(`/api/trail/${slug}`)
-            .then((res) => res.json())
-            .then((result) => {
-                setTrail(result);
-                setLoading(false);
-            });
-    }, [slug]);
-
-    if (isLoading) return <Loader></Loader>;
+    if (loading) return <Loader></Loader>;
+    if (error) return error;
 
     return (
         <Container>
-            <SEO title={trail.Name} description={trail.Description} />
+            <SEO title={data.trail.name} description={data.trail.description} />
             <Grid container spacing={2}>
                 <Grid item md={12}>
                     <section>
@@ -47,23 +77,25 @@ function Trail() {
                             <Link
                                 component={RouterLink}
                                 color="inherit"
-                                to={`/mountain/${trail.Mountain}`}
+                                to={`/mountain/${data.trail.mountain}`}
                             >
-                                {trail.Mountain}
+                                {data.trail.mountain}
                             </Link>
 
-                            <Typography color="textPrimary">{trail.Name}</Typography>
+                            <Typography color="textPrimary">
+                                {data.trail.name}
+                            </Typography>
                         </Breadcrumbs>
                     </section>
 
                     <section>
                         <Typography variant="h3" component="h1" gutterBottom>
-                            {trail.Name}
+                            {data.trail.name}
                         </Typography>
                     </section>
                 </Grid>
                 <Grid item md={9}>
-                    <TrailDetails trail={trail} />
+                    <TrailDetails trail={data.trail} />
                 </Grid>
                 <Grid item md={3}>
                     <Paper>

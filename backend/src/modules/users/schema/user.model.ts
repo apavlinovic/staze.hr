@@ -2,44 +2,56 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 import { AccountRole } from '../enums/accountRole';
 import { AccountStatus } from '../enums/accountStatus';
+import { ObjectType, Field, Int } from 'type-graphql';
 
+@ObjectType()
 @Entity({
     name: 'users',
 })
 export class User {
+    @Field((type) => Int)
     @PrimaryGeneratedColumn()
-    UserId: number;
+    userId: number;
 
+    @Field()
     @Column()
-    Name: string;
+    name: string;
 
+    @Field()
     @Column({
         length: 200,
     })
-    Email: string;
+    email: string;
 
+    @Field()
     @Column({
         length: 200,
     })
-    Username: string;
+    username: string;
 
+    @Field()
     @Column({
         length: 20,
     })
-    Nonce: string;
+    nonce: string;
 
+    @Field()
     @Column()
-    PasswordHash: string;
+    passwordHash: string;
 
+    @Field()
     @Column('text')
-    Description: string;
+    description: string;
 
+    @Field()
     @Column()
-    RegisteredOn: Date;
+    registeredOn: Date;
 
+    @Field()
     @Column()
-    AccountRole: AccountRole;
+    accountRole: AccountRole;
 
+    @Field()
     @Column()
-    AccountStatus: AccountStatus;
+    accountStatus: AccountStatus;
 }

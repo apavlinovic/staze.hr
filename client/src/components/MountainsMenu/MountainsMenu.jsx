@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from 'apollo-boost';
+import React from 'react';
 import {
     ListItemText,
     ListSubheader,
@@ -9,26 +11,26 @@ import {
     Divider,
     ListItemIcon,
 } from '@material-ui/core';
+
 import { Link as RouterLink } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
-
 import MyLocation from '@material-ui/icons/MyLocation';
+
+const MOUNTAINS_QUERY = gql`
+    query {
+        mountains {
+            name
+            trails
+        }
+    }
+`;
 
 function MountainsMenu(props) {
     const { t } = props;
-    const [isLoading, setLoading] = useState(true);
-    const [mountains, setMountains] = useState([]);
+    const { loading, error, data } = useQuery(MOUNTAINS_QUERY);
 
-    useEffect(() => {
-        fetch(`/api/mountains?page=1&pageSize=100`)
-            .then((res) => res.json())
-            .then((results) => {
-                setMountains(results);
-                setLoading(false);
-            });
-    }, [true]);
-
-    if (isLoading) return 'Loading';
+    if (loading) return 'Loading';
+    if (error) return 'Error!';
 
     return (
         <Paper>
@@ -45,16 +47,16 @@ function MountainsMenu(props) {
                 <Divider />
 
                 <ListSubheader>{t('noun.mountain')}</ListSubheader>
-                {mountains.map((mountain) => {
+                {data.mountains.map((mountain) => {
                     return (
                         <ListItem
                             button
                             component={RouterLink}
-                            to={`/mountain/${mountain.Mountain}`}
-                            key={mountain.Mountain}
+                            to={`/mountain/${mountain.name}`}
+                            key={mountain.name}
                         >
-                            <ListItemText primary={mountain.Mountain} />
-                            <Chip label={mountain.TrailCount}></Chip>
+                            <ListItemText primary={mountain.name} />
+                            <Chip label={mountain.trails}></Chip>
                         </ListItem>
                     );
                 })}

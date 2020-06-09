@@ -8,7 +8,7 @@ export interface TokenContent {
     nonce: string;
 }
 
-export async function GenerateJWT(userId: number, nonce: string) {
+export async function generateJWT(userId: number, nonce: string) {
     return sign(
         {
             userId,
@@ -21,7 +21,7 @@ export async function GenerateJWT(userId: number, nonce: string) {
     );
 }
 
-export async function VerifyAndDecodeJWT(
+export async function verifyAndDecodeJWT(
     token: string,
 ): Promise<TokenContent | Error> {
     try {
@@ -32,6 +32,6 @@ export async function VerifyAndDecodeJWT(
     }
 }
 
-export function GenerateNonce() {
+export function generateNonce() {
     return randomBytes(20).toString('hex').substr(0, 20);
 }

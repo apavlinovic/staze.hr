@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from 'apollo-boost';
+
+import React, { useState } from 'react';
 import {
     Grid,
     FormControl,
@@ -22,10 +25,40 @@ import {
     SORTS,
 } from './TrailList.configuration';
 
+const TRAIL_LIST_QUERY = gql`
+    query(
+        $pageSize: Int!
+        $offset: Int!
+        $orderBy: [OrderBy!] = [{ column: "id", direction: "ASC" }]
+        $mountain: String
+        $maintainer: String
+        $distance: Int
+        $duration: String
+    ) {
+        trails(
+            pageSize: $pageSize
+            offset: $offset
+            orderBy: $orderBy
+            mountain: $mountain
+            maintainer: $maintainer
+            distance: $distance
+            duration: $duration
+        ) {
+            items {
+                name
+                slug
+                mapName
+                startLocation
+                duration
+                distance
+            }
+            total
+        }
+    }
+`;
+
 const TrailList = (props) => {
     const { mountain, t } = props;
-    const [isLoading, setLoading] = useState(true);
-    const [trails, setTrails] = useState({});
     const [offset, setOffset] = useState(0);
     const [orderBy, setOrderBy] = useState(SORTS.NAME_ASC.sort);
     const [distanceFilter, setDistanceFilter] = useState(
@@ -35,24 +68,20 @@ const TrailList = (props) => {
         FILTER_DURATION.DURATION_MAX.filter,
     );
 
-    useEffect(() => {
-        let q = `/api/trails?pageSize=${PAGE_SIZE}&page=${
-            offset / PAGE_SIZE + 1
-        }&mountain=${mountain}&orderBy=${orderBy}&distance=${distanceFilter}&duration=${durationFilter}`;
+    const { loading, error, data } = useQuery(TRAIL_LIST_QUERY, {
+        variables: {
+            offset: offset,
+            pageSize: PAGE_SIZE,
+            orderBy: orderBy,
+            mountain: mountain,
+            maintainer: null,
+            distance: distanceFilter,
+            duration: durationFilter,
+        },
+    });
 
-        fetch(q)
-            .then((res) => res.json())
-            .then((res) => {
-                console.log(res);
-                setTrails(res);
-                setLoading(false);
-            })
-            .catch(() => setLoading(false));
-    }, [mountain, offset, orderBy, distanceFilter, durationFilter]);
-
-    useEffect(() => {
-        setOffset(0);
-    }, [mountain]);
+    if (loading) return <Loader></Loader>;
+    if (error) return 'Error!';
 
     const handleChange = (event) => {
         switch (event.target.name) {
@@ -67,10 +96,6 @@ const TrailList = (props) => {
                 break;
         }
     };
-
-    if (isLoading) {
-        return <Loader></Loader>;
-    }
 
     return (
         <>
@@ -161,21 +186,21 @@ const TrailList = (props) => {
                 </Grid>
             </Grid>
 
-            {trails.count > 0 ? (
+            {data.trails.total > 0 ? (
                 <>
                     <Grid container spacing={2} className="ui--TrailList">
-                        {trails.rows.map((trail) => (
-                            <Grid item key={trail.Id} md={6} xs={12}>
+                        {data.trails.items.map((trail) => (
+                            <Grid item key={trail.id} md={6} xs={12}>
                                 <TrailListItem trail={trail}></TrailListItem>
                             </Grid>
                         ))}
                     </Grid>
 
-                    {trails.count > PAGE_SIZE ? (
+                    {data.trails.total > PAGE_SIZE ? (
                         <Pagination
                             className="ui--TrailListPagination"
                             limit={PAGE_SIZE}
-                            total={trails.count}
+                            total={data.trails.total}
                             offset={offset}
                             onClick={(e, offset) => setOffset(offset)}
                         ></Pagination>

@@ -3,28 +3,28 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "build": "./node_modules/.bin/tsc",
-        "start": "./node_modules/.bin/tsc && node ./bin/www.js",
-        "dev": "./node_modules/.bin/tsc-watch --onSuccess \"node ./bin/www.js\""
+        "start": "./node_modules/.bin/tsc && node ./bin/index.js",
+        "dev": "./node_modules/.bin/tsc-watch --onSuccess \"node ./bin/index.js\"",
+        "build": "./node_modules/.bin/tsc"
     },
     "prettier": "./../.prettierrc.json",
     "dependencies": {
-        "cookie-parser": "^1.4.5",
-        "debug": "~2.6.9",
+        "apollo-server": "^2.14.2",
+        "class-validator": "^0.12.2",
         "dotenv": "^8.2.0",
-        "express": "~4.16.1",
-        "http-errors": "~1.6.3",
+        "graphql": "^15.0.0",
         "jsonwebtoken": "^8.5.1",
-        "morgan": "~1.9.1",
         "node-cache": "^5.1.0",
         "pg": "^7.18.2",
         "pg-hstore": "^2.3.3",
         "reflect-metadata": "^0.1.13",
+        "type-graphql": "^1.0.0-rc.2",
         "typeorm": "^0.2.25"
     },
     "devDependencies": {
         "@types/express": "^4.17.6",
         "@types/express-serve-static-core": "^4.17.7",
+        "@types/graphql": "^14.5.0",
         "@types/jsonwebtoken": "^8.5.0",
         "@types/node": "^14.0.10",
         "@types/sequelize": "^4.28.9",

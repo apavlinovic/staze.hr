@@ -1,5 +1,11 @@
 import React from 'react';
-import { Card, CardContent, Link, CardMedia, CardActionArea } from '@material-ui/core';
+import {
+    Card,
+    CardContent,
+    Link,
+    CardMedia,
+    CardActionArea,
+} from '@material-ui/core';
 import LocationOn from '@material-ui/icons/LocationOn';
 import Schedule from '@material-ui/icons/Schedule';
 import DirectionsWalk from '@material-ui/icons/DirectionsWalk';
@@ -15,35 +21,39 @@ const TrailListItem = (props) => {
     const { trail, t } = props;
 
     return (
-        <Link underline="none" component={RouterLink} to={`/trail/${trail.Slug}`}>
+        <Link
+            underline="none"
+            component={RouterLink}
+            to={`/trail/${trail.slug}`}
+        >
             <Card className="ui--TrailListItem">
                 <CardActionArea>
                     <CardMedia
                         component="img"
-                        alt={trail.Name}
+                        alt={trail.name}
                         height="200"
-                        image={mapImageUrl(trail.MapName)}
-                        title={trail.Name}
+                        image={mapImageUrl(trail.mapName)}
+                        title={trail.name}
                     />
 
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
-                            {trail.Name}
+                            {trail.name}
                         </Typography>
 
                         <Typography variant="body1" className="information">
                             <span>
-                                <LocationOn></LocationOn> {trail.StartLocation}
+                                <LocationOn></LocationOn> {trail.startLocation}
                             </span>
-                            {trail.Duration && trail.Duration !== '0:00' ? (
+                            {trail.duration && trail.duration !== '0:00' ? (
                                 <span>
-                                    <Schedule></Schedule> {trail.Duration} h
+                                    <Schedule></Schedule> {trail.duration}h
                                 </span>
                             ) : null}
-                            {trail.Distance !== '0.00' ? (
+                            {trail.distance !== '0.00' ? (
                                 <span>
                                     <DirectionsWalk></DirectionsWalk>
-                                    {trail.Distance} km
+                                    {trail.distance} km
                                 </span>
                             ) : null}
                         </Typography>
