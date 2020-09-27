@@ -44,5 +44,5 @@ export const FILTER_DURATION = {
     DURATION_3: { filter: '03:00', label: 'strings.filter_duration_3' },
     DURATION_4: { filter: '04:00', label: 'strings.filter_duration_4' },
     DURATION_5: { filter: '05:00', label: 'strings.filter_duration_5' },
-    DURATION_MAX: { filter: '24:00', label: 'strings.filter_duration_max' },
+    DURATION_MAX: { filter: '23:59', label: 'strings.filter_duration_max' },
 };

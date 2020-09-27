@@ -69,7 +69,7 @@ function TrailDetails(props) {
                                 </Typography>
                                 <Typography variant="h5">
                                     {prettyPrintCoordinates(
-                                        trail.startLocationCoords.coordinates,
+                                        trail.startLocationCoords,
                                     )}
                                 </Typography>
                             </CardContent>
@@ -102,7 +102,7 @@ function TrailDetails(props) {
                                 </Typography>
                                 <Typography variant="h5">
                                     {prettyPrintCoordinates(
-                                        trail.endLocationCoords.coordinates,
+                                        trail.endLocationCoords,
                                     )}
                                 </Typography>
                             </CardContent>

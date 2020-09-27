@@ -11,11 +11,15 @@ export function mapGraphUrl(mapName) {
 }
 
 export function prettyPrintCoordinates(coordinates) {
+    if (!coordinates) return null;
+
     return `${coordinates[1]
         .toString()
         .substring(0, 8)}, ${coordinates[0].toString().substring(0, 8)}`;
 }
 
 export function renderNavigateToCoordinatesLink(coordinates) {
+    if (!coordinates) return null;
+
     return `https://www.google.com/maps/dir/?api=1&destination=${coordinates.coordinates[1]},${coordinates.coordinates[0]}`;
 }

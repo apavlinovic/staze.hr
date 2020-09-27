@@ -37,11 +37,17 @@ export class TrailResolver {
         }
 
         if (distance) {
-            qb.andWhere('trail.distance < :distance', { distance });
+            qb.andWhere('trail.distance <= :distance', { distance });
         }
 
         if (duration) {
-            qb.andWhere('trail.duration <= :duration', { duration });
+            qb.andWhere(
+                `case when trail.duration is null 
+                    then true
+                    else to_timestamp(trail.duration, 'HH24:MI') <= to_timestamp(:duration, 'HH24:MI')
+                end`,
+                { duration },
+            );
         }
 
         if (nearby) {
