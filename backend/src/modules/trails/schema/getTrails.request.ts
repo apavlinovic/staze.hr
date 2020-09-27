@@ -1,5 +1,6 @@
 import { ArgsType, Field, Int } from 'type-graphql';
 import { OrderBy } from '../../shared/schema/orderBy';
+import { DistanceFromGeoPointInput } from '../../shared/schema/geoPoint';
 
 @ArgsType()
 export class GetTrailsRequest {
@@ -26,4 +27,7 @@ export class GetTrailsRequest {
 
     @Field((type) => String, { nullable: true })
     duration: string;
+
+    @Field((type) => DistanceFromGeoPointInput, { nullable: true })
+    nearby: DistanceFromGeoPointInput;
 }

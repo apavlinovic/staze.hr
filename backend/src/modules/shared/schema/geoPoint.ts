@@ -1,4 +1,4 @@
-import { ObjectType, Field } from 'type-graphql';
+import { ObjectType, Field, InputType } from 'type-graphql';
 
 @ObjectType()
 export class GeoPoint {
@@ -7,4 +7,16 @@ export class GeoPoint {
 
     @Field((type) => [Number, Number])
     coordinates: Array<Number>;
+}
+
+@InputType()
+export class DistanceFromGeoPointInput {
+    @Field()
+    lat: Number;
+
+    @Field()
+    long: Number;
+
+    @Field()
+    distanceFromMeters: Number;
 }

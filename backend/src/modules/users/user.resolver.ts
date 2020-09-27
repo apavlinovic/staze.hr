@@ -6,7 +6,7 @@ import { ApolloError } from 'apollo-server';
 import { OrderBy } from '../shared/schema/orderBy';
 import { UpdateUserRequest } from './schema/updateUser.request';
 import { generateNonce } from '../../services/auth.service';
-import { createPasswordHash } from '../../services/password.service';
+import { hashify } from '../../services/password.service';
 import { AccountRole } from './enums/accountRole';
 import { AccountStatus } from './enums/accountStatus';
 import { PaginatedUsersResponse } from './schema/paginatedUsers.response';
@@ -80,7 +80,7 @@ export class UserResolver {
         }
 
         if (password) {
-            const passwordHash = createPasswordHash(password);
+            const passwordHash = hashify(password);
 
             if (user.passwordHash != passwordHash) {
                 user.passwordHash = passwordHash;
@@ -120,7 +120,7 @@ export class UserResolver {
         user.name = name;
         user.username = username;
         user.email = email;
-        user.passwordHash = createPasswordHash(password);
+        user.passwordHash = hashify(password);
         user.nonce = generateNonce();
         user.accountRole = AccountRole.MEMBER;
         user.accountStatus = AccountStatus.ACTIVE;

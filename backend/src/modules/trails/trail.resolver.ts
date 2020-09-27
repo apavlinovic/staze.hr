@@ -1,5 +1,5 @@
 import { Trail } from './schema/trail.model';
-import { FindConditions, LessThanOrEqual, getRepository } from 'typeorm';
+import { getRepository, createQueryBuilder } from 'typeorm';
 import { Resolver, Query, Arg, Args } from 'type-graphql';
 
 import { PaginatedTrailsResponse } from './schema/paginatedTrails.response';
@@ -21,44 +21,53 @@ export class TrailResolver {
             maintainer,
             distance,
             duration,
+            nearby,
         }: GetTrailsRequest,
     ): Promise<PaginatedTrailsResponse> {
-        let whereStatement: FindConditions<Trail> = {};
+        var qb = createQueryBuilder(Trail, 'trail')
+            .take(pageSize)
+            .offset(offset);
 
         if (mountain) {
-            whereStatement.mountain = mountain;
+            qb.andWhere('trail.mountain = :mountain', { mountain });
         }
 
         if (maintainer) {
-            whereStatement.maintainer = maintainer;
+            qb.andWhere('trail.maintainer = :maintainer', { maintainer });
         }
 
         if (distance) {
-            whereStatement.distance = LessThanOrEqual(distance);
+            qb.andWhere('trail.distance < :distance', { distance });
         }
 
         if (duration) {
-            whereStatement.duration = LessThanOrEqual(duration);
+            qb.andWhere('trail.duration <= :duration', { duration });
         }
 
-        const sortHashMap: any = {};
-        orderBy.forEach(
-            (order) => (sortHashMap[order.column] = order.direction),
+        if (nearby) {
+            qb.andWhere(
+                'ST_Distance(trail.startLocationCoords, ST_GeomFromGeoJSON(:origin)) < :distanceFrom',
+                {
+                    origin: JSON.stringify({
+                        type: 'Point',
+                        coordinates: [nearby.lat, nearby.long],
+                    }),
+
+                    distanceFrom: nearby.distanceFromMeters,
+                },
+            );
+        }
+
+        orderBy.forEach((order) =>
+            qb.addOrderBy(order.column, order.direction),
         );
 
-        return getRepository(Trail)
-            .findAndCount({
-                take: pageSize,
-                skip: offset,
-                order: sortHashMap,
-                where: whereStatement,
-            })
-            .then((value) => {
-                return {
-                    items: value[0],
-                    total: value[1],
-                };
-            });
+        return qb.getManyAndCount().then((value) => {
+            return {
+                items: value[0],
+                total: value[1],
+            };
+        });
     }
 
     @Query(() => Trail, {

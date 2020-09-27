@@ -2,7 +2,7 @@ import { Resolver, Query, Arg } from 'type-graphql';
 import { getRepository } from 'typeorm';
 
 import { User } from '../users/schema/user.model';
-import { createPasswordHash } from '../../services/password.service';
+import { equals } from '../../services/password.service';
 import { generateJWT } from '../../services/auth.service';
 import { ApolloError } from 'apollo-server';
 import { LoginResponse } from './schema/login.response';
@@ -17,7 +17,7 @@ export class AuthResolver {
         return getRepository(User)
             .findOne({ email: email })
             .then(async (user) => {
-                if (user.passwordHash === createPasswordHash(password)) {
+                if (equals(password, user.passwordHash)) {
                     const response = new LoginResponse();
                     response.token = await generateJWT(user.userId, user.nonce);
 

@@ -12,9 +12,7 @@ export class Trail {
     id: number;
 
     @Field()
-    @Column({
-        nullable: false,
-    })
+    @Column()
     name: string;
 
     @Field()
@@ -33,16 +31,16 @@ export class Trail {
     @Column()
     mountain: string;
 
-    @Field()
-    @Column()
+    @Field({ nullable: true })
+    @Column({ nullable: true })
     maintainer: string;
 
-    @Field()
-    @Column()
+    @Field({ nullable: true })
+    @Column({ nullable: true })
     duration: string;
 
-    @Field()
-    @Column()
+    @Field({ nullable: true })
+    @Column({ nullable: true })
     heightDifference: string;
 
     @Field()
@@ -57,27 +55,27 @@ export class Trail {
     @Column()
     hasValidGpx: boolean;
 
-    @Field()
-    @Column()
+    @Field({ nullable: true })
+    @Column({ nullable: true })
     gpxTraceId: string;
 
-    @Field()
-    @Column()
+    @Field({ nullable: true })
+    @Column({ nullable: true })
     gpxTraceUrl: string;
 
-    @Field()
-    @Column()
+    @Field({ nullable: true })
+    @Column({ nullable: true })
     mapName: string;
 
-    @Field()
-    @Column()
+    @Field({ nullable: true })
+    @Column({ nullable: true })
     originalMapUrl: string;
 
-    @Field()
-    @Column()
+    @Field({ nullable: true })
+    @Column({ nullable: true })
     startLocation: string;
 
-    @Field()
+    @Field({ nullable: true })
     @Column('geometry', {
         nullable: true,
         spatialFeatureType: 'Point',
@@ -85,11 +83,11 @@ export class Trail {
     })
     startLocationCoords: GeoPoint;
 
-    @Field()
-    @Column()
+    @Field({ nullable: true })
+    @Column({ nullable: true })
     endLocation: string;
 
-    @Field()
+    @Field({ nullable: true })
     @Column('geometry', {
         nullable: true,
         spatialFeatureType: 'Point',
