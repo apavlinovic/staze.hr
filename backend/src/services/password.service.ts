@@ -1,10 +1,9 @@
-import { createHash } from 'crypto';
+import { hash, compare } from 'bcrypt';
 
 export function equals(password = '', hash = '') {
-    return this.hashify(password) === hash;
+    return compare(password, hash);
 }
 
 export function hashify(password = '') {
-    const hash = createHash('sha512');
-    return hash.update(password).digest('hex');
+    return hash(password, 10);
 }
