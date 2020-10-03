@@ -9,15 +9,18 @@ import { TrailResolver } from './modules/trails/trail.resolver';
 import { MountainResolver } from './modules/mountains/mountains.resolver';
 import { UserResolver } from './modules/users/user.resolver';
 import { AuthResolver } from './modules/auth/auth.resolver';
+import { SearchResolver } from './modules/search/search.resolver';
 
 const PORT = process.env.PORT || 4000;
 
 async function bootstrap() {
     const schema = await buildSchema({
+        validate: true,
         resolvers: [
             TrailResolver,
             MountainResolver,
             UserResolver,
+            SearchResolver,
             AuthResolver,
         ],
     });
