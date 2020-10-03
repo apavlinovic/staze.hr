@@ -5,6 +5,7 @@
     "main": "index.js",
     "scripts": {
         "dev-backend": "cd backend && npm run dev",
+        "test-backend": "cd backend && npm run test",
         "dev-client": "cd client && npm start",
         "start": "npm-run-all -l -p dev-backend dev-client",
         "prettier:check": "./node_modules/.bin/prettier -c \"backend/src/**/*.ts\" \"client/src/**/*.js\"",
@@ -27,7 +28,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "npm run prettier:check"
+            "pre-commit": "npm run test-backend && npm run prettier:check"
         }
     }
 }
