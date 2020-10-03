@@ -17,6 +17,10 @@ export class AuthResolver {
         return getRepository(User)
             .findOne({ email: email })
             .then(async (user) => {
+                if (!user) {
+                    throw new ApolloError('User not found.');
+                }
+
                 if (equals(password, user.passwordHash)) {
                     const response = new LoginResponse();
                     response.token = await generateJWT(user.userId, user.nonce);
