@@ -61,7 +61,7 @@ The backend server should be running on http://localhost:4000. Navigate to http:
 
 ## Branch permissions and naming strategy
 
--   **master is not protected against pushes**. This is a limitation for Github's private repositories and only available for public and PRO repos. Please do not push into master if you're working on a feature. Bug fixes should be pushed directly to master.
+-   **master is protected against pushes**.
 -   **Branch naming strategy**:
 
 > staze-descriptive-branch-name
