@@ -2,6 +2,10 @@ import { InputType, Field } from 'type-graphql';
 
 @InputType()
 export class OrderBy {
+    constructor(column: string) {
+        this.column = column;
+    }
+
     @Field(() => String)
     column: string = 'id';
 

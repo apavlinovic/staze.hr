@@ -1,3 +1,4 @@
+import { DEFAULT_PAGE_SIZE } from '../../../config';
 import { ClassType, ObjectType, Field, Int } from 'type-graphql';
 
 export function PaginatedResponse<TItem>(TItemClass: ClassType<TItem>) {
@@ -11,6 +12,14 @@ export function PaginatedResponse<TItem>(TItemClass: ClassType<TItem>) {
 
         @Field((type) => Int)
         total: number;
+
+        @Field((type) => Int, {
+            defaultValue: DEFAULT_PAGE_SIZE,
+        })
+        pageSize: number;
+
+        @Field((type) => Int)
+        offset: number;
     }
 
     return PaginatedResponseClass;

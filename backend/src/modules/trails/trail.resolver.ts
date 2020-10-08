@@ -1,4 +1,6 @@
 import { Trail } from './schema/trail.model';
+import { isWhiteSpaceOrNull } from '../../utils/string.utils';
+
 import { getRepository, createQueryBuilder } from 'typeorm';
 import { Resolver, Query, Arg, Args } from 'type-graphql';
 
@@ -28,11 +30,11 @@ export class TrailResolver {
             .take(pageSize)
             .offset(offset);
 
-        if (mountain) {
+        if (!isWhiteSpaceOrNull(mountain)) {
             qb.andWhere('trail.mountain = :mountain', { mountain });
         }
 
-        if (maintainer) {
+        if (!isWhiteSpaceOrNull(maintainer)) {
             qb.andWhere('trail.maintainer = :maintainer', { maintainer });
         }
 
@@ -40,7 +42,7 @@ export class TrailResolver {
             qb.andWhere('trail.distance <= :distance', { distance });
         }
 
-        if (duration) {
+        if (!isWhiteSpaceOrNull(duration)) {
             qb.andWhere(
                 `case when trail.duration is null 
                     then true
@@ -64,14 +66,18 @@ export class TrailResolver {
             );
         }
 
-        orderBy.forEach((order) =>
-            qb.addOrderBy(order.column, order.direction),
-        );
+        if (orderBy) {
+            orderBy.forEach((order) =>
+                qb.addOrderBy(order.column, order.direction),
+            );
+        }
 
         return qb.getManyAndCount().then((value) => {
             return {
                 items: value[0],
                 total: value[1],
+                pageSize: pageSize,
+                offset: offset,
             };
         });
     }
@@ -91,15 +97,20 @@ export class TrailResolver {
         })
         trailSlug: string = '',
     ) {
-        return getRepository(Trail).findOne({
-            where: [
-                {
-                    id: trailId,
-                },
-                {
-                    slug: trailSlug,
-                },
-            ],
-        });
+        let where: Array<Object> = [];
+
+        if (trailId) {
+            where.push({ id: trailId });
+        }
+
+        if (!isWhiteSpaceOrNull(trailSlug)) {
+            where.push({ slug: trailSlug });
+        }
+
+        if (!where.length) {
+            return null;
+        }
+
+        return getRepository(Trail).findOne({ where });
     }
 }

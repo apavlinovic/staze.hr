@@ -6,8 +6,10 @@ import { SearchResult } from './schema/searchResult.model';
 
 import { Trail } from '../trails/schema/trail.model';
 import { SearchResultType } from './enums/resultType';
+import { isWhiteSpaceOrNull } from '../../utils/string.utils';
+import { RESULT_LIMIT_PER_SEARCH_BRANCH } from '../../config';
 
-const RESULT_LIMIT_PER_SEARCH_BRANCH = 10;
+const EMPTY_RESPONSE = new SearchResponse();
 
 @Resolver()
 export class SearchResolver {
@@ -15,6 +17,8 @@ export class SearchResolver {
     async globalSearch(
         @Arg('query') query: string = '',
     ): Promise<SearchResponse> {
+        if (isWhiteSpaceOrNull(query)) return EMPTY_RESPONSE;
+
         var trailResults = createQueryBuilder(Trail, 'trail')
             .limit(RESULT_LIMIT_PER_SEARCH_BRANCH)
             .andWhere(`trail.name like :query`, { query: `%${query}%` })

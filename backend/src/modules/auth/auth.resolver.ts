@@ -1,11 +1,12 @@
 import { Resolver, Query, Arg } from 'type-graphql';
 import { getRepository } from 'typeorm';
+import { ApolloError } from 'apollo-server';
 
 import { User } from '../users/schema/user.model';
 import { equals } from '../../services/password.service';
 import { generateJWT } from '../../services/auth.service';
-import { ApolloError } from 'apollo-server';
 import { LoginResponse } from './schema/login.response';
+import { isWhiteSpaceOrNull } from '../../utils/string.utils';
 
 @Resolver()
 export class AuthResolver {
@@ -14,11 +15,17 @@ export class AuthResolver {
         @Arg('email') email: string = null,
         @Arg('password') password: string = null,
     ) {
+        if (isWhiteSpaceOrNull(email) || isWhiteSpaceOrNull(password)) {
+            throw new ApolloError(`Email and password can't be empty.`);
+        }
+
         return getRepository(User)
             .findOne({ email: email })
             .then(async (user) => {
                 if (!user) {
-                    throw new ApolloError('User not found.');
+                    throw new ApolloError(
+                        'User not found for provided email address.',
+                    );
                 }
 
                 if (equals(password, user.passwordHash)) {
