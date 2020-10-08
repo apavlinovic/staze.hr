@@ -3,6 +3,8 @@ import { SearchResult } from './searchResult.model';
 
 @ObjectType()
 export class SearchResponse {
-    @Field((type) => [SearchResult])
+    @Field((type) => [SearchResult], {
+        defaultValue: [],
+    })
     results: SearchResult[];
 }

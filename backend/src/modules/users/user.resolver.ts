@@ -10,18 +10,22 @@ import { hashify, equals } from '../../services/password.service';
 import { AccountRole } from './enums/accountRole';
 import { AccountStatus } from './enums/accountStatus';
 import { PaginatedUsersResponse } from './schema/paginatedUsers.response';
+import { isWhiteSpaceOrNull } from '../../utils/string.utils';
+import { DEFAULT_OFFSET, DEFAULT_PAGE_SIZE } from '../../config';
 
 @Resolver()
 export class UserResolver {
     @Query(() => PaginatedUsersResponse, { name: 'users', defaultValue: [] })
     async getUsers(
-        @Arg('offset') offset: number = 0,
-        @Arg('limit') limit: number = 20,
-        @Arg('orderBy') orderBy: OrderBy,
+        @Arg('offset', { nullable: true }) offset: number = DEFAULT_OFFSET,
+        @Arg('pageSize', { nullable: true })
+        pageSize: number = DEFAULT_PAGE_SIZE,
+        @Arg('orderBy', { nullable: true })
+        orderBy: OrderBy = new OrderBy('userId'),
     ): Promise<PaginatedUsersResponse> {
         return getRepository(User)
             .findAndCount({
-                take: limit,
+                take: pageSize,
                 skip: offset,
                 order: orderBy.toJSON(),
             })
@@ -29,6 +33,8 @@ export class UserResolver {
                 return {
                     items: value[0],
                     total: value[1],
+                    pageSize: pageSize,
+                    offset,
                 };
             });
     }
@@ -38,18 +44,21 @@ export class UserResolver {
         @Arg('userId', { nullable: true }) userId: number = null,
         @Arg('email', { nullable: true }) email: string = null,
     ) {
-        return getRepository(User)
-            .find({
-                where: [
-                    {
-                        userId: userId,
-                    },
-                    {
-                        email: email,
-                    },
-                ],
-            })
-            .then((value) => value[0]);
+        let where: Array<Object> = [];
+
+        if (userId) {
+            where.push({ userId });
+        }
+
+        if (!isWhiteSpaceOrNull(email)) {
+            where.push({ email });
+        }
+
+        if (!where.length) {
+            return null;
+        }
+
+        return getRepository(User).findOne({ where });
     }
 
     @Mutation(() => User, {
