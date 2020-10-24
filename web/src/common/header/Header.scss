@@ -1,0 +1,19 @@
+.common-header {
+    padding: var(--base-space) var(--base-space-2x);
+    height: 70px;
+    display: flex;
+    align-items: center;
+
+    .item {
+        margin-right: var(--base-space-2x);
+    }
+
+    .homepage-link {
+        height: 52px;
+        display: block;
+
+        .common-logo {
+            height: 100%;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+:root {
+    --font: 400 16px/1.5 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    --font-color: rgb(10, 10, 10);
+    --link-color: rgb(53, 53, 53);
+    --primary-background-color: rgb(245, 245, 245);
+    --border-radius: 16px;
+
+    --base-space: 8px;
+    --base-space-2x: 16px;
+    --mobile-breakpoint: 640px;
+
+    --primary-surface-background-color: rgb(250, 250, 250);
+    --primary-border-color: rgb(215, 215, 215);
+
+    --staze-green: #288c07;
+    --staze-red: #ed1c24;
+}

@@ -1,0 +1,8 @@
+.common-omni-search {
+    input {
+        padding: var(--base-space) var(--base-space-2x);
+        background-color: var(--primary-surface-background-color);
+        border: 2px solid var(--primary-border-color);
+        border-radius: var(--border-radius);
+    }
+}

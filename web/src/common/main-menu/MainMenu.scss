@@ -1,0 +1,26 @@
+.common-main-menu {
+    ul {
+        display: flex;
+
+        li {
+            list-style: none;
+            padding: var(--base-space);
+
+            a {
+                text-decoration: none;
+                text-transform: lowercase;
+                color: var(--link-color);
+                border-bottom: 2px transparent;
+
+                &:hover,
+                &.__active {
+                    border-bottom: 2px solid var(--staze-red);
+                }
+
+                &.__active {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
