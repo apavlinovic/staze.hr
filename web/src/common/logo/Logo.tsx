@@ -1,31 +1,60 @@
 import React from 'react';
 import { withTranslation, WithTranslation } from 'react-i18next';
+import { useMediaQuery } from 'react-responsive';
 
 import './Logo.scss';
 interface LogoProps extends WithTranslation {
-    variant: 'normal' | 'white' | 'graphic';
+    variant: 'full' | 'graphic-only' | 'text-only';
 }
 
 function Logo(props: LogoProps) {
-    const { variant = 'normal', t } = props;
+    const { variant = 'full', t } = props;
+
+    const mode = useMediaQuery({
+        query: `(prefers-color-scheme: dark)`,
+    })
+        ? 'dark'
+        : 'light';
 
     const supportedVariants = {
-        normal: {
-            svg: '/branding/svg/staze-logo@vector.svg',
-            retina: '/branding/2x/staze-logo@2x.png',
-            normal: '/branding/1x/staze-logo.png',
+        light: {
+            full: {
+                svg: '/branding/svg/staze-logo@vector.svg',
+                retina: '/branding/2x/staze-logo@2x.png',
+                normal: '/branding/1x/staze-logo.png',
+            },
+
+            'graphic-only': {
+                svg: '/branding/svg/staze-grafika@vector.svg',
+                retina: '/branding/2x/staze-grafika@2x.png',
+                normal: '/branding/1x/staze-grafika.png',
+            },
+
+            'text-only': {
+                svg: 'branding/svg/staze-text@vector.svg',
+                retina: 'branding/2x/staze-text@2x.png',
+                normal: 'branding/1x/staze-text.png',
+            },
         },
 
-        graphic: {
-            svg: '/branding/svg/staze-grafika@vector.svg',
-            retina: '/branding/2x/staze-grafika@2x.png',
-            normal: '/branding/1x/staze-grafika.png',
-        },
+        dark: {
+            full: {
+                svg: '/branding/svg/staze-logo-white@vector.svg',
+                retina: '/branding/2x/staze-logo-white@2x.png',
+                normal: '/branding/1x/staze-logo-white.png',
+            },
 
-        white: {
-            svg: 'branding/svg/staze-logo-white@vector.svg',
-            retina: 'branding/2x/staze-logo-white@2x.png',
-            normal: 'branding/1x/staze-logo-white.png',
+            'graphic-only': {
+                svg: '/branding/svg/staze-grafika-white@vector.svg',
+                retina: '/branding/2x/staze-grafika-white@2x.png',
+                normal: '/branding/1x/staze-grafika-white.png',
+            },
+
+            'text-only': {
+                svg: 'branding/svg/staze-text-white@vector.svg',
+                retina: 'branding/2x/staze-text-white@2x.png',
+                normal: 'branding/1x/staze-text-white.png',
+            },
         },
     };
 
@@ -33,11 +62,11 @@ function Logo(props: LogoProps) {
         <picture className="common-logo">
             <source
                 type="image/svg+xml"
-                srcSet={supportedVariants[variant].svg}
+                srcSet={supportedVariants[mode][variant].svg}
             />
             <img
-                src={supportedVariants[variant].normal}
-                srcSet={`${supportedVariants[variant].retina} 2x`}
+                src={supportedVariants[mode][variant].normal}
+                srcSet={`${supportedVariants[mode][variant].retina} 2x`}
                 alt={t('strings.logo_description')}
             />
         </picture>

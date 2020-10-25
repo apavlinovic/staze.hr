@@ -8,6 +8,10 @@
         margin-right: var(--base-space-2x);
     }
 
+    .mobile-wrapper {
+        display: flex;
+    }
+
     .homepage-link {
         height: 52px;
         display: block;

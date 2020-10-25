@@ -7,18 +7,19 @@
             padding: var(--base-space);
 
             a {
+                font-weight: 400;
                 text-decoration: none;
-                text-transform: lowercase;
                 color: var(--link-color);
-                border-bottom: 2px transparent;
+                border-bottom: 2px solid transparent;
 
                 &:hover,
                 &.__active {
-                    border-bottom: 2px solid var(--staze-red);
+                    color: var(--text-color);
+                    border-bottom-color: var(--staze-red);
                 }
 
                 &.__active {
-                    font-weight: bold;
+                    font-weight: 700;
                 }
             }
         }

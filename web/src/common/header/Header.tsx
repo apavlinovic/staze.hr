@@ -11,7 +11,7 @@ function Header() {
         <header className="common-header">
             <div className="item">
                 <NavLink to="/" className="homepage-link">
-                    <Logo variant="graphic" />
+                    <Logo variant="graphic-only" />
                 </NavLink>
             </div>
             <div className="item">
