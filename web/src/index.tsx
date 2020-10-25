@@ -1,18 +1,33 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
+import {
+    ApolloClient,
+    HttpLink,
+    ApolloProvider,
+    InMemoryCache,
+} from '@apollo/client';
 
 import App from './common/app/App';
 import reportWebVitals from './common/monitoring/reportWebVitals';
 import './common/i18n/setupTranslations';
 
+const graphqlClient = new ApolloClient({
+    link: new HttpLink({
+        uri: 'http://localhost:4000',
+    }),
+    cache: new InMemoryCache(),
+});
+
 ReactDOM.render(
     <React.StrictMode>
-        <Suspense fallback="Loading...">
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
-        </Suspense>
+        <ApolloProvider client={graphqlClient}>
+            <Suspense fallback="Loading...">
+                <BrowserRouter>
+                    <App />
+                </BrowserRouter>
+            </Suspense>
+        </ApolloProvider>
     </React.StrictMode>,
     document.getElementById('root'),
 );
