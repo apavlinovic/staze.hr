@@ -1,6 +1,9 @@
 import React from 'react';
 import { withTranslation, WithTranslation } from 'react-i18next';
 import { useQuery, gql } from '@apollo/client';
+import { MountainWithTrailCount, Query } from '../types';
+
+import Loading from '../common/loading/Loading';
 
 const MOUNTAINS_QUERY = gql`
     query getMountains {
@@ -13,9 +16,13 @@ const MOUNTAINS_QUERY = gql`
 
 function MountainsPage(props: WithTranslation) {
     const { t } = props;
-    const { loading, error, data } = useQuery(MOUNTAINS_QUERY);
+    const { loading, error, data } = useQuery<Query>(MOUNTAINS_QUERY);
 
-    console.log(loading, data, error);
+    if (loading) {
+        return <Loading />;
+    }
+
+    console.log(data?.mountains);
 
     return <h1>Mountains</h1>;
 }
