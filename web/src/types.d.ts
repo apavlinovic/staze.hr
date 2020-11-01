@@ -161,6 +161,7 @@ export type SearchResult = {
   id?: Maybe<Scalars['Float']>;
   distance?: Maybe<Scalars['Float']>;
   duration?: Maybe<Scalars['String']>;
+  area?: Maybe<Scalars['String']>;
 };
 
 export type Mutation = {

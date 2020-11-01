@@ -1,0 +1,18 @@
+.common-error {
+    padding: var(--base-space) var(--base-space-2x);
+    margin: var(--base-space);
+    border: 2px solid var(--primary-border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--primary-surface-background-color);
+
+    h3 {
+        text-transform: uppercase;
+        font-weight: bold;
+        margin: var(--base-space) 0;
+        color: var(--staze-red);
+    }
+
+    code {
+        white-space: pre-line;
+    }
+}

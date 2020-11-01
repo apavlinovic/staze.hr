@@ -1,9 +1,10 @@
 import React from 'react';
 import { withTranslation, WithTranslation } from 'react-i18next';
 import { useQuery, gql } from '@apollo/client';
-import { MountainWithTrailCount, Query } from '../types';
+import { Query } from '../types';
 
 import Loading from '../common/loading/Loading';
+import Error from '../common/error/Error';
 
 const MOUNTAINS_QUERY = gql`
     query getMountains {
@@ -22,9 +23,23 @@ function MountainsPage(props: WithTranslation) {
         return <Loading />;
     }
 
-    console.log(data?.mountains);
+    if (error) {
+        console.warn(error);
+        return <Error error={error} />;
+    }
 
-    return <h1>Mountains</h1>;
+    return (
+        <div>
+            <h1>{t('noun.mountains')}</h1>
+
+            {/* TODO: FIGURE OUT A MOUNTAINS PAGE DESIGN */}
+            {data?.mountains.map((value, index) => (
+                <div key={`mountain-${index}`}>
+                    {value.name} ({value.trails})
+                </div>
+            ))}
+        </div>
+    );
 }
 
 export default withTranslation()(MountainsPage);

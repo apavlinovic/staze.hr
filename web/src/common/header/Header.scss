@@ -20,4 +20,26 @@
             height: 100%;
         }
     }
+
+    @media screen and (max-width: 640px) {
+        border-bottom: 1px solid var(--primary-border-color);
+        justify-content: flex-end;
+        padding: 0;
+
+        // Logo wrapper
+        .item:first-child {
+            margin-right: auto;
+            border-left: none;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0;
+            padding: var(--base-space);
+            border-left: 1px solid var(--primary-border-color);
+            height: 70px;
+        }
+    }
 }

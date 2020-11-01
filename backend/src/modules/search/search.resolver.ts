@@ -1,5 +1,5 @@
 import { Arg, Query, Resolver } from 'type-graphql';
-import { createQueryBuilder } from 'typeorm';
+import { getRepository } from 'typeorm';
 
 import { SearchResponse } from './schema/search.response';
 import { SearchResult } from './schema/searchResult.model';
@@ -19,11 +19,15 @@ export class SearchResolver {
     ): Promise<SearchResponse> {
         if (isWhiteSpaceOrNull(query)) return EMPTY_RESPONSE;
 
-        var trailResults = createQueryBuilder(Trail, 'trail')
-            .limit(RESULT_LIMIT_PER_SEARCH_BRANCH)
-            .andWhere(`trail.name like :query`, { query: `%${query}%` })
-            .getMany()
-            .then((trails) =>
+        var orderedTrailResults = getRepository(Trail)
+            .query(
+                `select id, name, mountain, distance, duration from trails where name ilike $1
+                union all
+                select id, name, mountain, distance, duration from trails where name not ilike $1 and (mountain ilike $2 or name ilike $2)
+                limit $3`,
+                [`${query}%`, `%${query}%`, RESULT_LIMIT_PER_SEARCH_BRANCH],
+            )
+            .then((trails: Trail[]) =>
                 trails.map((t) => {
                     var res = new SearchResult();
                     res.type = SearchResultType.TRAIL;
@@ -31,16 +35,18 @@ export class SearchResolver {
                     res.text = t.name;
                     res.distance = t.distance;
                     res.duration = t.duration;
+                    res.area = t.mountain;
 
                     return res;
                 }),
             );
 
-        var mountainResults = createQueryBuilder(Trail, 'trail')
-            .limit(RESULT_LIMIT_PER_SEARCH_BRANCH)
-            .andWhere(`trail.mountain like :query`, { query: `%${query}` })
-            .getMany()
-            .then((trails) =>
+        var mountainResults = getRepository(Trail)
+            .query(
+                `select distinct mountain from trails where mountain ilike $1 order by mountain limit $2`,
+                [`%${query}%`, RESULT_LIMIT_PER_SEARCH_BRANCH / 2],
+            )
+            .then((trails: Trail[]) =>
                 trails.map((t) => {
                     var res = new SearchResult();
                     res.type = SearchResultType.MOUNTAIN;
@@ -48,22 +54,15 @@ export class SearchResolver {
 
                     return res;
                 }),
-            )
-            .then((results) => {
-                var filterMap = new Map();
+            );
 
-                results.forEach((mountain) => {
-                    filterMap.set(mountain.text, mountain);
-                });
+        return Promise.all([mountainResults, orderedTrailResults]).then(
+            (results) => {
+                var response = new SearchResponse();
+                response.results = [].concat.apply([], results);
 
-                return [...filterMap.values()];
-            });
-
-        return Promise.all([trailResults, mountainResults]).then((results) => {
-            var response = new SearchResponse();
-            response.results = [].concat.apply([], results);
-
-            return response;
-        });
+                return response;
+            },
+        );
     }
 }

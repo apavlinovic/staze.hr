@@ -7,15 +7,17 @@
     --font-color: rgb(10, 10, 10);
     --link-color: rgb(53, 53, 53);
     --primary-background-color: rgb(245, 245, 245);
-    --border-radius: 24px;
+    --border-radius: 12px;
 
     --base-space: 8px;
     --base-space-2x: 16px;
     --mobile-breakpoint: 640px;
 
+    --overlay-background-color: rgba(255, 255, 255, 0.45);
     --primary-surface-background-color: rgb(250, 250, 250);
     --primary-interactive-surface-background-color: rgb(255, 255, 255);
     --primary-border-color: rgb(215, 215, 215);
+    --input-border-color: rgb(200, 200, 200);
 
     --staze-green: #288c07;
     --staze-red: #ed1c24;
@@ -25,10 +27,12 @@
     :root {
         --font-color: rgb(250, 250, 250);
         --link-color: rgb(230, 230, 230);
-        --primary-background-color: rgb(25, 25, 25);
+        --primary-background-color: rgb(35, 35, 35);
+        --overlay-background-color: rgba(25, 25, 25, 0.45);
         --primary-surface-background-color: rgb(45, 45, 45);
         --primary-interactive-surface-background-color: rgb(55, 55, 55);
         --primary-border-color: rgb(65, 65, 65);
+        --input-border-color: rgb(105, 105, 105);
         --staze-green: rgb(52, 187, 8);
     }
 }
@@ -53,7 +57,7 @@ input,
 button {
     padding: var(--base-space) var(--base-space-2x);
     background-color: var(--primary-surface-background-color);
-    border: 2px solid var(--primary-border-color);
+    border: 2px solid var(--input-border-color);
     border-radius: var(--border-radius);
     color: var(--font-color);
     font: var(--font);

@@ -24,4 +24,35 @@
             }
         }
     }
+
+    @media screen and (max-width: 640px) {
+        ul {
+            flex-direction: column;
+            width: 100%;
+            margin-right: var(--base-space-2x);
+
+            li {
+                padding: var(--base-space) 0;
+
+                a {
+                    display: block;
+                    padding: var(--base-space);
+                    margin-right: var(--base-space-2x);
+                    border-bottom: 2px solid var(--primary-border-color);
+                    font-weight: 700;
+                    font-size: 150%;
+
+                    &:focus,
+                    &:active {
+                        outline: none;
+                    }
+
+                    &.__active {
+                        color: var(--staze-green);
+                        border-bottom-color: var(--staze-green);
+                    }
+                }
+            }
+        }
+    }
 }
