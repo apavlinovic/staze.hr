@@ -6,7 +6,7 @@
     "scripts": {
         "dev-backend": "cd backend && npm run dev",
         "test-backend": "cd backend && npm run test",
-        "dev-client": "cd client && npm start",
+        "dev-client": "cd web && npm start",
         "start": "npm-run-all -l -p dev-backend dev-client",
         "prettier:check": "./node_modules/.bin/prettier -c \"backend/src/**/*.ts\" \"client/src/**/*.js\"",
         "format": "./node_modules/.bin/prettier -c \"backend/src/**/*.ts\" \"client/src/**/*.js\" --write"

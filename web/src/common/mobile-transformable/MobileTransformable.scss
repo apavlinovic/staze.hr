@@ -1,0 +1,79 @@
+.mobile__transformable {
+    .mobile__menu-toggle,
+    .mobile__controls {
+        display: none;
+    }
+
+    svg {
+        width: 21px;
+
+        circle,
+        path {
+            fill: var(--font-color);
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        .mobile__menu-toggle {
+            display: flex;
+            padding: var(--base-space-2x);
+            border: none;
+            background: transparent;
+        }
+
+        .mobile__wrap {
+            position: fixed;
+            display: none;
+            z-index: 10;
+            overflow: auto;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            transform: translate3d(0, 0, 0);
+            backdrop-filter: blur(30px);
+            backface-visibility: hidden;
+            background-color: var(--overlay-background-color);
+        }
+
+        &.__visible {
+            .mobile__wrap {
+                display: flex;
+
+                .mobile__controls {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                    padding: var(--base-space-2x) var(--base-space-2x) 0;
+
+                    h2 {
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                        font-size: 100%;
+                        margin-left: var(--base-space);
+                        border-bottom: 2px solid var(--staze-red);
+                    }
+
+                    button {
+                        border: none;
+                        padding: var(--base-space) var(--base-space-2x);
+                        background: transparent;
+
+                        svg {
+                            width: 21px;
+                        }
+                    }
+                }
+
+                .mobile__content {
+                    padding: 0 var(--base-space-2x);
+                    margin: var(--base-space-2x) 0;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

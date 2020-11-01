@@ -1,0 +1,26 @@
+.common-footer {
+    padding: var(--base-space-2x);
+    margin: var(--base-space-2x);
+    border-top: 2px dashed var(--primary-border-color);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .item {
+        margin-bottom: var(--base-space-2x);
+        margin-top: var(--base-space-2x);
+    }
+
+    .homepage-link {
+        width: 150px;
+        display: block;
+        align-self: start;
+    }
+
+    small {
+        opacity: 0.5;
+        display: block;
+        max-width: 500px;
+        text-align: center;
+    }
+}

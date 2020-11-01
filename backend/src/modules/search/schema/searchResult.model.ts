@@ -18,4 +18,7 @@ export class SearchResult {
 
     @Field({ nullable: true, defaultValue: null })
     duration: string;
+
+    @Field({ nullable: true, defaultValue: null })
+    area: string;
 }
