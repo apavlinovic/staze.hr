@@ -8,6 +8,10 @@ import { Query, QueryGlobalSearchArgs, SearchResult } from '../../types';
 import Loading from '../loading/Loading';
 import Error from '../error/Error';
 import MobileTransformable from '../mobile-transformable/MobileTransformable';
+import {
+    withLocationInjectedProps,
+    withLocation,
+} from '../withLocation/withLocation';
 
 import './OmniSearch.scss';
 import { ReactComponent as OmniSearchIcon } from './OmniSearchIcon.svg';
@@ -15,28 +19,35 @@ import { ReactComponent as MountainSearchIcon } from './MountainSearchIcon.svg';
 import { ReactComponent as TrailSearchIcon } from './TrailSearchIcon.svg';
 
 const SEARCH_QUERY = gql`
-    query doSearch($query: String!) {
-        globalSearch(query: $query) {
+    query doSearch($query: String!, $nearTo: DistanceFromGeoPointInput) {
+        globalSearch(query: $query, nearTo: $nearTo) {
             results {
+                id
                 type
                 text
                 distance
                 duration
                 area
+                isNearby
             }
         }
     }
 `;
 
-function OmniSearch(props: WithTranslation) {
-    const { t } = props;
+const NEARBY_SEARCH_RADIUS_METERS = 10000;
+
+function OmniSearch(props: WithTranslation & withLocationInjectedProps) {
+    const { t, position } = props;
 
     const [query, setQuery] = useState('');
     const [doSearch, { error, loading, data }] = useLazyQuery<
         Query,
         QueryGlobalSearchArgs
     >(SEARCH_QUERY, {
-        variables: { query },
+        variables: {
+            query,
+            nearTo: null,
+        },
     });
 
     return (
@@ -51,6 +62,13 @@ function OmniSearch(props: WithTranslation) {
                         doSearch({
                             variables: {
                                 query: event.target.value,
+                                nearTo: position
+                                    ? {
+                                          lat: position.coords.latitude,
+                                          long: position.coords.longitude,
+                                          distanceFromMeters: NEARBY_SEARCH_RADIUS_METERS,
+                                      }
+                                    : null,
                             },
                         });
                         setQuery(event.target.value);
@@ -176,6 +194,10 @@ function renderResultItem(
                         {searchResult.duration && (
                             <span>{searchResult.duration}h</span>
                         )}
+
+                        {searchResult.isNearby && (
+                            <span>{t('strings.nearby_result')}</span>
+                        )}
                     </section>
                 </main>
             </Link>
@@ -190,4 +212,4 @@ function highlightMatchedText(query: string, potentialMatch: string) {
     );
 }
 
-export default withTranslation()(OmniSearch);
+export default withTranslation()(withLocation(OmniSearch));

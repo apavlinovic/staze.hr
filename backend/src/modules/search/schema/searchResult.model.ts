@@ -21,4 +21,7 @@ export class SearchResult {
 
     @Field({ nullable: true, defaultValue: null })
     area: string;
+
+    @Field({ defaultValue: false })
+    isNearby: boolean;
 }

@@ -62,6 +62,7 @@ export type QueryLoginArgs = {
 
 
 export type QueryGlobalSearchArgs = {
+  nearTo?: Maybe<DistanceFromGeoPointInput>;
   query: Scalars['String'];
 };
 
@@ -162,6 +163,7 @@ export type SearchResult = {
   distance?: Maybe<Scalars['Float']>;
   duration?: Maybe<Scalars['String']>;
   area?: Maybe<Scalars['String']>;
+  isNearby?: Maybe<Scalars['Boolean']>;
 };
 
 export type Mutation = {
