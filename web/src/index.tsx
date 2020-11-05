@@ -9,8 +9,8 @@ import {
 } from '@apollo/client';
 
 import App from './common/app/App';
-import reportWebVitals from './common/monitoring/reportWebVitals';
-import './common/i18n/setupTranslations';
+import reportWebVitals from './common/core/monitoring/reportWebVitals';
+import './common/core/i18n/setupTranslations';
 
 const graphqlClient = new ApolloClient({
     link: new HttpLink({

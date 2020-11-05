@@ -30,7 +30,7 @@ export class AuthResolver {
 
                 if (equals(password, user.passwordHash)) {
                     const response = new LoginResponse();
-                    response.token = await generateJWT(user.userId, user.nonce);
+                    response.token = await generateJWT(user.id, user.nonce);
 
                     return response;
                 }

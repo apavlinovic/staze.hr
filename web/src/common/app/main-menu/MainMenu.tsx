@@ -2,7 +2,7 @@ import React from 'react';
 import { withTranslation, WithTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
-import MobileTransformable from '../mobile-transformable/MobileTransformable';
+import MobileTransformable from '../../core/mobile-transformable/MobileTransformable';
 
 import './MainMenu.scss';
 import { ReactComponent as MainMenuIcon } from './MainMenuIcon.svg';

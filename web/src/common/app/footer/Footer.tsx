@@ -3,12 +3,12 @@ import { NavLink } from 'react-router-dom';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
 import './Footer.scss';
-import Logo from './../logo/Logo';
-import LanguageSwitcher from './../language-switcher/LanguageSwitcher';
+import Logo from './../../core/logo/Logo';
+import LanguageSwitcher from './../../core/language-switcher/LanguageSwitcher';
 import {
     withLocation,
     withLocationInjectedProps,
-} from '../withLocation/withLocation';
+} from '../../core/withLocation/withLocation';
 
 function Footer(props: WithTranslation & withLocationInjectedProps) {
     const { t, position } = props;

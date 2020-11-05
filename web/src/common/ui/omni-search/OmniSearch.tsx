@@ -4,14 +4,16 @@ import { gql, ApolloError, useLazyQuery } from '@apollo/client';
 import { TFunction } from 'i18next';
 import { Link } from 'react-router-dom';
 
-import { Query, QueryGlobalSearchArgs, SearchResult } from '../../types';
-import Loading from '../loading/Loading';
-import Error from '../error/Error';
-import MobileTransformable from '../mobile-transformable/MobileTransformable';
+import { Query, QueryGlobalSearchArgs, SearchResult } from '../../../types';
+import Loading from '../../core/loading/Loading';
+import Error from '../../core/error/Error';
+import MobileTransformable from '../../core/mobile-transformable/MobileTransformable';
 import {
     withLocationInjectedProps,
     withLocation,
-} from '../withLocation/withLocation';
+} from '../../core/withLocation/withLocation';
+
+import { FocusAware } from '../../core/focus-aware/FocusAware';
 
 import './OmniSearch.scss';
 import { ReactComponent as OmniSearchIcon } from './OmniSearchIcon.svg';
@@ -40,6 +42,8 @@ function OmniSearch(props: WithTranslation & withLocationInjectedProps) {
     const { t, position } = props;
 
     const [query, setQuery] = useState('');
+    const [resultsVisible, setResultsVisible] = useState(false);
+
     const [doSearch, { error, loading, data }] = useLazyQuery<
         Query,
         QueryGlobalSearchArgs
@@ -50,43 +54,64 @@ function OmniSearch(props: WithTranslation & withLocationInjectedProps) {
         },
     });
 
-    return (
-        <section className="common-omni-search">
-            <MobileTransformable
-                headerTitle="noun.search"
-                openerIcon={<OmniSearchIcon />}
-            >
-                <input
-                    type="search"
-                    onChange={(event) => {
-                        doSearch({
-                            variables: {
-                                query: event.target.value,
-                                nearTo: position
-                                    ? {
-                                          lat: position.coords.latitude,
-                                          long: position.coords.longitude,
-                                          distanceFromMeters: NEARBY_SEARCH_RADIUS_METERS,
-                                      }
-                                    : null,
-                            },
-                        });
-                        setQuery(event.target.value);
-                    }}
-                    placeholder={t('noun.search')}
-                />
+    const onInputChangeHandler = (query: string) => {
+        doSearch({
+            variables: {
+                query,
+                nearTo: position
+                    ? {
+                          lat: position.coords.latitude,
+                          long: position.coords.longitude,
+                          distanceFromMeters: NEARBY_SEARCH_RADIUS_METERS,
+                      }
+                    : null,
+            },
+        });
 
-                <section className="results">
-                    {renderResults(
-                        error,
-                        loading,
-                        data?.globalSearch?.results,
-                        query,
-                        t,
-                    )}
-                </section>
-            </MobileTransformable>
-        </section>
+        setQuery(query);
+        setResultsVisible(true);
+    };
+
+    const results = () => {
+        if (!resultsVisible) {
+            return null;
+        }
+
+        return (
+            <section className="results">
+                {renderResults(
+                    error,
+                    loading,
+                    data?.globalSearch?.results,
+                    query,
+                    t,
+                )}
+            </section>
+        );
+    };
+
+    return (
+        <FocusAware
+            focusLostHandler={() => setResultsVisible(false)}
+            focusGainedHandler={() => setResultsVisible(true)}
+        >
+            <section className="common-omni-search">
+                <MobileTransformable
+                    headerTitle="noun.search"
+                    openerIcon={<OmniSearchIcon />}
+                >
+                    <input
+                        type="search"
+                        onChange={(event) =>
+                            onInputChangeHandler(event.target.value)
+                        }
+                        placeholder={t('noun.search')}
+                    />
+
+                    {results()}
+                </MobileTransformable>
+            </section>
+        </FocusAware>
     );
 }
 

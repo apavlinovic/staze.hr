@@ -2,9 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import './Header.scss';
-import Logo from './../logo/Logo';
+import Logo from './../../core/logo/Logo';
 import MainMenu from './../main-menu/MainMenu';
-import OmniSearch from './../omni-search/OmniSearch';
+import OmniSearch from './../../ui/omni-search/OmniSearch';
 
 function Header() {
     return (

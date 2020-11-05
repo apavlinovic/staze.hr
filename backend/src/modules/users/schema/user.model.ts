@@ -10,8 +10,10 @@ import { ObjectType, Field, Int } from 'type-graphql';
 })
 export class User {
     @Field((type) => Int)
-    @PrimaryGeneratedColumn()
-    userId: number;
+    @PrimaryGeneratedColumn({
+        name: 'userId',
+    })
+    id: number;
 
     @Field()
     @Column()

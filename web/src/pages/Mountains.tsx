@@ -3,8 +3,8 @@ import { withTranslation, WithTranslation } from 'react-i18next';
 import { useQuery, gql } from '@apollo/client';
 import { Query } from '../types';
 
-import Loading from '../common/loading/Loading';
-import Error from '../common/error/Error';
+import Loading from '../common/core/loading/Loading';
+import Error from '../common/core/error/Error';
 
 const MOUNTAINS_QUERY = gql`
     query getMountains {

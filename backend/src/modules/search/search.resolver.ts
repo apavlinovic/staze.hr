@@ -81,13 +81,24 @@ export class SearchResolver {
         var mountainResults = getRepository(Trail)
             .query(
                 `select distinct mountain from trails where mountain ilike $1 order by mountain limit $2`,
-                [`%${query}%`, RESULT_LIMIT_PER_SEARCH_BRANCH / 2],
+                [`%${query}%`, RESULT_LIMIT_PER_SEARCH_BRANCH],
             )
             .then((trails: Trail[]) =>
-                trails.map((t) => {
+                trails.map((t, index) => {
                     var res = new SearchResult();
                     res.type = SearchResultType.MOUNTAIN;
                     res.text = t.mountain;
+
+                    /**
+                     * NOTE: Apollo's InMemoryCache on the web client requires an id (or _id) field to calculate
+                     * if it already contains that object. In order to prevent same-key errors, we're assigning
+                     * index as id. This probably needs a better solution in the future (re-visit if Mountains)
+                     * become areas and have their own table
+                     *
+                     * More information:
+                     * https://www.apollographql.com/docs/react/caching/cache-configuration/#generating-unique-identifiers
+                     */
+                    res.id = index;
 
                     return res;
                 }),
