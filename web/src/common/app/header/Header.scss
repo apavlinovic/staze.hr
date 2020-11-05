@@ -3,6 +3,11 @@
     height: 70px;
     display: flex;
     align-items: center;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(30px) saturate(200%);
+    backface-visibility: hidden;
+    z-index: 2;
 
     .item {
         margin-right: var(--base-space-2x);
@@ -25,6 +30,8 @@
         border-bottom: 1px solid var(--primary-border-color);
         justify-content: flex-end;
         padding: 0;
+        position: static;
+        backdrop-filter: none;
 
         // Logo wrapper
         .item:first-child {
