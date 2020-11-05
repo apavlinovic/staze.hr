@@ -5,7 +5,7 @@ import { Query } from '../types';
 
 import Loading from '../common/core/loading/Loading';
 import Error from '../common/core/error/Error';
-import { NavLink } from 'react-router-dom';
+import Card from '../common/ui/card/Card';
 
 const MOUNTAINS_QUERY = gql`
     query getMountains {
@@ -37,9 +37,9 @@ function MountainsPage(props: WithTranslation) {
             {/* TODO: FIGURE OUT A MOUNTAINS PAGE DESIGN */}
             {data?.mountains.map((value, index) => (
                 <div key={`mountain-${index}`}>
-                    <NavLink to={`/mountain/${value.urlFriendlyName}`}>
+                    <Card linkTo={`/mountain/${value.urlFriendlyName}`}>
                         {value.name} ({value.trails})
-                    </NavLink>
+                    </Card>
                 </div>
             ))}
         </main>

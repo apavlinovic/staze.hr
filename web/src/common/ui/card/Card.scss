@@ -1,0 +1,15 @@
+.ui--card {
+    border: 2px solid var(--primary-border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--primary-interactive-surface-background-color);
+    margin: var(--base-space-2x);
+
+    a {
+        color: var(--body-color);
+        text-decoration: none;
+    }
+
+    .content {
+        padding: var(--base-space-2x);
+    }
+}
