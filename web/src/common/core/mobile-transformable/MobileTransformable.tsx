@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ReactNode, useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
 import './MobileTransformable.scss';
@@ -7,12 +7,11 @@ import { ReactComponent as CloseIcon } from './CloseIcon.svg';
 interface MobileTransformableProps extends WithTranslation {
     openerIcon: ReactNode | string;
     headerTitle: string;
+    content: (setDrawerOpen: (status: boolean) => void) => ReactNode;
 }
 
-function MobileTransformable(
-    props: PropsWithChildren<MobileTransformableProps>,
-) {
-    const { headerTitle, openerIcon, t, children } = props;
+function MobileTransformable(props: MobileTransformableProps) {
+    const { headerTitle, openerIcon, t, content } = props;
     const [isDrawerOpen, setDrawerOpenStatus] = useState(false);
 
     return (
@@ -36,7 +35,7 @@ function MobileTransformable(
                     </button>
                 </header>
                 <section className="content mobile__content">
-                    {children}
+                    {content(setDrawerOpenStatus)}
                 </section>
             </section>
         </section>

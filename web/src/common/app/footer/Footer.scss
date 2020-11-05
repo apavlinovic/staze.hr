@@ -12,9 +12,12 @@
     }
 
     .homepage-link {
-        width: 150px;
         display: block;
         align-self: start;
+
+        .common-logo {
+            width: 200px;
+        }
     }
 
     small {

@@ -8,6 +8,7 @@ import './Theme.scss';
 import './App.scss';
 import { Route, Switch } from 'react-router-dom';
 import Mountains from '../../pages/Mountains';
+import Mountain from '../../pages/Mountain';
 
 function App() {
     return (
@@ -16,6 +17,10 @@ function App() {
             <Switch>
                 <Route path="/mountains">
                     <Mountains />
+                </Route>
+
+                <Route path="/mountain/:mountain">
+                    <Mountain />
                 </Route>
             </Switch>
             <Footer></Footer>

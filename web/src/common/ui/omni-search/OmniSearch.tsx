@@ -72,7 +72,7 @@ function OmniSearch(props: WithTranslation & withLocationInjectedProps) {
         setResultsVisible(true);
     };
 
-    const results = () => {
+    const renderResultsPanel = (onResultClick: Function) => {
         if (!resultsVisible) {
             return null;
         }
@@ -85,6 +85,7 @@ function OmniSearch(props: WithTranslation & withLocationInjectedProps) {
                     data?.globalSearch?.results,
                     query,
                     t,
+                    onResultClick,
                 )}
             </section>
         );
@@ -95,22 +96,28 @@ function OmniSearch(props: WithTranslation & withLocationInjectedProps) {
             focusLostHandler={() => setResultsVisible(false)}
             focusGainedHandler={() => setResultsVisible(true)}
         >
-            <section className="common-omni-search">
-                <MobileTransformable
-                    headerTitle="noun.search"
-                    openerIcon={<OmniSearchIcon />}
-                >
-                    <input
-                        type="search"
-                        onChange={(event) =>
-                            onInputChangeHandler(event.target.value)
-                        }
-                        placeholder={t('noun.search')}
-                    />
+            <MobileTransformable
+                headerTitle="noun.search"
+                openerIcon={<OmniSearchIcon />}
+                content={(setDrawerOpen) => {
+                    return (
+                        <section className="common-omni-search">
+                            <input
+                                type="search"
+                                onChange={(event) =>
+                                    onInputChangeHandler(event.target.value)
+                                }
+                                placeholder={t('noun.search')}
+                            />
 
-                    {results()}
-                </MobileTransformable>
-            </section>
+                            {renderResultsPanel(() => {
+                                setResultsVisible(false);
+                                setDrawerOpen(false);
+                            })}
+                        </section>
+                    );
+                }}
+            ></MobileTransformable>
         </FocusAware>
     );
 }
@@ -121,6 +128,7 @@ function renderResults(
     data: SearchResult[] | null | undefined,
     query: string,
     t: TFunction,
+    onResultClick: Function,
 ) {
     if (loading) {
         return <Loading />;
@@ -145,7 +153,7 @@ function renderResults(
     return (
         <ul>
             {data.map((value, index) =>
-                renderResultItem(value, query, t, index),
+                renderResultItem(value, query, index, t, onResultClick),
             )}
         </ul>
     );
@@ -154,8 +162,9 @@ function renderResults(
 function renderResultItem(
     searchResult: SearchResult,
     query: string,
-    t: TFunction,
     index: number,
+    t: TFunction,
+    onResultClick: Function,
 ) {
     let resultTypeIdentifier = undefined;
     let resultTypeIcon = null;
@@ -186,7 +195,11 @@ function renderResultItem(
         <li
             key={`searchResult-${index}-${searchResult.type}-${searchResult.text}`}
         >
-            <Link to="/" className={resultTypeIdentifier}>
+            <Link
+                to="/"
+                className={resultTypeIdentifier}
+                onClick={() => onResultClick()}
+            >
                 <aside>{resultTypeIcon}</aside>
                 <main>
                     <section

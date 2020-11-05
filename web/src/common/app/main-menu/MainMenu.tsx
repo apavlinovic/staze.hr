@@ -15,25 +15,40 @@ function MainMenu(props: WithTranslation) {
             <MobileTransformable
                 headerTitle="noun.menu"
                 openerIcon={<MainMenuIcon />}
-            >
-                <ul>
-                    <li>
-                        <NavLink activeClassName="__active" to="/trails">
-                            {t('noun.trails')}
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink activeClassName="__active" to="/map">
-                            {t('noun.map')}
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink activeClassName="__active" to="/mountains">
-                            {t('noun.mountains')}
-                        </NavLink>
-                    </li>
-                </ul>
-            </MobileTransformable>
+                content={(setDrawerOpen) => {
+                    return (
+                        <ul>
+                            <li>
+                                <NavLink
+                                    activeClassName="__active"
+                                    to="/trails"
+                                    onClick={() => setDrawerOpen(false)}
+                                >
+                                    {t('noun.trails')}
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    activeClassName="__active"
+                                    to="/map"
+                                    onClick={() => setDrawerOpen(false)}
+                                >
+                                    {t('noun.map')}
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    activeClassName="__active"
+                                    to="/mountains"
+                                    onClick={() => setDrawerOpen(false)}
+                                >
+                                    {t('noun.mountains')}
+                                </NavLink>
+                            </li>
+                        </ul>
+                    );
+                }}
+            ></MobileTransformable>
         </nav>
     );
 }

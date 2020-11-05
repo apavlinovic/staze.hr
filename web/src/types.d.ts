@@ -120,6 +120,7 @@ export type DistanceFromGeoPointInput = {
 export type MountainWithTrailCount = {
   __typename?: 'MountainWithTrailCount';
   name?: Maybe<Scalars['String']>;
+  urlFriendlyName?: Maybe<Scalars['String']>;
   trails: Scalars['Int'];
 };
 
@@ -133,7 +134,7 @@ export type PaginatedUsersResponse = {
 
 export type User = {
   __typename?: 'User';
-  userId: Scalars['Int'];
+  id: Scalars['Int'];
   name: Scalars['String'];
   email: Scalars['String'];
   username: Scalars['String'];

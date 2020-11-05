@@ -5,12 +5,14 @@ import { Query } from '../types';
 
 import Loading from '../common/core/loading/Loading';
 import Error from '../common/core/error/Error';
+import { NavLink } from 'react-router-dom';
 
 const MOUNTAINS_QUERY = gql`
     query getMountains {
         mountains {
             name
             trails
+            urlFriendlyName
         }
     }
 `;
@@ -29,16 +31,18 @@ function MountainsPage(props: WithTranslation) {
     }
 
     return (
-        <div>
+        <main>
             <h1>{t('noun.mountains')}</h1>
 
             {/* TODO: FIGURE OUT A MOUNTAINS PAGE DESIGN */}
             {data?.mountains.map((value, index) => (
                 <div key={`mountain-${index}`}>
-                    {value.name} ({value.trails})
+                    <NavLink to={`/mountain/${value.urlFriendlyName}`}>
+                        {value.name} ({value.trails})
+                    </NavLink>
                 </div>
             ))}
-        </div>
+        </main>
     );
 }
 
