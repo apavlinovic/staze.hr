@@ -61,6 +61,7 @@ function Logo(props: LogoProps) {
     return (
         <picture className="common-logo">
             <source
+                className="svg-variant"
                 type="image/svg+xml"
                 srcSet={supportedVariants[mode][variant].svg}
             />

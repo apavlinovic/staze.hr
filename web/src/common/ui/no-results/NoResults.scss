@@ -1,0 +1,20 @@
+.ui-no-results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        width: 60px;
+
+        circle,
+        path {
+            fill: var(--font-color);
+            border: 2px solid var(--font-color);
+        }
+    }
+
+    strong {
+        margin-top: var(--base-space);
+    }
+}

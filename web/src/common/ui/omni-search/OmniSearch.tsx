@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 import { Query, QueryGlobalSearchArgs, SearchResult } from '../../../types';
 import Loading from '../../core/loading/Loading';
+import NoResults from '../../ui/no-results/NoResults';
 import Error from '../../core/error/Error';
 import MobileTransformable from '../../core/mobile-transformable/MobileTransformable';
 import {
@@ -131,11 +132,23 @@ function renderResults(
     onResultClick: Function,
 ) {
     if (loading) {
-        return <Loading />;
+        return (
+            <ul>
+                <li>
+                    <Loading />
+                </li>
+            </ul>
+        );
     }
 
     if (error) {
-        return <Error error={error} />;
+        return (
+            <ul>
+                <li>
+                    <Error error={error} />;
+                </li>
+            </ul>
+        );
     }
 
     if (!data) {
@@ -145,7 +158,9 @@ function renderResults(
     if (data && data.length === 0) {
         return (
             <ul>
-                <li>{t('strings.no_results')}</li>
+                <li>
+                    <NoResults />
+                </li>
             </ul>
         );
     }

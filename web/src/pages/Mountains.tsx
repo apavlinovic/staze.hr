@@ -38,7 +38,7 @@ function MountainsPage(props: WithTranslation) {
             {data?.mountains.map((value, index) => (
                 <div key={`mountain-${index}`}>
                     <Card linkTo={`/mountain/${value.urlFriendlyName}`}>
-                        {value.name} ({value.trails})
+                        {value.name}
                     </Card>
                 </div>
             ))}

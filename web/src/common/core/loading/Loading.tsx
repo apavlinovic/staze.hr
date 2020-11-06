@@ -6,8 +6,8 @@ import './Loading.scss';
 function Loading({ t }: WithTranslation) {
     return (
         <section className="common-loading">
-            <i></i>
-            <span>{t('noun.loading')}</span>
+            <div className="lds-dual-ring"></div>
+            <strong>{t('noun.loading')}</strong>
         </section>
     );
 }

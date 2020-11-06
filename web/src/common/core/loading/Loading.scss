@@ -1,42 +1,38 @@
 .common-loading {
-    border: 2px solid var(--primary-border-color);
-    border-radius: var(--border-radius);
-    background-color: var(--primary-surface-background-color);
     display: block;
-    max-width: 150px;
     margin: auto;
+    width: 80px;
 
-    i {
-        margin: 24px auto 12px;
+    position: relative;
+    z-index: 10;
+
+    /** 
+    * Ring loader adopted from
+    * https://loading.io/css/
+    */
+    .lds-dual-ring {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+    }
+    .lds-dual-ring:after {
+        content: ' ';
         display: block;
-        background: transparent;
-        border: 6px var(--staze-red) solid;
-        height: 24px;
-        width: 24px;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
         border-radius: 50%;
-        transform: scale(1);
-        animation: pulse 2s infinite;
+        border: 6px solid var(--font-color);
+        border-color: var(--font-color) transparent var(--font-color)
+            transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
     }
-
-    span {
-        display: block;
-        text-align: center;
-        margin-bottom: 12px;
-        text-transform: uppercase;
-        font-weight: bold;
-    }
-
-    @keyframes pulse {
+    @keyframes lds-dual-ring {
         0% {
-            transform: scale(0.75);
+            transform: rotate(0deg);
         }
-
-        70% {
-            transform: scale(1.25);
-        }
-
         100% {
-            transform: scale(0.75);
+            transform: rotate(360deg);
         }
     }
 }
