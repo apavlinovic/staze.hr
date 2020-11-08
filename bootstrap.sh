@@ -119,6 +119,24 @@ clean() {
     printSuccess "Project cleaned succesfully!"
 }
 
+update() {
+    clear
+
+    printHeader "Updating NPM packages across the board..."
+    printStatus "Updating runtime..."
+    npm update
+
+    cd ./backend 
+    printStatus "Updating backend..."
+    npm update
+
+    cd ../web
+    printStatus "Updating frontend..."
+    npm update
+
+    printSuccess "Packages updated succesfully, check for errors!"
+}
+
 dockerUpdateDBContainer() {
     docker pull zeroghan/staze-hr-db
 }
@@ -149,7 +167,7 @@ printf "\n"
 printStatus "Choose your action:"
 
 PS3='Please enter your choice: '
-options=("Initialize" "Start" "GQL: Regenerate types" "Docker: Update database image" "Docker: Start DB container"  "Clean" "Quit")
+options=("Initialize" "Start" "Update" "GQL: Regenerate types" "Docker: Update database image" "Docker: Start DB container"  "Clean" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -161,6 +179,10 @@ do
             run
             break
             ;;
+        "Update")
+            update
+            break
+            ;;            
         "Clean")
             clean
             break

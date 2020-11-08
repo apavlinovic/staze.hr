@@ -65,6 +65,10 @@ function Trail(props: WithTranslation) {
     return (
         <main>
             <h1>{data?.trail?.name}</h1>
+            <p>{data?.trail?.description}</p>
+            <img src={`/trails/map/${data?.trail?.mapName}`} alt={data?.trail?.name} />
+            <img src={`/trails/elevation/${data?.trail?.mapName}`} alt={data?.trail?.name} />
+
         </main>
     );
 }

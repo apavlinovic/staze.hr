@@ -13,12 +13,12 @@
     --base-space-2x: 16px;
     --mobile-breakpoint: 640px;
 
-    --overlay-background-color: rgba(255, 255, 255, 0.45);
+    --overlay-background-color: rgba(255, 255, 255, 0.55);
     --primary-surface-background-color: rgb(250, 250, 250);
     --primary-interactive-surface-background-color: rgb(255, 255, 255);
     --primary-border-color: rgb(215, 215, 215);
     --primary-border-color-transparent: rgb(0, 0, 0, 0.1);
-    --input-border-color: rgb(200, 200, 200);
+    --input-border-color: rgb(219, 219, 219);
 
     --staze-green: #288c07;
     --staze-red: #ed1c24;
@@ -29,7 +29,7 @@
         --font-color: rgb(250, 250, 250);
         --link-color: rgb(230, 230, 230);
         --primary-background-color: rgb(35, 35, 35);
-        --overlay-background-color: rgba(25, 25, 25, 0.45);
+        --overlay-background-color: rgba(25, 25, 25, 0.55);
         --primary-surface-background-color: rgb(45, 45, 45);
         --primary-interactive-surface-background-color: rgb(55, 55, 55);
         --primary-border-color: rgb(65, 65, 65);
@@ -75,6 +75,10 @@ button {
         border-color: var(--staze-green);
         background-color: var(--primary-interactive-surface-background-color);
     }
+}
+
+img {
+    max-width: 100%;
 }
 
 button {

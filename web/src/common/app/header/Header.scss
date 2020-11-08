@@ -5,6 +5,7 @@
     align-items: center;
     position: sticky;
     top: 0;
+    background-color: var(--overlay-background-color);
     backdrop-filter: blur(30px) saturate(200%);
     backface-visibility: hidden;
     z-index: 2;
