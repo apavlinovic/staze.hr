@@ -119,6 +119,10 @@ clean() {
     printSuccess "Project cleaned succesfully!"
 }
 
+dockerUpdateDBContainer() {
+    docker pull zeroghan/staze-hr-db
+}
+
 dockerStartDBContainer() {
 
     name='staze_db'
@@ -145,7 +149,7 @@ printf "\n"
 printStatus "Choose your action:"
 
 PS3='Please enter your choice: '
-options=("Initialize" "Start" "Clean" "Docker: Start DB container" "GQL: Regenerate types" "Quit")
+options=("Initialize" "Start" "GQL: Regenerate types" "Docker: Update database image" "Docker: Start DB container"  "Clean" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -161,7 +165,11 @@ do
             clean
             break
             ;;
-        "Docker: Start DB container")
+        "Docker: Update database image")
+            dockerUpdateDBContainer
+            break
+            ;;            
+        "Docker: Start database container")
             dockerStartDBContainer
             break
             ;;

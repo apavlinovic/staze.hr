@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="MapSource 6.16.3" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+
+  <metadata>
+    <link href="http://www.garmin.com">
+      <text>Garmin International</text>
+    </link>
+    <time>2018-08-19T17:34:49Z</time>
+    <bounds maxlat="45.748321982100606" maxlon="15.70755897089839" minlat="45.747154969722033" minlon="15.706967962905765"/>
+  </metadata>
+
+  <trk>
+    <name>05.17_Dragojlina_staza</name>
+    <extensions>
+      <gpxx:TrackExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayColor>Red</gpxx:DisplayColor>
+      </gpxx:TrackExtension>
+    </extensions>
+    <trkseg>
+      <trkpt lat="45.747154969722033" lon="15.70755897089839">
+        <ele>347.49700000000001</ele>
+      </trkpt>
+      <trkpt lat="45.747224958613515" lon="15.707525024190545">
+        <ele>351.30799999999999</ele>
+      </trkpt>
+      <trkpt lat="45.74727701023221" lon="15.707414969801903">
+        <ele>356.70499999999998</ele>
+      </trkpt>
+      <trkpt lat="45.74729897081852" lon="15.707162003964186">
+        <ele>364.142</ele>
+      </trkpt>
+      <trkpt lat="45.747413970530033" lon="15.707027977332473">
+        <ele>374.32299999999998</ele>
+      </trkpt>
+      <trkpt lat="45.747538022696972" lon="15.706967962905765">
+        <ele>385.99099999999999</ele>
+      </trkpt>
+      <trkpt lat="45.747691998258233" lon="15.707037029787898">
+        <ele>397.48500000000001</ele>
+      </trkpt>
+      <trkpt lat="45.74776902794838" lon="15.707093020901084">
+        <ele>403.33100000000002</ele>
+      </trkpt>
+      <trkpt lat="45.747794006019831" lon="15.707167033106089">
+        <ele>403.88400000000001</ele>
+      </trkpt>
+      <trkpt lat="45.747779002413154" lon="15.70727800950408">
+        <ele>399.89600000000002</ele>
+      </trkpt>
+      <trkpt lat="45.747786965221167" lon="15.707304999232292">
+        <ele>399.98000000000002</ele>
+      </trkpt>
+      <trkpt lat="45.747824013233185" lon="15.707252025604248">
+        <ele>404.78800000000001</ele>
+      </trkpt>
+      <trkpt lat="45.747862989082932" lon="15.707268035039306">
+        <ele>408.06</ele>
+      </trkpt>
+      <trkpt lat="45.747911017388105" lon="15.707273986190557">
+        <ele>411.74099999999999</ele>
+      </trkpt>
+      <trkpt lat="45.747911017388105" lon="15.707334000617266">
+        <ele>410.07499999999999</ele>
+      </trkpt>
+      <trkpt lat="45.747933983802795" lon="15.70742703974247">
+        <ele>409.21499999999997</ele>
+      </trkpt>
+      <trkpt lat="45.747991986572742" lon="15.707509014755487">
+        <ele>411.20100000000002</ele>
+      </trkpt>
+      <trkpt lat="45.748039009049535" lon="15.707539021968842">
+        <ele>413.78899999999999</ele>
+      </trkpt>
+      <trkpt lat="45.748117966577411" lon="15.707489987835288">
+        <ele>420.20699999999999</ele>
+      </trkpt>
+      <trkpt lat="45.748147973790765" lon="15.707496022805572">
+        <ele>421.24900000000002</ele>
+      </trkpt>
+      <trkpt lat="45.748216034844518" lon="15.707431985065341">
+        <ele>426.089</ele>
+      </trkpt>
+      <trkpt lat="45.748271020129323" lon="15.707365013659">
+        <ele>430.64600000000002</ele>
+      </trkpt>
+      <trkpt lat="45.74830899015069" lon="15.707335006445646">
+        <ele>433.279</ele>
+      </trkpt>
+      <trkpt lat="45.74830899015069" lon="15.707264011725783">
+        <ele>435.58100000000002</ele>
+      </trkpt>
+      <trkpt lat="45.748321982100606" lon="15.707138031721115">
+        <ele>438.33300000000003</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+
+</gpx>

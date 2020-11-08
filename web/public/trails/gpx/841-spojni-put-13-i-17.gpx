@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="MapSource 6.16.3" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+
+  <metadata>
+    <link href="http://www.garmin.com">
+      <text>Garmin International</text>
+    </link>
+    <time>2018-08-19T17:54:29Z</time>
+    <bounds maxlat="45.7481789868325" maxlon="15.707093020901084" minlat="45.74776902794838" minlon="15.706216022372246"/>
+  </metadata>
+
+  <trk>
+    <name>05.13A_Spoj_putova_13_17</name>
+    <extensions>
+      <gpxx:TrackExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayColor>Red</gpxx:DisplayColor>
+      </gpxx:TrackExtension>
+    </extensions>
+    <trkseg>
+      <trkpt lat="45.7481789868325" lon="15.706216022372246">
+        <ele>442.32100000000003</ele>
+      </trkpt>
+      <trkpt lat="45.748168006539345" lon="15.706257009878755">
+        <ele>441.94200000000001</ele>
+      </trkpt>
+      <trkpt lat="45.748156020417809" lon="15.706305038183928">
+        <ele>441.49900000000002</ele>
+      </trkpt>
+      <trkpt lat="45.748174041509628" lon="15.706344014033675">
+        <ele>441.87099999999998</ele>
+      </trkpt>
+      <trkpt lat="45.748162977397442" lon="15.7063979934901">
+        <ele>441.22899999999998</ele>
+      </trkpt>
+      <trkpt lat="45.748128024861217" lon="15.70648399181664">
+        <ele>439.54199999999997</ele>
+      </trkpt>
+      <trkpt lat="45.748095000162721" lon="15.706564038991928">
+        <ele>437.803</ele>
+      </trkpt>
+      <trkpt lat="45.748063987120986" lon="15.706607960164547">
+        <ele>435.86500000000001</ele>
+      </trkpt>
+      <trkpt lat="45.74802802875638" lon="15.706627992913127">
+        <ele>433.20999999999998</ele>
+      </trkpt>
+      <trkpt lat="45.747986035421491" lon="15.706696975976229">
+        <ele>429.25700000000001</ele>
+      </trkpt>
+      <trkpt lat="45.747955022379756" lon="15.70678599178791">
+        <ele>425.41199999999998</ele>
+      </trkpt>
+      <trkpt lat="45.747970025986433" lon="15.706858998164535">
+        <ele>425.154</ele>
+      </trkpt>
+      <trkpt lat="45.747935995459557" lon="15.706858998164535">
+        <ele>422.57400000000001</ele>
+      </trkpt>
+      <trkpt lat="45.747904982417822" lon="15.706915995106101">
+        <ele>419.09500000000003</ele>
+      </trkpt>
+      <trkpt lat="45.747874975204468" lon="15.706946002319455">
+        <ele>416.15699999999998</ele>
+      </trkpt>
+      <trkpt lat="45.747831976041198" lon="15.706991013139486">
+        <ele>411.53300000000002</ele>
+      </trkpt>
+      <trkpt lat="45.747814038768411" lon="15.707052033394575">
+        <ele>408.42000000000002</ele>
+      </trkpt>
+      <trkpt lat="45.74776902794838" lon="15.707093020901084">
+        <ele>403.33100000000002</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+
+</gpx>

@@ -1,0 +1,447 @@
+<?xml version="1.0"?>
+<gpx version="1.1" creator="GDAL 3.0.4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ogr="http://osgeo.org/gdal" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+<metadata><bounds minlat="46.181932022398847" minlon="16.296670909630901" maxlat="46.184246530811258" maxlon="16.307164363627709"/></metadata>                  
+<trk>
+  <name>01 N.Marof-Grebengrad kuća</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+  <trkseg>
+    <trkpt lat="46.184194387961725" lon="16.307164363627709">
+        <ele>400.0458984375</ele>
+    </trkpt>
+    <trkpt lat="46.184210364166752" lon="16.307120191396077">
+        <ele>0.0</ele>
+    </trkpt>
+    <trkpt lat="46.184227778230685" lon="16.307063409427421">
+        <ele>401.48779296875</ele>
+    </trkpt>
+    <trkpt lat="46.184234675019979" lon="16.307016843929887">
+        <ele>402.9296875</ele>
+    </trkpt>
+    <trkpt lat="46.184246530811258" lon="16.30693519618481">
+        <ele>404.3717041015625</ele>
+    </trkpt>
+    <trkpt lat="46.184241296723471" lon="16.30684744566679">
+        <ele>407.255615234375</ele>
+    </trkpt>
+    <trkpt lat="46.184214035509996" lon="16.306702123382522">
+        <ele>409.6590576171875</ele>
+    </trkpt>
+    <trkpt lat="46.184179941192255" lon="16.306613339111209">
+        <ele>411.1009521484375</ele>
+    </trkpt>
+    <trkpt lat="46.184143396094434" lon="16.306514851748943">
+        <ele>413.0235595703125</ele>
+    </trkpt>
+    <trkpt lat="46.184111457948525" lon="16.306444087463849">
+        <ele>414.9461669921875</ele>
+    </trkpt>
+    <trkpt lat="46.184054380402578" lon="16.306343450637943">
+        <ele>418.310791015625</ele>
+    </trkpt>
+    <trkpt lat="46.183998822439037" lon="16.306278521798447">
+        <ele>419.272216796875</ele>
+    </trkpt>
+    <trkpt lat="46.18390239404755" lon="16.306205333621026">
+        <ele>422.156005859375</ele>
+    </trkpt>
+    <trkpt lat="46.183811791512589" lon="16.306125822927246">
+        <ele>425.520751953125</ele>
+    </trkpt>
+    <trkpt lat="46.183753268794433" lon="16.306033595108001">
+        <ele>427.443359375</ele>
+    </trkpt>
+    <trkpt lat="46.183719412414575" lon="16.305859351018611">
+        <ele>427.9239501953125</ele>
+    </trkpt>
+    <trkpt lat="46.183698698814183" lon="16.305691363119156">
+        <ele>431.28857421875</ele>
+    </trkpt>
+    <trkpt lat="46.183675234592904" lon="16.305622120729637">
+        <ele>432.730712890625</ele>
+    </trkpt>
+    <trkpt lat="46.183640230447061" lon="16.305535174906254">
+        <ele>435.1339111328125</ele>
+    </trkpt>
+    <trkpt lat="46.183569707680611" lon="16.30534729370282">
+        <ele>437.537109375</ele>
+    </trkpt>
+    <trkpt lat="46.183530427515514" lon="16.305172154679894">
+        <ele>440.90185546875</ele>
+    </trkpt>
+    <trkpt lat="46.183512246015376" lon="16.30502187977876">
+        <ele>443.3050537109375</ele>
+    </trkpt>
+    <trkpt lat="46.18349613885902" lon="16.304908570756989">
+        <ele>445.2276611328125</ele>
+    </trkpt>
+    <trkpt lat="46.183476731651062" lon="16.304732101594205">
+        <ele>448.5924072265625</ele>
+    </trkpt>
+    <trkpt lat="46.183441392591057" lon="16.304545259928197">
+        <ele>448.5924072265625</ele>
+    </trkpt>
+    <trkpt lat="46.183392956842496" lon="16.304379472442989">
+        <ele>449.072998046875</ele>
+    </trkpt>
+    <trkpt lat="46.183296572417021" lon="16.304211253300309">
+        <ele>449.072998046875</ele>
+    </trkpt>
+    <trkpt lat="46.183262686215954" lon="16.304142550465713">
+        <ele>449.5537109375</ele>
+    </trkpt>
+    <trkpt lat="46.18323655799032" lon="16.304108491167426">
+        <ele>448.5924072265625</ele>
+    </trkpt>
+    <trkpt lat="46.183176627382643" lon="16.303964238613844">
+        <ele>450.034423828125</ele>
+    </trkpt>
+    <trkpt lat="46.183144943788662" lon="16.303820069879293">
+        <ele>453.39892578125</ele>
+    </trkpt>
+    <trkpt lat="46.183121558278799" lon="16.30368453450501">
+        <ele>456.282958984375</ele>
+    </trkpt>
+    <trkpt lat="46.183108650147915" lon="16.303570372983813">
+        <ele>459.1668701171875</ele>
+    </trkpt>
+    <trkpt lat="46.183095121039216" lon="16.303430995602604">
+        <ele>462.05078125</ele>
+    </trkpt>
+    <trkpt lat="46.183075876906507" lon="16.303227720782161">
+        <ele>464.934814453125</ele>
+    </trkpt>
+    <trkpt lat="46.183055592700832" lon="16.303095119073987">
+        <ele>467.8187255859375</ele>
+    </trkpt>
+    <trkpt lat="46.183039499446757" lon="16.302997469902039">
+        <ele>471.183349609375</ele>
+    </trkpt>
+    <trkpt lat="46.183032542467124" lon="16.302796471863985">
+        <ele>471.183349609375</ele>
+    </trkpt>
+    <trkpt lat="46.183031452819698" lon="16.30275908857584">
+        <ele>470.70263671875</ele>
+    </trkpt>
+    <trkpt lat="46.183029456076618" lon="16.302582532823983">
+        <ele>469.2607421875</ele>
+    </trkpt>
+    <trkpt lat="46.183024802814593" lon="16.302422893658079">
+        <ele>467.8187255859375</ele>
+    </trkpt>
+    <trkpt lat="46.183008465245017" lon="16.302256994207195">
+        <ele>467.338134765625</ele>
+    </trkpt>
+    <trkpt lat="46.182984889877979" lon="16.302124732553136">
+        <ele>466.857421875</ele>
+    </trkpt>
+    <trkpt lat="46.182939423500002" lon="16.301990448870246">
+        <ele>467.338134765625</ele>
+    </trkpt>
+    <trkpt lat="46.182885440066464" lon="16.301869936287403">
+        <ele>468.29931640625</ele>
+    </trkpt>
+    <trkpt lat="46.182860265458082" lon="16.301780660229358">
+        <ele>469.2607421875</ele>
+    </trkpt>
+    <trkpt lat="46.182826544750085" lon="16.301688349431153">
+        <ele>469.2607421875</ele>
+    </trkpt>
+    <trkpt lat="46.182794294052812" lon="16.301602335634964">
+        <ele>467.8187255859375</ele>
+    </trkpt>
+    <trkpt lat="46.18274891460635" lon="16.301518469908917">
+        <ele>467.338134765625</ele>
+    </trkpt>
+    <trkpt lat="46.182668438913652" lon="16.301390615531712">
+        <ele>466.857421875</ele>
+    </trkpt>
+    <trkpt lat="46.182530466467142" lon="16.301274318248034">
+        <ele>467.338134765625</ele>
+    </trkpt>
+    <trkpt lat="46.182464836165309" lon="16.301209442317486">
+        <ele>468.29931640625</ele>
+    </trkpt>
+    <trkpt lat="46.182396691292524" lon="16.301117995753884">
+        <ele>471.183349609375</ele>
+    </trkpt>
+    <trkpt lat="46.182362157851458" lon="16.30106259137392">
+        <ele>473.1060791015625</ele>
+    </trkpt>
+    <trkpt lat="46.182330641895533" lon="16.300898725166917">
+        <ele>472.1446533203125</ele>
+    </trkpt>
+    <trkpt lat="46.182338772341623" lon="16.300710132345557">
+        <ele>473.586669921875</ele>
+    </trkpt>
+    <trkpt lat="46.182342125102871" lon="16.300541488453746">
+        <ele>476.9512939453125</ele>
+    </trkpt>
+    <trkpt lat="46.18231764994561" lon="16.300407629460096">
+        <ele>480.31591796875</ele>
+    </trkpt>
+    <trkpt lat="46.182304825633757" lon="16.300354655832052">
+        <ele>481.2772216796875</ele>
+    </trkpt>
+    <trkpt lat="46.182272136211395" lon="16.300134044140577">
+        <ele>482.71923828125</ele>
+    </trkpt>
+    <trkpt lat="46.18223525583744" lon="16.299998760223389">
+        <ele>480.796630859375</ele>
+    </trkpt>
+    <trkpt lat="46.182158477604389" lon="16.29982927814126">
+        <ele>482.238525390625</ele>
+    </trkpt>
+    <trkpt lat="46.182073485106216" lon="16.299694664776325">
+        <ele>483.1998291015625</ele>
+    </trkpt>
+    <trkpt lat="46.181999700876069" lon="16.299464585120468">
+        <ele>483.680419921875</ele>
+    </trkpt>
+    <trkpt lat="46.181967201421074" lon="16.299237828303376">
+        <ele>482.238525390625</ele>
+    </trkpt>
+    <trkpt lat="46.18199025253557" lon="16.299069688792105">
+        <ele>484.641845703125</ele>
+    </trkpt>
+    <trkpt lat="46.182016184743397" lon="16.298880531674893">
+        <ele>485.60302734375</ele>
+    </trkpt>
+    <trkpt lat="46.182056752503982" lon="16.298716529335007">
+        <ele>484.1611328125</ele>
+    </trkpt>
+    <trkpt lat="46.182085617230662" lon="16.298535763906646">
+        <ele>483.1998291015625</ele>
+    </trkpt>
+    <trkpt lat="46.182111667109908" lon="16.298413828172286">
+        <ele>483.680419921875</ele>
+    </trkpt>
+    <trkpt lat="46.182127380743637" lon="16.298318188637495">
+        <ele>484.1611328125</ele>
+    </trkpt>
+    <trkpt lat="46.182178357955507" lon="16.29816990296553">
+        <ele>484.641845703125</ele>
+    </trkpt>
+    <trkpt lat="46.182208852842443" lon="16.298056673258543">
+        <ele>485.60302734375</ele>
+    </trkpt>
+    <trkpt lat="46.182274052954362" lon="16.297825037022413">
+        <ele>0.0</ele>
+    </trkpt>
+    <trkpt lat="46.182308827219956" lon="16.297686262878688">
+        <ele>0.0</ele>
+    </trkpt>
+    <trkpt lat="46.182337742403838" lon="16.297534905815777">
+        <ele>485.60302734375</ele>
+    </trkpt>
+    <trkpt lat="46.182354991651621" lon="16.29738779286712">
+        <ele>486.564453125</ele>
+    </trkpt>
+    <trkpt lat="46.182354820346603" lon="16.29729116088231">
+        <ele>488.9677734375</ele>
+    </trkpt>
+    <trkpt lat="46.182334131440768" lon="16.297144187343001">
+        <ele>490.890380859375</ele>
+    </trkpt>
+    <trkpt lat="46.182284296693538" lon="16.297018328248779">
+        <ele>493.2935791015625</ele>
+    </trkpt>
+    <trkpt lat="46.182217019209183" lon="16.296930346280636">
+        <ele>497.61962890625</ele>
+    </trkpt>
+    <trkpt lat="46.182027038830363" lon="16.296767191402797">
+        <ele>500.984130859375</ele>
+    </trkpt>
+    <trkpt lat="46.181932022398847" lon="16.296670909630901">
+        <ele>508.194091796875</ele>
+    </trkpt>
+  </trkseg>
+</trk>
+<trk>
+  <name>04 Ćamići-Lujčekova kuća</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>05 Podrute-Kuzmići</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>06 Krušljevec-oko Čeva-Grebengrad dom</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>06B Obilazak vrha Čevo</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>08 Bela - (x) sa 7</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>09 Bela-pl.k.Ledinec</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>12A  x Krapinica-Glavčice</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>13 Glavčica-x Milengrad</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>13a Do Milengrada</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>14  Jambrešići-greben kod M.Ivanščice</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>15 Belečki put  dio 1</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>15a Belečki put dio 2</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>15b Mrzljak</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>16 Belec-Belige-Vrh</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>16a Belige</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>26 Belecgrad-Majer</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>34 Sv Ilija-Vagon</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>35 Vagon- Vidovec žp</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>Babin zub</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Red</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>Belecgrad-Osinec</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>Budinščina-Zajezda - Asf.cesta</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>LightGray</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>Doma Ledinec- Krušljevec</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>Hanjžica</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>Hanjžica-Dom</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>Konjščina-Dom</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>Ledinec-Vagon</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>Lepoglava--vidikovac</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Red</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>Lepoglava-Dom</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>Lobor-Majer- Oštrcgrad</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>N.Marof</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Red</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+<trk>
+  <name>Osinec 1</name>
+  <extensions>
+    <gpxx:Track><gpxx:DisplayColor>Yellow</gpxx:DisplayColor></gpxx:Track>
+  </extensions>
+</trk>
+</gpx>

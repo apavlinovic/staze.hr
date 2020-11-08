@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="MapSource 6.16.3" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+
+  <metadata>
+    <link href="http://www.garmin.com">
+      <text>Garmin International</text>
+    </link>
+    <time>2017-04-24T19:36:35Z</time>
+    <bounds maxlat="45.380360037088394" maxlon="14.819838982075453" minlat="45.377486972138286" minlon="14.817231958732009"/>
+  </metadata>
+
+  <trk>
+    <name>09_07_14. Jagodina stijena</name>
+    <extensions>
+      <gpxx:TrackExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayColor>Yellow</gpxx:DisplayColor>
+      </gpxx:TrackExtension>
+    </extensions>
+    <trkseg>
+      <trkpt lat="45.377486972138286" lon="14.817231958732009">
+        <ele>966.74000000000001</ele>
+        <time>2016-05-25T12:57:02Z</time>
+      </trkpt>
+      <trkpt lat="45.377525025978684" lon="14.817294990643859">
+        <ele>966.74000000000001</ele>
+        <time>2016-05-25T12:57:32Z</time>
+      </trkpt>
+      <trkpt lat="45.377501975744963" lon="14.817347964271903">
+        <ele>967.70000000000005</ele>
+        <time>2016-05-25T12:58:32Z</time>
+      </trkpt>
+      <trkpt lat="45.377501975744963" lon="14.817293984815478">
+        <ele>969.14999999999998</ele>
+        <time>2016-05-25T13:00:02Z</time>
+      </trkpt>
+      <trkpt lat="45.377609012648463" lon="14.817412002012134">
+        <ele>969.63</ele>
+        <time>2016-05-25T13:00:32Z</time>
+      </trkpt>
+      <trkpt lat="45.377791989594698" lon="14.817488025873899">
+        <ele>971.54999999999995</ele>
+        <time>2016-05-25T13:01:02Z</time>
+      </trkpt>
+      <trkpt lat="45.378056019544601" lon="14.817631021142006">
+        <ele>974.42999999999995</ele>
+        <time>2016-05-25T13:01:32Z</time>
+      </trkpt>
+      <trkpt lat="45.378216030076146" lon="14.817734034731984">
+        <ele>978.75999999999999</ele>
+        <time>2016-05-25T13:02:02Z</time>
+      </trkpt>
+      <trkpt lat="45.378284007310867" lon="14.817820033058524">
+        <ele>982.60000000000002</ele>
+        <time>2016-05-25T13:02:32Z</time>
+      </trkpt>
+      <trkpt lat="45.378471007570624" lon="14.817892033606768">
+        <ele>985.97000000000003</ele>
+        <time>2016-05-25T13:03:02Z</time>
+      </trkpt>
+      <trkpt lat="45.37863202393055" lon="14.818056989461184">
+        <ele>989.33000000000004</ele>
+        <time>2016-05-25T13:03:32Z</time>
+      </trkpt>
+      <trkpt lat="45.378845008090138" lon="14.818195039406419">
+        <ele>992.70000000000005</ele>
+        <time>2016-05-25T13:04:02Z</time>
+      </trkpt>
+      <trkpt lat="45.37908598780632" lon="14.818171989172697">
+        <ele>996.53999999999996</ele>
+        <time>2016-05-25T13:04:32Z</time>
+      </trkpt>
+      <trkpt lat="45.379302995279431" lon="14.818222029134631">
+        <ele>999.42999999999995</ele>
+        <time>2016-05-25T13:05:02Z</time>
+      </trkpt>
+      <trkpt lat="45.3795360121876" lon="14.818470971658826">
+        <ele>1001.83</ele>
+        <time>2016-05-25T13:05:32Z</time>
+      </trkpt>
+      <trkpt lat="45.379733992740512" lon="14.818815970793366">
+        <ele>1002.79</ele>
+        <time>2016-05-25T13:06:02Z</time>
+      </trkpt>
+      <trkpt lat="45.379910012707114" lon="14.819087963551283">
+        <ele>1003.75</ele>
+        <time>2016-05-25T13:06:32Z</time>
+      </trkpt>
+      <trkpt lat="45.380065999925137" lon="14.819201035425067">
+        <ele>1008.08</ele>
+        <time>2016-05-25T13:07:02Z</time>
+      </trkpt>
+      <trkpt lat="45.380263980478048" lon="14.819512004032731">
+        <ele>1010.96</ele>
+        <time>2016-05-25T13:07:32Z</time>
+      </trkpt>
+      <trkpt lat="45.380336986854672" lon="14.819731023162603">
+        <ele>1013.85</ele>
+        <time>2016-05-25T13:08:02Z</time>
+      </trkpt>
+      <trkpt lat="45.380360037088394" lon="14.819838982075453">
+        <ele>1021.54</ele>
+        <time>2016-05-25T13:38:23Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+
+</gpx>

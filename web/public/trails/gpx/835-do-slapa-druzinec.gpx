@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="MapSource 6.16.3" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+
+  <metadata>
+    <link href="http://www.garmin.com">
+      <text>Garmin International</text>
+    </link>
+    <time>2015-01-21T16:48:51Z</time>
+    <bounds maxlat="45.843583233654499" maxlon="15.897082854062319" minlat="45.843301434069872" minlon="15.894208699464798"/>
+  </metadata>
+
+  <wpt lat="45.843576192855835" lon="15.897066593170166">
+    <ele>283</ele>
+    <time>2015-01-05T12:56:30Z</time>
+    <name>4A</name>
+    <cmt>Planinarska Staza 4</cmt>
+    <desc>Planinarska Staza 4</desc>
+    <sym>Waypoint</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="45.843544006347656" lon="15.896259918808937">
+    <ele>297</ele>
+    <time>2015-01-21T16:46:50Z</time>
+    <name>cestom.</name>
+    <cmt>Planinarska Staza 4</cmt>
+    <desc>Planinarska Staza 4</desc>
+    <sym>Waypoint</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="45.843301434069872" lon="15.896567283198237">
+    <ele>270</ele>
+    <time>2015-01-21T16:47:13Z</time>
+    <name>Za G.Vrapče</name>
+    <cmt>270 m height</cmt>
+    <desc>270 m height</desc>
+    <sym>Circle with X</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="45.843514585867524" lon="15.894208699464798">
+    <ele>311</ele>
+    <time>2015-01-21T16:47:34Z</time>
+    <name>Za slap Sopot</name>
+    <cmt>Planinarska Staza 4</cmt>
+    <desc>Planinarska Staza 4</desc>
+    <sym>Circle with X</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <trk>
+    <name>04A Put cestom</name>
+    <extensions>
+      <gpxx:TrackExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayColor>Red</gpxx:DisplayColor>
+      </gpxx:TrackExtension>
+    </extensions>
+    <trkseg>
+      <trkpt lat="45.843305038288236" lon="15.896565858274698">
+        <ele>271.709716796875</ele>
+        <time>2006-07-16T12:32:45Z</time>
+      </trkpt>
+      <trkpt lat="45.843335380777717" lon="15.896589076146483">
+        <ele>272.671142578125</ele>
+        <time>2006-07-16T12:32:41Z</time>
+      </trkpt>
+      <trkpt lat="45.843361783772707" lon="15.896652694791555">
+        <ele>273.15185546875</ele>
+        <time>2006-07-16T12:32:36Z</time>
+      </trkpt>
+      <trkpt lat="45.843421462923288" lon="15.896783787757158">
+        <ele>273.15185546875</ele>
+        <time>2006-07-16T12:32:25Z</time>
+      </trkpt>
+      <trkpt lat="45.843515843153" lon="15.897073717787862">
+        <ele>273.15185546875</ele>
+        <time>2006-07-16T12:32:08Z</time>
+      </trkpt>
+      <trkpt lat="45.843569152057171" lon="15.897082854062319">
+        <ele>273.15185546875</ele>
+        <time>2006-07-16T12:32:03Z</time>
+      </trkpt>
+      <trkpt lat="45.843583233654499" lon="15.897069275379181">
+        <ele>273.15185546875</ele>
+        <time>2006-07-16T12:32:01Z</time>
+      </trkpt>
+      <trkpt lat="45.843569487333298" lon="15.896809939295053">
+        <ele>276.03564453125</ele>
+        <time>2006-07-16T12:31:43Z</time>
+      </trkpt>
+      <trkpt lat="45.843557333573699" lon="15.896399980410933">
+        <ele>279.4002685546875</ele>
+        <time>2006-07-16T12:31:23Z</time>
+      </trkpt>
+      <trkpt lat="45.84355104714632" lon="15.89604995213449">
+        <ele>280.3616943359375</ele>
+        <time>2006-07-16T12:31:04Z</time>
+      </trkpt>
+      <trkpt lat="45.843502599745989" lon="15.895739989355206">
+        <ele>282.2843017578125</ele>
+        <time>2006-07-16T12:30:45Z</time>
+      </trkpt>
+      <trkpt lat="45.843447865918279" lon="15.89543136768043">
+        <ele>283.7261962890625</ele>
+        <time>2006-07-16T12:30:26Z</time>
+      </trkpt>
+      <trkpt lat="45.843399167060852" lon="15.895130792632699">
+        <ele>286.1295166015625</ele>
+        <time>2006-07-16T12:30:08Z</time>
+      </trkpt>
+      <trkpt lat="45.843374356627464" lon="15.894981091842055">
+        <ele>286.1295166015625</ele>
+        <time>2006-07-16T12:29:57Z</time>
+      </trkpt>
+      <trkpt lat="45.843389946967363" lon="15.894682444632053">
+        <ele>285.6488037109375</ele>
+        <time>2006-07-16T12:29:40Z</time>
+      </trkpt>
+      <trkpt lat="45.843425150960684" lon="15.894459653645754">
+        <ele>287.5714111328125</ele>
+        <time>2006-07-16T12:29:29Z</time>
+      </trkpt>
+      <trkpt lat="45.843431437388062" lon="15.894438782706857">
+        <ele>288.05224609375</ele>
+        <time>2006-07-16T12:29:28Z</time>
+      </trkpt>
+      <trkpt lat="45.843501258641481" lon="15.894254548475146">
+        <ele>291.416748046875</ele>
+        <time>2006-07-16T12:29:15Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+
+</gpx>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="MapSource 6.16.3" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+
+  <metadata>
+    <link href="http://www.garmin.com">
+      <text>Garmin International</text>
+    </link>
+    <time>2014-11-23T17:56:16Z</time>
+    <bounds maxlat="45.491541959345341" maxlon="17.942248117178679" minlat="45.480762496590614" minlon="17.930506998673081"/>
+  </metadata>
+
+  <wpt lat="45.491541959345341" lon="17.938067223876715">
+    <ele>228</ele>
+    <name>Tivanovo</name>
+    <cmt>01-AUG-10 19:18:03</cmt>
+    <desc>01-AUG-10 19:18:03</desc>
+    <sym>Residence</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="45.480764592066407" lon="17.930703973397613">
+    <ele>395</ele>
+    <time>2014-11-20T08:44:14Z</time>
+    <name>ZA PJESKOVE</name>
+    <cmt>Pl. Staza</cmt>
+    <desc>Pl. Staza</desc>
+    <sym>Circle with X</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="45.491341799497604" lon="17.940968116745353">
+    <ele>223</ele>
+    <time>2014-11-20T08:43:41Z</time>
+    <name>ZA tIVANOVO</name>
+    <cmt>Road</cmt>
+    <desc>Road</desc>
+    <sym>Circle with X</sym>
+    <extensions>
+      <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+      </gpxx:WaypointExtension>
+    </extensions>
+  </wpt>
+
+  <trk>
+    <name>01_02_09 Tivanovo - križanje s 8</name>
+    <extensions>
+      <gpxx:TrackExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayColor>Red</gpxx:DisplayColor>
+      </gpxx:TrackExtension>
+    </extensions>
+    <trkseg>
+      <trkpt lat="45.480762496590614" lon="17.930667931213975">
+        <ele>400.5264892578125</ele>
+        <time>2010-08-01T16:14:51Z</time>
+      </trkpt>
+      <trkpt lat="45.482293954119086" lon="17.930506998673081">
+        <ele>405.3330078125</ele>
+        <time>2010-08-01T16:17:43Z</time>
+      </trkpt>
+      <trkpt lat="45.483295926824212" lon="17.931209150701761">
+        <ele>382.2613525390625</ele>
+        <time>2010-08-01T16:21:06Z</time>
+      </trkpt>
+      <trkpt lat="45.485103651881218" lon="17.931563286110759">
+        <ele>359.67041015625</ele>
+        <time>2010-08-01T16:24:32Z</time>
+      </trkpt>
+      <trkpt lat="45.486306957900524" lon="17.932513374835253">
+        <ele>342.36669921875</ele>
+        <time>2010-08-01T16:26:56Z</time>
+      </trkpt>
+      <trkpt lat="45.486925542354584" lon="17.934096967801452">
+        <ele>322.178955078125</ele>
+        <time>2010-08-01T16:29:19Z</time>
+      </trkpt>
+      <trkpt lat="45.487840846180916" lon="17.935214024037123">
+        <ele>309.681884765625</ele>
+        <time>2010-08-01T16:31:16Z</time>
+      </trkpt>
+      <trkpt lat="45.488506536930799" lon="17.936893170699477">
+        <ele>308.720458984375</ele>
+        <time>2010-08-01T16:33:40Z</time>
+      </trkpt>
+      <trkpt lat="45.488569568842649" lon="17.938252380117774">
+        <ele>303.9139404296875</ele>
+        <time>2010-08-01T16:35:43Z</time>
+      </trkpt>
+      <trkpt lat="45.489268619567156" lon="17.939551072195172">
+        <ele>295.74267578125</ele>
+        <time>2010-08-01T16:37:51Z</time>
+      </trkpt>
+      <trkpt lat="45.489980662241578" lon="17.941122762858868">
+        <ele>258.73193359375</ele>
+        <time>2010-08-01T16:48:06Z</time>
+      </trkpt>
+      <trkpt lat="45.490464884787798" lon="17.942218277603388">
+        <ele>251.5220947265625</ele>
+        <time>2010-08-01T16:50:38Z</time>
+      </trkpt>
+      <trkpt lat="45.490524731576443" lon="17.942248117178679">
+        <ele>231.05078125</ele>
+      </trkpt>
+      <trkpt lat="45.490659512579441" lon="17.942248117178679">
+        <ele>228.7265625</ele>
+      </trkpt>
+      <trkpt lat="45.490875095129013" lon="17.941492237150669">
+        <ele>228.828125</ele>
+      </trkpt>
+      <trkpt lat="45.491333249956369" lon="17.940963171422482">
+        <ele>223.4453125</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+
+</gpx>
