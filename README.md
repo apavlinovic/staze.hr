@@ -5,57 +5,50 @@
 ## Prerequisites
 
 -   Install Docker Desktop for Windows or Mac (https://docs.docker.com/get-docker/). Create an account on Docker Hub if you don't already have one.
--   Install the latest version of node.js
-
----
-
-### Spinning up the database
-
-Run the following command to start the database container
-
-> docker run -dp 25432:5432 --name staze_db -t zeroghan/staze-hr-db
-
-This will download the database image and setup a postgres contianer running on localhost:25432. The username and password for this postgres instance are "docker". You can use pgAdmin to explore it, but you don't have to if you don't care about it. https://www.pgadmin.org/download/pgadmin-4-windows/
+-   Install the latest version of node.js (12+)
+-   Make sure Docker Desktop is running
 
 ---
 
 ## Setting up the project
 
-Here's how to get backend and frontend up and running:
+### Automated setup 💨
 
-**Backend**
-
-1. Go to **/backend**
-2. Copy the **.env.template** as **.env** file
-3. Run the following commands
-
-> npm install  
-> npm install -g nodemon
-
-4. Run the following to start the backend server:
-
-> npm run dev
-
-The backend server should be running on http://localhost:4000. Navigate to http://localhost:4000/api/trails to verify it's working.
-
-**Frontend**
-
-1. Open a new terminal window and navigate to **/client**
-2. Run the following commands
-
-> npm install  
-> npm start
-
-3. The frontend should automatically launch at http://localhost:3000
+1. Use `boostrap.sh` from your terminal
+2. Run **Initialize** to collect NPM dependencies
+3. Run **Docker: Start DB container** to get a running DB container
 4. You're done! 🎉🥳
 
-**Running both backend and frontend in parallel**
+Happy hacking!
 
-1. Go to **/**
-2. Run the following commands
+---
 
-> npm install  
-> npm start
+### Manual setup 🔨
+
+1. Run `npm install` in the following folders:
+    - `/` (root) directory
+    - `/web` directory
+    - `/backend` directory
+2. Navigate to `/backend` and make a copy of `.env.template` named `.env`
+3. Run the following script to get a running DB container:
+
+> docker run -dp 25432:5432 --name staze_db -t zeroghan/staze-hr-db
+
+4. Navigate to `/` (root) and run `npm start`
+
+---
+
+## Database information
+
+Run the following command to start the database container
+
+> docker run -dp 25432:5432 --name staze_db -t zeroghan/staze-hr-db
+
+This will download the database image and setup a postgres contianer running on localhost:25432.
+
+The username and password for this postgres instance are "docker".
+
+You can use pgAdmin to explore it, but you don't have to if you don't care about it. https://www.pgadmin.org/download/pgadmin-4-windows/
 
 ---
 
