@@ -8,8 +8,8 @@
         "test-backend": "cd backend && npm run test",
         "dev-client": "cd web && npm start",
         "start": "npm-run-all -l -p dev-backend dev-client",
-        "prettier:check": "./node_modules/.bin/prettier -c \"backend/src/**/*.ts\" \"client/src/**/*.js\"",
-        "format": "./node_modules/.bin/prettier -c \"backend/src/**/*.ts\" \"client/src/**/*.js\" --write"
+        "prettier:check": "./node_modules/.bin/prettier -c \"backend/src/**/*.ts\"",
+        "format": "./node_modules/.bin/prettier -c \"backend/src/**/*.ts\" --write"
     },
     "repository": {
         "type": "git",
