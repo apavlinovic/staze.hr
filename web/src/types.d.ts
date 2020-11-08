@@ -16,7 +16,9 @@ export type Query = {
   trails?: Maybe<PaginatedTrailsResponse>;
   /** Loads Trail information */
   trail?: Maybe<Trail>;
-  mountains: Array<MountainWithTrailCount>;
+  areas?: Maybe<PaginatedAreasResponse>;
+  /** Loads Area information */
+  area?: Maybe<Area>;
   users?: Maybe<PaginatedUsersResponse>;
   user?: Maybe<User>;
   login: LoginResponse;
@@ -42,6 +44,18 @@ export type QueryTrailArgs = {
 };
 
 
+export type QueryAreasArgs = {
+  offset?: Maybe<Scalars['Int']>;
+  pageSize?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<Array<OrderBy>>;
+};
+
+
+export type QueryAreaArgs = {
+  areaSlug?: Maybe<Scalars['String']>;
+};
+
+
 export type QueryUsersArgs = {
   orderBy?: Maybe<OrderBy>;
   pageSize?: Maybe<Scalars['Float']>;
@@ -62,7 +76,6 @@ export type QueryLoginArgs = {
 
 
 export type QueryGlobalSearchArgs = {
-  nearTo?: Maybe<DistanceFromGeoPointInput>;
   query: Scalars['String'];
 };
 
@@ -77,11 +90,12 @@ export type PaginatedTrailsResponse = {
 export type Trail = {
   __typename?: 'Trail';
   id: Scalars['Int'];
+  type: Scalars['Float'];
+  areaId: Scalars['Float'];
+  area: Area;
   name: Scalars['String'];
   description: Scalars['String'];
-  type: Scalars['String'];
   slug: Scalars['String'];
-  mountain: Scalars['String'];
   maintainer?: Maybe<Scalars['String']>;
   duration?: Maybe<Scalars['String']>;
   heightDifference?: Maybe<Scalars['String']>;
@@ -97,6 +111,15 @@ export type Trail = {
   endLocation?: Maybe<Scalars['String']>;
   endLocationCoords?: Maybe<GeoPoint>;
   modifiedOn: Scalars['DateTime'];
+};
+
+export type Area = {
+  __typename?: 'Area';
+  id: Scalars['Int'];
+  type: Scalars['Float'];
+  name: Scalars['String'];
+  description: Scalars['String'];
+  slug: Scalars['String'];
 };
 
 export type GeoPoint = {
@@ -117,11 +140,12 @@ export type DistanceFromGeoPointInput = {
   distanceFromMeters: Scalars['Float'];
 };
 
-export type MountainWithTrailCount = {
-  __typename?: 'MountainWithTrailCount';
-  name?: Maybe<Scalars['String']>;
-  urlFriendlyName?: Maybe<Scalars['String']>;
-  trails: Scalars['Int'];
+export type PaginatedAreasResponse = {
+  __typename?: 'PaginatedAreasResponse';
+  items: Array<Area>;
+  total: Scalars['Int'];
+  pageSize?: Maybe<Scalars['Int']>;
+  offset: Scalars['Int'];
 };
 
 export type PaginatedUsersResponse = {
@@ -160,11 +184,12 @@ export type SearchResult = {
   __typename?: 'SearchResult';
   type: Scalars['Float'];
   text: Scalars['String'];
+  slug?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['Float']>;
   distance?: Maybe<Scalars['Float']>;
   duration?: Maybe<Scalars['String']>;
-  area?: Maybe<Scalars['String']>;
-  isNearby?: Maybe<Scalars['Boolean']>;
+  areaId?: Maybe<Scalars['Float']>;
+  areaName?: Maybe<Scalars['String']>;
 };
 
 export type Mutation = {

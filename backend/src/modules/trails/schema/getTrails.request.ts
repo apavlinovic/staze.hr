@@ -19,7 +19,7 @@ export class GetTrailsRequest {
 
     @Field((type) => [OrderBy], {
         nullable: true,
-        defaultValue: [new OrderBy('id')],
+        defaultValue: [],
     })
     orderBy: OrderBy[];
 

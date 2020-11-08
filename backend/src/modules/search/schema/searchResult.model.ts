@@ -11,6 +11,9 @@ export class SearchResult {
     text: string;
 
     @Field({ nullable: true, defaultValue: null })
+    slug: string;
+
+    @Field({ nullable: true, defaultValue: null })
     id: number;
 
     @Field({ nullable: true, defaultValue: null })
@@ -20,8 +23,8 @@ export class SearchResult {
     duration: string;
 
     @Field({ nullable: true, defaultValue: null })
-    area: string;
+    areaId: number;
 
-    @Field({ defaultValue: false })
-    isNearby: boolean;
+    @Field({ nullable: true, defaultValue: null })
+    areaName: string;
 }

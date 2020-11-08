@@ -8,11 +8,13 @@ import Error from '../common/core/error/Error';
 import Card from '../common/ui/card/Card';
 
 const MOUNTAINS_QUERY = gql`
-    query getMountains {
-        mountains {
-            name
-            trails
-            urlFriendlyName
+    query getAreas {
+        areas(pageSize: 100, offset: 0) {
+            items {
+                id
+                name
+                slug
+            }
         }
     }
 `;
@@ -26,20 +28,16 @@ function MountainsPage(props: WithTranslation) {
     }
 
     if (error) {
-        console.warn(error);
         return <Error error={error} />;
     }
 
     return (
         <main>
             <h1>{t('noun.mountains')}</h1>
-
-            {/* TODO: FIGURE OUT A MOUNTAINS PAGE DESIGN */}
-            {data?.mountains.map((value, index) => (
+            TODO: FIGURE OUT A MOUNTAINS PAGE DESIGN
+            {data?.areas?.items.map((value, index) => (
                 <div key={`mountain-${index}`}>
-                    <Card linkTo={`/mountain/${value.urlFriendlyName}`}>
-                        {value.name}
-                    </Card>
+                    <Card linkTo={`/area/${value.slug}`}>{value.name}</Card>
                 </div>
             ))}
         </main>

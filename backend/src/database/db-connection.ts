@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import { createConnection } from 'typeorm';
 import { User } from '../modules/users/schema/user.model';
 import { Trail } from '../modules/trails/schema/trail.model';
+import { Area } from '../modules/areas/schema/area.model';
 
 const {
     DB_HOST,
@@ -21,7 +22,7 @@ createConnection({
     username: DB_USER,
     password: DB_PASSWORD,
 
-    entities: [User, Trail],
+    entities: [User, Trail, Area],
     logging: NODE_ENV === 'development',
 })
     .then(() => {

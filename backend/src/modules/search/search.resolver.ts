@@ -8,107 +8,69 @@ import { Trail } from '../trails/schema/trail.model';
 import { SearchResultType } from './enums/resultType';
 import { isWhiteSpaceOrNull } from '../../utils/string.utils';
 import { RESULT_LIMIT_PER_SEARCH_BRANCH } from '../../config';
-import { DistanceFromGeoPointInput } from '../shared/schema/geoPoint';
 
 const EMPTY_RESPONSE = new SearchResponse();
+
+interface DBSearchResutlt {
+    name: string;
+    id: number;
+    slug: string;
+    distance: number;
+    duration: string;
+    areaId: number;
+    areaName: string;
+    type: SearchResultType;
+}
 
 @Resolver()
 export class SearchResolver {
     @Query(() => SearchResponse, { name: 'globalSearch', defaultValue: [] })
     async globalSearch(
         @Arg('query') query: string = '',
-        @Arg('nearTo', { nullable: true, validate: false })
-        geopoint: DistanceFromGeoPointInput = null,
     ): Promise<SearchResponse> {
         if (isWhiteSpaceOrNull(query)) return EMPTY_RESPONSE;
 
         var orderedTrailResults = getRepository(Trail)
             .query(
-                `select id, name, mountain, distance, duration from trails where name ilike $1
+                `
+                (select 
+                    area."id" as "id", area.name as "name", area."id" as "areaId", 
+                    NULL as "distance", NULL as "duration", area."slug" as "slug", 
+                    area.name as "areaName", ${SearchResultType.AREA} as "type"
+                from areas area
+                where area.name ilike $1 or area.name ilike $2
+                limit $3)
+                
                 union all
-                select id, name, mountain, distance, duration from trails where name not ilike $1 and (mountain ilike $2 or name ilike $2)
-                limit $3`,
+
+                (select 
+                    trail.id as "id", trail.name as "name", trail."areaId" as "areaId", 
+                    trail.distance as "distance", trail.duration as "duration", trail."slug" as "slug", 
+                    area.name as "areaName", ${SearchResultType.TRAIL} as "type"
+                from trails trail inner join areas area on trail."areaId" = area.id
+                where trail.name ilike $1 or trail.name ilike $2 
+                limit $3)
+                `,
                 [`${query}%`, `%${query}%`, RESULT_LIMIT_PER_SEARCH_BRANCH],
             )
-            .then((trails: Trail[]) =>
+            .then((trails: DBSearchResutlt[]) =>
                 trails.map((t) => {
                     var res = new SearchResult();
                     res.type = SearchResultType.TRAIL;
                     res.id = t.id;
                     res.text = t.name;
+                    res.type = t.type;
                     res.distance = t.distance;
                     res.duration = t.duration;
-                    res.area = t.mountain;
+                    res.areaId = t.areaId;
+                    res.areaName = t.areaName;
+                    res.slug = t.slug;
 
                     return res;
                 }),
             );
 
-        var nearbyTrailResults = Promise.resolve([]);
-
-        if (geopoint) {
-            nearbyTrailResults = getRepository(Trail)
-                .query(
-                    `select id, name, mountain, distance, duration from trails 
-                 where name ilike $1 and ST_Distance("startLocationCoords", ST_GeomFromGeoJSON($2)) < $3
-                 limit $4`,
-                    [
-                        `${query}%`,
-                        JSON.stringify({
-                            type: 'Point',
-                            coordinates: [geopoint.lat, geopoint.long],
-                        }),
-                        geopoint.distanceFromMeters,
-                        RESULT_LIMIT_PER_SEARCH_BRANCH,
-                    ],
-                )
-                .then((trails: Trail[]) =>
-                    trails.map((t) => {
-                        var res = new SearchResult();
-                        res.type = SearchResultType.TRAIL;
-                        res.id = t.id;
-                        res.text = t.name;
-                        res.distance = t.distance;
-                        res.duration = t.duration;
-                        res.area = t.mountain;
-                        res.isNearby = true;
-
-                        return res;
-                    }),
-                );
-        }
-
-        var mountainResults = getRepository(Trail)
-            .query(
-                `select distinct mountain from trails where mountain ilike $1 order by mountain limit $2`,
-                [`%${query}%`, RESULT_LIMIT_PER_SEARCH_BRANCH],
-            )
-            .then((trails: Trail[]) =>
-                trails.map((t, index) => {
-                    var res = new SearchResult();
-                    res.type = SearchResultType.MOUNTAIN;
-                    res.text = t.mountain;
-
-                    /**
-                     * NOTE: Apollo's InMemoryCache on the web client requires an id (or _id) field to calculate
-                     * if it already contains that object. In order to prevent same-key errors, we're assigning
-                     * index as id. This probably needs a better solution in the future (re-visit if Mountains)
-                     * become areas and have their own table
-                     *
-                     * More information:
-                     * https://www.apollographql.com/docs/react/caching/cache-configuration/#generating-unique-identifiers
-                     */
-                    res.id = index;
-
-                    return res;
-                }),
-            );
-
-        return Promise.all([
-            mountainResults,
-            orderedTrailResults,
-            nearbyTrailResults,
-        ]).then((results) => {
+        return Promise.all([orderedTrailResults]).then((results) => {
             var response = new SearchResponse();
             response.results = [].concat.apply([], results);
 

@@ -1,6 +1,7 @@
-import { Entity, PrimaryColumn, Column } from 'typeorm';
+import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { ObjectType, Field, Int } from 'type-graphql';
 import { GeoPoint } from '../../shared/schema/geoPoint';
+import { Area } from '../../areas/schema/area.model';
 
 @ObjectType()
 @Entity({
@@ -13,6 +14,19 @@ export class Trail {
 
     @Field()
     @Column()
+    type: number;
+
+    @Column()
+    @Field()
+    areaId: number;
+
+    @ManyToOne(() => Area)
+    @JoinColumn()
+    @Field()
+    area: Area;
+
+    @Field()
+    @Column()
     name: string;
 
     @Field()
@@ -21,15 +35,7 @@ export class Trail {
 
     @Field()
     @Column()
-    type: string;
-
-    @Field()
-    @Column()
     slug: string;
-
-    @Field()
-    @Column()
-    mountain: string;
 
     @Field({ nullable: true })
     @Column({ nullable: true })

@@ -119,6 +119,20 @@ clean() {
     printSuccess "Project cleaned succesfully!"
 }
 
+dockerStartDBContainer() {
+
+    name='staze_db'
+
+    [[ $(docker ps -f "name=$name" --format '{{.Names}}') == $name ]] ||
+    docker run -dp 25432:5432 --name "$name" -t zeroghan/staze-hr-db
+}
+
+regenerateGQLTypes() {
+    cd ./web
+    npm run graphql:generate
+}
+
+
 run() {
     clear
 
@@ -131,7 +145,7 @@ printf "\n"
 printStatus "Choose your action:"
 
 PS3='Please enter your choice: '
-options=("Initialize" "Start" "Clean" "Quit")
+options=("Initialize" "Start" "Clean" "Docker: Start DB container" "GQL: Regenerate types" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -147,6 +161,14 @@ do
             clean
             break
             ;;
+        "Docker: Start DB container")
+            dockerStartDBContainer
+            break
+            ;;
+        "GQL: Regenerate types")
+            regenerateGQLTypes
+            break
+            ;;            
         "Quit")
             break
             ;;

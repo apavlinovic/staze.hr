@@ -6,7 +6,7 @@ import './database/db-connection';
 import { ApolloServer } from 'apollo-server';
 import { buildSchema } from 'type-graphql';
 import { TrailResolver } from './modules/trails/trail.resolver';
-import { MountainResolver } from './modules/mountains/mountains.resolver';
+import { AreaResolver } from './modules/areas/area.resolver';
 import { UserResolver } from './modules/users/user.resolver';
 import { AuthResolver } from './modules/auth/auth.resolver';
 import { SearchResolver } from './modules/search/search.resolver';
@@ -18,7 +18,7 @@ async function bootstrap() {
         validate: true,
         resolvers: [
             TrailResolver,
-            MountainResolver,
+            AreaResolver,
             UserResolver,
             SearchResolver,
             AuthResolver,

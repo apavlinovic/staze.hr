@@ -39,7 +39,7 @@ function MainMenu(props: WithTranslation) {
                             <li>
                                 <NavLink
                                     activeClassName="__active"
-                                    to="/mountains"
+                                    to="/areas"
                                     onClick={() => setDrawerOpen(false)}
                                 >
                                     {t('noun.mountains')}

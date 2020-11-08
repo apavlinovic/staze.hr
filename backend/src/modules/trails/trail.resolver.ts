@@ -2,12 +2,13 @@ import { Trail } from './schema/trail.model';
 import { isWhiteSpaceOrNull } from '../../utils/string.utils';
 
 import { getRepository, createQueryBuilder } from 'typeorm';
-import { Resolver, Query, Arg, Args } from 'type-graphql';
+import { Resolver, Query, Arg, Args, FieldResolver, Root } from 'type-graphql';
 
 import { PaginatedTrailsResponse } from './schema/paginatedTrails.response';
 import { GetTrailsRequest } from './schema/getTrails.request';
+import { Area } from '../areas/schema/area.model';
 
-@Resolver()
+@Resolver(() => Trail)
 export class TrailResolver {
     @Query(() => PaginatedTrailsResponse, {
         name: 'trails',
@@ -31,7 +32,9 @@ export class TrailResolver {
             .offset(offset);
 
         if (!isWhiteSpaceOrNull(mountain)) {
-            qb.andWhere('trail.mountain = :mountain', { mountain });
+            qb.innerJoin('trail.area', 'area', 'area.name = :mountain', {
+                mountain,
+            });
         }
 
         if (!isWhiteSpaceOrNull(maintainer)) {
@@ -112,5 +115,12 @@ export class TrailResolver {
         }
 
         return getRepository(Trail).findOne({ where });
+    }
+
+    @FieldResolver()
+    area(@Root() trail: Trail): Promise<Area> {
+        return createQueryBuilder(Area, 'area')
+            .andWhere('area.id = :areaId', { areaId: trail.areaId })
+            .getOne();
     }
 }

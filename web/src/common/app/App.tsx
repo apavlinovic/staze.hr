@@ -9,18 +9,23 @@ import './App.scss';
 import { Route, Switch } from 'react-router-dom';
 import Mountains from '../../pages/Mountains';
 import Mountain from '../../pages/Mountain';
+import Trail from '../../pages/Trail';
 
 function App() {
     return (
         <div className="App">
             <Header></Header>
             <Switch>
-                <Route path="/mountains">
+                <Route path="/areas">
                     <Mountains />
                 </Route>
 
-                <Route path="/mountain/:mountain">
+                <Route path="/area/:slug">
                     <Mountain />
+                </Route>
+
+                <Route path="/trail/:slug">
+                    <Trail />
                 </Route>
             </Switch>
             <Footer></Footer>

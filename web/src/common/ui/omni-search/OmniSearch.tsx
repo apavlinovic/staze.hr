@@ -9,10 +9,6 @@ import Loading from '../../core/loading/Loading';
 import NoResults from '../../ui/no-results/NoResults';
 import Error from '../../core/error/Error';
 import MobileTransformable from '../../core/mobile-transformable/MobileTransformable';
-import {
-    withLocationInjectedProps,
-    withLocation,
-} from '../../core/withLocation/withLocation';
 
 import { FocusAware } from '../../core/focus-aware/FocusAware';
 
@@ -22,25 +18,24 @@ import { ReactComponent as MountainSearchIcon } from './MountainSearchIcon.svg';
 import { ReactComponent as TrailSearchIcon } from './TrailSearchIcon.svg';
 
 const SEARCH_QUERY = gql`
-    query doSearch($query: String!, $nearTo: DistanceFromGeoPointInput) {
-        globalSearch(query: $query, nearTo: $nearTo) {
+    query doSearch($query: String!) {
+        globalSearch(query: $query) {
             results {
                 id
                 type
                 text
                 distance
                 duration
-                area
-                isNearby
+                areaId
+                areaName
+                slug
             }
         }
     }
 `;
 
-const NEARBY_SEARCH_RADIUS_METERS = 10000;
-
-function OmniSearch(props: WithTranslation & withLocationInjectedProps) {
-    const { t, position } = props;
+function OmniSearch(props: WithTranslation) {
+    const { t } = props;
 
     const [query, setQuery] = useState('');
     const [resultsVisible, setResultsVisible] = useState(false);
@@ -51,7 +46,6 @@ function OmniSearch(props: WithTranslation & withLocationInjectedProps) {
     >(SEARCH_QUERY, {
         variables: {
             query,
-            nearTo: null,
         },
     });
 
@@ -59,13 +53,6 @@ function OmniSearch(props: WithTranslation & withLocationInjectedProps) {
         doSearch({
             variables: {
                 query,
-                nearTo: position
-                    ? {
-                          lat: position.coords.latitude,
-                          long: position.coords.longitude,
-                          distanceFromMeters: NEARBY_SEARCH_RADIUS_METERS,
-                      }
-                    : null,
             },
         });
 
@@ -73,7 +60,7 @@ function OmniSearch(props: WithTranslation & withLocationInjectedProps) {
         setResultsVisible(true);
     };
 
-    const renderResultsPanel = (onResultClick: Function) => {
+    const renderResultsPanel = (onResultClick: (query: string) => void) => {
         if (!resultsVisible) {
             return null;
         }
@@ -109,11 +96,16 @@ function OmniSearch(props: WithTranslation & withLocationInjectedProps) {
                                     onInputChangeHandler(event.target.value)
                                 }
                                 placeholder={t('noun.search')}
+                                value={query}
                             />
 
-                            {renderResultsPanel(() => {
+                            {renderResultsPanel((query) => {
                                 setResultsVisible(false);
                                 setDrawerOpen(false);
+
+                                if (query) {
+                                    setQuery('');
+                                }
                             })}
                         </section>
                     );
@@ -194,7 +186,7 @@ function renderResultItem(
             break;
 
         case 1:
-            resultTypeIdentifier = 'mountain';
+            resultTypeIdentifier = 'area';
             resultTypeTitle = 'noun.mountain';
             resultTypeIcon = <MountainSearchIcon />;
 
@@ -211,9 +203,9 @@ function renderResultItem(
             key={`searchResult-${index}-${searchResult.type}-${searchResult.text}`}
         >
             <Link
-                to="/"
+                to={`/${resultTypeIdentifier}/${searchResult.slug}`}
                 className={resultTypeIdentifier}
-                onClick={() => onResultClick()}
+                onClick={() => onResultClick(query)}
             >
                 <aside>{resultTypeIcon}</aside>
                 <main>
@@ -227,15 +219,8 @@ function renderResultItem(
                         }}
                     ></section>
                     <section className="secondary-information">
-                        {searchResult.area && (
-                            <span
-                                dangerouslySetInnerHTML={{
-                                    __html: highlightMatchedText(
-                                        query,
-                                        searchResult.area,
-                                    ),
-                                }}
-                            ></span>
+                        {searchResult.areaName && (
+                            <span> {searchResult.areaName}</span>
                         )}
                     </section>
                     <section className="secondary-information">
@@ -246,10 +231,6 @@ function renderResultItem(
 
                         {searchResult.duration && (
                             <span>{searchResult.duration}h</span>
-                        )}
-
-                        {searchResult.isNearby && (
-                            <span>{t('strings.nearby_result')}</span>
                         )}
                     </section>
                 </main>
@@ -265,4 +246,4 @@ function highlightMatchedText(query: string, potentialMatch: string) {
     );
 }
 
-export default withTranslation()(withLocation(OmniSearch));
+export default withTranslation()(OmniSearch);
