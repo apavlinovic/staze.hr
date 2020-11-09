@@ -1,0 +1,134 @@
+*:focus {
+    outline-style: dashed;
+    outline-offset: 4px;
+    outline-color: var(--staze-green);
+    outline-width: 2px;
+}
+
+body {
+    font: var(--font);
+    color: var(--font-color);
+    background-color: var(--primary-background-color);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    main {
+        padding: var(--base-space) var(--base-space-2x);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--font-color);
+        font-weight: bold;
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+/**
+* Form section
+*/
+
+form {
+    label {
+        display: block;
+        margin-bottom: var(--base-space-2x);
+
+        .label-text {
+            display: block;
+            font-weight: bold;
+            margin-bottom: var(--base-space);
+
+            &.required {
+                &::after {
+                    content: ' *';
+                    color: var(--staze-red);
+                }
+            }
+        }
+
+        .error {
+            display: block;
+            color: var(--staze-red);
+            margin-top: var(--base-space);
+        }
+
+        input {
+            width: 100%;
+        }
+    }
+}
+
+input {
+    padding: var(--base-space) var(--base-space-2x);
+    background-color: var(--primary-surface-background-color);
+    border: 2px solid var(--input-border-color);
+    border-radius: var(--border-radius);
+    color: var(--font-color);
+    font: var(--font);
+    font-size: 16px;
+
+    &:hover {
+        background-color: var(--primary-interactive-surface-background-color);
+    }
+
+    &:active,
+    &:focus {
+        outline: 0;
+        border-color: var(--staze-green);
+        background-color: var(--primary-interactive-surface-background-color);
+    }
+}
+
+input {
+    &:required {
+        border-color: var(--input-border-color-required);
+    }
+}
+
+button,
+input[type='submit'] {
+    cursor: pointer;
+    color: var(--font-color);
+    font: var(--font);
+    font-size: 16px;
+    padding: var(--base-space) var(--base-space-2x);
+    background-color: var(--button-background-color);
+    border: 2px solid var(--button-border-color);
+    border-radius: var(--border-radius);
+    font-weight: bold;
+
+    &.__active {
+        color: white;
+        background-color: var(--staze-green);
+        border-color: var(--staze-green);
+
+        &:hover {
+            color: white;
+        }
+    }
+
+    &:hover {
+        color: white;
+        background-color: var(--staze-green);
+        border-color: var(--staze-green-darker);
+    }
+
+    &:active {
+        transform: translateY(1px);
+    }
+
+    &:focus {
+        outline-style: dashed;
+        outline-offset: 4px;
+        outline-color: var(--staze-green);
+        outline-width: 2px;
+    }
+}

@@ -20,7 +20,11 @@
         "start_coordinates": "Početne koordinate",
         "end_coordinates": "Završne koordinate",
         "maintainer": "Održavatelj",
-        "elevation_graph": "Visinski graf"
+        "elevation_graph": "Visinski graf",
+
+        "email": "Email",
+        "password": "Lozinka",
+        "username": "Korisničko ime"
     },
 
     "verb": {
@@ -30,7 +34,8 @@
         "register": "Registracija",
         "maintains": "Održava",
         "navigate": "Navigiraj",
-        "order_by": "Sortiraj"
+        "order_by": "Sortiraj",
+        "submit": "Pošalji"
     },
 
     "strings": {
@@ -67,5 +72,9 @@
         "your_location": "Vaša lokacija",
         "nearby":  "Obližnje",
         "nearby_result": "Obližnji rezultat"
+    },
+
+    "errors": {
+        "required": "Polje \"{{ error }}\" ne može ostati prazno."
     }
 }

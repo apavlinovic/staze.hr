@@ -18,9 +18,14 @@
     --primary-interactive-surface-background-color: rgb(255, 255, 255);
     --primary-border-color: rgb(215, 215, 215);
     --primary-border-color-transparent: rgb(0, 0, 0, 0.1);
-    --input-border-color: rgb(219, 219, 219);
+    --input-border-color: rgb(215, 215, 215);
+    --input-border-color-required: rgb(190, 190, 190);
+
+    --button-background-color: rgb(255, 255, 255);
+    --button-border-color: rgb(190, 190, 190);
 
     --staze-green: #288c07;
+    --staze-green-darker: #1f7206;
     --staze-red: #ed1c24;
 }
 
@@ -35,53 +40,12 @@
         --primary-border-color: rgb(65, 65, 65);
         --primary-border-color-transparent: rgb(255, 255, 255, 0.1);
         --input-border-color: rgb(105, 105, 105);
+        --input-border-color-required: rgb(130, 130, 130);
+
+        --button-background-color: rgb(49, 49, 49);
+        --button-border-color: rgb(130, 130, 130);
+
         --staze-green: rgb(55, 212, 3);
+        --staze-green-darker: rgb(39, 151, 1);
     }
-}
-
-*:focus {
-    outline-style: dashed;
-    outline-offset: 4px;
-    outline-color: var(--staze-green);
-    outline-width: 2px;
-}
-
-body {
-    font: var(--font);
-    color: var(--font-color);
-    background-color: var(--primary-background-color);
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-input,
-button {
-    padding: var(--base-space) var(--base-space-2x);
-    background-color: var(--primary-surface-background-color);
-    border: 2px solid var(--input-border-color);
-    border-radius: var(--border-radius);
-    color: var(--font-color);
-    font: var(--font);
-    font-size: 16px;
-
-    &:hover {
-        background-color: var(--primary-interactive-surface-background-color);
-    }
-
-    &:active,
-    &:focus {
-        outline: 0;
-        border-color: var(--staze-green);
-        background-color: var(--primary-interactive-surface-background-color);
-    }
-}
-
-img {
-    max-width: 100%;
-}
-
-button {
-    cursor: pointer;
-    border-width: 1px;
 }

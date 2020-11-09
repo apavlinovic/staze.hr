@@ -20,7 +20,11 @@
         "start_coordinates": "Start coordinates",
         "end_coordinates": "End coordinates",
         "maintainer": "Maintainer",
-        "elevation_graph": "Elevation graph"
+        "elevation_graph": "Elevation graph",
+
+        "email": "Email",
+        "password": "Password",
+        "username": "Username"
     },
 
     "verb": {
@@ -31,7 +35,8 @@
         "maintains": "Maintained by",
         "navigate": "Navigate",
         "order_by": "Order by",
-        "filter_by": "Filter"
+        "filter_by": "Filter",
+        "submit": "Submit"
     },
 
     "strings": {
@@ -68,5 +73,9 @@
         "your_location": "Your location",
         "nearby":  "Nearby",
         "nearby_result": "Nearby result"
+    },
+    
+    "errors": {
+        "required": "{{ error }} is required."
     }
 }

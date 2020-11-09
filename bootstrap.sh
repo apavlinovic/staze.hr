@@ -167,7 +167,7 @@ printf "\n"
 printStatus "Choose your action:"
 
 PS3='Please enter your choice: '
-options=("Initialize" "Start" "Update" "GQL: Regenerate types" "Docker: Update database image" "Docker: Start DB container"  "Clean" "Quit")
+options=("Initialize" "Start" "Update" "GQL: Regenerate types" "Docker: Update DB image" "Docker: Start DB container" "Clean" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -187,11 +187,11 @@ do
             clean
             break
             ;;
-        "Docker: Update database image")
+        "Docker: Update DB image")
             dockerUpdateDBContainer
             break
             ;;            
-        "Docker: Start database container")
+        "Docker: Start DB container")
             dockerStartDBContainer
             break
             ;;

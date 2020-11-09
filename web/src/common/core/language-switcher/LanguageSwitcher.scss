@@ -3,12 +3,6 @@
         button {
             text-transform: uppercase;
             font-weight: bold;
-
-            &.__active {
-                color: white;
-                background-color: var(--staze-green);
-                border-color: var(--staze-green);
-            }
         }
 
         button:first-child {

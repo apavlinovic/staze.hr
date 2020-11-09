@@ -10,26 +10,34 @@ import { Route, Switch } from 'react-router-dom';
 import Mountains from '../../pages/Mountains';
 import Mountain from '../../pages/Mountain';
 import Trail from '../../pages/Trail';
+import Register from '../../pages/auth/Register';
+import { AuthContext, initialState } from '../core/auth-context/AuthContext';
 
 function App() {
     return (
-        <div className="App">
-            <Header></Header>
-            <Switch>
-                <Route path="/areas">
-                    <Mountains />
-                </Route>
+        <AuthContext.Provider value={initialState}>
+            <div className="App">
+                <Header></Header>
+                <Switch>
+                    <Route path="/areas">
+                        <Mountains />
+                    </Route>
 
-                <Route path="/area/:slug">
-                    <Mountain />
-                </Route>
+                    <Route path="/area/:slug">
+                        <Mountain />
+                    </Route>
 
-                <Route path="/trail/:slug">
-                    <Trail />
-                </Route>
-            </Switch>
-            <Footer></Footer>
-        </div>
+                    <Route path="/trail/:slug">
+                        <Trail />
+                    </Route>
+
+                    <Route path="/register">
+                        <Register />
+                    </Route>
+                </Switch>
+                <Footer></Footer>
+            </div>
+        </AuthContext.Provider>
     );
 }
 
