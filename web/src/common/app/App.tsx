@@ -16,25 +16,27 @@ import { AuthContext, initialState } from '../core/auth-context/AuthContext';
 function App() {
     return (
         <AuthContext.Provider value={initialState}>
-            <div className="App">
+            <div className="staze-hr">
                 <Header></Header>
-                <Switch>
-                    <Route path="/areas">
-                        <Mountains />
-                    </Route>
+                <main>
+                    <Switch>
+                        <Route path="/areas">
+                            <Mountains />
+                        </Route>
 
-                    <Route path="/area/:slug">
-                        <Mountain />
-                    </Route>
+                        <Route path="/area/:slug">
+                            <Mountain />
+                        </Route>
 
-                    <Route path="/trail/:slug">
-                        <Trail />
-                    </Route>
+                        <Route path="/trail/:slug">
+                            <Trail />
+                        </Route>
 
-                    <Route path="/register">
-                        <Register />
-                    </Route>
-                </Switch>
+                        <Route path="/register">
+                            <Register />
+                        </Route>
+                    </Switch>
+                </main>
                 <Footer></Footer>
             </div>
         </AuthContext.Provider>

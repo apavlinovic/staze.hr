@@ -5,14 +5,14 @@ export class UpdateUserRequest {
     @Field((type) => Int, { nullable: true })
     userId: number;
 
-    @Field((type) => String, { nullable: true })
+    @Field((type) => String, { nullable: false })
     email: string;
+
+    @Field((type) => String, { nullable: false })
+    password: string;
 
     @Field((type) => String, { nullable: true })
     name: string;
-
-    @Field((type) => String, { nullable: true })
-    password: string;
 
     @Field((type) => String, { nullable: true })
     username: string;

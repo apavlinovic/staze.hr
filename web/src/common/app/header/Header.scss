@@ -3,9 +3,10 @@
     height: 70px;
     display: flex;
     align-items: center;
+
     position: sticky;
     top: 0;
-    background-color: var(--overlay-background-color);
+
     backdrop-filter: blur(30px) saturate(200%);
     backface-visibility: hidden;
     z-index: 2;
@@ -28,7 +29,7 @@
     }
 
     @media screen and (max-width: 640px) {
-        border-bottom: 1px solid var(--primary-border-color);
+        border-bottom: 1px solid var(--border-color);
         justify-content: flex-end;
         padding: 0;
         position: static;
@@ -47,7 +48,7 @@
             justify-content: center;
             margin-right: 0;
             padding: var(--base-space);
-            border-left: 1px solid var(--primary-border-color);
+            border-left: 1px solid var(--border-color);
             height: 70px;
         }
     }

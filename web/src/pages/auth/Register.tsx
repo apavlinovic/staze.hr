@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { withTranslation, WithTranslation } from 'react-i18next';
-import { useForm } from 'react-hook-form';
+import { FieldErrors, useForm } from 'react-hook-form';
 import { AuthContext } from '../../common/core/auth-context/AuthContext';
+import Input from '../../common/core/forms/Input';
 
 interface RegistrationFormFields {
     email: string;
@@ -14,56 +15,44 @@ function Register(props: WithTranslation) {
     const { t } = props;
     const authContext = useContext(AuthContext);
 
-    const { register, handleSubmit, watch, errors } = useForm<
+    const { register, handleSubmit, errors } = useForm<
         RegistrationFormFields
     >();
+
     const onSubmit = (data: RegistrationFormFields) => console.log(data);
+    const onError = (data: FieldErrors<RegistrationFormFields>) =>
+        console.error(data);
 
     return (
         <main>
             <h1>{t('verb.register')}</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <label>
-                    <span className="label-text required">
-                        {t('noun.email')}
-                    </span>
-                    <input
-                        name="email"
-                        type="email"
-                        required
-                        ref={register({ required: true })}
-                    />
+            <form onSubmit={handleSubmit(onSubmit, onError)}>
+                <Input
+                    name="email"
+                    type="email"
+                    required={true}
+                    label="noun.email"
+                    errors={errors}
+                    register={register}
+                />
 
-                    {errors.email && (
-                        <div className="error">
-                            {t('errors.required', { error: t('noun.email') })}
-                        </div>
-                    )}
-                </label>
+                <Input
+                    name="password"
+                    type="password"
+                    required={true}
+                    label="noun.password"
+                    errors={errors}
+                    register={register}
+                />
 
-                <label>
-                    <span className="label-text required">
-                        {t('noun.password')}
-                    </span>
-                    <input
-                        name="password"
-                        type="password"
-                        required
-                        ref={register({ required: true })}
-                    />
-                    {errors.password && (
-                        <div className="error">
-                            {t('errors.required', {
-                                error: t('noun.password'),
-                            })}
-                        </div>
-                    )}
-                </label>
-
-                <label>
-                    <span className="label-text">{t('noun.username')}</span>
-                    <input name="username" ref={register} />
-                </label>
+                <Input
+                    name="username"
+                    label="noun.username"
+                    maxLength={100}
+                    errors={errors}
+                    pattern={/[A-Za-z0-9^\s]+/}
+                    register={register}
+                />
 
                 <input type="submit" value={t('verb.submit') as string} />
             </form>

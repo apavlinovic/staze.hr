@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { Query, QueryGlobalSearchArgs, SearchResult } from '../../../types';
 import Loading from '../../core/loading/Loading';
 import NoResults from '../../ui/no-results/NoResults';
+import InfoElement from '../../ui/info-element/InfoElement';
 import Error from '../../core/error/Error';
 import MobileTransformable from '../../core/mobile-transformable/MobileTransformable';
 
@@ -138,6 +139,16 @@ function renderResults(
             <ul>
                 <li>
                     <Error error={error} />;
+                </li>
+            </ul>
+        );
+    }
+
+    if (!data && !query) {
+        return (
+            <ul>
+                <li>
+                    <InfoElement message="strings.start_typing_to_search" />
                 </li>
             </ul>
         );

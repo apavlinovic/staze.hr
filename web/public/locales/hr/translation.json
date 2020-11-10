@@ -68,6 +68,7 @@
         "filter_duration_5": "Do 5 sata",
         "filter_duration_max": "Sva trajanja",
         "no_results": "Nema rezultata.",
+        "start_typing_to_search": "Počni tipkati da bi pretražio staze i planine...",
         "copyright": "Autorska prava pripadaju Staze.hr timu. Informacije o stazama, slike karata i GPX tragovi su vlasništvo Hrvatskog Planinarskog Saveza.",
         "your_location": "Vaša lokacija",
         "nearby":  "Obližnje",
@@ -75,6 +76,12 @@
     },
 
     "errors": {
-        "required": "Polje \"{{ error }}\" ne može ostati prazno."
+        "required": "Polje \"{{ error }}\" ne može ostati prazno.",
+        "min": "Mora biti veće od {{ min }}.",
+        "max": "Mora biti manje od {{ max }}.",
+        "minLength": "Mora biti dulje od {{ minLength }} znakova.",
+        "maxLength": "Mora biti kraće od {{ maxLength }} znakova.",
+        "pattern": "Mora odgovarati uzorku: {{ pattern }}.",
+        "pattern/^[' ']+/": "Ne smije sadrzavati razmake."
     }
 }

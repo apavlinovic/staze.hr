@@ -1,12 +1,16 @@
 .ui--card {
-    border: 2px solid var(--primary-border-color);
-    border-radius: var(--border-radius);
-    background-color: var(--primary-interactive-surface-background-color);
-    margin: var(--base-space-2x);
-
     a {
+        display: block;
+        border: 2px solid var(--interactive-surface-background-color);
+        border-radius: var(--border-radius);
+        background-color: var(--interactive-surface-background-color);
+        box-shadow: var(--interactive-surface-box-shadow);
         color: var(--body-color);
         text-decoration: none;
+
+        &:hover {
+            border-color: var(--staze-green);
+        }
     }
 
     .content {

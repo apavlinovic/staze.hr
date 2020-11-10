@@ -69,6 +69,7 @@
         "filter_duration_5": "Up to 5 hour",
         "filter_duration_max": "Any duration",
         "no_results": "No results.",
+        "start_typing_to_search": "Start typing to find trails and mountains...",
         "copyright": "Copyright protected. Trail information, map images and GPX traces property of Hrvatski Planinarski Savez.",
         "your_location": "Your location",
         "nearby":  "Nearby",
@@ -76,6 +77,12 @@
     },
     
     "errors": {
-        "required": "{{ error }} is required."
+        "required": "{{ error }} is required.",
+        "min": "Has to be larger than {{ min }}.",
+        "max": "Has to be less than {{ max }}.",
+        "minLength": "Has to be longer than {{ minLength }} characters.",
+        "maxLength": "Has to be shorter than {{ maxLength }} characters.",
+        "pattern": "Has to match pattern: {{ pattern }}.",
+        "pattern/^[' ']+/": "Spaces are not allowed."
     }
 }

@@ -117,7 +117,7 @@ export class UserResolver {
     })
     async createUser(
         @Args()
-        { name, username, email, password }: UpdateUserRequest,
+        { username, email, password }: UpdateUserRequest,
     ) {
         if (!email || !password) {
             throw new ApolloError(
@@ -126,7 +126,6 @@ export class UserResolver {
         }
 
         const user = new User();
-        user.name = name;
         user.username = username;
         user.email = email;
         user.passwordHash = await hashify(password);
