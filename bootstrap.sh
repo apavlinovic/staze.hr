@@ -119,7 +119,7 @@ clean() {
     printSuccess "Project cleaned succesfully!"
 }
 
-update() {
+updateNPMPackages() {
     clear
 
     printHeader "Updating NPM packages across the board..."
@@ -162,12 +162,16 @@ run() {
     npm start
 }
 
+prettierFormat() {
+    npm run prettier:format
+}
+
 printHeader "Staze.hr Bootstrap Manager"
 printf "\n"
 printStatus "Choose your action:"
 
 PS3='Please enter your choice: '
-options=("Initialize" "Start" "Update" "GQL: Regenerate types" "Docker: Update DB image" "Docker: Start DB container" "Clean" "Quit")
+options=("Initialize" "Start" "Prettier: Format" "NPM: Update packages" "GQL: Regenerate types" "Docker: Update DB image" "Docker: Start DB container" "Clean" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -179,14 +183,18 @@ do
             run
             break
             ;;
-        "Update")
-            update
+        "Prettier: Format")            
+            prettierFormat
             break
-            ;;            
+            ;;
         "Clean")
             clean
             break
             ;;
+        "NPM: Update packages")
+            updateNPMPackages
+            break
+            ;;                        
         "Docker: Update DB image")
             dockerUpdateDBContainer
             break
