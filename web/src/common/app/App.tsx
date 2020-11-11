@@ -3,9 +3,14 @@ import React from 'react';
 import Header from './header/Header';
 import Footer from './footer/Footer';
 
-import './Reset.scss';
-import './Theme.scss';
+import './styling/Reset.scss';
+import './styling/Theme.scss';
+import './styling/Grid.scss';
+import './styling/Forms.scss';
+import './styling/InlineFlexibleList.scss';
+import './styling/UtilityClasses.scss';
 import './App.scss';
+
 import { Route, Switch } from 'react-router-dom';
 import Mountains from '../../pages/Mountains';
 import Mountain from '../../pages/Mountain';

@@ -28,6 +28,9 @@
     --button-background-color: rgb(255, 255, 255);
     --button-border-color: rgb(190, 190, 190);
 
+    --tile-border-radius: 24px;
+    --tile-background-color: rgb(255, 255, 255);
+
     --staze-green: #288c07;
     --staze-green-darker: #1f7206;
     --staze-red: #ed1c24;
@@ -35,24 +38,26 @@
 
 @media screen and (prefers-color-scheme: dark) {
     :root {
-        --font-color: rgb(225, 225, 225);
+        --font-color: rgb(245, 245, 247);
         --link-color: rgb(255, 255, 255);
 
-        --background-color: rgb(35, 35, 35);
+        --background-color: rgb(17, 17, 17);
 
         --overlay-background-color: rgba(0, 0, 0, 0.25);
-        --surface-background-color: rgb(45, 45, 45);
-        --interactive-surface-background-color: rgb(55, 55, 55);
+        --surface-background-color: rgb(40, 40, 40);
+        --interactive-surface-background-color: rgb(50, 50, 50);
         --interactive-surface-box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.1);
 
         --border-color: rgb(65, 65, 65);
         --border-color-transparent: rgb(255, 255, 255, 0.1);
 
-        --input-background-color: rgb(55, 55, 55);
+        --input-background-color: rgb(50, 50, 50);
         --input-border-color: rgba(255, 255, 255, 0.1);
 
         --button-background-color: rgb(55, 55, 55);
         --button-border-color: rgb(75, 75, 75);
+
+        --tile-background-color: rgb(25, 25, 25);
 
         --staze-green: #32ad09;
         --staze-green-darker: #258b06;
