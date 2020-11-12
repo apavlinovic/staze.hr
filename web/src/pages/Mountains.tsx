@@ -36,9 +36,7 @@ function MountainsPage(props: WithTranslation) {
         <main>
             <h1>{t('noun.mountains')}</h1>
             TODO: FIGURE OUT A MOUNTAINS PAGE DESIGN
-            <div
-             className="cardWrapper"
-            >
+            <div className="cardWrapper">
                 {data?.areas?.items.map((value, index) => (
                     <Card
                         key={`mountain-${index}`}

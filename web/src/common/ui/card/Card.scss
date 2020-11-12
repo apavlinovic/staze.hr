@@ -1,7 +1,6 @@
 .ui--card {
     width: 20%;
 
-    
     a {
         display: block;
         border: 2px solid var(--interactive-surface-background-color);
@@ -26,13 +25,11 @@
 
 @media only screen and (max-width: 1200px) {
     .ui--card {
-      width:180pt;
+        width: 180pt;
     }
-  }
+}
 @media only screen and (max-width: 800px) {
     .ui--card {
-      width:150pt;
+        width: 150pt;
     }
-  }
-  
-
+}
