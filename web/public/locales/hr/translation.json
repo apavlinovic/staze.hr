@@ -18,9 +18,11 @@
         "mountains": "Planine",
         "start_location": "Početna lokacija",
         "start_coordinates": "Početne koordinate",
+        "end_location": "Završna lokacija",
         "end_coordinates": "Završne koordinate",
         "maintainer": "Održavatelj",
         "elevation_graph": "Visinski graf",
+        "gpx_trace": "GPS trag",
 
         "email": "Email",
         "password": "Lozinka",
@@ -72,7 +74,10 @@
         "copyright": "Autorska prava pripadaju Staze.hr timu. Informacije o stazama, slike karata i GPX tragovi su vlasništvo Hrvatskog Planinarskog Saveza.",
         "your_location": "Vaša lokacija",
         "nearby":  "Obližnje",
-        "nearby_result": "Obližnji rezultat"
+        "nearby_result": "Obližnji rezultat",
+        "nearby_trails": "Obližnje staze",
+        "continue_the_trail": "Nastavak staze",
+        "continue_the_trail_description": "Pronašli smo staze koje se nalaze nedaleko od kraja trenutne staze. Sve izlistane staze nalaze se 500 metara od završne točke trenutne staze."
     },
 
     "errors": {

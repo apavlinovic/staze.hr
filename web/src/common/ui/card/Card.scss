@@ -1,12 +1,10 @@
 .ui--card {
     width: 20%;
+    height: 100%;
 
     a {
         display: block;
-        border: 2px solid var(--interactive-surface-background-color);
-        border-radius: var(--border-radius);
-        background-color: var(--interactive-surface-background-color);
-        box-shadow: var(--interactive-surface-box-shadow);
+        height: 100%;
         color: var(--body-color);
         text-decoration: none;
         margin: 7px;
@@ -14,22 +12,57 @@
         background-repeat: no-repeat;
 
         &:hover {
-            border-color: var(--staze-green);
+            text-decoration: none;
         }
     }
 
     .content {
-        // padding: var(--base-space-2x);
-    }
-}
+        height: 100%;
+        padding: var(--base-space-2x);
+        background-color: var(--interactive-surface-background-color);
+        box-shadow: var(--interactive-surface-box-shadow);
+        border-radius: var(--border-radius);
 
-@media only screen and (max-width: 1200px) {
-    .ui--card {
-        width: 180pt;
+        > h2 {
+            padding: var(--base-space-4x);
+        }
+
+        img {
+            border-radius: var(--border-radius);
+        }
     }
-}
-@media only screen and (max-width: 800px) {
-    .ui--card {
-        width: 150pt;
+
+    &.edge-to-edge-image {
+        .content {
+            padding: 0;
+            display: block;
+            overflow: hidden;
+            position: relative;
+
+            h2 {
+                position: absolute;
+                z-index: 1;
+                bottom: 0;
+                margin-bottom: 0;
+                width: 100%;
+                backdrop-filter: blur(30px) saturate(130%);
+                backface-visibility: hidden;
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+                color: white;
+            }
+
+            img {
+                display: block;
+                border-radius: none;
+            }
+        }
+    }
+
+    &.tile-like {
+        .content {
+            background-color: var(--tile-background-color);
+            border-color: var(--tile-background-color);
+            box-shadow: none;
+        }
     }
 }

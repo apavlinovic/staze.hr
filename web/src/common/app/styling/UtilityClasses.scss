@@ -1,0 +1,27 @@
+.margin-bottom-1x {
+    margin-bottom: var(--base-space);
+}
+
+.margin-bottom-2x {
+    margin-bottom: var(--base-space-2x);
+}
+
+@media screen and (max-width: 640px) {
+    &.small-text-align-center {
+        text-align: center;
+    }
+
+    &.small-overflow-hidden {
+        overflow: hidden;
+    }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    &.invert-on-dark-mode {
+        filter: invert(0.9);
+    }
+
+    &.reduce-contrast-on-dark-mode {
+        filter: contrast(90%) sepia(20%) brightness(90%);
+    }
+}

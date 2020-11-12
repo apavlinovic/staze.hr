@@ -14,7 +14,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 
     .staze-hr > main {
-        padding: var(--base-space) var(--base-space-2x);
+        padding: var(--base-space-2x) var(--base-space-2x);
     }
 
     h1,
@@ -25,103 +25,44 @@ body {
     h6 {
         color: var(--font-color);
         font-weight: bold;
+        margin-bottom: var(--base-space);
+    }
+
+    p {
+        margin-bottom: var(--base-space);
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--staze-green);
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    table {
+        width: 100%;
+
+        tbody {
+            th,
+            td {
+                width: 50%;
+                text-align: left;
+                padding: var(--base-space) var(--base-space-2x)
+                    var(--base-space) 0;
+            }
+
+            tr + tr {
+                th,
+                td {
+                    border-top: 1px solid var(--border-color);
+                }
+            }
+        }
     }
 }
 
 img {
     max-width: 100%;
-}
-
-/**
-* Form section
-*/
-
-form {
-    label {
-        display: block;
-        margin-bottom: var(--base-space-2x);
-
-        .label-text {
-            display: block;
-            font-weight: bold;
-            margin-bottom: var(--base-space);
-
-            &.required {
-                &::after {
-                    content: ' *';
-                    color: var(--staze-red);
-                }
-            }
-        }
-
-        .error {
-            display: block;
-            color: var(--staze-red);
-            margin-top: var(--base-space);
-        }
-
-        input {
-            width: 100%;
-        }
-    }
-}
-
-input {
-    padding: var(--base-space) var(--base-space-2x);
-    background-color: var(--input-background-color);
-    border: 2px solid var(--input-border-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--interactive-surface-box-shadow);
-
-    color: var(--font-color);
-    font: var(--font);
-    font-size: 16px;
-
-    &:active,
-    &:focus {
-        outline: 0;
-        border-width: 2px;
-        border-color: var(--staze-green);
-    }
-}
-
-button,
-input[type='submit'] {
-    cursor: pointer;
-    color: var(--font-color);
-    font: var(--font);
-    font-size: 16px;
-    padding: var(--base-space) var(--base-space-2x);
-    background-color: var(--button-background-color);
-    border: 2px solid transparent;
-    box-shadow: var(--interactive-surface-box-shadow);
-    border-radius: var(--border-radius);
-    font-weight: bold;
-
-    &.__active {
-        color: white;
-        background-color: var(--staze-green);
-        border-color: var(--staze-green);
-
-        &:hover {
-            color: white;
-        }
-    }
-
-    &:hover {
-        color: white;
-        background-color: var(--staze-green);
-        border-color: var(--staze-green-darker);
-    }
-
-    &:active {
-        transform: translateY(1px);
-    }
-
-    &:focus {
-        outline-style: dashed;
-        outline-offset: 4px;
-        outline-color: var(--staze-green);
-        outline-width: 2px;
-    }
 }

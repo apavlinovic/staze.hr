@@ -1,0 +1,28 @@
+.inline-flexible-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    > * {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        & + * {
+            margin-left: var(--base-space);
+        }
+    }
+
+    &.with-vertical-separator {
+        > * {
+            &:after {
+                content: '|';
+                margin-left: var(--base-space);
+            }
+        }
+
+        > *:last-child:after {
+            content: none;
+        }
+    }
+}

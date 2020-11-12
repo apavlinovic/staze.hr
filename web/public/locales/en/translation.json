@@ -18,9 +18,11 @@
         "mountains": "Mountains",
         "start_location": "Start location",
         "start_coordinates": "Start coordinates",
+        "end_location": "End location",
         "end_coordinates": "End coordinates",
         "maintainer": "Maintainer",
         "elevation_graph": "Elevation graph",
+        "gpx_trace": "GPS trace",
 
         "email": "Email",
         "password": "Password",
@@ -73,7 +75,10 @@
         "copyright": "Copyright protected. Trail information, map images and GPX traces property of Hrvatski Planinarski Savez.",
         "your_location": "Your location",
         "nearby":  "Nearby",
-        "nearby_result": "Nearby result"
+        "nearby_result": "Nearby result",
+        "nearby_trails": "Nearby trails",
+        "continue_the_trail": "Continue the trail",
+        "continue_the_trail_description": "We found some trails that are located close to the end of your current trail. These trails are all located roughly 500 meters from the end of your current trail."
     },
     
     "errors": {

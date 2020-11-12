@@ -14,6 +14,16 @@ function MobileTransformable(props: MobileTransformableProps) {
     const { headerTitle, openerIcon, t, content } = props;
     const [isDrawerOpen, setDrawerOpenStatus] = useState(false);
 
+    const onDrawerOpen = (isOpen: boolean) => {
+        setDrawerOpenStatus(isOpen);
+
+        if (isOpen) {
+            document.body.classList.add('small-overflow-hidden');
+        } else {
+            document.body.classList.remove('small-overflow-hidden');
+        }
+    };
+
     return (
         <section
             className={`mobile__transformable ${
@@ -21,7 +31,7 @@ function MobileTransformable(props: MobileTransformableProps) {
             }`}
         >
             <button
-                onClick={() => setDrawerOpenStatus(!isDrawerOpen)}
+                onClick={() => onDrawerOpen(!isDrawerOpen)}
                 className="mobile__menu-toggle"
             >
                 {openerIcon}
@@ -30,12 +40,12 @@ function MobileTransformable(props: MobileTransformableProps) {
             <section className="wrap mobile__wrap">
                 <header className="mobile__controls">
                     <h2>{t(headerTitle)}</h2>
-                    <button onClick={() => setDrawerOpenStatus(!isDrawerOpen)}>
+                    <button onClick={() => onDrawerOpen(!isDrawerOpen)}>
                         <CloseIcon />
                     </button>
                 </header>
                 <section className="content mobile__content">
-                    {content(setDrawerOpenStatus)}
+                    {content(onDrawerOpen)}
                 </section>
             </section>
         </section>

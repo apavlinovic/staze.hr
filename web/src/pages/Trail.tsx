@@ -5,7 +5,15 @@ import { withTranslation, WithTranslation } from 'react-i18next';
 import Loading from '../common/core/loading/Loading';
 import Error from '../common/core/error/Error';
 import { Query, QueryTrailArgs } from '../types';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import Tile from '../common/ui/tile/Tile';
+import NoResults from '../common/ui/no-results/NoResults';
+import Coordinates from '../common/ui/coordinates/Coordinates';
+import Duration from '../common/ui/duration/Duration';
+import Distance from '../common/ui/distance/Distance';
+import NearbyTrails from '../common/ui/nearby-trails/NearbyTrails';
+import HeightDifference from '../common/ui/height-difference/HeightDifference';
+import Card from '../common/ui/card/Card';
 
 const TRAIL_QUERY = gql`
     query getTrail($trailSlug: String!) {
@@ -26,6 +34,8 @@ const TRAIL_QUERY = gql`
             heightDifference
             relatedInformationLink
             originalMapUrl
+            hasValidGpx
+            gpxTraceId
             startLocation
             startLocationCoords {
                 coordinates
@@ -62,19 +72,186 @@ function Trail(props: WithTranslation) {
         return <Error error={error} />;
     }
 
+    if (data?.trail == null) {
+        return <NoResults />;
+    }
+
+    const { trail } = data;
+
     return (
-        <main>
-            <h1>{data?.trail?.name}</h1>
-            <p>{data?.trail?.description}</p>
-            <img
-                src={`/trails/map/${data?.trail?.mapName}`}
-                alt={data?.trail?.name}
-            />
-            <img
-                src={`/trails/elevation/${data?.trail?.mapName}`}
-                alt={data?.trail?.name}
-            />
-        </main>
+        <div className="page--trail">
+            <div className="grid grid-container">
+                <div className="grid-item large-span-8 small-span-12 small-align-content-center">
+                    <h1 className="small-text-align-center">{trail.name}</h1>
+                    <ul className="inline-flexible-list with-vertical-separator margin-bottom-2x">
+                        <li>
+                            <Link to={`/area/${trail.area.slug}`}>
+                                {trail.area.name}
+                            </Link>
+                        </li>
+
+                        <li>
+                            <Distance distance={trail.distance} />
+                        </li>
+                        <li>
+                            <Duration duration={trail.duration} />
+                        </li>
+                        <li>
+                            <HeightDifference
+                                difference={trail.heightDifference}
+                            />
+                        </li>
+                    </ul>
+
+                    <p className="small-text-align-center">
+                        {trail.description}
+                    </p>
+                </div>
+
+                <div className="grid-item large-span-4 small-span-12 align-content-right small-align-content-center">
+                    <ul className="inline-flexible-list">
+                        <li>
+                            <button>Spremi</button>
+                        </li>
+                        <li>
+                            <button>Karta</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div className="grid-item large-span-12 small-span-12">
+                    <Card
+                        variant="edge-to-edge-image"
+                        linkTo={`/trails/map/${trail.mapName}`}
+                    >
+                        <img
+                            className="reduce-contrast-on-dark-mode"
+                            src={`/trails/map/${trail.mapName}`}
+                            alt={trail.name}
+                        />
+                    </Card>
+                </div>
+
+                <div className="grid-item large-span-6 small-span-12">
+                    <Tile header={'strings.trail_information'}>
+                        <table className="margin-bottom-2x">
+                            <tbody>
+                                <tr>
+                                    <th>{t('noun.distance')}</th>
+                                    <td>
+                                        <Distance distance={trail.distance} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{t('noun.duration')}</th>
+                                    <td>
+                                        <Duration duration={trail.duration} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{t('noun.height_difference')}</th>
+                                    <td>
+                                        <HeightDifference
+                                            difference={trail.heightDifference}
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{t('noun.start_location')}</th>
+                                    <td>{trail.startLocation}</td>
+                                </tr>
+                                <tr>
+                                    <th>{t('noun.end_location')}</th>
+                                    <td>{trail.endLocation}</td>
+                                </tr>
+                                <tr>
+                                    <th>{t('noun.mountain')}</th>
+                                    <td>
+                                        <Link to={`/area/${trail.area.slug}`}>
+                                            {trail.area.name}
+                                        </Link>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{t('noun.maintainer')}</th>
+                                    <td>{trail.maintainer}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3>{t('strings.important_coordinates')}</h3>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>{t('noun.start_coordinates')}</th>
+                                    <td>
+                                        <Coordinates
+                                            geopoint={trail.startLocationCoords}
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{t('noun.end_coordinates')}</th>
+                                    <td>
+                                        <Coordinates
+                                            geopoint={trail.endLocationCoords}
+                                        />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p>
+                            <small>{t('strings.coordinates_disclaimer')}</small>
+                        </p>
+                    </Tile>
+                </div>
+
+                <div className="grid-item large-span-6 small-span-12">
+                    <Tile
+                        variant="edge-to-edge-image"
+                        header={'noun.elevation_graph'}
+                    >
+                        <img
+                            className="invert-on-dark-mode"
+                            src={`/trails/elevation/${trail.mapName}`}
+                            alt={trail.name}
+                        />
+                    </Tile>
+                </div>
+
+                <div className="grid-item large-span-6 small-span-12">
+                    <Card
+                        header={trail.area.name}
+                        variant="edge-to-edge-image"
+                        linkTo={`/area/${trail.area.slug}`}
+                    >
+                        <img
+                            className="reduce-contrast-on-dark-mode"
+                            src={`/mountains/${trail.area.slug}.jpg`}
+                            alt={trail.area.name}
+                        />
+                    </Card>
+                </div>
+
+                <div className="grid-item large-span-6 small-span-12">
+                    <Tile header="noun.gpx_trace"></Tile>
+                </div>
+
+                <div className="grid-item large-span-12 small-span-12">
+                    {trail.endLocationCoords && (
+                        <Tile header="strings.continue_the_trail">
+                            <p className="margin-bottom-2x">
+                                {t('strings.continue_the_trail_description')}
+                            </p>
+                            <NearbyTrails
+                                geopoint={trail.endLocationCoords}
+                            ></NearbyTrails>
+                        </Tile>
+                    )}
+                </div>
+            </div>
+        </div>
     );
 }
 
