@@ -5,12 +5,12 @@
     height: 100%;
 
     .content {
-        padding: var(--base-space-2x);
+        padding: var(--base-space-2x) var(--base-space-4x);
         height: 100%;
     }
 
     > h2 {
-        padding: var(--base-space-2x) var(--base-space-2x) 0;
+        padding: var(--base-space-4x) var(--base-space-4x) 0;
     }
 
     &.edge-to-edge-image {

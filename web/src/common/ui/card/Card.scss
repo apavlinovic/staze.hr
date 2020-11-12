@@ -9,9 +9,6 @@
 
         &:hover {
             text-decoration: none;
-            .content {
-                border-color: var(--staze-green);
-            }
         }
     }
 
@@ -20,8 +17,11 @@
         padding: var(--base-space-2x);
         background-color: var(--interactive-surface-background-color);
         box-shadow: var(--interactive-surface-box-shadow);
-        border: 2px solid var(--interactive-surface-background-color);
         border-radius: var(--border-radius);
+
+        > h2 {
+            padding: var(--base-space-4x);
+        }
 
         img {
             border-radius: var(--border-radius);
@@ -31,7 +31,21 @@
     &.edge-to-edge-image {
         .content {
             padding: 0;
+            display: block;
             overflow: hidden;
+            position: relative;
+
+            h2 {
+                position: absolute;
+                z-index: 1;
+                bottom: 0;
+                margin-bottom: 0;
+                width: 100%;
+                backdrop-filter: blur(30px) saturate(130%);
+                backface-visibility: hidden;
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+                color: white;
+            }
 
             img {
                 display: block;

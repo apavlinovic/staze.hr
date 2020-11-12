@@ -3,8 +3,8 @@
     margin-right: auto;
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
-    column-gap: var(--base-space-2x);
-    row-gap: var(--base-space-2x);
+    column-gap: var(--base-space-4x);
+    row-gap: var(--base-space-4x);
 
     &.grid-container {
         max-width: 1380px;

@@ -34,6 +34,8 @@ const TRAIL_QUERY = gql`
             heightDifference
             relatedInformationLink
             originalMapUrl
+            hasValidGpx
+            gpxTraceId
             startLocation
             startLocationCoords {
                 coordinates
@@ -123,7 +125,7 @@ function Trail(props: WithTranslation) {
                         linkTo={`/trails/map/${trail.mapName}`}
                     >
                         <img
-                            className="reduce-contrast-on-dark-mode sepia-on-dark-mode"
+                            className="reduce-contrast-on-dark-mode"
                             src={`/trails/map/${trail.mapName}`}
                             alt={trail.name}
                         />
@@ -218,15 +220,34 @@ function Trail(props: WithTranslation) {
                     </Tile>
                 </div>
 
+                <div className="grid-item large-span-6 small-span-12">
+                    <Card
+                        header={trail.area.name}
+                        variant="edge-to-edge-image"
+                        linkTo={`/area/${trail.area.slug}`}
+                    >
+                        <img
+                            className="reduce-contrast-on-dark-mode"
+                            src={`/mountains/${trail.area.slug}.jpg`}
+                            alt={trail.area.name}
+                        />
+                    </Card>
+                </div>
+
+                <div className="grid-item large-span-6 small-span-12">
+                    <Tile header="noun.gpx_trace"></Tile>
+                </div>
+
                 <div className="grid-item large-span-12 small-span-12">
-                    <h2>{t('strings.continue_the_trail')}</h2>
-                    <p className="margin-bottom-2x">
-                        {t('strings.continue_the_trail_description')}
-                    </p>
                     {trail.endLocationCoords && (
-                        <NearbyTrails
-                            geopoint={trail.endLocationCoords}
-                        ></NearbyTrails>
+                        <Tile header="strings.continue_the_trail">
+                            <p className="margin-bottom-2x">
+                                {t('strings.continue_the_trail_description')}
+                            </p>
+                            <NearbyTrails
+                                geopoint={trail.endLocationCoords}
+                            ></NearbyTrails>
+                        </Tile>
                     )}
                 </div>
             </div>

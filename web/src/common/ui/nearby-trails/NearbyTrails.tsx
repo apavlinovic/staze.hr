@@ -6,8 +6,8 @@ import Error from '../../core/error/Error';
 
 import Duration from '../duration/Duration';
 import Distance from '../distance/Distance';
-import Card from '../card/Card';
 import { WithTranslation, withTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
 interface NearbyTrailsProps {
     geopoint: GeoPoint;
@@ -75,7 +75,7 @@ function NearbyTrails(props: NearbyTrailsProps & WithTranslation) {
                             className="grid-item large-span-4 small-span-12"
                             key={trail.id}
                         >
-                            <Card linkTo={trail.slug} variant="tile-like">
+                            <NavLink to={trail.slug}>
                                 <h3>{trail.name}</h3>
                                 <img
                                     className="reduce-contrast-on-dark-mode sepia-on-dark-mode"
@@ -111,7 +111,7 @@ function NearbyTrails(props: NearbyTrailsProps & WithTranslation) {
                                         </tr>
                                     </tbody>
                                 </table>
-                            </Card>
+                            </NavLink>
                         </div>
                     );
                 })}
