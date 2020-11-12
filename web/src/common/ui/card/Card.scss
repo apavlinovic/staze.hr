@@ -1,5 +1,7 @@
 .ui--card {
     width: 20%;
+
+    
     a {
         display: block;
         border: 2px solid var(--interactive-surface-background-color);
@@ -8,6 +10,9 @@
         box-shadow: var(--interactive-surface-box-shadow);
         color: var(--body-color);
         text-decoration: none;
+        margin: 7px;
+        background-position: center center;
+        background-repeat: no-repeat;
 
         &:hover {
             border-color: var(--staze-green);
@@ -15,6 +20,19 @@
     }
 
     .content {
-        padding: var(--base-space-2x);
+        // padding: var(--base-space-2x);
     }
 }
+
+@media only screen and (max-width: 1200px) {
+    .ui--card {
+      width:180pt;
+    }
+  }
+@media only screen and (max-width: 800px) {
+    .ui--card {
+      width:150pt;
+    }
+  }
+  
+
