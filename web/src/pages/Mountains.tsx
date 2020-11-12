@@ -6,6 +6,8 @@ import { Query } from '../types';
 import Loading from '../common/core/loading/Loading';
 import Error from '../common/core/error/Error';
 import Card from '../common/ui/card/Card';
+import "../common/ui/card/CardWrapper.scss";
+
 
 const MOUNTAINS_QUERY = gql`
     query getAreas {
@@ -30,16 +32,23 @@ function MountainsPage(props: WithTranslation) {
     if (error) {
         return <Error error={error} />;
     }
-
+    
     return (
         <main>
             <h1>{t('noun.mountains')}</h1>
             TODO: FIGURE OUT A MOUNTAINS PAGE DESIGN
-            {data?.areas?.items.map((value, index) => (
-                <div key={`mountain-${index}`}>
-                    <Card linkTo={`/area/${value.slug}`}>{value.name}</Card>
-                </div>
-            ))}
+            <div className= "cardWrapper" style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+            }}>
+                {data?.areas?.items.map((value, index) => (
+                    <Card key={`mountain-${index}`} linkTo={`/area/${value.slug}`}>
+                        <img className="cardPicture" src={`/mountains/${value.slug}.jpg`} />
+                        {value.name}
+                    </Card>
+                ))}
+            </div>
+            
         </main>
     );
 }

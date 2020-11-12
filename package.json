@@ -31,5 +31,8 @@
             "pre-commit": "npm run test-backend && npm run prettier:check"
         }
     },
-    "dependencies": {}
+    "dependencies": {
+        "@types/react-router-dom": "^5.1.6",
+        "react-router-dom": "^5.2.0"
+    }
 }
