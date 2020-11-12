@@ -1,6 +1,18 @@
+.margin-bottom-1x {
+    margin-bottom: var(--base-space);
+}
+
+.margin-bottom-2x {
+    margin-bottom: var(--base-space-2x);
+}
+
 @media screen and (max-width: 640px) {
     &.small-text-align-center {
         text-align: center;
+    }
+
+    &.small-overflow-hidden {
+        overflow: hidden;
     }
 }
 

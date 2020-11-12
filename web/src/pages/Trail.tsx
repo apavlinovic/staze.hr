@@ -11,6 +11,7 @@ import NoResults from '../common/ui/no-results/NoResults';
 import Coordinates from '../common/ui/coordinates/Coordinates';
 import Duration from '../common/ui/duration/Duration';
 import Distance from '../common/ui/distance/Distance';
+import NearbyTrails from '../common/ui/nearby-trails/NearbyTrails';
 import HeightDifference from '../common/ui/height-difference/HeightDifference';
 import Card from '../common/ui/card/Card';
 
@@ -76,11 +77,11 @@ function Trail(props: WithTranslation) {
     const { trail } = data;
 
     return (
-        <main>
+        <div className="page--trail">
             <div className="grid grid-container">
                 <div className="grid-item large-span-8 small-span-12 small-align-content-center">
                     <h1 className="small-text-align-center">{trail.name}</h1>
-                    <ul className="inline-flexible-list with-vertical-separator">
+                    <ul className="inline-flexible-list with-vertical-separator margin-bottom-2x">
                         <li>
                             <Link to={`/area/${trail.area.slug}`}>
                                 {trail.area.name}
@@ -99,8 +100,6 @@ function Trail(props: WithTranslation) {
                             />
                         </li>
                     </ul>
-
-                    <hr />
 
                     <p className="small-text-align-center">
                         {trail.description}
@@ -121,7 +120,6 @@ function Trail(props: WithTranslation) {
                 <div className="grid-item large-span-12 small-span-12">
                     <Card
                         variant="edge-to-edge-image"
-                        isAbsoluteLink={true}
                         linkTo={`/trails/map/${trail.mapName}`}
                     >
                         <img
@@ -134,7 +132,7 @@ function Trail(props: WithTranslation) {
 
                 <div className="grid-item large-span-6 small-span-12">
                     <Tile header={'strings.trail_information'}>
-                        <table>
+                        <table className="margin-bottom-2x">
                             <tbody>
                                 <tr>
                                     <th>{t('noun.distance')}</th>
@@ -219,8 +217,20 @@ function Trail(props: WithTranslation) {
                         />
                     </Tile>
                 </div>
+
+                <div className="grid-item large-span-12 small-span-12">
+                    <h2>{t('strings.continue_the_trail')}</h2>
+                    <p className="margin-bottom-2x">
+                        {t('strings.continue_the_trail_description')}
+                    </p>
+                    {trail.endLocationCoords && (
+                        <NearbyTrails
+                            geopoint={trail.endLocationCoords}
+                        ></NearbyTrails>
+                    )}
+                </div>
             </div>
-        </main>
+        </div>
     );
 }
 

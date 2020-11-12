@@ -4,26 +4,27 @@ import './Card.scss';
 
 interface CardProps {
     linkTo?: string;
-    isAbsoluteLink?: boolean;
-    variant?: 'default' | 'edge-to-edge-image';
+    variant?: 'default' | 'edge-to-edge-image' | 'tile-like';
 }
 
 function Card(props: PropsWithChildren<CardProps>) {
-    const {
-        children,
-        linkTo,
-        isAbsoluteLink = false,
-        variant = 'default',
-    } = props;
+    const { children, linkTo, variant = 'default' } = props;
 
     const withLink = (el: ReactNode) => {
-        if (linkTo && isAbsoluteLink)
-            return (
-                <a href={linkTo} target="_blank">
-                    {el}
-                </a>
-            );
-        if (linkTo) return <NavLink to={linkTo}>{el}</NavLink>;
+        if (linkTo) {
+            const isOutboundLink =
+                linkTo.startsWith('http//') || linkTo.startsWith('https//');
+
+            if (isOutboundLink) {
+                return (
+                    <a href={linkTo} target="_blank" rel="noreferrer">
+                        {el}
+                    </a>
+                );
+            }
+
+            return <NavLink to={linkTo}>{el}</NavLink>;
+        }
 
         return el;
     };

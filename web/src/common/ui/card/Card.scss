@@ -1,10 +1,14 @@
 .ui--card {
+    height: 100%;
+
     a {
         display: block;
+        height: 100%;
         color: var(--body-color);
         text-decoration: none;
 
         &:hover {
+            text-decoration: none;
             .content {
                 border-color: var(--staze-green);
             }
@@ -12,11 +16,16 @@
     }
 
     .content {
+        height: 100%;
         padding: var(--base-space-2x);
         background-color: var(--interactive-surface-background-color);
         box-shadow: var(--interactive-surface-box-shadow);
         border: 2px solid var(--interactive-surface-background-color);
         border-radius: var(--border-radius);
+
+        img {
+            border-radius: var(--border-radius);
+        }
     }
 
     &.edge-to-edge-image {
@@ -26,7 +35,16 @@
 
             img {
                 display: block;
+                border-radius: none;
             }
+        }
+    }
+
+    &.tile-like {
+        .content {
+            background-color: var(--tile-background-color);
+            border-color: var(--tile-background-color);
+            box-shadow: none;
         }
     }
 }

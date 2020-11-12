@@ -14,7 +14,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 
     .staze-hr > main {
-        padding: var(--base-space) var(--base-space-2x);
+        padding: var(--base-space-2x) var(--base-space-2x);
     }
 
     h1,
@@ -47,6 +47,7 @@ body {
         tbody {
             th,
             td {
+                width: 50%;
                 text-align: left;
                 padding: var(--base-space) var(--base-space-2x)
                     var(--base-space) 0;

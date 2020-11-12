@@ -2,9 +2,11 @@
     background-color: var(--tile-background-color);
     border-radius: var(--tile-border-radius);
     overflow: hidden;
+    height: 100%;
 
     .content {
         padding: var(--base-space-2x);
+        height: 100%;
     }
 
     > h2 {

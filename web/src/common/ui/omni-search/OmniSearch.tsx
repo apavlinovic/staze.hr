@@ -17,6 +17,8 @@ import './OmniSearch.scss';
 import { ReactComponent as OmniSearchIcon } from './OmniSearchIcon.svg';
 import { ReactComponent as MountainSearchIcon } from './MountainSearchIcon.svg';
 import { ReactComponent as TrailSearchIcon } from './TrailSearchIcon.svg';
+import Distance from '../distance/Distance';
+import Duration from '../duration/Duration';
 
 const SEARCH_QUERY = gql`
     query doSearch($query: String!) {
@@ -235,14 +237,21 @@ function renderResultItem(
                         )}
                     </section>
                     <section className="secondary-information">
-                        <span>{t(resultTypeTitle)}</span>
-                        {searchResult.distance && (
-                            <span>{searchResult.distance}km</span>
-                        )}
-
-                        {searchResult.duration && (
-                            <span>{searchResult.duration}h</span>
-                        )}
+                        <ul className="inline-flexible-list with-vertical-separator">
+                            <li>
+                                <span>{t(resultTypeTitle)}</span>
+                            </li>
+                            <li>
+                                <Distance
+                                    distance={searchResult.distance}
+                                ></Distance>
+                            </li>
+                            <li>
+                                <Duration
+                                    duration={searchResult.duration}
+                                ></Duration>
+                            </li>
+                        </ul>
                     </section>
                 </main>
             </Link>

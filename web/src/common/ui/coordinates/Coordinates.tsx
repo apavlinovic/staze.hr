@@ -21,7 +21,11 @@ function Coordinates(props: CoordinatesProps) {
         const [lat, long] = coords;
 
         return (
-            <a href={`${GOOGLE_MAPS_URL_BASE}/${lat},${long}`} target="_blank">
+            <a
+                href={`${GOOGLE_MAPS_URL_BASE}/${lat},${long}`}
+                target="_blank"
+                rel="noreferrer"
+            >
                 {asTextCoordinates([lat, long])}
             </a>
         );
@@ -34,7 +38,7 @@ function Coordinates(props: CoordinatesProps) {
 
         const { coordinates } = geopoint;
 
-        if (!coordinates || coordinates.length == 0) {
+        if (!coordinates || coordinates.length === 0) {
             return null;
         }
 
