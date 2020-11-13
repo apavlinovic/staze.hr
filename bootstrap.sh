@@ -150,9 +150,24 @@ dockerUpdateDBContainer() {
 dockerStartDBContainer() {
 
     name='staze_db'
+    runningContainer="$(docker ps --format '{{.Names}}' -f "name=$name")"
+    existingImage="$(docker images -q zeroghan/staze-hr-db)"
 
-    [[ $(docker ps -f "name=$name" --format '{{.Names}}') == $name ]] ||
-    docker run -dp 25432:5432 --name "$name" -t zeroghan/staze-hr-db
+    if [[ $runningContainer == $name ]];
+    then
+        printStatus "$name container already running." 
+    else
+        if [[ $existingImage == "" ]];
+        then
+            printStatus "$name image not found, pulling it..."
+            docker pull zeroghan/staze-hr-db
+            printStatus "Creating and running a container named $name"
+            docker run -dp 25432:5432 --name "$name" -t zeroghan/staze-hr-db
+        else
+            printStatus "Starting a container named $name"
+            docker start $name
+        fi
+    fi    
 }
 
 regenerateGQLTypes() {
