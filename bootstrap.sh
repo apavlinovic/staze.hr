@@ -72,13 +72,13 @@ initialize() {
     clear 
     set -e
 
-    printHeader "1/3 Setting up runtime..."
+    printHeader "1/4 Setting up runtime..."
     npm i --loglevel error --no-audit --no-fund
     printStatus "npm packages installed"
 
     clear
 
-    printHeader "2/3 Setting up backend..."
+    printHeader "2/4 Setting up backend..."
     cd ./backend
     cp .env.template .env
     printStatus ".env setup finished"
@@ -87,10 +87,16 @@ initialize() {
 
     clear
 
-    printHeader "3/3 Setting up frontend..."
+    printHeader "3/4 Setting up frontend..."
     cd ../web
     npm i --loglevel error --no-audit --no-fund
     printStatus "npm packages installed"
+
+    clear 
+
+    printHeader "4/4 Fetching latest DB image"
+    docker pull zeroghan/staze-hr-db
+    printSuccess "Fetched the latest database image"
 
     clear
 
@@ -159,6 +165,11 @@ run() {
     clear
 
     printHeader "Spinning up staze.hr..."
+
+    printStatus "Starting database container..."
+    dockerStartDBContainer
+
+    printStatus "Starting backend and frontend dev servers..."
     npm start
 }
 
