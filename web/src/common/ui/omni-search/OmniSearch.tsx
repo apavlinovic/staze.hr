@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 import { Query, QueryGlobalSearchArgs, SearchResult } from '../../../types';
 import Loading from '../../core/loading/Loading';
-import NoResults from '../../ui/no-results/NoResults';
-import InfoElement from '../../ui/info-element/InfoElement';
+import NoResults from '../panels/no-results/NoResults';
+import InfoElement from '../panels/info-element/InfoElement';
 import Error from '../../core/error/Error';
 import MobileTransformable from '../../core/mobile-transformable/MobileTransformable';
 
@@ -17,8 +17,8 @@ import './OmniSearch.scss';
 import { ReactComponent as OmniSearchIcon } from './OmniSearchIcon.svg';
 import { ReactComponent as MountainSearchIcon } from './MountainSearchIcon.svg';
 import { ReactComponent as TrailSearchIcon } from './TrailSearchIcon.svg';
-import Distance from '../distance/Distance';
-import Duration from '../duration/Duration';
+import Distance from '../field-renderers/distance/Distance';
+import Duration from '../field-renderers/duration/Duration';
 
 const SEARCH_QUERY = gql`
     query doSearch($query: String!) {

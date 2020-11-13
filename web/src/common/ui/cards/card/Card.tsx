@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom';
 import './Card.scss';
 
 interface CardProps {
-    linkTo?: string;
+    linkTo?: string | null;
     header?: string;
-    variant?: 'default' | 'edge-to-edge-image' | 'tile-like';
+    variant?: 'default' | 'full-image';
 }
 
 function Card(props: PropsWithChildren<CardProps & WithTranslation>) {

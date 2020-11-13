@@ -5,7 +5,7 @@ import { Query } from '../types';
 
 import Loading from '../common/core/loading/Loading';
 import Error from '../common/core/error/Error';
-import Card from '../common/ui/card/Card';
+import Card from '../common/ui/cards/card/Card';
 
 const MOUNTAINS_QUERY = gql`
     query getAreas {

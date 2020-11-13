@@ -1,5 +1,5 @@
 import React from 'react';
-import { GeoPoint } from '../../../types';
+import { GeoPoint } from '../../../../types';
 
 interface CoordinatesProps {
     geopoint: GeoPoint | null | undefined;
