@@ -8,7 +8,7 @@ import LanguageSwitcher from './../../core/language-switcher/LanguageSwitcher';
 import {
     withLocation,
     withLocationInjectedProps,
-} from '../../core/withLocation/withLocation';
+} from '../../core/with-location/withLocation';
 
 function Footer(props: WithTranslation & withLocationInjectedProps) {
     const { t, position } = props;

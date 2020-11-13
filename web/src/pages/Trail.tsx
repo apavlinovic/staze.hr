@@ -14,6 +14,7 @@ import NearbyTrails from '../common/ui/nearby-trails/NearbyTrails';
 import HeightDifference from '../common/ui/field-renderers/height-difference/HeightDifference';
 import Card from '../common/ui/cards/card/Card';
 import FullImageCard from '../common/ui/cards/full-image-card/FullImageCard';
+import SEO from '../common/core/seo/SEO';
 
 const TRAIL_QUERY = gql`
     query getTrail($trailSlug: String!) {
@@ -80,6 +81,8 @@ function Trail(props: WithTranslation) {
 
     return (
         <div className="page--trail">
+            <SEO title={trail.name} description={trail.description}></SEO>
+
             <div className="grid grid-container">
                 <div className="grid-item large-span-8 small-span-12 small-align-content-center">
                     <h1 className="small-text-align-center">{trail.name}</h1>
