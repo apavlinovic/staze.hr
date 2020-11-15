@@ -5,7 +5,7 @@
 form {
     label {
         display: block;
-        margin-bottom: var(--base-space-2x);
+        margin-bottom: var(--base-space-4x);
 
         .label-text {
             display: block;
@@ -28,6 +28,7 @@ form {
 
         input {
             width: 100%;
+            border: 2px solid var(--border-color);
         }
     }
 }
@@ -63,6 +64,12 @@ input[type='submit'] {
     box-shadow: var(--interactive-surface-box-shadow);
     border-radius: var(--border-radius);
     font-weight: bold;
+
+    &.__submit {
+        background-color: var(--staze-green-darker);
+        border-color: var(--staze-green);
+        color: white;
+    }
 
     &.__active {
         color: white;

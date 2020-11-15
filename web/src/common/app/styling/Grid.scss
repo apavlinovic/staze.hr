@@ -6,8 +6,12 @@
     column-gap: var(--base-space-4x);
     row-gap: var(--base-space-4x);
 
+    @media screen and (max-width: 960px) {
+        column-gap: 0;
+    }
+
     &.grid-container {
-        max-width: 1380px;
+        max-width: var(--page-max-width);
     }
 
     .grid-item {
@@ -43,7 +47,7 @@
             grid-column: span 4;
         }
 
-        @media screen and (max-width: 640px) {
+        @media screen and (max-width: 960px) {
             &.small-align-content-center {
                 align-items: center;
             }
