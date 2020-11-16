@@ -5,7 +5,7 @@ import { Query } from '../types';
 
 import Loading from '../common/core/loading/Loading';
 import Error from '../common/core/error/Error';
-import VerticalCard from '../common/ui/vertical-card/VerticalCard';
+import VerticalCard from '../common/ui/cards/vertical-card/VerticalCard';
 
 const MOUNTAINS_QUERY = gql`
     query getAreas {
@@ -35,16 +35,18 @@ function MountainsPage(props: WithTranslation) {
     return (
         <main>
             <h1>{t('noun.mountains')}</h1>
-            <div className="cardWrapper">
+            <div className="grid">
                 {data?.areas?.items.map((area, index) => (
-                    <VerticalCard
-                        key={`mountain-${index}`}
-                        linkTo={`/area/${area.slug}`}
-                        header={area.name}
-                        imageUrl={`mountains/${area.slug}.jpg`}
-                    >
-                        {area.description}
-                    </VerticalCard>
+                    <div className="grid-item large-span-4 small-span-12">
+                        <VerticalCard
+                            key={`mountain-${index}`}
+                            linkTo={`/area/${area.slug}`}
+                            header={area.name}
+                            imageUrl={`mountains/${area.slug}.jpg`}
+                        >
+                            {area.description}
+                        </VerticalCard>
+                    </div>
                 ))}
             </div>
         </main>
