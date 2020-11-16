@@ -6,14 +6,15 @@ import Loading from '../common/core/loading/Loading';
 import Error from '../common/core/error/Error';
 import { Query, QueryTrailArgs } from '../types';
 import { Link, useParams } from 'react-router-dom';
-import Tile from '../common/ui/tile/Tile';
-import NoResults from '../common/ui/no-results/NoResults';
-import Coordinates from '../common/ui/coordinates/Coordinates';
-import Duration from '../common/ui/duration/Duration';
-import Distance from '../common/ui/distance/Distance';
+import NoResults from '../common/ui/panels/no-results/NoResults';
+import Coordinates from '../common/ui/field-renderers/coordinates/Coordinates';
+import Duration from '../common/ui/field-renderers/duration/Duration';
+import Distance from '../common/ui/field-renderers/distance/Distance';
 import NearbyTrails from '../common/ui/nearby-trails/NearbyTrails';
-import HeightDifference from '../common/ui/height-difference/HeightDifference';
-import Card from '../common/ui/card/Card';
+import HeightDifference from '../common/ui/field-renderers/height-difference/HeightDifference';
+import Card from '../common/ui/cards/card/Card';
+import FullImageCard from '../common/ui/cards/full-image-card/FullImageCard';
+import SEO from '../common/core/seo/SEO';
 
 const TRAIL_QUERY = gql`
     query getTrail($trailSlug: String!) {
@@ -80,6 +81,8 @@ function Trail(props: WithTranslation) {
 
     return (
         <div className="page--trail">
+            <SEO title={trail.name} description={trail.description}></SEO>
+
             <div className="grid grid-container">
                 <div className="grid-item large-span-8 small-span-12 small-align-content-center">
                     <h1 className="small-text-align-center">{trail.name}</h1>
@@ -120,20 +123,23 @@ function Trail(props: WithTranslation) {
                 </div>
 
                 <div className="grid-item large-span-12 small-span-12">
-                    <Card
-                        variant="edge-to-edge-image"
-                        linkTo={`/trails/map/${trail.mapName}`}
-                    >
-                        <img
-                            className="reduce-contrast-on-dark-mode"
-                            src={`/trails/map/${trail.mapName}`}
-                            alt={trail.name}
-                        />
-                    </Card>
+                    <FullImageCard
+                        linkTo={
+                            trail.mapName
+                                ? `/trails/map/${trail.mapName}`
+                                : null
+                        }
+                        imageUrl={
+                            trail.mapName
+                                ? `/trails/map/${trail.mapName}`
+                                : null
+                        }
+                        imageAlt={trail.name}
+                    />
                 </div>
 
                 <div className="grid-item large-span-6 small-span-12">
-                    <Tile header={'strings.trail_information'}>
+                    <Card header={'strings.trail_information'}>
                         <table className="margin-bottom-2x">
                             <tbody>
                                 <tr>
@@ -204,50 +210,42 @@ function Trail(props: WithTranslation) {
                         <p>
                             <small>{t('strings.coordinates_disclaimer')}</small>
                         </p>
-                    </Tile>
+                    </Card>
                 </div>
 
                 <div className="grid-item large-span-6 small-span-12">
-                    <Tile
-                        variant="edge-to-edge-image"
-                        header={'noun.elevation_graph'}
-                    >
+                    <Card header={'noun.elevation_graph'}>
                         <img
                             className="invert-on-dark-mode"
                             src={`/trails/elevation/${trail.mapName}`}
                             alt={trail.name}
                         />
-                    </Tile>
-                </div>
-
-                <div className="grid-item large-span-6 small-span-12">
-                    <Card
-                        header={trail.area.name}
-                        variant="edge-to-edge-image"
-                        linkTo={`/area/${trail.area.slug}`}
-                    >
-                        <img
-                            className="reduce-contrast-on-dark-mode"
-                            src={`/mountains/${trail.area.slug}.jpg`}
-                            alt={trail.area.name}
-                        />
                     </Card>
                 </div>
 
                 <div className="grid-item large-span-6 small-span-12">
-                    <Tile header="noun.gpx_trace"></Tile>
+                    <FullImageCard
+                        header={trail.area.name}
+                        linkTo={`/area/${trail.area.slug}`}
+                        imageUrl={`/mountains/${trail.area.slug}.jpg`}
+                        imageAlt={trail.area.name}
+                    />
+                </div>
+
+                <div className="grid-item large-span-6 small-span-12">
+                    <Card header="noun.gpx_trace"></Card>
                 </div>
 
                 <div className="grid-item large-span-12 small-span-12">
                     {trail.endLocationCoords && (
-                        <Tile header="strings.continue_the_trail">
+                        <Card header="strings.continue_the_trail">
                             <p className="margin-bottom-2x">
                                 {t('strings.continue_the_trail_description')}
                             </p>
                             <NearbyTrails
                                 geopoint={trail.endLocationCoords}
                             ></NearbyTrails>
-                        </Tile>
+                        </Card>
                     )}
                 </div>
             </div>

@@ -72,13 +72,13 @@ initialize() {
     clear 
     set -e
 
-    printHeader "1/3 Setting up runtime..."
+    printHeader "1/4 Setting up runtime..."
     npm i --loglevel error --no-audit --no-fund
     printStatus "npm packages installed"
 
     clear
 
-    printHeader "2/3 Setting up backend..."
+    printHeader "2/4 Setting up backend..."
     cd ./backend
     cp .env.template .env
     printStatus ".env setup finished"
@@ -87,10 +87,16 @@ initialize() {
 
     clear
 
-    printHeader "3/3 Setting up frontend..."
+    printHeader "3/4 Setting up frontend..."
     cd ../web
     npm i --loglevel error --no-audit --no-fund
     printStatus "npm packages installed"
+
+    clear 
+
+    printHeader "4/4 Fetching latest DB image"
+    docker pull zeroghan/staze-hr-db
+    printSuccess "Fetched the latest database image"
 
     clear
 
@@ -144,9 +150,24 @@ dockerUpdateDBContainer() {
 dockerStartDBContainer() {
 
     name='staze_db'
+    runningContainer="$(docker ps --format '{{.Names}}' -f "name=$name")"
+    existingImage="$(docker images -q zeroghan/staze-hr-db)"
 
-    [[ $(docker ps -f "name=$name" --format '{{.Names}}') == $name ]] ||
-    docker run -dp 25432:5432 --name "$name" -t zeroghan/staze-hr-db
+    if [[ $runningContainer == $name ]];
+    then
+        printStatus "$name container already running." 
+    else
+        if [[ $existingImage == "" ]];
+        then
+            printStatus "$name image not found, pulling it..."
+            docker pull zeroghan/staze-hr-db
+            printStatus "Creating and running a container named $name"
+            docker run -dp 25432:5432 --name "$name" -t zeroghan/staze-hr-db
+        else
+            printStatus "Starting a container named $name"
+            docker start $name
+        fi
+    fi    
 }
 
 regenerateGQLTypes() {
@@ -159,6 +180,11 @@ run() {
     clear
 
     printHeader "Spinning up staze.hr..."
+
+    printStatus "Starting database container..."
+    dockerStartDBContainer
+
+    printStatus "Starting backend and frontend dev servers..."
     npm start
 }
 

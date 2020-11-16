@@ -6,6 +6,7 @@
         'Helvetica Neue', sans-serif;
     --font-color: rgb(40, 40, 40);
     --link-color: rgb(10, 10, 10);
+    --page-max-width: 1360px;
 
     --background-color: rgb(235, 235, 235);
     --border-radius: 12px;
@@ -29,8 +30,8 @@
     --button-background-color: rgb(255, 255, 255);
     --button-border-color: rgb(190, 190, 190);
 
-    --tile-border-radius: 24px;
-    --tile-background-color: rgb(255, 255, 255);
+    --card-border-radius: 24px;
+    --card-background-color: rgb(255, 255, 255);
 
     --staze-green: #288c07;
     --staze-green-darker: #1f7206;
@@ -58,7 +59,7 @@
         --button-background-color: rgb(55, 55, 55);
         --button-border-color: rgb(75, 75, 75);
 
-        --tile-background-color: rgb(25, 25, 25);
+        --card-background-color: rgb(25, 25, 25);
 
         --staze-green: #32ad09;
         --staze-green-darker: #258b06;

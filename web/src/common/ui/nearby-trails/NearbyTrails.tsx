@@ -4,8 +4,8 @@ import { useQuery, gql } from '@apollo/client';
 import Loading from '../../core/loading/Loading';
 import Error from '../../core/error/Error';
 
-import Duration from '../duration/Duration';
-import Distance from '../distance/Distance';
+import Duration from '../field-renderers/duration/Duration';
+import Distance from '../field-renderers/distance/Distance';
 import { WithTranslation, withTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 

@@ -23,6 +23,9 @@
         "maintainer": "Maintainer",
         "elevation_graph": "Elevation graph",
         "gpx_trace": "GPS trace",
+        "location": "Location",
+        "language": "Language",
+        "copyright": "Copyright",
 
         "email": "Email",
         "password": "Password",
@@ -78,7 +81,10 @@
         "nearby_result": "Nearby result",
         "nearby_trails": "Nearby trails",
         "continue_the_trail": "Continue the trail",
-        "continue_the_trail_description": "We found some trails that are located close to the end of your current trail. These trails are all located roughly 500 meters from the end of your current trail."
+        "continue_the_trail_description": "We found some trails that are located close to the end of your current trail. These trails are all located roughly 500 meters from the end of your current trail.",
+        "user_menu": "User menu",
+        "register_page_title": "Register an account",
+        "register_page_description": "Registered users can save trails, write hiking guides, post photos and compete against other users."
     },
     
     "errors": {

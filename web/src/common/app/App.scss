@@ -17,6 +17,11 @@ body {
         padding: var(--base-space-2x) var(--base-space-2x);
     }
 
+    .container {
+        margin: auto;
+        max-width: var(--page-max-width);
+    }
+
     h1,
     h2,
     h3,

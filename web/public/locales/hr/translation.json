@@ -23,6 +23,9 @@
         "maintainer": "Održavatelj",
         "elevation_graph": "Visinski graf",
         "gpx_trace": "GPS trag",
+        "location": "Lokacija",
+        "language": "Jezik",
+        "copyright": "Autorska prava",
 
         "email": "Email",
         "password": "Lozinka",
@@ -77,7 +80,10 @@
         "nearby_result": "Obližnji rezultat",
         "nearby_trails": "Obližnje staze",
         "continue_the_trail": "Nastavak staze",
-        "continue_the_trail_description": "Pronašli smo staze koje se nalaze nedaleko od kraja trenutne staze. Sve izlistane staze nalaze se 500 metara od završne točke trenutne staze."
+        "continue_the_trail_description": "Pronašli smo staze koje se nalaze nedaleko od kraja trenutne staze. Sve izlistane staze nalaze se 500 metara od završne točke trenutne staze.",
+        "user_menu": "Korisnički meni",
+        "register_page_title": "Registriraj se",
+        "register_page_description": "Registrirani korisnici mogu spremiti staze, pisati vodiče za planinare, objavljivati slike staza i natjecati se protiv drugih korisnika."
     },
 
     "errors": {

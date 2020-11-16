@@ -1,0 +1,28 @@
+.ui--card {
+    &.full-image {
+        .content {
+            padding: 0;
+            display: block;
+            overflow: hidden;
+            position: relative;
+
+            h2 {
+                position: absolute;
+                z-index: 1;
+                bottom: 0;
+                margin-bottom: 0;
+                width: 100%;
+                backdrop-filter: blur(30px) saturate(130%);
+                backface-visibility: hidden;
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+                color: white;
+                padding: var(--base-space-2x) var(--base-space-4x);
+            }
+
+            img {
+                display: block;
+                border-radius: none;
+            }
+        }
+    }
+}
