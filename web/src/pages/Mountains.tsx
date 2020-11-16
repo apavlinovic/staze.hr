@@ -5,8 +5,7 @@ import { Query } from '../types';
 
 import Loading from '../common/core/loading/Loading';
 import Error from '../common/core/error/Error';
-import Card from '../common/ui/card/Card';
-import '../common/ui/card/CardWrapper.scss';
+import VerticalCard from '../common/ui/vertical-card/VerticalCard';
 
 const MOUNTAINS_QUERY = gql`
     query getAreas {
@@ -14,6 +13,7 @@ const MOUNTAINS_QUERY = gql`
             items {
                 id
                 name
+                description
                 slug
             }
         }
@@ -35,19 +35,16 @@ function MountainsPage(props: WithTranslation) {
     return (
         <main>
             <h1>{t('noun.mountains')}</h1>
-            TODO: FIGURE OUT A MOUNTAINS PAGE DESIGN
             <div className="cardWrapper">
-                {data?.areas?.items.map((value, index) => (
-                    <Card
+                {data?.areas?.items.map((area, index) => (
+                    <VerticalCard
                         key={`mountain-${index}`}
-                        linkTo={`/area/${value.slug}`}
+                        linkTo={`/area/${area.slug}`}
+                        header={area.name}
+                        imageUrl={`mountains/${area.slug}.jpg`}
                     >
-                        <img
-                            className="cardPicture"
-                            src={`/mountains/${value.slug}.jpg`}
-                        />
-                        {value.name}
-                    </Card>
+                        {area.description}
+                    </VerticalCard>
                 ))}
             </div>
         </main>
