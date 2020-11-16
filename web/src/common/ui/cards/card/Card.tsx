@@ -1,7 +1,8 @@
-import React, { PropsWithChildren, ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { WithTranslation, withTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import './Card.scss';
+import { Link } from '../CardUtilities';
 
 interface CardProps {
     linkTo?: string | null;
@@ -10,35 +11,16 @@ interface CardProps {
 }
 
 function Card(props: PropsWithChildren<CardProps & WithTranslation>) {
-    const { children, linkTo, variant = 'default', header, t } = props;
-
-    const withLink = (el: ReactNode) => {
-        if (linkTo) {
-            const isOutboundLink =
-                linkTo.startsWith('http//') || linkTo.startsWith('https//');
-
-            if (isOutboundLink) {
-                return (
-                    <a href={linkTo} target="_blank" rel="noreferrer">
-                        {el}
-                    </a>
-                );
-            }
-
-            return <NavLink to={linkTo}>{el}</NavLink>;
-        }
-
-        return el;
-    };
+    const { children, variant = 'default', header, t, linkTo } = props;
 
     return (
         <div className={`ui--card ${variant}`}>
-            {withLink(
+            <Link linkTo={linkTo}>
                 <div className="content">
                     {header && <h2>{t(header)}</h2>}
                     {children}
-                </div>,
-            )}
+                </div>
+            </Link>
         </div>
     );
 }
