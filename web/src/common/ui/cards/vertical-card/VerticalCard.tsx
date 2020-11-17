@@ -1,6 +1,7 @@
-import React, { PropsWithChildren, ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { WithTranslation, withTranslation } from 'react-i18next';
 import './VerticalCard.scss';
+import ResponsiveImage from '../responsive-image/ResponsiveImage';
 import { CardLink } from '../CardUtilities';
 
 interface VerticalCardProps {
@@ -19,7 +20,7 @@ function VerticalCard(
             <CardLink linkTo={linkTo}>
                 <div className="content">
                     {header && <h2>{t(header)}</h2>}
-                    {imageUrl && <img src={imageUrl} alt={header} />}
+                    {imageUrl && <ResponsiveImage imageUrl={imageUrl} />}
                     {children}
                 </div>
             </CardLink>

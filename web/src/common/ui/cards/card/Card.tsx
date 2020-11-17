@@ -1,8 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import { WithTranslation, withTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
 import './Card.scss';
-import { Link } from '../CardUtilities';
+import { CardLink } from '../CardUtilities';
 
 interface CardProps {
     linkTo?: string | null;
@@ -15,12 +14,12 @@ function Card(props: PropsWithChildren<CardProps & WithTranslation>) {
 
     return (
         <div className={`ui--card ${variant}`}>
-            <Link linkTo={linkTo}>
+            <CardLink linkTo={linkTo}>
                 <div className="content">
                     {header && <h2>{t(header)}</h2>}
                     {children}
                 </div>
-            </Link>
+            </CardLink>
         </div>
     );
 }

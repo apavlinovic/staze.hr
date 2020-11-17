@@ -1,0 +1,24 @@
+.cropped-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    a {
+        display: block;
+        color: var(--body-color);
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    img {
+        min-height: 85%;
+        min-width: 80%;
+        object-fit: none;
+        // object-fit: cover;
+        overflow: hidden;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+}
