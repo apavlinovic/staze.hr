@@ -1,0 +1,26 @@
+.ui--verticalcard {
+    height: 100%;
+
+    a {
+        display: block;
+        height: 100%;
+        color: var(--body-color);
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .content {
+        height: 100%;
+        padding: var(--base-space-4x);
+        background-color: var(--card-background-color);
+        box-shadow: var(--interactive-surface-box-shadow);
+        border-radius: var(--card-border-radius);
+
+        img {
+            border-radius: var(--border-radius);
+        }
+    }
+}

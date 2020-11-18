@@ -14,9 +14,9 @@
 
 ### Automated setup 💨
 
-1. Use `boostrap.sh` from your terminal
+1. Use `init.sh` from your terminal
 2. Run **Initialize** to collect NPM dependencies
-3. Run **Docker: Start DB container** to get a running DB container
+3. Run **Start** to get a running DB container, frontend and backend servers
 4. You're done! 🎉🥳
 
 Happy hacking!
