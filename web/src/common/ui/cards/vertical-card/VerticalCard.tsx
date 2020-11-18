@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import { WithTranslation, withTranslation } from 'react-i18next';
 import './VerticalCard.scss';
-import ResponsiveImage from '../responsive-image/ResponsiveImage';
+import ResponsiveImage from '../../../core/responsive-image/ResponsiveImage';
 import { CardLink } from '../CardUtilities';
 
 interface VerticalCardProps {
