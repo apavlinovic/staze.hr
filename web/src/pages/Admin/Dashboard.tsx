@@ -14,41 +14,38 @@ function AdminDashboard(props: WithTranslation) {
 
     return (
         <div className="admin-dashboard">
-            <div>
-                <h1>ADMIN</h1>
-                <br />
+            <div className="admin-menu">
                 <ul className="navigation">
-                    <Link to="/admin/trails">
-                        <li>{t('noun.trails')}</li>
-                    </Link>
-                    <br />
-                    <Link to="/admin/areas">
-                        <li>{t('noun.areas')}</li>
-                    </Link>
-                    <br />
-                    <Link to="/admin/tools">
-                        <li>{t('noun.tools')}</li>
-                    </Link>
+                    <li>
+                        <Link to="/admin/trails">{t('noun.trails')}</Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/areas">{t('noun.areas')}</Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/tools">{t('noun.tools')}</Link>
+                    </li>
                 </ul>
             </div>
+            <div className="admin-content">
+                <Switch>
+                    <Route path="/admin/trails" exact>
+                        <AdminTrails />
+                    </Route>
 
-            <Switch>
-                <Route path="/admin/trails" exact>
-                    <AdminTrails />
-                </Route>
+                    <Route path="/admin/trails/:trailId" exact>
+                        <AdminTrailId />
+                    </Route>
 
-                <Route path="/admin/trails/:trailId" exact>
-                    <AdminTrailId />
-                </Route>
+                    <Route path="/admin/areas" exact>
+                        <AdminAreas />
+                    </Route>
 
-                <Route path="/admin/areas" exact>
-                    <AdminAreas />
-                </Route>
-
-                <Route path="/admin/tools" exact>
-                    <AdminTools />
-                </Route>
-            </Switch>
+                    <Route path="/admin/tools" exact>
+                        <AdminTools />
+                    </Route>
+                </Switch>
+            </div>
         </div>
     );
 }

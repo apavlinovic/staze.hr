@@ -1,0 +1,31 @@
+.ui--table {
+    width: 100%;
+
+    table {
+        border-spacing: 0;
+        border-collapse: collapse;
+        border: 1px solid #cccccc;
+        background-color: white;
+
+        th,
+        td {
+            border: 1px solid #cccccc;
+            padding: var(--base-space) var(--base-space-2x);
+            text-align: left;
+
+            :last-child {
+                border-right: 0;
+            }
+        }
+
+        th {
+            border-color: var(--staze-green-darker);
+            background-color: var(--staze-green);
+            color: white;
+        }
+    }
+
+    .pagination {
+        margin-left: 80pt;
+    }
+}

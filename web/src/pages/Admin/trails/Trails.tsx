@@ -3,8 +3,9 @@ import { useQuery, gql } from '@apollo/client';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
 import { Query } from '../../../types';
-import './Trails.scss';
-import { Checkbox } from 'semantic-ui-react';
+import Table from '../../../../src/common/ui/table/Table';
+import Loading from '../../../common/core/loading/Loading';
+import Error from '../../../common/core/error/Error';
 
 const TRAILS_QUERY = gql`
     query trailsQuery {
@@ -19,7 +20,9 @@ const TRAILS_QUERY = gql`
                 duration
                 distance
                 hasValidGpx
-                mapName
+                area {
+                    name
+                }
             }
 
             total
@@ -28,44 +31,54 @@ const TRAILS_QUERY = gql`
 `;
 
 function AdminTrails(props: WithTranslation) {
-    const { t } = props;
-    const { data } = useQuery<Query>(TRAILS_QUERY);
+    // const { t } = props;
 
-    return (
-        <div className="admin-trails">
-            <h1 className="trails-header">Trails</h1>
+    const { loading, error, data } = useQuery<Query>(TRAILS_QUERY);
 
-            <div
-                className="grid"
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                }}
-            >
-                {data?.trails?.items.map((trail, index) => (
-                    <div className="grid-box">
-                        <div className="grid-item trail-id">{trail.id}</div>
-                        <div className="grid-item trail-name">{trail.name}</div>
-                        <div className="grid-item trail-duration">
-                            {trail.duration}
-                        </div>
-                        <div className="grid-item trail-distance">
-                            {trail.distance}
-                        </div>
-                        <div className="grid-item trail-hasValidGpx">
-                            {trail.hasValidGpx}
-                        </div>
-                        <div className="grid-item trail-mapName">
-                            {trail.mapName}
-                        </div>
-                        <div className="grid-item trail-actions">
-                            <Checkbox />
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
+    if (loading) {
+        return <Loading />;
+    }
+
+    if (error) {
+        return <Error error={error} />;
+    }
+
+    const columns = [
+        {
+            Header: 'ID',
+            accessor: 'id',
+        },
+        {
+            Header: 'Name',
+            accessor: 'name',
+        },
+        {
+            Header: 'Duration',
+            accessor: 'duration',
+        },
+        {
+            Header: 'Distance',
+            accessor: 'distance',
+        },
+        {
+            Header: 'Valid Gpx',
+            accessor: 'hasValidGpx',
+        },
+        {
+            Header: 'Area name',
+            accessor: 'area.name',
+        },
+        {
+            Header: 'Actions',
+            accessor: 'actions',
+        },
+        {
+            Header: 'Edit',
+            accessor: 'edit',
+        },
+    ];
+
+    return <Table columns={columns} data={data?.trails?.items} />;
 }
 
 export default withTranslation()(AdminTrails);
