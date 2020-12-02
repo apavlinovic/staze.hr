@@ -66,7 +66,14 @@ function AdminTrails(props: WithTranslation) {
         },
     ];
 
-    return <Table columns={columns} data={data?.areas?.items} />;
+    return (
+        <Table
+            columns={columns}
+            data={data?.areas?.items}
+            totalRows={data?.areas?.total}
+            onTableStateChange={() => {}}
+        />
+    );
 }
 
 export default withTranslation()(AdminTrails);

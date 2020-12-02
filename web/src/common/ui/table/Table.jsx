@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useTable, usePagination, useSortBy } from 'react-table';
 import './Table.scss';
 
-function Table({ columns, data }) {
+function Table({ columns, data, totalRows, onTableStateChange }) {
     const {
         getTableProps,
         getTableBodyProps,
@@ -23,12 +23,22 @@ function Table({ columns, data }) {
         {
             columns,
             data,
-            initialState: { pageIndex: 0 },
+            initialState: {
+                pageSize: 50,
+            },
+            manualPagination: true,
+            pageCount: Math.ceil(totalRows / 50),
         },
 
         useSortBy,
         usePagination,
     );
+
+    useEffect(() => {
+        if (onTableStateChange) {
+            onTableStateChange(pageIndex, pageSize);
+        }
+    }, [pageIndex, pageSize]);
 
     return (
         <div>
@@ -120,7 +130,7 @@ function Table({ columns, data }) {
                         setPageSize(Number(e.target.value));
                     }}
                 >
-                    {[10, 20, 30, 40, 50].map((pageSize) => (
+                    {[50].map((pageSize) => (
                         <option key={pageSize} value={pageSize}>
                             Show {pageSize}
                         </option>
