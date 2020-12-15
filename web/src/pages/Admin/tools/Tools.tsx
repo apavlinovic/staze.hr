@@ -1,7 +1,10 @@
 import React from 'react';
+import { withTranslation, WithTranslation } from 'react-i18next';
 
-function AdminTools() {
-    return <h1>AAA</h1>;
+function AdminTools(props: WithTranslation) {
+    const { t } = props;
+
+    return <h1>{t('noun.tools')}</h1>;
 }
 
-export default AdminTools;
+export default withTranslation()(AdminTools);

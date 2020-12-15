@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
-import { withTranslation, WithTranslation } from 'react-i18next';
 
 import { Query } from '../../../types';
 import Table from '../../../../src/common/ui/table/Table';
@@ -30,9 +29,7 @@ const TRAILS_QUERY = gql`
     }
 `;
 
-function AdminTrails(props: WithTranslation) {
-    // const { t } = props;
-
+function AdminTrails() {
     let [pageSize, setPageSize] = useState(50);
     let [pageIndex, setPageIndex] = useState(0);
 
@@ -101,4 +98,4 @@ function AdminTrails(props: WithTranslation) {
     );
 }
 
-export default withTranslation()(AdminTrails);
+export default AdminTrails;
