@@ -17,6 +17,7 @@ import Mountain from '../../pages/Mountain';
 import Trail from '../../pages/Trail';
 import Register from '../../pages/auth/Register';
 import { AuthContext, initialState } from '../core/auth-context/AuthContext';
+import AdminDashboard from '../../pages/Admin/Dashboard';
 
 function App() {
     return (
@@ -39,6 +40,10 @@ function App() {
 
                         <Route path="/register">
                             <Register />
+                        </Route>
+
+                        <Route path="/admin">
+                            <AdminDashboard />
                         </Route>
                     </Switch>
                 </main>

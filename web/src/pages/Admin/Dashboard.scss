@@ -1,0 +1,12 @@
+.admin-dashboard {
+    display: flex;
+    flex-direction: row;
+
+    .admin-menu {
+        width: 250px;
+    }
+
+    .admin-content {
+        width: 100%;
+    }
+}

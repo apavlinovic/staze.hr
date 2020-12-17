@@ -1,0 +1,26 @@
+.grid-box {
+    display: flex;
+    flex-direction: row;
+    min-width: 80vw;
+    line-height: 1em;
+}
+
+.area-id {
+    width: 7%;
+}
+
+.area-name {
+    width: 33%;
+}
+
+.area-slug {
+    width: 20%;
+}
+
+.area-description {
+    width: 30%;
+}
+
+.area-actions {
+    width: 10%;
+}
