@@ -32,7 +32,7 @@ export class TrailResolver {
             .offset(offset);
 
         if (!isWhiteSpaceOrNull(mountain)) {
-            qb.innerJoin('trail.area', 'area', 'area.name = :mountain', {
+            qb.innerJoin('trail.area', 'area', 'area.slug = :mountain', {
                 mountain,
             });
         }

@@ -153,20 +153,24 @@ dockerStartDBContainer() {
     runningContainer="$(docker ps --format '{{.Names}}' -f "name=$name")"
     existingImage="$(docker images -q zeroghan/staze-hr-db)"
 
+    if [[ $existingImage == "" ]];
+    then
+        printStatus "$name image not found, pulling it..."
+        docker pull zeroghan/staze-hr-db
+    else 
+        if [[ -z $runningContainer ]];
+        then
+            printStatus "Creating and running a container named $name"
+            docker run -dp 25432:5432 --name "$name" -t zeroghan/staze-hr-db
+        fi
+    fi
+
     if [[ $runningContainer == $name ]];
     then
         printStatus "$name container already running." 
     else
-        if [[ $existingImage == "" ]];
-        then
-            printStatus "$name image not found, pulling it..."
-            docker pull zeroghan/staze-hr-db
-            printStatus "Creating and running a container named $name"
-            docker run -dp 25432:5432 --name "$name" -t zeroghan/staze-hr-db
-        else
-            printStatus "Starting a container named $name"
-            docker start $name
-        fi
+        printStatus "Starting a container named $name"
+        docker start $name
     fi    
 }
 

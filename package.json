@@ -31,5 +31,4 @@
             "pre-commit": "npm run test-backend && npm run prettier:check"
         }
     }
-  
 }
