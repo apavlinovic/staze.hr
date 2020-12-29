@@ -15,13 +15,13 @@
         background-color: var(--surface-background-color);
         box-shadow: var(--interactive-surface-box-shadow);
         border-radius: var(--border-radius);
+        overflow: hidden;
 
         > ul {
             max-height: 500px;
             overflow: auto;
 
             & > li {
-                padding: var(--base-space);
                 list-style: none;
 
                 & + li {
@@ -34,7 +34,14 @@
                     flex-wrap: nowrap;
                     text-decoration: none;
                     color: var(--font-color);
-                    padding: var(--base-space) 0;
+                    padding: var(--base-space-2x) var(--base-space);
+
+                    &:hover,
+                    &:focus {
+                        background-color: var(
+                            --interactive-surface-background-color-hover
+                        );
+                    }
 
                     aside {
                         display: flex;
@@ -55,11 +62,12 @@
 
                     main {
                         .title {
-                            font-weight: bold;
+                            color: var(--staze-green);
                         }
 
                         .match {
-                            color: var(--staze-green);
+                            font-weight: bold;
+                            text-decoration: underline;
                         }
                     }
 

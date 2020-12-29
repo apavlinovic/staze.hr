@@ -9,6 +9,7 @@
     --page-max-width: 1360px;
 
     --background-color: rgb(235, 235, 235);
+    --background-color-transparent: rgb(235, 235, 235, 0.5);
     --border-radius: 12px;
 
     --base-space: 8px;
@@ -19,6 +20,7 @@
     --overlay-background-color: rgba(255, 255, 255, 0.55);
     --surface-background-color: rgb(255, 255, 255);
     --interactive-surface-background-color: rgb(255, 255, 255);
+    --interactive-surface-background-color-hover: rgb(255, 255, 255);
     --interactive-surface-box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.1);
 
     --border-color: rgb(235, 235, 235);
@@ -43,25 +45,27 @@
         --font-color: rgb(245, 245, 247);
         --link-color: rgb(255, 255, 255);
 
-        --background-color: rgb(18, 18, 18);
+        --background-color: rgb(25, 25, 35);
+        --background-color-transparent: rgb(25, 25, 35, 0.5);
 
         --overlay-background-color: rgba(0, 0, 0, 0.25);
-        --surface-background-color: rgb(40, 40, 40);
-        --interactive-surface-background-color: rgb(50, 50, 50);
+        --surface-background-color: rgb(50, 50, 60);
+        --interactive-surface-background-color: rgb(50, 50, 60);
+        --interactive-surface-background-color-hover: rgb(55, 55, 65);
         --interactive-surface-box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.1);
 
         --border-color: rgb(65, 65, 65);
         --border-color-transparent: rgb(255, 255, 255, 0.1);
 
-        --input-background-color: rgb(50, 50, 50);
+        --input-background-color: rgb(50, 50, 60);
         --input-border-color: rgba(255, 255, 255, 0.1);
 
-        --button-background-color: rgb(55, 55, 55);
-        --button-border-color: rgb(75, 75, 75);
+        --button-background-color: rgb(55, 55, 65);
+        --button-border-color: rgb(75, 75, 80);
 
-        --card-background-color: rgb(25, 25, 25);
+        --card-background-color: rgb(40, 40, 50);
 
-        --staze-green: #32ad09;
+        --staze-green: #3ace08;
         --staze-green-darker: #258b06;
         --staze-red: #ff0810;
     }

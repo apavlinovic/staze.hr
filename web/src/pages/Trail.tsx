@@ -107,7 +107,13 @@ function Trail(props: WithTranslation) {
                     </ul>
 
                     <p className="small-text-align-center">
-                        {trail.description}
+                        {t('seo.trail_seo_description', {
+                            name: trail.name,
+                            distance: trail.distance,
+                            startLocation: trail.startLocation,
+                            endLocation: trail.endLocation,
+                            duration: trail.duration,
+                        })}
                     </p>
                 </div>
 
@@ -238,14 +244,11 @@ function Trail(props: WithTranslation) {
 
                 <div className="grid-item large-span-12 small-span-12">
                     {trail.endLocationCoords && (
-                        <Card header="strings.continue_the_trail">
-                            <p className="margin-bottom-2x">
-                                {t('strings.continue_the_trail_description')}
-                            </p>
-                            <NearbyTrails
-                                geopoint={trail.endLocationCoords}
-                            ></NearbyTrails>
-                        </Card>
+                        <NearbyTrails
+                            header="strings.continue_the_trail"
+                            description="strings.continue_the_trail_description"
+                            geopoint={trail.endLocationCoords}
+                        ></NearbyTrails>
                     )}
                 </div>
             </div>

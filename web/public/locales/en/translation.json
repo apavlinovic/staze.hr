@@ -87,7 +87,11 @@
         "continue_the_trail_description": "We found some trails that are located close to the end of your current trail. These trails are all located roughly 500 meters from the end of your current trail.",
         "user_menu": "User menu",
         "register_page_title": "Register an account",
-        "register_page_description": "Registered users can save trails, write hiking guides, post photos and compete against other users."
+        "register_page_description": "Registered users can save trails, write hiking guides, post photos and compete against other users."        
+    },
+
+    "seo": {
+        "trail_seo_description": "{{ name }} is a {{distance}} km long hiking trail that starts at \"{{ startLocation }}\" and ends at \"{{ endLocation }}\". It takes an average hiker around {{ duration }}h to complete the trail."
     },
     
     "errors": {
