@@ -10,6 +10,7 @@
 
     backdrop-filter: blur(30px) saturate(130%);
     backface-visibility: hidden;
+    background-color: var(--background-color-transparent);
     z-index: 2;
 
     .item {

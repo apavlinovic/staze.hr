@@ -2,16 +2,22 @@ import React, { PropsWithChildren } from 'react';
 import './ResponsiveImage.scss';
 
 interface ResponsiveImageProps {
-    header?: string;
-    imageUrl?: string;
+    imageUrl?: string | undefined;
+    imageAlt?: string | undefined;
 }
 
 function ResponsiveImage(props: PropsWithChildren<ResponsiveImageProps>) {
-    const { header, imageUrl: imageUrl } = props;
+    const { imageUrl, imageAlt } = props;
 
     return (
         <div className="cropped-image">
-            {imageUrl && <img src={imageUrl} alt={header} />}
+            {imageUrl && (
+                <img
+                    className="reduce-contrast-on-dark-mode sepia-on-dark-mode"
+                    src={imageUrl}
+                    alt={imageAlt}
+                />
+            )}
         </div>
     );
 }

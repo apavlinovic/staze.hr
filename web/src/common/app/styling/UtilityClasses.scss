@@ -6,6 +6,18 @@
     margin-bottom: var(--base-space-2x);
 }
 
+.body-color {
+    color: var(--font-color);
+}
+
+.text-decoration-none {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
 @media screen and (max-width: 960px) {
     &.small-text-align-center {
         text-align: center;
@@ -22,6 +34,6 @@
     }
 
     &.reduce-contrast-on-dark-mode {
-        filter: contrast(90%) sepia(20%) brightness(90%);
+        filter: contrast(95%) sepia(15%) brightness(95%);
     }
 }
