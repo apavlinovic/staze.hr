@@ -7,6 +7,8 @@ import Error from '../common/core/error/Error';
 import { Query, QueryAreaArgs } from '../types';
 import { useParams } from 'react-router-dom';
 import Card from '../common/ui/cards/card/Card';
+import './Mountain.scss';
+import MountainSearchIcon from '../common/ui/omni-search/MountainSearchIcon.svg';
 
 const AREA_QUERY = gql`
     query getAreaInformation($areaSlug: String!) {
@@ -54,19 +56,44 @@ function Mountain(props: WithTranslation) {
 
     return (
         <main>
-            <h1>{data?.area?.name}</h1>
-            <div className="grid">
-                {data?.trails?.items.map((trail, index) => (
-                    <div className="grid-item large-span-4 small-span-12">
-                        <Card
-                            key={`mountain-${index}`}
-                            linkTo={`/trail/${trail.slug}`}
-                            header={trail.name}
-                        >
-                            Duration: {trail.duration}
-                        </Card>
+            <div className="trails-header">
+                <img
+                    className="header-background"
+                    src={`/mountains/${data?.area?.slug}.jpg`}
+                    alt=""
+                ></img>
+
+                <div className="trails-header-text">
+                    <img
+                        className="mountain-search"
+                        src={MountainSearchIcon}
+                        alt=""
+                    />
+                    <h1 className="trail-name">{data?.area?.name}</h1>
+                </div>
+            </div>
+
+            <div className="trails-list">
+                <div className="trails-table">
+                    <h1>Trails in {data?.area?.name}</h1>
+                    <hr></hr>
+                    <div className="grid">
+                        {data?.trails?.items.map((trail, index) => (
+                            <div className="grid-item large-span-12 small-span-12">
+                                <Card
+                                    key={`mountain-${index}`}
+                                    linkTo={`/trail/${trail.slug}`}
+                                    header={trail.name}
+                                >
+                                    Description: {trail.description}
+                                    <br></br>
+                                    Duration: {trail.duration}
+                                </Card>
+                            </div>
+                        ))}
                     </div>
-                ))}
+                </div>
+                <div className="trail-picture">Neka slika</div>
             </div>
         </main>
     );

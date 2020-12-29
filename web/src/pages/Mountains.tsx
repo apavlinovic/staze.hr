@@ -35,7 +35,8 @@ function MountainsPage(props: WithTranslation) {
     return (
         <main>
             <h1>{t('noun.mountains')}</h1>
-            <div className="grid">
+            <h1>Trails in:</h1>
+            <div className="grid trailsList">
                 {data?.areas?.items.map((area, index) => (
                     <div className="grid-item large-span-4 small-span-12">
                         <FullImageCard
@@ -48,6 +49,7 @@ function MountainsPage(props: WithTranslation) {
                     </div>
                 ))}
             </div>
+            <div className="trailPicture"></div>
         </main>
     );
 }

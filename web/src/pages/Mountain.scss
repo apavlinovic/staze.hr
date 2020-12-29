@@ -1,0 +1,40 @@
+.trails-table {
+    width: 40%;
+}
+
+.trails-list {
+    display: flex;
+}
+
+.mountain-search {
+    height: 80px;
+    width: 40px;
+    margin-left: 30px;
+}
+
+.trails-header {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.trails-header-text {
+    position: absolute;
+    display: flex;
+    padding-bottom: 20px;
+    top: 30%;
+}
+
+.trail-name {
+    margin-left: 15px;
+    line-height: 100%;
+    margin: auto;
+    margin-left: 10px;
+}
+
+.header-background {
+    width: 100%;
+    max-height: 30vh;
+    z-index: -1;
+    position: relative;
+    opacity: 0.55;
+}
