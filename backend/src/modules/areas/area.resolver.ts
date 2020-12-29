@@ -43,12 +43,12 @@ export class AreaResolver {
         @Arg('areaSlug', {
             nullable: true,
         })
-        trailSlug: string = '',
+        areaSlug: string = '',
     ) {
-        if (isWhiteSpaceOrNull(trailSlug)) {
+        if (isWhiteSpaceOrNull(areaSlug)) {
             return null;
         }
 
-        return getRepository(Area).findOne({ slug: trailSlug });
+        return getRepository(Area).findOne({ slug: areaSlug });
     }
 }

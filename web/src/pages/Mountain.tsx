@@ -6,6 +6,7 @@ import Loading from '../common/core/loading/Loading';
 import Error from '../common/core/error/Error';
 import { Query, QueryAreaArgs } from '../types';
 import { useParams } from 'react-router-dom';
+import Card from '../common/ui/cards/card/Card';
 
 const AREA_QUERY = gql`
     query getAreaInformation($areaSlug: String!) {
@@ -13,6 +14,16 @@ const AREA_QUERY = gql`
             id
             name
             slug
+        }
+        trails(mountain: $areaSlug) {
+            items {
+                id
+                name
+                duration
+                distance
+                slug
+                description
+            }
         }
     }
 `;
@@ -44,6 +55,19 @@ function Mountain(props: WithTranslation) {
     return (
         <main>
             <h1>{data?.area?.name}</h1>
+            <div className="grid">
+                {data?.trails?.items.map((trail, index) => (
+                    <div className="grid-item large-span-4 small-span-12">
+                        <Card
+                            key={`mountain-${index}`}
+                            linkTo={`/trail/${trail.slug}`}
+                            header={trail.name}
+                        >
+                            Duration: {trail.duration}
+                        </Card>
+                    </div>
+                ))}
+            </div>
         </main>
     );
 }
