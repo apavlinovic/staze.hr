@@ -30,5 +30,8 @@
         "hooks": {
             "pre-commit": "npm run test-backend && npm run prettier:check"
         }
+    },
+    "dependencies": {
+        "puppeteer": "^5.5.0"
     }
 }

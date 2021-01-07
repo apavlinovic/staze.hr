@@ -5,6 +5,7 @@
         'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
         'Helvetica Neue', sans-serif;
     --font-color: rgb(40, 40, 40);
+    --font-color-bright: rgb(255, 255, 255);
     --link-color: rgb(10, 10, 10);
     --page-max-width: 1360px;
 
@@ -15,6 +16,9 @@
     --base-space: 8px;
     --base-space-2x: 16px;
     --base-space-4x: 32px;
+    --base-space-negative: -8px;
+    --base-space-2x-negative: -16px;
+    --base-space-4x-negative: -32px;
     --mobile-breakpoint: 640px;
 
     --overlay-background-color: rgba(255, 255, 255, 0.55);
@@ -43,6 +47,7 @@
 @media screen and (prefers-color-scheme: dark) {
     :root {
         --font-color: rgb(245, 245, 247);
+        --font-color-bright: rgb(255, 255, 255);
         --link-color: rgb(255, 255, 255);
 
         --background-color: rgb(25, 25, 35);

@@ -5,10 +5,14 @@ import { withTranslation, WithTranslation } from 'react-i18next';
 import Loading from '../common/core/loading/Loading';
 import Error from '../common/core/error/Error';
 import { Query, QueryAreaArgs } from '../types';
-import { useParams } from 'react-router-dom';
-import Card from '../common/ui/cards/card/Card';
+import { Link, useParams } from 'react-router-dom';
 import './Mountain.scss';
-import MountainSearchIcon from '../common/ui/omni-search/MountainSearchIcon.svg';
+import Distance from '../common/ui/field-renderers/distance/Distance';
+import Duration from '../common/ui/field-renderers/duration/Duration';
+import HeightDifference from '../common/ui/field-renderers/height-difference/HeightDifference';
+
+import { ReactComponent as MountainSearchIcon } from '../common/ui/omni-search/MountainSearchIcon.svg';
+import Coordinates from '../common/ui/field-renderers/coordinates/Coordinates';
 
 const AREA_QUERY = gql`
     query getAreaInformation($areaSlug: String!) {
@@ -25,6 +29,11 @@ const AREA_QUERY = gql`
                 distance
                 slug
                 description
+                heightDifference
+                startLocation
+                startLocationCoords {
+                    coordinates
+                }
             }
         }
     }
@@ -55,47 +64,89 @@ function Mountain(props: WithTranslation) {
     }
 
     return (
-        <main>
-            <div className="trails-header">
-                <img
-                    className="header-background"
-                    src={`/mountains/${data?.area?.slug}.jpg`}
-                    alt=""
-                ></img>
-
-                <div className="trails-header-text">
-                    <img
-                        className="mountain-search"
-                        src={MountainSearchIcon}
-                        alt=""
-                    />
-                    <h1 className="trail-name">{data?.area?.name}</h1>
-                </div>
+        <div className="mountains--page">
+            <div
+                className="trails-header"
+                style={{
+                    backgroundImage: `url(/mountains/${data?.area?.slug}.jpg)`,
+                }}
+            >
+                <h1 className="trail-name">
+                    <MountainSearchIcon className="header-icon" />
+                    <span className="trail-text">{data?.area?.name}</span>
+                </h1>
             </div>
-
-            <div className="trails-list">
-                <div className="trails-table">
-                    <h1>Trails in {data?.area?.name}</h1>
-                    <hr></hr>
-                    <div className="grid">
+            <div className="content-wrapper">
+                <div className="trails-list">
+                    <h1 className="trail-title">
+                        {data?.area?.name} — {data?.trails?.items.length}{' '}
+                        {t('noun.trails')}{' '}
+                    </h1>
+                    <div className="filters">
+                        <button>{t('strings.all_trails')}</button>
+                        <button>{t('strings.short_trails')}</button>
+                        <button>
+                            {t('strings.duration_over', {
+                                hours: 1,
+                            })}
+                        </button>
+                        <button>
+                            {t('strings.duration_over', {
+                                hours: 3,
+                            })}
+                        </button>
+                    </div>
+                    <ul className="trails">
                         {data?.trails?.items.map((trail, index) => (
-                            <div className="grid-item large-span-12 small-span-12">
-                                <Card
-                                    key={`mountain-${index}`}
-                                    linkTo={`/trail/${trail.slug}`}
-                                    header={trail.name}
-                                >
-                                    Description: {trail.description}
-                                    <br></br>
-                                    Duration: {trail.duration}
-                                </Card>
+                            <div className="trail" key={`mountain-${index}`}>
+                                <li>
+                                    <Link to={`/trail/${trail.slug}`}>
+                                        {trail.name}
+                                    </Link>
+                                </li>
+                                <div className="trails-about">
+                                    <li className="trail-distance">
+                                        <Distance distance={trail.distance} />{' '}
+                                        <br />
+                                        <span className="trail-specs">
+                                            {t('noun.distance')}
+                                        </span>
+                                    </li>
+                                    <li className="trail-duration">
+                                        <Duration duration={trail.duration} />{' '}
+                                        <br />
+                                        <span className="trail-specs">
+                                            {t('noun.duration')}
+                                        </span>
+                                    </li>
+                                    <li className="trail-height-difference">
+                                        <HeightDifference
+                                            difference={trail.heightDifference}
+                                        />{' '}
+                                        <br />
+                                        <span className="trail-specs">
+                                            {t('noun.height_difference')}
+                                        </span>
+                                    </li>
+                                    <li className="trail-start">
+                                        <span className="trail-specs">
+                                            {t('noun.start_location')}
+                                        </span>{' '}
+                                        <br />
+                                        {trail.startLocation} (
+                                        <Coordinates
+                                            geopoint={trail.startLocationCoords}
+                                        />
+                                        )
+                                    </li>
+                                </div>
                             </div>
                         ))}
-                    </div>
+                    </ul>
                 </div>
-                <div className="trail-picture">Neka slika</div>
+                <div className="map">Neka slika</div>
             </div>
-        </main>
+        </div>
     );
 }
 

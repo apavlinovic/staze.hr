@@ -1,40 +1,138 @@
-.trails-table {
-    width: 40%;
-}
-
-.trails-list {
+.mountains--page {
     display: flex;
-}
+    flex-direction: column;
 
-.mountain-search {
-    height: 80px;
-    width: 40px;
-    margin-left: 30px;
-}
+    .trails-header {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
 
-.trails-header {
-    position: relative;
-    margin-bottom: 20px;
-}
+        margin: 0 var(--base-space-2x-negative);
+        height: 25vh;
 
-.trails-header-text {
-    position: absolute;
-    display: flex;
-    padding-bottom: 20px;
-    top: 30%;
-}
+        display: flex;
+        align-items: center;
 
-.trail-name {
-    margin-left: 15px;
-    line-height: 100%;
-    margin: auto;
-    margin-left: 10px;
-}
+        .trail-name {
+            background-color: var(--background-color-transparent);
+            backdrop-filter: blur(30px) saturate(130%);
+            backface-visibility: hidden;
 
-.header-background {
-    width: 100%;
-    max-height: 30vh;
-    z-index: -1;
-    position: relative;
-    opacity: 0.55;
+            padding: var(--base-space) var(--base-space-2x);
+            margin: 0 var(--base-space-2x);
+            border-radius: var(--border-radius);
+            box-shadow: var(--interactive-surface-box-shadow);
+
+            display: flex;
+            align-items: center;
+
+            .trail-text {
+                color: var(--font-color-bright);
+                text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            }
+
+            .header-icon {
+                width: 50px;
+                height: 50px;
+                margin-right: var(--base-space-2x);
+                background-color: var(--staze-green);
+                padding: var(--base-space);
+                border-radius: 50%;
+
+                path {
+                    fill: var(--font-color-bright);
+                }
+            }
+        }
+    }
+
+    .content-wrapper {
+        display: flex;
+        flex-direction: row;
+        margin: 0 var(--base-space-2x-negative);
+
+        .trails-list {
+            width: 40%;
+            min-width: 500px;
+            background: var(--surface-background-color);
+
+            h1 {
+                padding: var(--base-space-2x);
+            }
+
+            .filters {
+                display: flex;
+                padding: 0 var(--base-space-2x) var(--base-space-2x);
+
+                button {
+                    border-radius: var(--card-border-radius);
+
+                    + button {
+                        margin-left: var(--base-space);
+                    }
+                }
+            }
+
+            .trails {
+                list-style-type: none;
+
+                .trail {
+                    padding: var(--base-space) var(--base-space-2x);
+                    border-bottom: 1px solid var(--border-color);
+
+                    .trails-about {
+                        display: flex;
+
+                        .trail-distance {
+                            width: 15%;
+                            min-width: 100px;
+                        }
+
+                        .trail-duration {
+                            width: 15%;
+                            min-width: 100px;
+                        }
+
+                        .trail-height-difference {
+                            width: 15%;
+                            min-width: 100px;
+                        }
+
+                        .trail-start {
+                            width: 55%;
+                        }
+
+                        .trail-specs {
+                            color: grey;
+                            font-size: small;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+        }
+
+        .map {
+        }
+    }
+
+    @media screen and (max-width: 960px) {
+        .content-wrapper {
+            flex-direction: column-reverse;
+
+            .trails-list {
+                width: 100%;
+                min-width: 0;
+
+                .trail-title {
+                    font-size: 20px;
+                }
+
+                .trails-about {
+                    flex-wrap: wrap;
+                }
+            }
+        }
+    }
 }
