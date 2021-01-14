@@ -13,7 +13,7 @@ const {
     NODE_ENV,
 } = process.env;
 
-createConnection({
+export const DATABASE_CONNECTION = createConnection({
     type: 'postgres',
     host: DB_HOST,
     port: parseInt(DB_PORT),
