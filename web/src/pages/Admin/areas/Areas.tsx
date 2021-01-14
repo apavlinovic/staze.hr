@@ -9,10 +9,10 @@ import Error from '../../../common/core/error/Error';
 import './Areas.scss';
 
 const AREAS_QUERY = gql`
-    query areasQuery {
+    query areasQuery($offset: Int!, $pageSize: Int!) {
         areas(
-            offset: 0
-            pageSize: 20
+            offset: $offset
+            pageSize: $pageSize
             orderBy: [{ column: "id", direction: "ASC" }]
         ) {
             items {
@@ -28,7 +28,12 @@ const AREAS_QUERY = gql`
 `;
 
 function AdminTrails() {
-    const { loading, error, data } = useQuery<Query>(AREAS_QUERY);
+    const { loading, error, data } = useQuery<Query>(AREAS_QUERY, {
+        variables: {
+            offset: 0,
+            pageSize: 20,
+        },
+    });
 
     if (loading) {
         return <Loading />;
