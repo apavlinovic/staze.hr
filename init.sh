@@ -196,12 +196,17 @@ prettierFormat() {
     npm run prettier:format
 }
 
+utilityGenerateHTMLSnapshots() {
+    cd ./backend
+    npm run utility:generateHTMLSnapshots
+}
+
 printHeader "Staze.hr Bootstrap Manager"
 printf "\n"
 printStatus "Choose your action:"
 
 PS3='Please enter your choice: '
-options=("Initialize" "Start" "Prettier: Format" "NPM: Update packages" "GQL: Regenerate types" "Docker: Update DB image" "Docker: Start DB container" "Clean" "Quit")
+options=("Initialize" "Start" "Prettier: Format" "NPM: Update packages" "GQL: Regenerate types" "Docker: Update DB image" "Docker: Start DB container" "Utility: Build HTML Snaps" "Clean" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -235,6 +240,10 @@ do
             ;;
         "GQL: Regenerate types")
             regenerateGQLTypes
+            break
+            ;;            
+        "Utility: Build HTML Snaps")
+            utilityGenerateHTMLSnapshots
             break
             ;;            
         "Quit")

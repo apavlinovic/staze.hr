@@ -1,9 +1,11 @@
 require('dotenv').config();
 
+import express from 'express';
+
+import { ApolloServer } from 'apollo-server-express';
 import 'reflect-metadata';
 import './database/db-connection';
 
-import { ApolloServer } from 'apollo-server';
 import { buildSchema } from 'type-graphql';
 import { TrailResolver } from './modules/trails/trail.resolver';
 import { AreaResolver } from './modules/areas/area.resolver';
@@ -14,6 +16,8 @@ import { SearchResolver } from './modules/search/search.resolver';
 const PORT = process.env.PORT || 4000;
 
 async function bootstrap() {
+    const expressServer = express();
+
     const schema = await buildSchema({
         validate: true,
         resolvers: [
@@ -26,14 +30,19 @@ async function bootstrap() {
     });
 
     // Create the GraphQL server
-    const server = new ApolloServer({
+    const apolloServer = new ApolloServer({
         schema,
         playground: true,
     });
 
+    apolloServer.applyMiddleware({ app: expressServer });
+
     // Start the server
-    const { url } = await server.listen(PORT);
-    console.log(`Server is running, GraphQL Playground available at ${url}`);
+    await expressServer.listen({ port: PORT });
+
+    console.log(
+        `Server is running, GraphQL Playground available at ${apolloServer.graphqlPath}`,
+    );
 }
 
 bootstrap();
