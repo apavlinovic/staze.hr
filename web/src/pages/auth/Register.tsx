@@ -20,9 +20,11 @@ function Register(props: WithTranslation) {
     const { t } = props;
     const authContext = useContext(AuthContext);
 
-    const { register, handleSubmit, errors } = useForm<
-        RegistrationFormFields
-    >();
+    const {
+        register,
+        handleSubmit,
+        errors,
+    } = useForm<RegistrationFormFields>();
 
     const onSubmit = (data: RegistrationFormFields) => console.log(data);
     const onError = (data: FieldErrors<RegistrationFormFields>) =>

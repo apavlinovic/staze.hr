@@ -5,7 +5,7 @@ const POSITION_MAXAGE = 300000;
 const POSITION_TIMEOUT = 30000;
 
 export interface withLocationInjectedProps {
-    position?: Position | null;
+    position?: GeolocationPosition | null;
 }
 
 export const withLocation = <P extends object>(
@@ -38,13 +38,13 @@ export const withLocation = <P extends object>(
                 timeout: POSITION_TIMEOUT,
             };
 
-            const processLocation = (position: Position) => {
+            const processLocation = (position: GeolocationPosition) => {
                 this.setState({
                     position,
                 });
             };
 
-            const processLocationError = (error: PositionError) => {
+            const processLocationError = (error: GeolocationPositionError) => {
                 console.error(`Unable to get location. Reason: `, error);
             };
 
