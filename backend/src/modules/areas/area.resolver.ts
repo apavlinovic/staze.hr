@@ -12,7 +12,7 @@ export class AreaResolver {
         name: 'areas',
         defaultValue: [],
     })
-    async getTrails(
+    async getAreas(
         @Args()
         { pageSize, offset, orderBy }: GetAreasRequest,
     ): Promise<PaginatedAreasResponse> {

@@ -5,10 +5,6 @@ import { withTranslation, WithTranslation } from 'react-i18next';
 import Loading from '../common/core/loading/Loading';
 import Error from '../common/core/error/Error';
 import { Query, QueryAreaArgs } from '../types';
-<<<<<<< HEAD
-import { useParams } from 'react-router-dom';
-import Card from '../common/ui/cards/card/Card';
-=======
 import { Link, useParams } from 'react-router-dom';
 import './Mountain.scss';
 import Distance from '../common/ui/field-renderers/distance/Distance';
@@ -17,7 +13,6 @@ import HeightDifference from '../common/ui/field-renderers/height-difference/Hei
 
 import { ReactComponent as MountainSearchIcon } from '../common/ui/omni-search/MountainSearchIcon.svg';
 import Coordinates from '../common/ui/field-renderers/coordinates/Coordinates';
->>>>>>> f80d7c8c9815c23b1b2e9b268493e7cb27d603d5
 
 const AREA_QUERY = gql`
     query getAreaInformation($areaSlug: String!) {
