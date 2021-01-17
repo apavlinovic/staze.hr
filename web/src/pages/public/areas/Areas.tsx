@@ -1,11 +1,11 @@
 import React from 'react';
 import { withTranslation, WithTranslation } from 'react-i18next';
 import { useQuery, gql } from '@apollo/client';
-import { Query } from '../types';
+import { Query } from '../../../types';
 
-import Loading from '../common/core/loading/Loading';
-import Error from '../common/core/error/Error';
-import FullImageCard from '../common/ui/cards/full-image-card/FullImageCard';
+import Loading from '../../../common/core/loading/Loading';
+import Error from '../../../common/core/error/Error';
+import FullImageCard from '../../../common/ui/cards/full-image-card/FullImageCard';
 
 const MOUNTAINS_QUERY = gql`
     query getAreas {

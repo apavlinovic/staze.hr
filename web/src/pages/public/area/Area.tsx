@@ -2,17 +2,18 @@ import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
-import Loading from '../common/core/loading/Loading';
-import Error from '../common/core/error/Error';
-import { Query, QueryAreaArgs } from '../types';
+import Loading from '../../../common/core/loading/Loading';
+import Error from '../../../common/core/error/Error';
+import { Query, QueryAreaArgs } from '../../../types';
 import { Link, useParams } from 'react-router-dom';
-import './Mountain.scss';
-import Distance from '../common/ui/field-renderers/distance/Distance';
-import Duration from '../common/ui/field-renderers/duration/Duration';
-import HeightDifference from '../common/ui/field-renderers/height-difference/HeightDifference';
+import Distance from '../../../common/ui/field-renderers/distance/Distance';
+import Duration from '../../../common/ui/field-renderers/duration/Duration';
+import HeightDifference from '../../../common/ui/field-renderers/height-difference/HeightDifference';
 
-import { ReactComponent as MountainSearchIcon } from '../common/ui/omni-search/MountainSearchIcon.svg';
-import Coordinates from '../common/ui/field-renderers/coordinates/Coordinates';
+import { ReactComponent as MountainSearchIcon } from '../../../common/ui/omni-search/MountainSearchIcon.svg';
+import Coordinates from '../../../common/ui/field-renderers/coordinates/Coordinates';
+
+import './Area.scss';
 
 const AREA_QUERY = gql`
     query getAreaInformation($areaSlug: String!) {
@@ -64,7 +65,7 @@ function Mountain(props: WithTranslation) {
     }
 
     return (
-        <div className="mountains--page">
+        <div className="area--page">
             <div
                 className="trails-header"
                 style={{

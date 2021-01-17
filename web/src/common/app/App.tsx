@@ -12,12 +12,12 @@ import './styling/UtilityClasses.scss';
 import './App.scss';
 
 import { Route, Switch } from 'react-router-dom';
-import Mountains from '../../pages/Mountains';
-import Mountain from '../../pages/Mountain';
-import Trail from '../../pages/Trail';
+import Mountains from '../../pages/public/areas/Areas';
+import Mountain from '../../pages/public/area/Area';
+import Trail from '../../pages/public/trail/Trail';
 import Register from '../../pages/auth/Register';
 import { AuthContext, initialState } from '../core/auth-context/AuthContext';
-import AdminDashboard from '../../pages/Admin/Dashboard';
+import AdminDashboard from '../../pages/admin/Dashboard';
 
 function App() {
     return (

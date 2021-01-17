@@ -2,19 +2,19 @@ import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
-import Loading from '../common/core/loading/Loading';
-import Error from '../common/core/error/Error';
-import { Query, QueryTrailArgs } from '../types';
+import Loading from '../../../common/core/loading/Loading';
+import Error from '../../../common/core/error/Error';
+import { Query, QueryTrailArgs } from '../../../types';
 import { Link, useParams } from 'react-router-dom';
-import NoResults from '../common/ui/panels/no-results/NoResults';
-import Coordinates from '../common/ui/field-renderers/coordinates/Coordinates';
-import Duration from '../common/ui/field-renderers/duration/Duration';
-import Distance from '../common/ui/field-renderers/distance/Distance';
-import NearbyTrails from '../common/ui/nearby-trails/NearbyTrails';
-import HeightDifference from '../common/ui/field-renderers/height-difference/HeightDifference';
-import Card from '../common/ui/cards/card/Card';
-import FullImageCard from '../common/ui/cards/full-image-card/FullImageCard';
-import SEO from '../common/core/seo/SEO';
+import NoResults from '../../../common/ui/panels/no-results/NoResults';
+import Coordinates from '../../../common/ui/field-renderers/coordinates/Coordinates';
+import Duration from '../../../common/ui/field-renderers/duration/Duration';
+import Distance from '../../../common/ui/field-renderers/distance/Distance';
+import NearbyTrails from '../../../common/ui/nearby-trails/NearbyTrails';
+import HeightDifference from '../../../common/ui/field-renderers/height-difference/HeightDifference';
+import Card from '../../../common/ui/cards/card/Card';
+import FullImageCard from '../../../common/ui/cards/full-image-card/FullImageCard';
+import SEO from '../../../common/core/seo/SEO';
 
 const TRAIL_QUERY = gql`
     query getTrail($trailSlug: String!) {

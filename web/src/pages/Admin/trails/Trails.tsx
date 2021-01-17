@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 
 import { Query } from '../../../types';
-import Table from '../../../../src/common/ui/table/Table';
+import Table from '../../../common/ui/table/Table';
 import Loading from '../../../common/core/loading/Loading';
 import Error from '../../../common/core/error/Error';
 
