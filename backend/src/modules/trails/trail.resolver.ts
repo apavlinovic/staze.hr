@@ -29,7 +29,7 @@ export class TrailResolver {
     ): Promise<PaginatedTrailsResponse> {
         var qb = createQueryBuilder(Trail, 'trail')
             .take(pageSize)
-            .offset(offset);
+            .skip(offset);
 
         if (!isWhiteSpaceOrNull(mountain)) {
             qb.innerJoin('trail.area', 'area', 'area.slug = :mountain', {

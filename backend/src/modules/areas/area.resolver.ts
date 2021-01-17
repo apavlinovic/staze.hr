@@ -16,7 +16,7 @@ export class AreaResolver {
         @Args()
         { pageSize, offset, orderBy }: GetAreasRequest,
     ): Promise<PaginatedAreasResponse> {
-        var qb = createQueryBuilder(Area, 'area').take(pageSize).offset(offset);
+        var qb = createQueryBuilder(Area, 'area').take(pageSize).skip(offset);
 
         if (orderBy) {
             orderBy.forEach((order) =>
