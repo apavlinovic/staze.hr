@@ -10,8 +10,9 @@ import Distance from '../../../common/ui/field-renderers/distance/Distance';
 import Duration from '../../../common/ui/field-renderers/duration/Duration';
 import HeightDifference from '../../../common/ui/field-renderers/height-difference/HeightDifference';
 
-import { ReactComponent as MountainSearchIcon } from '../../../common/ui/omni-search/MountainSearchIcon.svg';
 import Coordinates from '../../../common/ui/field-renderers/coordinates/Coordinates';
+
+import { Hills } from '../../../common/ui/icons/Icons';
 
 import './Area.scss';
 
@@ -73,7 +74,7 @@ function Mountain(props: WithTranslation) {
                 }}
             >
                 <h1 className="trail-name">
-                    <MountainSearchIcon className="header-icon" />
+                    <Hills className="header-icon" />
                     <span className="trail-text">{data?.area?.name}</span>
                 </h1>
             </div>

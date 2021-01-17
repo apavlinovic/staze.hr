@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { withTranslation, WithTranslation } from 'react-i18next';
 import { FieldErrors, useForm } from 'react-hook-form';
 
 import { AuthContext } from '../../common/core/auth-context/AuthContext';
 import Input from '../../common/core/forms/Input';
 import Card from '../../common/ui/cards/card/Card';
-import { ReactComponent as RegisterIllustration } from './RegisterIllustration.svg';
 
 import './Register.scss';
+import { CampIllustration } from '../../common/ui/icons/Icons';
 
 interface RegistrationFormFields {
     email: string;
@@ -44,7 +44,7 @@ function Register(props: WithTranslation) {
                             {t('strings.register_page_description')}
                         </p>
                         <br />
-                        <RegisterIllustration />
+                        <CampIllustration />
                     </div>
                     <div className="grid-item large-span-6 small-span-12">
                         <form onSubmit={handleSubmit(onSubmit, onError)}>

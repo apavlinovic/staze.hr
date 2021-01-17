@@ -1,8 +1,8 @@
 import React from 'react';
 import { withTranslation, WithTranslation } from 'react-i18next';
+import { Lightbulb } from '../../icons/Icons';
 
 import './InfoElement.scss';
-import { ReactComponent as InfoElementIcon } from './InfoElementIcon.svg';
 
 interface InfoElementProps {
     message: string;
@@ -13,7 +13,7 @@ function InfoElement(props: InfoElementProps & WithTranslation) {
 
     return (
         <section className="ui-no-results">
-            <InfoElementIcon />
+            <Lightbulb />
 
             <strong>{t(message)}</strong>
         </section>

@@ -3,9 +3,9 @@ import { withTranslation, WithTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
 import MobileTransformable from '../../core/mobile-transformable/MobileTransformable';
+import { Menu } from '../../ui/icons/Icons';
 
 import './UserMenu.scss';
-import { ReactComponent as MainMenuIcon } from './UserMenuIcon.svg';
 
 function UserMenu(props: WithTranslation) {
     const { t } = props;
@@ -14,7 +14,7 @@ function UserMenu(props: WithTranslation) {
         <nav className="common-main-menu">
             <MobileTransformable
                 headerTitle="strings.user_menu"
-                openerIcon={<MainMenuIcon />}
+                openerIcon={<Menu />}
                 content={(setDrawerOpen) => {
                     return (
                         <ul>
