@@ -13,7 +13,7 @@ const SERVER_ROOT = 'http://localhost:3000';
     DATABASE_CONNECTION.then(async () => {
         const trailResolver = new TrailResolver();
         const trails = await trailResolver.getTrails({
-            pageSize: 10,
+            pageSize: 2000,
             offset: 0,
             orderBy: null,
             maintainer: null,
@@ -52,7 +52,7 @@ const SERVER_ROOT = 'http://localhost:3000';
     DATABASE_CONNECTION.then(async () => {
         const areaResolver = new AreaResolver();
         const areas = await areaResolver.getAreas({
-            pageSize: 10,
+            pageSize: 1000,
             offset: 0,
             orderBy: null,
         });
