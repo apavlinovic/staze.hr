@@ -43,6 +43,8 @@
     --staze-green: #288c07;
     --staze-green-darker: #1f7206;
     --staze-red: #ed1c24;
+
+    --svg-flex-shrink: 0;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -74,5 +76,7 @@
         --staze-green: #3ace08;
         --staze-green-darker: #258b06;
         --staze-red: #ff0810;
+
+        --svg-flex-shrink: 0;
     }
 }
