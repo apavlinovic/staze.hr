@@ -17,7 +17,7 @@ import Mountain from '../../pages/public/area/Area';
 import Trail from '../../pages/public/trail/Trail';
 import Register from '../../pages/auth/Register';
 import { AuthContext, initialState } from '../core/auth-context/AuthContext';
-import AdminDashboard from '../../pages/admin/Dashboard';
+import AdminDashboard from '../../pages/Admin/Dashboard';
 
 function App() {
     return (

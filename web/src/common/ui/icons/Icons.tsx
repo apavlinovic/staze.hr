@@ -9,10 +9,13 @@ import { ReactComponent as HikerIcon } from './hiker.svg';
 import { ReactComponent as LightbulbIcon } from './lightbulb.svg';
 import { ReactComponent as SearchIcon } from './search.svg';
 import { ReactComponent as CampIllust } from './camp-illustration.svg';
+import { ReactComponent as Pin } from './pin.svg';
 
 interface IconProperties {
     className?: string;
 }
+
+export const PinLocation = (props: IconProperties) => <Pin {...props} />;
 export const Close = (props: IconProperties) => <CloseIcon {...props} />;
 export const Ghost = (props: IconProperties) => <GhostIcon {...props} />;
 export const Menu = (props: IconProperties) => <MenuIcon {...props} />;
