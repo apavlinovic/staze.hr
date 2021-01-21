@@ -6,6 +6,9 @@ import Loading from '../../../common/core/loading/Loading';
 import Error from '../../../common/core/error/Error';
 import { Query, QueryAreaArgs, QueryTrailsArgs } from '../../../types';
 import { Link, useParams } from 'react-router-dom';
+import './Mountain.scss';
+
+// import { ReactComponent as TrailLocation } from './Trail_location.svg';
 import Distance from '../../../common/ui/field-renderers/distance/Distance';
 import Duration from '../../../common/ui/field-renderers/duration/Duration';
 import HeightDifference from '../../../common/ui/field-renderers/height-difference/HeightDifference';
@@ -149,6 +152,7 @@ function Mountain(props: WithTranslation) {
                                         </span>
                                     </li>
                                     <li className="trail-start">
+                                        {/* <TrailLocation className="trail-location-pin" /> */}
                                         <span className="trail-specs">
                                             {t('noun.start_location')}
                                         </span>{' '}

@@ -38,6 +38,7 @@
                 background-color: var(--staze-green);
                 padding: var(--base-space);
                 border-radius: 50%;
+                flex-shrink: 0;
 
                 path {
                     fill: var(--font-color-bright);
@@ -100,6 +101,14 @@
 
                         .trail-start {
                             width: 55%;
+
+                            .trail-location-pin {
+                                width: 10px;
+                                height: 10px;
+                                margin-right: var(--base-space-2x);
+                                background-color: var(--staze-green);
+                                padding: var(--base-space);
+                            }
                         }
 
                         .trail-specs {
@@ -118,6 +127,32 @@
     }
 
     @media screen and (max-width: 960px) {
+        .trails-header {
+            .trail-name {
+                background-color: var(--background-color-transparent);
+                backdrop-filter: blur(30px) saturate(130%);
+                backface-visibility: hidden;
+
+                padding: var(--base-space) var(--base-space-2x);
+                margin: 0 var(--base-space-2x);
+                border-radius: var(--border-radius);
+                box-shadow: var(--interactive-surface-box-shadow);
+
+                display: flex;
+                align-items: center;
+
+                .trail-text {
+                    color: var(--font-color-bright);
+                    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+                    font-size: 25px;
+                }
+
+                .header-icon {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
         .content-wrapper {
             flex-direction: column-reverse;
 
@@ -127,10 +162,34 @@
 
                 .trail-title {
                     font-size: 20px;
+                    max-width: fit-content;
                 }
 
-                .trails-about {
-                    flex-wrap: wrap;
+                .trails {
+                    .trail {
+                        border-bottom: 4px solid var(--border-color);
+
+                        .trails-about {
+                            flex-wrap: wrap;
+                            font-size: 12px;
+
+                            .trail-start {
+                                width: 100%;
+
+                                .trail-location-pin {
+                                    width: 10px;
+                                    height: 10px;
+                                    margin-right: var(--base-space-2x);
+                                    background-color: var(--staze-green);
+                                    padding: var(--base-space);
+
+                                    path {
+                                        fill: var(--font-color-bright);
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
