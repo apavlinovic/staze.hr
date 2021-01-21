@@ -14,11 +14,9 @@ import MobileTransformable from '../../core/mobile-transformable/MobileTransform
 import { FocusAware } from '../../core/focus-aware/FocusAware';
 
 import './OmniSearch.scss';
-import { ReactComponent as OmniSearchIcon } from './OmniSearchIcon.svg';
-import { ReactComponent as MountainSearchIcon } from './MountainSearchIcon.svg';
-import { ReactComponent as TrailSearchIcon } from './TrailSearchIcon.svg';
 import Distance from '../field-renderers/distance/Distance';
 import Duration from '../field-renderers/duration/Duration';
+import { Hiker, Hills, Search } from '../icons/Icons';
 
 const SEARCH_QUERY = gql`
     query doSearch($query: String!) {
@@ -89,7 +87,7 @@ function OmniSearch(props: WithTranslation) {
         >
             <MobileTransformable
                 headerTitle="noun.search"
-                openerIcon={<OmniSearchIcon />}
+                openerIcon={<Search />}
                 content={(setDrawerOpen) => {
                     return (
                         <section className="common-omni-search">
@@ -195,13 +193,13 @@ function renderResultItem(
         case 0:
             resultTypeIdentifier = 'trail';
             resultTypeTitle = 'noun.trail';
-            resultTypeIcon = <TrailSearchIcon />;
+            resultTypeIcon = <Hiker />;
             break;
 
         case 1:
             resultTypeIdentifier = 'area';
             resultTypeTitle = 'noun.mountain';
-            resultTypeIcon = <MountainSearchIcon />;
+            resultTypeIcon = <Hills />;
 
             break;
 

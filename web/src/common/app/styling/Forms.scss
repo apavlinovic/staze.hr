@@ -82,12 +82,31 @@ input[type='submit'] {
 
     &:hover {
         color: white;
-        background-color: var(--staze-green);
-        border-color: var(--staze-green-darker);
+
+        &:not(:disabled) {
+            background-color: var(--staze-green);
+            border-color: var(--staze-green-darker);
+        }
     }
 
     &:active {
         transform: translateY(1px);
+    }
+
+    &:disabled {
+        opacity: 0.75;
+        box-shadow: none;
+
+        &:not(.__active) {
+            border-color: transparent;
+            background-color: transparent;
+        }
+
+        cursor: default;
+
+        &.__active {
+            opacity: 1;
+        }
     }
 
     &:focus {

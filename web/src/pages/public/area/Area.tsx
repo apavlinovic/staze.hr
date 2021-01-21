@@ -1,28 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
-import Loading from '../common/core/loading/Loading';
-import Error from '../common/core/error/Error';
-import { Query, QueryAreaArgs } from '../types';
+import Loading from '../../../common/core/loading/Loading';
+import Error from '../../../common/core/error/Error';
+import { Query, QueryAreaArgs, QueryTrailsArgs } from '../../../types';
 import { Link, useParams } from 'react-router-dom';
 import './Mountain.scss';
-import Distance from '../common/ui/field-renderers/distance/Distance';
-import Duration from '../common/ui/field-renderers/duration/Duration';
-import HeightDifference from '../common/ui/field-renderers/height-difference/HeightDifference';
-import { ReactComponent as TrailLocation } from './Trail_location.svg';
 
-import { ReactComponent as MountainSearchIcon } from '../common/ui/omni-search/MountainSearchIcon.svg';
-import Coordinates from '../common/ui/field-renderers/coordinates/Coordinates';
+// import { ReactComponent as TrailLocation } from './Trail_location.svg';
+import Distance from '../../../common/ui/field-renderers/distance/Distance';
+import Duration from '../../../common/ui/field-renderers/duration/Duration';
+import HeightDifference from '../../../common/ui/field-renderers/height-difference/HeightDifference';
+
+import Pagination from '../../../common/core/pagination/Pagination';
+import Coordinates from '../../../common/ui/field-renderers/coordinates/Coordinates';
+
+import { Hills } from '../../../common/ui/icons/Icons';
+
+import './Area.scss';
 
 const AREA_QUERY = gql`
-    query getAreaInformation($areaSlug: String!) {
+    query getAreaInformation(
+        $areaSlug: String!
+        $pageSize: Int!
+        $offset: Int!
+    ) {
         area(areaSlug: $areaSlug) {
             id
             name
             slug
         }
-        trails(mountain: $areaSlug) {
+        trails(mountain: $areaSlug, pageSize: $pageSize, offset: $offset) {
+            total
             items {
                 id
                 name
@@ -46,14 +56,19 @@ function Mountain(props: WithTranslation) {
         slug: string;
     }>();
 
-    const { loading, error, data } = useQuery<Query, QueryAreaArgs>(
-        AREA_QUERY,
-        {
-            variables: {
-                areaSlug: slug,
-            },
+    const [page, setPage] = useState(0);
+    const [pageSize, setPageSize] = useState(10);
+
+    const { loading, error, data } = useQuery<
+        Query,
+        QueryAreaArgs & QueryTrailsArgs
+    >(AREA_QUERY, {
+        variables: {
+            areaSlug: slug,
+            pageSize: pageSize,
+            offset: page * pageSize,
         },
-    );
+    });
 
     if (loading) {
         return <Loading />;
@@ -65,7 +80,7 @@ function Mountain(props: WithTranslation) {
     }
 
     return (
-        <div className="mountains--page">
+        <div className="area--page">
             <div
                 className="trails-header"
                 style={{
@@ -73,14 +88,14 @@ function Mountain(props: WithTranslation) {
                 }}
             >
                 <h1 className="trail-name">
-                    <MountainSearchIcon className="header-icon" />
+                    <Hills className="header-icon" />
                     <span className="trail-text">{data?.area?.name}</span>
                 </h1>
             </div>
             <div className="content-wrapper">
                 <div className="trails-list">
                     <h1 className="trail-title">
-                        {data?.area?.name} — {data?.trails?.items.length}{' '}
+                        {data?.area?.name} — {data?.trails?.total}{' '}
                         {t('noun.trails')}{' '}
                     </h1>
                     <div className="filters">
@@ -97,6 +112,13 @@ function Mountain(props: WithTranslation) {
                             })}
                         </button>
                     </div>
+                    <Pagination
+                        total={data?.trails?.total}
+                        initialPage={page}
+                        onPageClicked={(page, pageSize) => {
+                            setPage(page);
+                        }}
+                    />
                     <ul className="trails">
                         {data?.trails?.items.map((trail, index) => (
                             <div className="trail" key={`mountain-${index}`}>
@@ -145,6 +167,14 @@ function Mountain(props: WithTranslation) {
                             </div>
                         ))}
                     </ul>
+
+                    <Pagination
+                        total={data?.trails?.total}
+                        initialPage={page}
+                        onPageClicked={(page, pageSize) => {
+                            setPage(page);
+                        }}
+                    />
                 </div>
                 <div className="map">Neka slika</div>
             </div>

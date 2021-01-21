@@ -1,15 +1,15 @@
 import React from 'react';
 import { withTranslation, WithTranslation } from 'react-i18next';
+import { Ghost } from '../../icons/Icons';
 
 import './NoResults.scss';
-import { ReactComponent as NoResultsIcon } from './NoResultsIcon.svg';
 
 function NoResults(props: WithTranslation) {
     const { t } = props;
 
     return (
         <section className="ui-no-results">
-            <NoResultsIcon />
+            <Ghost />
 
             <strong>{t('strings.no_results')}</strong>
         </section>
