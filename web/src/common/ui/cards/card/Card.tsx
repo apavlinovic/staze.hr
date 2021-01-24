@@ -7,13 +7,21 @@ interface CardProps {
     linkTo?: string | null;
     header?: string;
     variant?: 'default' | 'full-image';
+    className?: string | null;
 }
 
 function Card(props: PropsWithChildren<CardProps & WithTranslation>) {
-    const { children, variant = 'default', header, t, linkTo } = props;
+    const {
+        children,
+        variant = 'default',
+        header,
+        t,
+        linkTo,
+        className,
+    } = props;
 
     return (
-        <div className={`ui--card ${variant}`}>
+        <div className={`ui--card ${variant} ${className}`}>
             <CardLink linkTo={linkTo}>
                 <div className="content">
                     {header && <h2>{t(header)}</h2>}

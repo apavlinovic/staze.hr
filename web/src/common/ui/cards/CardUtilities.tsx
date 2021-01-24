@@ -9,7 +9,9 @@ const CardLink: React.FC<{ linkTo: string | null | undefined }> = ({
         const isOutboundLink =
             linkTo.startsWith('http//') || linkTo.startsWith('https//');
 
-        if (isOutboundLink) {
+        const isImageLink = linkTo.endsWith('jpg') || linkTo.endsWith('png');
+
+        if (isOutboundLink || isImageLink) {
             return (
                 <a href={linkTo} target="_blank" rel="noreferrer">
                     {children}

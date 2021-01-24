@@ -6,7 +6,6 @@ import Loading from '../../../common/core/loading/Loading';
 import Error from '../../../common/core/error/Error';
 import { Query, QueryAreaArgs, QueryTrailsArgs } from '../../../types';
 import { Link, useParams } from 'react-router-dom';
-import './Mountain.scss';
 
 // import { ReactComponent as TrailLocation } from './Trail_location.svg';
 import Distance from '../../../common/ui/field-renderers/distance/Distance';

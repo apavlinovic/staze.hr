@@ -7,11 +7,12 @@ interface FullImageCardProps {
     imageUrl: string | null;
     imageAlt?: string;
     linkTo?: string | null;
+    useAutoHeight?: boolean | null;
     header?: string;
 }
 
 function FullImageCard(props: FullImageCardProps) {
-    const { linkTo, header, imageUrl, imageAlt } = props;
+    const { linkTo, header, imageUrl, imageAlt, useAutoHeight = false } = props;
 
     const renderImage = (
         imageUrl: string | null,
@@ -36,7 +37,12 @@ function FullImageCard(props: FullImageCardProps) {
     };
 
     return (
-        <Card linkTo={linkTo} header={header} variant="full-image">
+        <Card
+            linkTo={linkTo}
+            header={header}
+            variant="full-image"
+            className={useAutoHeight ? 'auto-height' : ''}
+        >
             {renderImage(imageUrl, imageAlt)}
         </Card>
     );
