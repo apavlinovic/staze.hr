@@ -26,6 +26,8 @@
         "location": "Location",
         "language": "Language",
         "copyright": "Copyright",
+        "type": "Type",
+        "name": "Name",
         
         "areas": "Areas",
         "tools": "Tools",
@@ -44,7 +46,8 @@
         "navigate": "Navigate",
         "order_by": "Order by",
         "filter_by": "Filter",
-        "submit": "Submit"
+        "submit": "Submit",
+        "edit": "Edit"
     },
 
     "strings": {
@@ -81,7 +84,8 @@
         "continue_the_trail_description": "We found some trails that are located close to the end of your current trail. These trails are all located roughly 500 meters from the end of your current trail.",
         "user_menu": "User menu",
         "register_page_title": "Register an account",
-        "register_page_description": "Registered users can save trails, write hiking guides, post photos and compete against other users."        
+        "register_page_description": "Registered users can save trails, write hiking guides, post photos and compete against other users.",
+        "edit_an_area": "Edit an area"        
     },
 
     "seo": {

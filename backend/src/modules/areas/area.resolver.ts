@@ -1,5 +1,7 @@
-import { Resolver, Query, Arg, Args } from 'type-graphql';
+import { Resolver, Query, Arg, Args, Mutation } from 'type-graphql';
 import { createQueryBuilder, getRepository } from 'typeorm';
+import { UpdateAreaRequest } from './schema/updateArea.request';
+import { ApolloError } from 'apollo-server';
 
 import { Area } from './schema/area.model';
 import { GetAreasRequest } from './schema/getAreas.request';
@@ -40,15 +42,52 @@ export class AreaResolver {
         defaultValue: new Area(),
     })
     async getArea(
-        @Arg('areaSlug', {
-            nullable: true,
-        })
+        @Arg('areaSlug', { nullable: true })
         areaSlug: string = '',
+
+        @Arg('areaId', { nullable: true })
+        areaId: number = 0,
     ) {
-        if (isWhiteSpaceOrNull(areaSlug)) {
+        if (isWhiteSpaceOrNull(areaSlug) && areaId == null) {
             return null;
         }
 
-        return getRepository(Area).findOne({ slug: areaSlug });
+        if (!isWhiteSpaceOrNull(areaSlug)) {
+            return getRepository(Area).findOne({
+                slug: areaSlug,
+            });
+        }
+
+        return getRepository(Area).findOne({
+            id: areaId,
+        });
+    }
+
+    @Mutation(() => Area, {
+        name: 'updateArea',
+    })
+    async updateArea(
+        @Args()
+        { areaId, type, name, description }: UpdateAreaRequest,
+    ) {
+        const area = await getRepository(Area).findOne(areaId);
+
+        if (!area) {
+            throw new ApolloError(`Area with areaId [${areaId}] not found.`);
+        }
+
+        if (type) {
+            area.type = type;
+        }
+
+        if (name) {
+            area.name = name;
+        }
+
+        if (description) {
+            area.description = description;
+        }
+
+        return getRepository(Area).save(area);
     }
 }

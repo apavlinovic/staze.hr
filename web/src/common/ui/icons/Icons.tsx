@@ -10,6 +10,7 @@ import { ReactComponent as LightbulbIcon } from './lightbulb.svg';
 import { ReactComponent as SearchIcon } from './search.svg';
 import { ReactComponent as CampIllust } from './camp-illustration.svg';
 import { ReactComponent as Pin } from './pin.svg';
+import { ReactComponent as FlipMiddle } from './flip-middle.svg';
 
 interface IconProperties {
     className?: string;
@@ -29,3 +30,4 @@ export const Hills = (props: IconProperties) => <HillsIcon {...props} />;
 export const CampIllustration = (props: IconProperties) => (
     <CampIllust {...props} />
 );
+export const Flip = (props: IconProperties) => <FlipMiddle {...props} />;

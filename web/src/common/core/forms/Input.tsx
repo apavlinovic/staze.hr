@@ -10,6 +10,7 @@ interface InputProps {
     maxLength?: number;
     min?: number;
     max?: number;
+    value?: any;
     pattern?: RegExp;
     type?: string;
     label?: string;
@@ -24,6 +25,7 @@ const Input = (props: InputProps & WithTranslation) => {
         label = 'missing.label',
         required = false,
         min = undefined,
+        value = undefined,
         max = undefined,
         minLength = undefined,
         maxLength = undefined,
@@ -95,6 +97,7 @@ const Input = (props: InputProps & WithTranslation) => {
                 max={max}
                 minLength={minLength}
                 maxLength={maxLength}
+                value={value}
                 ref={register({
                     required,
                     min,
