@@ -71,7 +71,6 @@ function AreaEdit(props: WithTranslation) {
                         </h1>
                     </div>
                     <div className="grid-item large-span-6 small-span-12 small-align-content-center">
-                        
                         <br />
                         <Flip />
                     </div>
