@@ -15,6 +15,7 @@ import HeightDifference from '../../../common/ui/field-renderers/height-differen
 import Card from '../../../common/ui/cards/card/Card';
 import FullImageCard from '../../../common/ui/cards/full-image-card/FullImageCard';
 import SEO from '../../../common/core/seo/SEO';
+import { PinOnMap } from '../../../common/ui/icons/Icons';
 
 const TRAIL_QUERY = gql`
     query getTrail($trailSlug: String!) {
@@ -37,6 +38,7 @@ const TRAIL_QUERY = gql`
             originalMapUrl
             hasValidGpx
             gpxTraceId
+            gpxTraceUrl
             startLocation
             startLocationCoords {
                 coordinates
@@ -128,21 +130,16 @@ function Trail(props: WithTranslation) {
                     </ul>
                 </div>
 
-                <div className="grid-item large-span-12 small-span-12">
-                    <FullImageCard
-                        linkTo={
-                            trail.mapName
-                                ? `/trails/map/${trail.mapName}`
-                                : null
-                        }
-                        imageUrl={
-                            trail.mapName
-                                ? `/trails/map/${trail.mapName}`
-                                : null
-                        }
-                        imageAlt={trail.name}
-                    />
-                </div>
+                {trail.mapName ? (
+                    <div className="grid-item large-span-12 small-span-12">
+                        <FullImageCard
+                            useAutoHeight={true}
+                            linkTo={`/trails/map/${trail.mapName}`}
+                            imageUrl={`/trails/map/${trail.mapName}`}
+                            imageAlt={trail.name}
+                        />
+                    </div>
+                ) : null}
 
                 <div className="grid-item large-span-6 small-span-12">
                     <Card header={'strings.trail_information'}>
@@ -219,15 +216,17 @@ function Trail(props: WithTranslation) {
                     </Card>
                 </div>
 
-                <div className="grid-item large-span-6 small-span-12">
-                    <Card header={'noun.elevation_graph'}>
-                        <img
-                            className="invert-on-dark-mode"
-                            src={`/trails/elevation/${trail.mapName}`}
-                            alt={trail.name}
-                        />
-                    </Card>
-                </div>
+                {trail.gpxTraceId ? (
+                    <div className="grid-item large-span-6 small-span-12">
+                        <Card header={'noun.elevation_graph'}>
+                            <img
+                                className="invert-on-dark-mode"
+                                src={`/trails/elevation/${trail.mapName}`}
+                                alt={trail.name}
+                            />
+                        </Card>
+                    </div>
+                ) : null}
 
                 <div className="grid-item large-span-6 small-span-12">
                     <FullImageCard
@@ -238,9 +237,16 @@ function Trail(props: WithTranslation) {
                     />
                 </div>
 
-                <div className="grid-item large-span-6 small-span-12">
-                    <Card header="noun.gpx_trace"></Card>
-                </div>
+                {trail.gpxTraceId ? (
+                    <div className="grid-item large-span-6 small-span-12">
+                        <Card header="noun.gpx_trace">
+                            <PinOnMap />
+                            {t('strings.download_gpx_trace', {
+                                gpxTraceId: trail.gpxTraceId,
+                            })}
+                        </Card>
+                    </div>
+                ) : null}
 
                 <div className="grid-item large-span-12 small-span-12">
                     {trail.endLocationCoords && (

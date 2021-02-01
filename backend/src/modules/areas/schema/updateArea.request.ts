@@ -2,7 +2,7 @@ import { ArgsType, Field, Int } from 'type-graphql';
 
 @ArgsType()
 export class UpdateAreaRequest {
-    @Field((type) => Int, { nullable: true })
+    @Field((type) => Int, { nullable: false })
     areaId: number;
 
     @Field((type) => Int, { nullable: true })

@@ -2,6 +2,12 @@ $height: 400px;
 
 .ui--card {
     &.full-image {
+        &.auto-height {
+            .content {
+                height: auto;
+            }
+        }
+
         .content {
             padding: 0;
             display: block;

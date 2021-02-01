@@ -85,7 +85,8 @@
         "user_menu": "User menu",
         "register_page_title": "Register an account",
         "register_page_description": "Registered users can save trails, write hiking guides, post photos and compete against other users.",
-        "edit_an_area": "Edit an area"        
+        "edit_an_area": "Edit an area",        
+        "download_gpx_trace": "Download GPS trace for this trail. The trace is named {{gpxTraceId}}"
     },
 
     "seo": {
