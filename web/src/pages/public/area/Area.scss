@@ -103,11 +103,14 @@
                             width: 55%;
 
                             .trail-location-pin {
-                                width: 10px;
-                                height: 10px;
-                                margin-right: var(--base-space-2x);
-                                background-color: var(--staze-green);
-                                padding: var(--base-space);
+                                width: 20px;
+                                height: 25px;
+                                margin-right: var(--base-space);
+                                padding-top: 3px;
+
+                                path {
+                                    fill: var(--staze-green-darker);
+                                }
                             }
                         }
 
@@ -155,6 +158,7 @@
         }
         .content-wrapper {
             flex-direction: column-reverse;
+            max-width: fit-content;
 
             .trails-list {
                 width: 100%;
@@ -177,15 +181,9 @@
                                 width: 100%;
 
                                 .trail-location-pin {
-                                    width: 10px;
-                                    height: 10px;
-                                    margin-right: var(--base-space-2x);
-                                    background-color: var(--staze-green);
-                                    padding: var(--base-space);
-
-                                    path {
-                                        fill: var(--font-color-bright);
-                                    }
+                                    width: 20px;
+                                    height: 20px;
+                                    margin-right: var(--base-space);
                                 }
                             }
                         }

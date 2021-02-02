@@ -1,8 +1,10 @@
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
+import { Link } from 'react-router-dom';
 
-import { Query } from '../../../types';
+import { Area, Query } from '../../../types';
 import Table from '../../../common/ui/table/Table';
+import { UseTableCellProps } from 'react-table';
 import Loading from '../../../common/core/loading/Loading';
 import Error from '../../../common/core/error/Error';
 
@@ -53,28 +55,40 @@ function AdminTrails() {
             Header: 'Name',
             accessor: 'name',
             width: 200,
+            Cell: (cell: UseTableCellProps<Area>) => {
+                return (
+                    <Link to={`/admin/areas/edit/${cell.row.original.id}`}>
+                        {cell.row.original.name}
+                    </Link>
+                );
+            },
         },
+
         {
             Header: 'Slug',
             accessor: 'slug',
         },
         {
-            Header: 'Description',
-            accessor: 'description',
-        },
-        {
             Header: 'Actions',
-            accessor: 'actions',
+            Cell: (cell: UseTableCellProps<Area>) => {
+                return (
+                    <Link to={`/admin/areas/edit/${cell.row.original.id}`}>
+                        Edit
+                    </Link>
+                );
+            },
         },
     ];
 
     return (
-        <Table
-            columns={columns}
-            data={data?.areas?.items}
-            totalRows={data?.areas?.total}
-            onTableStateChange={() => {}}
-        />
+        <div>
+            <Table
+                columns={columns}
+                data={data?.areas?.items}
+                totalRows={data?.areas?.total}
+                onTableStateChange={() => {}}
+            />
+        </div>
     );
 }
 

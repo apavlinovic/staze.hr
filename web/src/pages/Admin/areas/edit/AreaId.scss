@@ -1,0 +1,21 @@
+.area-edit {
+    p {
+        font-size: 110%;
+    }
+
+    svg {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        max-width: 600px;
+    }
+
+    @media screen and (max-width: 960px) {
+        padding: var(--base-space-2x) 0;
+
+        svg {
+            max-height: 300px;
+            max-width: 500px;
+        }
+    }
+}

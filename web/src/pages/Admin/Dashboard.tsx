@@ -6,6 +6,7 @@ import AdminTrails from './trails/Trails';
 import AdminAreas from './areas/Areas';
 import AdminTools from './tools/Tools';
 import AdminTrailId from './trails/TrailId';
+import AreaEdit from './areas/edit/AreaId';
 
 import './Dashboard.scss';
 
@@ -43,6 +44,10 @@ function AdminDashboard(props: WithTranslation) {
 
                     <Route path="/admin/tools" exact>
                         <AdminTools />
+                    </Route>
+
+                    <Route path="/admin/areas/edit/:areaId" exact>
+                        <AreaEdit />
                     </Route>
                 </Switch>
             </div>
