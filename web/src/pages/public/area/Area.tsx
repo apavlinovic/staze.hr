@@ -4,7 +4,12 @@ import { withTranslation, WithTranslation } from 'react-i18next';
 
 import Loading from '../../../common/core/loading/Loading';
 import Error from '../../../common/core/error/Error';
-import { Query, QueryAreaArgs, QueryTrailsArgs } from '../../../types';
+import {
+    GeoPoint,
+    Query,
+    QueryAreaArgs,
+    QueryTrailsArgs,
+} from '../../../types';
 import { Link, useParams } from 'react-router-dom';
 import './Area.scss';
 
@@ -15,6 +20,7 @@ import HeightDifference from '../../../common/ui/field-renderers/height-differen
 
 import Pagination from '../../../common/core/pagination/Pagination';
 import Coordinates from '../../../common/ui/field-renderers/coordinates/Coordinates';
+import Map from '../../../common/core/map/Map';
 
 import { Hills } from '../../../common/ui/icons/Icons';
 
@@ -78,6 +84,10 @@ function Mountain(props: WithTranslation) {
         console.warn(error);
         return <Error error={error} />;
     }
+
+    const coordinates = data?.trails?.items?.map((e) => {
+        return e.startLocationCoords;
+    });
 
     return (
         <div className="area--page">
@@ -176,7 +186,14 @@ function Mountain(props: WithTranslation) {
                         }}
                     />
                 </div>
-                <div className="map">Neka slika</div>
+                <div className="map-zoom">
+                    <Map
+                        center={data?.trails?.items[0]?.startLocationCoords}
+                        zoom={11}
+                        scrollWheelZoom={false}
+                        pins={coordinates}
+                    />
+                </div>
             </div>
         </div>
     );

@@ -11,7 +11,7 @@ import { ReactComponent as SearchIcon } from './search.svg';
 import { ReactComponent as CampIllust } from './camp-illustration.svg';
 import { ReactComponent as Pin } from './pin.svg';
 import { ReactComponent as FlipMiddle } from './flip-middle.svg';
-import { ReactComponent as PinOnMapIcon } from './pin-on-map.svg';
+import { ReactComponent as PinOnMapIcon } from './pin.svg';
 
 interface IconProperties {
     className?: string;
