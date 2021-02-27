@@ -1,118 +1,114 @@
 .area--page {
-    display: flex;
-    flex-direction: column;
-
-    .trails-header {
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-
-        margin: 0 var(--base-space-2x-negative);
-        height: 25vh;
-
-        display: flex;
-        align-items: center;
-
-        .trail-name {
-            background-color: var(--background-color-transparent);
-            backdrop-filter: blur(30px) saturate(130%);
-            backface-visibility: hidden;
-
-            padding: var(--base-space) var(--base-space-2x);
-            margin: 0 var(--base-space-2x);
-            border-radius: var(--border-radius);
-            box-shadow: var(--interactive-surface-box-shadow);
-
-            display: flex;
-            align-items: center;
-
-            .trail-text {
-                color: var(--font-color-bright);
-                text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-            }
-
-            .header-icon {
-                width: 50px;
-                height: 50px;
-                margin-right: var(--base-space-2x);
-                background-color: var(--staze-green);
-                padding: var(--base-space);
-                border-radius: 50%;
-                flex-shrink: 0;
-
-                path {
-                    fill: var(--font-color-bright);
-                }
-            }
-        }
-    }
-
     .content-wrapper {
         display: flex;
         flex-direction: row;
         margin: 0 var(--base-space-2x-negative);
 
-        .trails-list {
+        .sidebar {
             width: 40%;
-            min-width: 500px;
+            height: calc(100vh - var(--header-height));
+            overflow: scroll;
+            min-width: 400px;
             background: var(--surface-background-color);
 
-            h1 {
-                padding: var(--base-space-2x);
-            }
+            .trails-header {
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: cover;
 
-            .filters {
+                height: 35vh;
+
                 display: flex;
-                padding: 0 var(--base-space-2x) var(--base-space-2x);
+                align-items: flex-end;
 
-                button {
-                    border-radius: var(--card-border-radius);
+                .trail-name {
+                    background-color: var(--background-color-transparent);
+                    backdrop-filter: blur(30px) saturate(130%);
+                    backface-visibility: hidden;
 
-                    + button {
-                        margin-left: var(--base-space);
+                    padding: var(--base-space) var(--base-space-2x);
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    margin-bottom: 0;
+
+                    .trail-text {
+                        color: var(--font-color-bright);
+                        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+
+                        span {
+                            display: block;
+                            font-size: medium;
+                        }
+                    }
+
+                    .header-icon {
+                        width: 50px;
+                        height: 50px;
+                        background-color: var(--staze-green);
+                        padding: var(--base-space);
+                        border-radius: var(--border-radius);
+
+                        path {
+                            fill: var(--font-color-bright);
+                        }
                     }
                 }
             }
 
-            .trails {
-                list-style-type: none;
+            .trails-list {
+                .filters {
+                    display: flex;
+                    padding: 0 var(--base-space-2x) var(--base-space-2x);
 
-                .trail {
-                    padding: var(--base-space) var(--base-space-2x);
-                    border-bottom: 1px solid var(--border-color);
+                    button {
+                        border-radius: var(--card-border-radius);
 
-                    .trails-about {
+                        + button {
+                            margin-left: var(--base-space);
+                        }
+                    }
+                }
+
+                .trails {
+                    list-style-type: none;
+
+                    .header {
                         display: flex;
+                        padding: var(--base-space) var(--base-space-2x);
+                        font-weight: bold;
+                    }
 
-                        .trail-distance {
-                            width: 15%;
-                            min-width: 100px;
+                    .trail-name {
+                        width: 60%;
+                        padding-right: var(--base-space-2x);
+
+                        a {
+                            white-space: nowrap;
+                            width: 100%;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: block;
                         }
+                    }
 
-                        .trail-duration {
-                            width: 15%;
-                            min-width: 100px;
-                        }
+                    .trail-distance {
+                        width: 20%;
+                        text-align: right;
+                    }
 
-                        .trail-height-difference {
-                            width: 15%;
-                            min-width: 100px;
-                        }
+                    .trail-duration {
+                        width: 20%;
+                        text-align: right;
+                    }
 
-                        .trail-start {
-                            width: 55%;
-
-                            .trail-location-pin {
-                                width: 20px;
-                                height: 25px;
-                                margin-right: var(--base-space);
-                                padding-top: 3px;
-
-                                path {
-                                    fill: var(--staze-green-darker);
-                                }
-                            }
-                        }
+                    .trail {
+                        padding: var(--base-space) var(--base-space-2x);
+                        display: flex;
+                        border-bottom: 1px solid var(--border-color);
 
                         .trail-specs {
                             color: var(--font-color-secondary);
@@ -126,6 +122,12 @@
         }
 
         .map {
+            height: calc(100vh - var(--header-height));
+            width: 100%;
+
+            #map {
+                height: 100%;
+            }
         }
     }
 

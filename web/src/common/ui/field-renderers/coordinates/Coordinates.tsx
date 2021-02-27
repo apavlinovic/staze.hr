@@ -1,20 +1,28 @@
-import React from 'react';
 import { GeoPoint } from '../../../../types';
 
 interface CoordinatesProps {
     geopoint: GeoPoint | null | undefined;
-    decimals?: number;
+    decimals?: number | null | undefined;
+    title?: string | null | undefined;
     linksToGoogleMaps?: boolean;
 }
 
+const DEFAULT_DECIMALS = 3;
 const GOOGLE_MAPS_URL_BASE = 'http://www.google.com/maps/place';
 
 function Coordinates(props: CoordinatesProps) {
-    const { geopoint, decimals = 3, linksToGoogleMaps = true } = props;
+    const {
+        geopoint,
+        decimals = DEFAULT_DECIMALS,
+        linksToGoogleMaps = true,
+        title,
+    } = props;
 
     const asTextCoordinates = (coords: number[]) => {
         const [lat, long] = coords;
-        return `${lat.toFixed(decimals)}, ${long.toFixed(decimals)}`;
+        return `${lat.toFixed(decimals || DEFAULT_DECIMALS)}, ${long.toFixed(
+            decimals || DEFAULT_DECIMALS,
+        )}`;
     };
 
     const asOutboundMapsLink = (coords: number[]) => {
@@ -26,12 +34,12 @@ function Coordinates(props: CoordinatesProps) {
                 target="_blank"
                 rel="noreferrer"
             >
-                {asTextCoordinates([lat, long])}
+                {title || asTextCoordinates([lat, long])}
             </a>
         );
     };
 
-    const getRenderableHeightDifference = () => {
+    const renderCoordinatesLink = () => {
         if (!geopoint) {
             return null;
         }
@@ -51,7 +59,7 @@ function Coordinates(props: CoordinatesProps) {
 
     return (
         <span className="ui-height-difference">
-            <span>{getRenderableHeightDifference()}</span>
+            <span>{renderCoordinatesLink()}</span>
         </span>
     );
 }

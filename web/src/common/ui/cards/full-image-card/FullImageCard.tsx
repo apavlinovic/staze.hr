@@ -2,6 +2,7 @@ import React from 'react';
 import './FullImageCard.scss';
 
 import Card from '../card/Card';
+import { withTranslation, WithTranslation } from 'react-i18next';
 
 interface FullImageCardProps {
     imageUrl: string | null;
@@ -11,8 +12,15 @@ interface FullImageCardProps {
     header?: string;
 }
 
-function FullImageCard(props: FullImageCardProps) {
-    const { linkTo, header, imageUrl, imageAlt, useAutoHeight = false } = props;
+function FullImageCard(props: FullImageCardProps & WithTranslation) {
+    const {
+        linkTo,
+        header,
+        imageUrl,
+        imageAlt,
+        useAutoHeight = false,
+        t,
+    } = props;
 
     const renderImage = (
         imageUrl: string | null,
@@ -31,6 +39,7 @@ function FullImageCard(props: FullImageCardProps) {
         return (
             <img
                 className="reduce-contrast-on-dark-mode"
+                alt={t('default_image_description')}
                 src={'/default-trail-image.jpg'}
             />
         );
@@ -48,4 +57,4 @@ function FullImageCard(props: FullImageCardProps) {
     );
 }
 
-export default FullImageCard;
+export default withTranslation()(FullImageCard);

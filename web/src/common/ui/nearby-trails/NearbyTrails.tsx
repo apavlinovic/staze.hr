@@ -39,7 +39,7 @@ const NEARBY_TRAILS_QUERY = gql`
 `;
 
 function NearbyTrails(props: NearbyTrailsProps & WithTranslation) {
-    const { geopoint, t, header, description } = props;
+    const { geopoint, t, header } = props;
     const [lat, long] = geopoint.coordinates;
 
     const { loading, error, data } = useQuery<Query, QueryTrailsArgs>(

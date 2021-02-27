@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { withTranslation, WithTranslation } from 'react-i18next';
 import { FieldErrors, useForm } from 'react-hook-form';
 
-import { AuthContext } from '../../../../common/core/auth-context/AuthContext';
 import Input from '../../../../common/core/forms/Input';
 import Loading from '../../../../common/core/loading/Loading';
 import Card from '../../../../common/ui/cards/card/Card';
@@ -23,7 +22,6 @@ interface AreaEditFormFields {
 
 function AreaEdit(props: WithTranslation) {
     const { t } = props;
-    const authContext = useContext(AuthContext);
 
     const { register, handleSubmit, errors } = useForm<AreaEditFormFields>();
 

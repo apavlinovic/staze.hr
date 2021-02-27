@@ -2,24 +2,23 @@ import React, { useState } from 'react';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
 const BUTTONS_AROUND_CURRENT_BUTTON = 8;
-const PAGE_SIZE_OPTIONS = [10, 20, 50, 100, 200];
 
 interface PaginationProps {
     total: number | undefined;
+    pageSize: number;
     initialPage?: number;
     onPageClicked?: (pageNumber: number, pageSize: number) => void;
 }
 
 function Pagination(props: PaginationProps & WithTranslation) {
-    const { t, total = 0, initialPage, onPageClicked } = props;
+    const { total = 0, initialPage, onPageClicked, pageSize } = props;
 
     const [page, setPage] = useState(initialPage || 0);
-    const [pageSize, setPageSize] = useState(PAGE_SIZE_OPTIONS[0]);
     const totalPages = Math.ceil(total / pageSize);
 
     const firstButton = (
         <button
-            disabled={page == 0}
+            disabled={page === 0}
             onClick={() => {
                 setPage(0);
                 onPageClicked && onPageClicked(0, pageSize);
@@ -31,7 +30,7 @@ function Pagination(props: PaginationProps & WithTranslation) {
 
     const lastButton = (
         <button
-            disabled={page == totalPages}
+            disabled={page === totalPages}
             onClick={() => {
                 setPage(totalPages - 1);
                 onPageClicked && onPageClicked(totalPages - 1, pageSize);
@@ -43,7 +42,7 @@ function Pagination(props: PaginationProps & WithTranslation) {
 
     const prevButton = (
         <button
-            disabled={page == 0}
+            disabled={page === 0}
             onClick={() => {
                 setPage(page - 1);
                 onPageClicked && onPageClicked(page - 1, pageSize);
@@ -55,7 +54,7 @@ function Pagination(props: PaginationProps & WithTranslation) {
 
     const nextButton = (
         <button
-            disabled={page == totalPages - 1}
+            disabled={page === totalPages - 1}
             onClick={() => {
                 setPage(page + 1);
                 onPageClicked && onPageClicked(page + 1, pageSize);
