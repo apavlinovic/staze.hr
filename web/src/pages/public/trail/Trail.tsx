@@ -15,7 +15,6 @@ import HeightDifference from '../../../common/ui/field-renderers/height-differen
 import Card from '../../../common/ui/cards/card/Card';
 import FullImageCard from '../../../common/ui/cards/full-image-card/FullImageCard';
 import SEO from '../../../common/core/seo/SEO';
-import { PinOnMap } from '../../../common/ui/icons/Icons';
 
 const TRAIL_QUERY = gql`
     query getTrail($trailSlug: String!) {
@@ -240,7 +239,6 @@ function Trail(props: WithTranslation) {
                 {trail.gpxTraceId ? (
                     <div className="grid-item large-span-6 small-span-12">
                         <Card header="noun.gpx_trace">
-                            <PinOnMap />
                             {t('strings.download_gpx_trace', {
                                 gpxTraceId: trail.gpxTraceId,
                             })}
