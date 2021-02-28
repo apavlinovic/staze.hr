@@ -91,7 +91,9 @@ function Mountain(props: WithTranslation) {
             return {
                 lat: p.startLocationCoords?.coordinates[0],
                 long: p.startLocationCoords?.coordinates[1],
-                title: p.name,
+                name: p.name,
+                duration: p.duration,
+                distance: p.distance,
                 url: p.slug,
                 trace: p.gpxTrail ? JSON.parse(p.gpxTrail.trace) : null,
             };
