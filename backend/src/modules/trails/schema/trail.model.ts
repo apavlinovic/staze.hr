@@ -104,4 +104,7 @@ export class Trail {
     @Field()
     @Column()
     modifiedOn: Date;
+
+    @Field((type) => [GeoPoint])
+    gpxTrail: GeoPoint[];
 }

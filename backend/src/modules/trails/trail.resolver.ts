@@ -7,6 +7,9 @@ import { Resolver, Query, Arg, Args, FieldResolver, Root } from 'type-graphql';
 import { PaginatedTrailsResponse } from './schema/paginatedTrails.response';
 import { GetTrailsRequest } from './schema/getTrails.request';
 import { Area } from '../areas/schema/area.model';
+import { GeoPoint } from '../shared/schema/geoPoint';
+import { existsSync } from 'fs';
+import { join } from 'path';
 
 @Resolver(() => Trail)
 export class TrailResolver {
@@ -120,5 +123,22 @@ export class TrailResolver {
         return createQueryBuilder(Area, 'area')
             .andWhere('area.id = :areaId', { areaId: trail.areaId })
             .getOne();
+    }
+
+    @FieldResolver()
+    gpxTrail(@Root() trail: Trail): Array<GeoPoint> {
+        const gpxTrailFilename = join(
+            __dirname,
+            `../../../artifacts/gpx/${trail.gpxTraceId}`,
+        );
+        if (existsSync(gpxTrailFilename)) {
+            // const file = readFileSync(gpxTrailFilename, {
+            //     encoding: 'utf8',
+            // });
+
+            return [];
+        }
+
+        return [];
     }
 }
