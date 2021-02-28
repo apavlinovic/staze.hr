@@ -35,6 +35,9 @@ const AREA_QUERY = gql`
                 startLocationCoords {
                     coordinates
                 }
+                gpxTrail {
+                    trace
+                }
             }
         }
     }
@@ -90,6 +93,7 @@ function Mountain(props: WithTranslation) {
                 long: p.startLocationCoords?.coordinates[1],
                 title: p.name,
                 url: p.slug,
+                trace: p.gpxTrail ? JSON.parse(p.gpxTrail.trace) : null,
             };
         });
 
@@ -169,7 +173,7 @@ function Mountain(props: WithTranslation) {
                     </div>
                 </div>
                 <div className="map">
-                    <Map pins={renderablePins} />
+                    <Map trails={renderablePins} />
                 </div>
             </div>
         </div>

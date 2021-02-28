@@ -3,6 +3,7 @@ import { createConnection } from 'typeorm';
 import { User } from '../modules/users/schema/user.model';
 import { Trail } from '../modules/trails/schema/trail.model';
 import { Area } from '../modules/areas/schema/area.model';
+import { TrailTrace } from '../modules/trails/schema/trailTrace.model';
 
 const {
     DB_HOST,
@@ -22,7 +23,7 @@ export const DATABASE_CONNECTION = createConnection({
     username: DB_USER,
     password: DB_PASSWORD,
 
-    entities: [User, Trail, Area],
+    entities: [User, Trail, Area, TrailTrace],
     logging: NODE_ENV === 'development',
 })
     .then(() => {

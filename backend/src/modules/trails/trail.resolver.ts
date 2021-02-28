@@ -7,9 +7,7 @@ import { Resolver, Query, Arg, Args, FieldResolver, Root } from 'type-graphql';
 import { PaginatedTrailsResponse } from './schema/paginatedTrails.response';
 import { GetTrailsRequest } from './schema/getTrails.request';
 import { Area } from '../areas/schema/area.model';
-import { GeoPoint } from '../shared/schema/geoPoint';
-import { existsSync } from 'fs';
-import { join } from 'path';
+import { TrailTrace } from './schema/trailTrace.model';
 
 @Resolver(() => Trail)
 export class TrailResolver {
@@ -126,19 +124,9 @@ export class TrailResolver {
     }
 
     @FieldResolver()
-    gpxTrail(@Root() trail: Trail): Array<GeoPoint> {
-        const gpxTrailFilename = join(
-            __dirname,
-            `../../../artifacts/gpx/${trail.gpxTraceId}`,
-        );
-        if (existsSync(gpxTrailFilename)) {
-            // const file = readFileSync(gpxTrailFilename, {
-            //     encoding: 'utf8',
-            // });
-
-            return [];
-        }
-
-        return [];
+    gpxTrail(@Root() trail: Trail): Promise<TrailTrace> {
+        return createQueryBuilder(TrailTrace, 'trailTrace')
+            .andWhere('trailTrace.trailId = :trailId', { trailId: trail.id })
+            .getOne();
     }
 }
