@@ -83,19 +83,17 @@ function Mountain(props: WithTranslation) {
     }
 
     const renderablePins = data.trails.items
-        .filter(
-            (p) =>
-                !!p.startLocationCoords && !!p.startLocationCoords.coordinates,
-        )
+        .filter((p) => p.startLocationCoords || p.endLocationCoords)
         .map((p) => {
             return {
-                lat: p.startLocationCoords?.coordinates[0],
-                long: p.startLocationCoords?.coordinates[1],
+                id: p.id,
                 name: p.name,
+                startCoords: p.startLocationCoords?.coordinates as number[],
+                endCoords: p.endLocationCoords?.coordinates as number[],
+                trace: p.gpxTrail ? JSON.parse(p.gpxTrail.trace) : null,
                 duration: p.duration,
                 distance: p.distance,
                 url: p.slug,
-                trace: p.gpxTrail ? JSON.parse(p.gpxTrail.trace) : null,
             };
         });
 
