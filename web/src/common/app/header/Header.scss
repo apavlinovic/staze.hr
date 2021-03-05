@@ -1,17 +1,15 @@
 .common-header {
     padding: var(--base-space) var(--base-space-2x);
-    height: 70px;
+    height: var(--header-height);
+    position: relative;
+    z-index: 1000;
+
     display: flex;
     align-items: center;
     justify-content: flex-start;
-
-    position: sticky;
-    top: 0;
-
     backdrop-filter: blur(30px) saturate(130%);
     backface-visibility: hidden;
     background-color: var(--background-color-transparent);
-    z-index: 2;
 
     .item {
         white-space: nowrap;

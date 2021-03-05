@@ -2,6 +2,7 @@ import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { ObjectType, Field, Int } from 'type-graphql';
 import { GeoPoint } from '../../shared/schema/geoPoint';
 import { Area } from '../../areas/schema/area.model';
+import { TrailTrace } from './trailTrace.model';
 
 @ObjectType()
 @Entity({
@@ -104,4 +105,7 @@ export class Trail {
     @Field()
     @Column()
     modifiedOn: Date;
+
+    @Field({ nullable: true })
+    gpxTrail: TrailTrace;
 }

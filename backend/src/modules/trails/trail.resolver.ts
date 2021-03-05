@@ -7,6 +7,7 @@ import { Resolver, Query, Arg, Args, FieldResolver, Root } from 'type-graphql';
 import { PaginatedTrailsResponse } from './schema/paginatedTrails.response';
 import { GetTrailsRequest } from './schema/getTrails.request';
 import { Area } from '../areas/schema/area.model';
+import { TrailTrace } from './schema/trailTrace.model';
 
 @Resolver(() => Trail)
 export class TrailResolver {
@@ -119,6 +120,13 @@ export class TrailResolver {
     area(@Root() trail: Trail): Promise<Area> {
         return createQueryBuilder(Area, 'area')
             .andWhere('area.id = :areaId', { areaId: trail.areaId })
+            .getOne();
+    }
+
+    @FieldResolver()
+    gpxTrail(@Root() trail: Trail): Promise<TrailTrace> {
+        return createQueryBuilder(TrailTrace, 'trailTrace')
+            .andWhere('trailTrace.trailId = :trailId', { trailId: trail.id })
             .getOne();
     }
 }

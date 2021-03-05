@@ -38,7 +38,7 @@ function Table({ columns, data, totalRows, onTableStateChange }) {
         if (onTableStateChange) {
             onTableStateChange(pageIndex, pageSize);
         }
-    }, [pageIndex, pageSize]);
+    }, [pageIndex, pageSize, onTableStateChange]);
 
     return (
         <div>
