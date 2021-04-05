@@ -7,8 +7,13 @@ import Loading from '../../../common/core/loading/Loading';
 import Error from '../../../common/core/error/Error';
 import Distance from '../../../common/ui/field-renderers/distance/Distance';
 import Duration from '../../../common/ui/field-renderers/duration/Duration';
-import { Hills } from '../../../common/ui/icons/Icons';
 import Map from '../../../common/core/map/Map';
+import {
+    ALL_TRAILS,
+    HOUR_TRAILS_1,
+    SHORT_TRAILS,
+    HOUR_TRAILS_3,
+} from './AreaTrailFilter';
 
 import { Query, QueryAreaArgs, QueryTrailsArgs } from '../../../types';
 import './Area.scss';
@@ -18,13 +23,21 @@ const AREA_QUERY = gql`
         $areaSlug: String!
         $pageSize: Int!
         $offset: Int!
+        $duration: String
+        $distance: Int
     ) {
         area(areaSlug: $areaSlug) {
             id
             name
             slug
         }
-        trails(mountain: $areaSlug, pageSize: $pageSize, offset: $offset) {
+        trails(
+            mountain: $areaSlug
+            pageSize: $pageSize
+            offset: $offset
+            duration: $duration
+            distance: $distance
+        ) {
             total
             items {
                 id
@@ -33,6 +46,9 @@ const AREA_QUERY = gql`
                 distance
                 slug
                 startLocationCoords {
+                    coordinates
+                }
+                endLocationCoords {
                     coordinates
                 }
                 gpxTrail {
@@ -51,6 +67,7 @@ function Mountain(props: WithTranslation) {
 
     const [page] = useState(0);
     const [pageSize] = useState(100);
+    const [filter, setFilter] = useState(SHORT_TRAILS);
 
     const { loading, error, data } = useQuery<
         Query,
@@ -60,6 +77,8 @@ function Mountain(props: WithTranslation) {
             areaSlug: slug,
             pageSize: pageSize,
             offset: page * pageSize,
+            duration: filter.duration,
+            distance: filter.distance,
         },
     });
 
@@ -114,20 +133,23 @@ function Mountain(props: WithTranslation) {
                                     {data?.trails?.total} {t('noun.trails')}
                                 </span>
                             </span>
-                            <Hills className="header-icon" />
                         </h1>
                     </div>
                     <div className="trails-list">
                         <div className="filters">
-                            <button>{t('strings.all_trails')}</button>
-                            <button>{t('strings.short_trails')}</button>
-                            <button>
-                                {t('strings.duration_over', {
+                            <button onClick={() => setFilter(ALL_TRAILS)}>
+                                {t('strings.all_trails')}
+                            </button>
+                            <button onClick={() => setFilter(SHORT_TRAILS)}>
+                                {t('strings.short_trails')}
+                            </button>
+                            <button onClick={() => setFilter(HOUR_TRAILS_1)}>
+                                {t('strings.duration_under', {
                                     hours: 1,
                                 })}
                             </button>
-                            <button>
-                                {t('strings.duration_over', {
+                            <button onClick={() => setFilter(HOUR_TRAILS_3)}>
+                                {t('strings.duration_under', {
                                     hours: 3,
                                 })}
                             </button>

@@ -1,4 +1,5 @@
-$height: 400px;
+$height: 350px;
+$mobile-height: 250px;
 
 .ui--card {
     &.full-image {
@@ -18,16 +19,17 @@ $height: 400px;
             h2 {
                 position: absolute;
                 z-index: 1;
-                bottom: var(--base-space-2x);
-                left: var(--base-space-2x);
+                bottom: var(--base-space);
+                left: var(--base-space);
+                right: var(--base-space);
                 margin-bottom: 0;
                 backdrop-filter: blur(30px) saturate(130%);
                 background-color: rgba(0, 0, 0, 0.2);
                 backface-visibility: hidden;
-                border-radius: var(--border-radius);
+                border-radius: var(--card-border-radius);
                 color: white;
                 text-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
-                padding: var(--base-space-2x) var(--base-space-4x);
+                padding: var(--base-space) var(--base-space-2x);
             }
 
             img {
@@ -37,6 +39,14 @@ $height: 400px;
                 min-width: 100%;
                 object-fit: cover;
                 object-position: center;
+            }
+        }
+    }
+
+    @media screen and (max-width: 960px) {
+        &.full-image {
+            .content {
+                height: $mobile-height;
             }
         }
     }

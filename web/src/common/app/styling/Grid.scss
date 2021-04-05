@@ -8,6 +8,8 @@
 
     @media screen and (max-width: 960px) {
         column-gap: 0;
+        row-gap: var(--base-space-2x);
+        column-gap: var(--base-space-2x);
     }
 
     &.grid-container {

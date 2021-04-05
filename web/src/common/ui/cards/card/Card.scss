@@ -18,4 +18,12 @@
             border-radius: var(--border-radius);
         }
     }
+
+    @media screen and (max-width: 960px) {
+        & {
+            .content {
+                padding: var(--base-space-2x);
+            }
+        }
+    }
 }

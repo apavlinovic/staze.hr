@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 
 import L, { LeafletEvent } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { reduceHooks } from 'react-table';
 
 interface MapProps {
     trails: Array<TrailDescriptor>;
@@ -58,8 +57,8 @@ function calculateMapCenter(
     centerLat?: number,
     centerLong?: number,
 ) {
-    if (trails && trails.length > 0) {
-        return asLatLngBounds(trails).getCenter();
+    if (hasAnyRenderableTrails(trails)) {
+        return asLatLngBounds(trails as TrailDescriptor[]).getCenter();
     } else if (centerLat && centerLong) {
         return {
             lat: centerLat,
@@ -76,75 +75,120 @@ function calculateMapCenter(
 function asLatLngBounds(trails: Array<TrailDescriptor>) {
     // We're calculating the Lat and Long bounds based on trail start coordinates,
     // as those are always present for trails that have GPS traces
-    return new L.LatLngBounds(
-        trails.map((t) => [
-            t.startCoords[0] as number,
-            t.startCoords[1] as number,
-        ]),
+    var startCoords = trails.map((t) => [
+        t.startCoords[0] as number,
+        t.startCoords[1] as number,
+    ]);
+
+    var endCoords = trails
+        .filter((t) => t.endCoords !== null)
+        .map((t) => [t.endCoords[0] as number, t.endCoords[1] as number]);
+
+    return new L.LatLngBounds([
+        ...startCoords,
+        ...endCoords,
+    ] as L.LatLngBoundsLiteral);
+}
+
+function asTrailTooltip(trail: TrailDescriptor) {
+    const tooltip = [
+        '<span>',
+        `<strong>${trail.name}</strong>`,
+        `<div class="metainfo">`,
+        trail.distance ? `<span>${trail.distance}km</span>` : null,
+        trail.duration ? `<span>${trail.duration}h</span>` : null,
+        `</div>`,
+        '</span>',
+    ];
+
+    return tooltip.filter((t) => t !== null).join('');
+}
+
+function asTrailStartMarker(trail: TrailDescriptor) {
+    return L.circleMarker(
+        [trail.startCoords[0] as number, trail.startCoords[1] as number],
+        TRAIL_START_STYLE,
     );
 }
 
-function asTrailStartMarker(
+function asTrailLine(trail: TrailDescriptor) {
+    return L.polyline(trail.trace as L.LatLngExpression[][], TRAIL_LINE_STYLE);
+}
+
+function asTrailWithTraceGroup(
     trail: TrailDescriptor,
     onClick: (e: LeafletEvent) => void,
 ) {
-    const marker = L.circleMarker(
-        [trail.startCoords[0] as number, trail.startCoords[1] as number],
-        TRAIL_START_STYLE,
-    )
-        .bindTooltip(trail.name)
-        .on('click', onClick);
+    const features: Array<L.CircleMarker | L.Polyline> = [];
+    const hasTrace = trail.trace !== null && trail.trace !== undefined;
 
-    return marker;
-}
+    features.push(asTrailStartMarker(trail));
 
-function asTrailLine(pin: TrailDescriptor, onClick: (e: LeafletEvent) => void) {
-    return L.polyline(pin.trace as L.LatLngExpression[][], TRAIL_LINE_STYLE)
-        .bindTooltip(pin.name)
-        .on('click', onClick)
+    if (hasTrace) {
+        features.unshift(asTrailLine(trail));
+    }
+
+    return L.featureGroup(features)
+        .bindTooltip(asTrailTooltip(trail), {
+            sticky: true,
+        })
         .on('mouseover', function (e) {
-            var layer = e.target;
-            layer.setStyle(TRAIL_LINE_STYLE_HOVER);
+            if (hasTrace) {
+                features[0].setStyle(TRAIL_LINE_STYLE_HOVER);
+            }
         })
         .on('mouseout', function (e) {
-            var layer = e.target;
-            layer.setStyle(TRAIL_LINE_STYLE);
-        });
+            if (hasTrace) {
+                features[0].setStyle(TRAIL_LINE_STYLE);
+            }
+        })
+        .on('click', onClick);
+}
+
+function hasAnyRenderableTrails(trails?: Array<TrailDescriptor>) {
+    return (
+        trails &&
+        trails.length &&
+        trails.filter((trail) => !!trail.startCoords && !!trail.endCoords)
+            .length > 0
+    );
 }
 
 function Map(props: MapProps & WithTranslation) {
-    const { centerLat, centerLong, trails } = props;
+    const { centerLat, centerLong, trails, t } = props;
     const history = useHistory();
-    let map: L.Map | null = null;
+    let mapReference = useRef<L.Map | null>(null);
 
     useEffect(() => {
         // Builds a map instance
-        map = L.map('map', {
+        mapReference.current = L.map('map', {
             center: calculateMapCenter(trails, centerLat, centerLong),
             zoom: ZOOM_LEVEL_DEFAULT,
         });
-        // Set tiles provider
-        TILES_PROVIDER.addTo(map);
-    }, []);
+
+        TILES_PROVIDER.addTo(mapReference.current);
+
+        return () => {
+            if (mapReference.current && mapReference.current.remove) {
+                mapReference.current.off();
+                mapReference.current.remove();
+            }
+        };
+    }, [trails]);
 
     useEffect(() => {
-        if (map !== null) {
-            // Try to display all trails inside a bounded view
-            map.fitBounds(asLatLngBounds(trails));
-            // Add trails to the map
-            trails.forEach((trail) => {
-                if (trail.trace) {
-                    const tl = asTrailLine(trail, () => {
-                        history.push(`/trail/${trail.url}`);
-                    }).addTo(map as L.Map);
-                }
-            });
+        if (mapReference.current !== null) {
+            if (hasAnyRenderableTrails(trails)) {
+                // Try to display all trails inside a bounded view
+                mapReference.current.fitBounds(asLatLngBounds(trails));
 
-            trails.forEach((trail) => {
-                const t = asTrailStartMarker(trail, () => {
-                    history.push(`/trail/${trail.url}`);
-                }).addTo(map as L.Map);
-            });
+                // Add trails to the map
+                trails.forEach((trail) => {
+                    asTrailWithTraceGroup(trail, () => {
+                        history.push(`/trail/${trail.url}`);
+                    }).addTo(mapReference.current as L.Map);
+                });
+            }
         }
     }, [trails]);
 

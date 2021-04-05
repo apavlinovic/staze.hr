@@ -13,16 +13,16 @@
         }
     }
 
-    &.with-vertical-separator {
+    &.with-borders {
         > * {
-            &:after {
-                content: '|';
-                margin-left: var(--base-space);
-            }
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            padding: var(--base-space) var(--base-space-2x);
+            margin-bottom: var(--base-space);
         }
+    }
 
-        > *:last-child:after {
-            content: none;
-        }
+    @media screen and (max-width: 960px) {
+        justify-content: center;
     }
 }

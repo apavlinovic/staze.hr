@@ -16,10 +16,10 @@
                 background-position: center center;
                 background-size: cover;
 
-                height: 35vh;
-
                 display: flex;
+                height: 200px;
                 align-items: flex-end;
+                position: relative;
 
                 .trail-name {
                     background-color: var(--background-color-transparent);
@@ -42,18 +42,6 @@
                         span {
                             display: block;
                             font-size: medium;
-                        }
-                    }
-
-                    .header-icon {
-                        width: 50px;
-                        height: 50px;
-                        background-color: var(--staze-green);
-                        padding: var(--base-space);
-                        border-radius: var(--border-radius);
-
-                        path {
-                            fill: var(--font-color-bright);
                         }
                     }
                 }
@@ -160,37 +148,11 @@
         }
         .content-wrapper {
             flex-direction: column-reverse;
-            max-width: fit-content;
 
-            .trails-list {
+            .sidebar {
                 width: 100%;
-                min-width: 0;
-
-                .trail-title {
-                    font-size: 20px;
-                    max-width: fit-content;
-                }
-
-                .trails {
-                    .trail {
-                        border-bottom: 4px solid var(--border-color);
-
-                        .trails-about {
-                            flex-wrap: wrap;
-                            font-size: 12px;
-
-                            .trail-start {
-                                width: 100%;
-
-                                .trail-location-pin {
-                                    width: 20px;
-                                    height: 20px;
-                                    margin-right: var(--base-space);
-                                }
-                            }
-                        }
-                    }
-                }
+                min-width: auto;
+                height: auto;
             }
         }
     }
