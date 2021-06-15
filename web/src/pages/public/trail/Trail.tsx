@@ -226,7 +226,7 @@ function Trail(props: WithTranslation) {
                     </div>
                 ) : null}
 
-                <div className="grid-item large-span-6 small-span-12">
+                <div className="grid-item large-span-12 small-span-12">
                     <Card header={'noun.map'}>
                         <Map
                             trails={[
@@ -249,7 +249,7 @@ function Trail(props: WithTranslation) {
                 {trail.mapName ? (
                     <div className="grid-item large-span-6 small-span-12">
                         <FullImageCard
-                            useAutoHeight={true}
+                            // useAutoHeight={true}
                             linkTo={`/trails/map/${trail.mapName}`}
                             imageUrl={`/trails/map/${trail.mapName}`}
                             imageAlt={trail.name}
